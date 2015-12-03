@@ -1,0 +1,239 @@
+2015;5;Id-Compte;Intitulé compte;Code Client labo;Abrev. Labo;Id-User;Nom User;Prénom User;N° Projet;Intitulé projet;Id-Machine;Nom Machine;Date et Heure début de slot;Durée du slot réservé HP;Durée du slot réservé HC;Slot supprimé;Durée ouvrée;Date et Heure de réservation;Date et Heure de suppression
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;01.05.2015 10:00;150;0;OUI;150;;01.05.2015 07:30
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;01.05.2015 13:00;60;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;01.05.2015 14:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;01.05.2015 15:00;150;0;OUI;450;;01.05.2015 07:30
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;04.05.2015 10:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;04.05.2015 12:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;04.05.2015 12:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;04.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;04.05.2015 16:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;05.05.2015 19:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;05.05.2015 20:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;05.05.2015 21:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;05.05.2015 22:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;05.05.2015 23:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 00:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 01:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 02:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 03:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 04:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 05:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 06:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 07:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 08:00;60;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 08:30;30;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;06.05.2015 08:30;30;0;OUI;720;;05.05.2015 20:30
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 09:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;06.05.2015 09:00;60;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;06.05.2015 09:00;30;0;OUI;720;;05.05.2015 21:00
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 09:30;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 11:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 12:30;30;0;OUI;96;;06.05.2015 10:54
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;06.05.2015 14:00;60;0;OUI;168;;06.05.2015 11:12
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 14:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;06.05.2015 16:00;30;0;OUI;720;;06.05.2015 04:00
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;06.05.2015 16:30;30;0;OUI;720;;06.05.2015 04:30
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;06.05.2015 18:30;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 19:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 20:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 21:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 22:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;06.05.2015 23:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 00:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 01:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 02:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 03:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 04:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 05:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 06:00;0;60;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 07:00;60;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;07.05.2015 07:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;07.05.2015 07:30;150;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 08:00;60;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 11:00;60;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 12:00;60;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;07.05.2015 14:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 14:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;07.05.2015 14:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;07.05.2015 15:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;07.05.2015 15:00;150;0;OUI;450;;07.05.2015 07:30
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;07.05.2015 16:00;60;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;08.05.2015 07:30;30;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;08.05.2015 08:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;08.05.2015 10:00;150;0;OUI;300;;08.05.2015 05:00
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;08.05.2015 10:00;150;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;08.05.2015 10:00;150;0;OUI;300;;08.05.2015 05:00
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;08.05.2015 10:00;150;0;OUI;300;;08.05.2015 05:00
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;08.05.2015 19:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;08.05.2015 20:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;08.05.2015 21:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;08.05.2015 22:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 00:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 00:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 00:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 01:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 02:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 03:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 04:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 05:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 06:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 07:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 08:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 09:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 10:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 11:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 12:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 13:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 14:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 15:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 16:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 17:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 18:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 19:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 20:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 21:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 22:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;09.05.2015 23:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 00:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 01:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 02:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 03:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 04:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 05:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 06:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 07:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 08:00;0;60;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;10.05.2015 09:00;0;60;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;11.05.2015 05:00;0;60;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;11.05.2015 06:00;0;60;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;11.05.2015 09:00;30;0;OUI;96;;11.05.2015 07:24
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;11.05.2015 10:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;11.05.2015 11:30;30;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;11.05.2015 13:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;11.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;11.05.2015 16:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;12.05.2015 07:30;150;0;OUI;150;;12.05.2015 05:00
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;12.05.2015 10:00;150;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;12.05.2015 12:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;12.05.2015 12:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;12.05.2015 13:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;12.05.2015 16:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;12.05.2015 16:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;12.05.2015 17:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;12.05.2015 17:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;12.05.2015 17:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;12.05.2015 17:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;12.05.2015 18:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;12.05.2015 18:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;12.05.2015 18:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;12.05.2015 18:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;12.05.2015 19:00;0;60;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;13.05.2015 18:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;14.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;14.05.2015 16:00;60;0;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;14.05.2015 21:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;14.05.2015 22:00;0;60;OUI;48;;14.05.2015 21:12
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;14.05.2015 23:00;0;60;OUI;120;;14.05.2015 21:00
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;15.05.2015 00:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;15.05.2015 01:00;0;60;OUI;48;;15.05.2015 00:12
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;15.05.2015 05:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;15.05.2015 06:00;0;60;OUI;360;;15.05.2015 00:00
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 07:00;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 07:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 08:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;15.05.2015 09:00;60;0;NON;0;;
+2015;5;4673;M. Karpov;;SB-ICMP-LPQM1;user02162;Karpov;Maxim;1000;Projet par défaut;mach181;Z05 Heidelberg VPG200 - Laser lithography system;15.05.2015 09:30;60;0;OUI;360;;15.05.2015 03:30
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;15.05.2015 10:00;150;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 12:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 12:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 13:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;15.05.2015 13:30;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;18.05.2015 09:00;60;0;OUI;120;;18.05.2015 07:00
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;18.05.2015 10:00;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;18.05.2015 10:30;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;18.05.2015 11:00;30;0;OUI;48;;18.05.2015 10:12
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;18.05.2015 11:30;30;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 13:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 16:00;60;0;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 21:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 22:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;18.05.2015 23:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 00:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 01:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 02:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 03:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 04:00;0;60;NON;0;;
+2015;5;3655;A. Ghadimi;;SB-ICMP-LPQM1;user01701;Ghadimi;Amir;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 05:00;0;60;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;19.05.2015 07:30;150;0;OUI;450;;19.05.2015 00:00
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 08:00;30;0;OUI;528;;18.05.2015 23:12
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 08:30;30;0;OUI;576;;18.05.2015 22:54
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 09:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;19.05.2015 10:00;150;0;OUI;600;;19.05.2015 00:00
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;19.05.2015 12:00;30;0;OUI;24;;19.05.2015 11:36
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 15:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 16:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 16:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 17:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 17:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 17:30;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;19.05.2015 18:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 18:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 19:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 20:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 21:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 22:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;19.05.2015 23:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 00:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 01:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 02:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 03:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 04:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 05:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 06:00;0;60;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 07:00;60;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach140;Z07 Vistec EPBG5000ES - Ebeam;20.05.2015 08:00;60;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 09:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 10:00;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 10:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 14:00;30;0;OUI;96;;20.05.2015 12:24
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 14:30;30;0;OUI;120;;20.05.2015 12:30
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 18:00;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;20.05.2015 18:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;21.05.2015 09:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;21.05.2015 10:00;30;0;OUI;24;;21.05.2015 09:36
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;21.05.2015 11:00;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;21.05.2015 11:30;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;21.05.2015 12:00;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;21.05.2015 12:30;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;21.05.2015 13:00;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;21.05.2015 13:30;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;21.05.2015 14:00;60;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;21.05.2015 15:00;60;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;21.05.2015 16:00;60;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;22.05.2015 10:00;150;0;NON;0;;
+2015;5;4102;L. Qiu;;SB-ICMP-LPQM1;user01888;Qiu;Liu;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;22.05.2015 15:00;30;0;OUI;648;;22.05.2015 04:12
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;26.05.2015 07:30;150;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;26.05.2015 08:00;60;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 08:30;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 09:30;30;0;NON;0;;
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;26.05.2015 10:00;150;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 12:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 13:30;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 15:00;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;26.05.2015 15:30;30;0;NON;0;;
+2015;5;3458;M. Pfeiffer ;;SB-ICMP-LPQM1;user01618;Pfeiffer ;Martin;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;26.05.2015 16:00;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 17:30;30;0;OUI;168;;26.05.2015 14:42
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach126;Z06 EVG150 - Coater and developer system for positive resist;26.05.2015 18:00;30;0;OUI;216;;26.05.2015 14:24
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;26.05.2015 18:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;26.05.2015 18:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;27.05.2015 09:30;30;0;NON;0;;
+2015;5;4052;A. Kordts;;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;27.05.2015 10:00;30;0;NON;0;;
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;27.05.2015 14:00;60;0;OUI;240;;27.05.2015 10:00
+2015;5;3956;L. Toth;;SB-ICMP-LPQM1;user01822;Toth;Laszlo;1000;Projet par défaut;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;28.05.2015 14:00;60;0;OUI;240;;28.05.2015 10:00
+2015;5;3582;R. Schilling;;SB-ICMP-LPQM1;user01671;Schilling;Ryan;1000;Projet par défaut;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;28.05.2015 15:00;150;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;28.05.2015 15:30;30;0;OUI;48;;28.05.2015 14:42
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;29.05.2015 11:00;30;0;NON;0;;
+2015;5;996;M. Zervas;;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;29.05.2015 14:30;30;0;NON;0;;

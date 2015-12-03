@@ -1,0 +1,354 @@
+2015;5;Id-Prestation;Désignation Prestation;Catégorie-Prestation;Unité Prestation;Prix unitaire;Valeur moyenne d'achat;Coût unitaire;Prix de revient unitaire
+2015;5;1;EVA600 - Au (service);C;nm;0.72;0;0;0
+2015;5;3;Chrome Blank 5'';C;plaque;24;20.9;0;20.9
+2015;5;4;Cleanroom notebook;C;;22;16.93;0;16.93
+2015;5;5;Fused silica;C;;72;59.37;0;59.37
+2015;5;6;100/P/SS/0.1-100 - Test;C;;13;10.58;0;10.58
+2015;5;7;SOI-380-1-10;C;;415;345.69;0;345.69
+2015;5;8;100/P/DS/1-10;C;;24;26.53;0;26.53
+2015;5;9;Engineer labour cost;W;h;100;0;0;0
+2015;5;11;Dry oxide 100nm;C;;27;0;12.07;12.07
+2015;5;12;Dry oxide 200nm;C;;39;0;16.33;16.33
+2015;5;14;Wet oxide 200nm;C;;22;0;9.8;9.8
+2015;5;15;Wet oxide 500nm;C;;25;0;11.08;11.08
+2015;5;16;BAS450 - Au;C;W.h;1.25;0;0;0
+2015;5;17;BAS450 - Pt;C;W.h;0.97;0;0;0
+2015;5;18;BAS450 - Pd;C;W.h;0.42;0;0;0
+2015;5;19;SPIDER600 - Pt;C;W.h;1.03;0;0;0
+2015;5;20;Wet oxide 2.0µm;C;;62;0;27.32;27.32
+2015;5;26;100/P/DS/0.1-0.5 TTV2;C;;46;42.93;0;42.93
+2015;5;28;100/P/SS/15-25;C;;25;20.08;0;20.08
+2015;5;29;100/P/SS/0.1-0.5;C;;27;31.72;0;31.72
+2015;5;30;150/P/SS/15-25;C;;51;67.4;0;67.4
+2015;5;32;SOI-380-2-50;C;;201;158.28;0;158.28
+2015;5;33;SOI-380-2-200;C;;209;173.57;0;173.57
+2015;5;36;Pyrex;C;;28;22.88;0;22.88
+2015;5;37;Float;C;;9;7.23;0;7.23
+2015;5;40;Wet oxide 1.0µm;C;;34;0;14.49;14.49
+2015;5;41;Wet oxide 1.5µm;C;;48;0;19.83;19.83
+2015;5;42;Wet oxide 2.5µm;C;;64;0;21.67;21.67
+2015;5;43;Wet oxide 3.0µm;C;;81;0;26.36;26.36
+2015;5;44;LPCVD Si3N4 100nm;C;;17;0;11.31;11.31
+2015;5;45;LPCVD Si3N4 200nm;C;;19;0;12.87;12.87
+2015;5;46;LPCVD Si3N4 500nm;C;;27;0;17.8;17.8
+2015;5;47;LPCVD L.S. SiN 100nm;C;;35;0;18.37;18.37
+2015;5;48;LPCVD L.S. SiN 200nm;C;;38;0;19.77;19.77
+2015;5;49;LPCVD L.S. SiN 500nm;C;;47;0;24.1;24.1
+2015;5;51;LPCVD L.S. SiN 2.0µm;C;;88;0;44.5;44.5
+2015;5;52;Wox 650nm +Nit 200nm;C;;42;0;21.73;21.73
+2015;5;53;Box for single 5'' Cr mask;C;;18;14.3;0;14.3
+2015;5;54;Box for single 7'' Cr mask;C;;58;47.78;0;47.78
+2015;5;55;Single 100mm wafer carrier, PP (white) ;C;;7;6.81;0;6.81
+2015;5;56;Single 100mm wafer carrier, STATPRO (black) ;C;;12;9.91;0;9.91
+2015;5;57;Single 150mm wafer carrier, PP (white) ;C;;14;11.57;0;11.57
+2015;5;58;Multiple 100mm wafer shipping box, PP (white) ;C;;10;0;8;8
+2015;5;59;Multiple 150mm wafer shipping box, PP (white) ;C;;38;31.88;0;31.88
+2015;5;60;Handling, packaging, freight costs (La Poste);X;;37;0;0;0
+2015;5;62;Handling, packaging, freight costs (Fedex);X;;185;0;0;0
+2015;5;63;Handling, packaging, with pick up delivery at CMi ;X;;0;0;0;0
+2015;5;64;Labour cost / 150mm - MA150;W;[100>150>100];100;0;0;0
+2015;5;65;Labour cost / 150mm - STS;W;[100>150>100];400;0;0;0
+2015;5;66;Labour cost / 150mm - 601E;W;[100>150>100];560;0;0;0
+2015;5;67;Labour cost / 150mm - SPIDER;W;[100>150>100];400;0;0;0
+2015;5;69;Float 700;C;;12;9.54;0;9.54
+2015;5;79;LAB600H - Au (1010mm);C;nm;2.04;0;0;0
+2015;5;80;LAB600H - Pt (1010mm);C;nm;2.88;0;0;0
+2015;5;82;Wet oxide 4.0µm;C;;117;0;37.59;37.59
+2015;5;83;Wet oxide 10.0µm;C;;200;0;92.39;92.39
+2015;5;84;RCA;C;;0;0;3.07;3.07
+2015;5;87;LAB600H - Pd (1010mm);C;nm;1.03;0;0;0
+2015;5;90;Hydrogen peroxide 30%;C;bidon(s) 2.5L;0;17.5;0;17.5
+2015;5;91;PR pos. AZ9260;C;bottle (1000ml);0;408.45;0;408.45
+2015;5;92;Developer AZ 400K;C;bidon (5l.);0;63.89;0;63.89
+2015;5;93;EC Solvant (PGMEA);C;bidon(s) 5L;0;71.94;0;71.94
+2015;5;94;Remover 1165;C;bidon(s) 5L;0;150.41;0;150.41
+2015;5;95;Develop. MP 351;C;gallon (3.8l.);0;49.87;0;49.87
+2015;5;96;Develop. MIF CD26;C;bidon (5l.);0;75.31;0;75.31
+2015;5;98;PR. Imag. Revers. TI35ES;C;bottle (250ml);0;240.99;0;240.99
+2015;5;102;TI-prime;C;bottle (1000ml);0;118.5;0;118.5
+2015;5;103;PI-2610;C;bout. mère 1 kg;0;1519.19;0;1519.19
+2015;5;105;PI-2611;C;bout. mère;0;1640.13;0;1640.13
+2015;5;106;GM1040;C;bottle (500ml);0;0;0;0
+2015;5;107;GM1060;C;bottle (1000ml);0;850;0;850
+2015;5;108;GM1070;C;bottle (1000ml);0;950;0;950
+2015;5;109;SU8-50;C;bouteille (1l.);0;1033.5;0;1033.5
+2015;5;113;LOR 5A;C;bottle (1000ml);0;1092.64;0;1092.64
+2015;5;114;HBO 1000W high pressure arc;C;lampe Hg;0;1074.76;0;1074.76
+2015;5;115;HBO 350W high pressure arc;C;lampe Hg;0;395.23;0;395.23
+2015;5;116;SOI-380-2-100;C;;303;252.27;0;252.27
+2015;5;117;SOI-380-2-150;C;;453;374.76;0;374.76
+2015;5;118;SPIDER600 - Ru;C;W.h;0.1;0;0;0
+2015;5;119;PGMEA develop. for SU8, 1-Methoy-2-Propanol Acetat;C;bottle (1000ml);0;52.54;2.53;55.07
+2015;5;120;Amonia solution 29% MOS;C;bidon(s) 2.5L;45;50.04;0;50.04
+2015;5;121;Hydrochloric acid 37% MOS;C;bidon(s) 5L;72.5;102.37;0;102.37
+2015;5;122;Isopropanol (IPA) MOS;C;bidon(s) 5L;57.5;66.1;11.77;77.87
+2015;5;123;Acetone MOS;C;bidon(s) 5L;67.5;64.4;12;76.4
+2015;5;124;Acetone chemical quality grade;C;bidon(s) 10L;0;48;23.93;71.93
+2015;5;125;Methyl Ether Cetone (MEK);C;1 litre;0;102.21;5.69;107.9
+2015;5;126;Cr-etch CR7S;C;bidon(s) 5L;160;150;0;150
+2015;5;127;PI-2610 bottle (30g.) ;C;30 à 35 g;69;106.83;0;106.83
+2015;5;128;PI-2611 bottle (30g.);C;30 à 35 g;73;53.76;0;53.76
+2015;5;133;CAD layout for mask;W;h;150;0;0;0
+2015;5;134;Layout Data Conversion;W;h;100;0;0;0
+2015;5;135;Operator labour cost;W;h;50;0;0;0
+2015;5;137;GM1040 SU8 bottle;C;bottle (60ml);0;21.15;0;21.15
+2015;5;140;GM1060 SU8 bottle;C;bottle (120ml);0;170;0;170
+2015;5;141;GM1070 SU8 bottle;C;bottle (120ml);0;161.5;0;161.5
+2015;5;142;MCC SU8-50 bottle (150g.);C;150 à 160 g.;0;165.36;0;165.36
+2015;5;145;PR. pos. AZ1512HS;C;bottle (1000ml);0;384.45;0;384.45
+2015;5;146;MCC SU8-2007 bottle (60g);C;60 à 65g.;0;87.22;0;87.22
+2015;5;153;2 inch/P/SS/0.1-100;C;;46;37.79;0;37.79
+2015;5;154;3 inch/P/SS/0.1-100;C;;13;10.34;0;10.34
+2015;5;156;PR. pos. S1813 G2;C;bottle (1/4gal);0;302.64;0;302.64
+2015;5;157;Chrome Blank 7'';C;plaque;87;70.03;0;70.03
+2015;5;158;GM1075;C;bottle (1000ml);0;1150;0;1150
+2015;5;159;GM1075 SU8 bottle;C;bottle (120ml);0;195.5;0;195.5
+2015;5;160;Single 2'' wafer carrier, PP (white);C;;6;4.56;0;4.56
+2015;5;161;Single 3'' wafer carrier, PP (white);C;;9;6.92;0;6.92
+2015;5;162;Wet oxide 5.0µm;C;;166;0;52.07;52.07
+2015;5;164;D263 150um;C;;30;24.5;0;24.5
+2015;5;165;Labour cost / 150mm - AMS 200;W;[100>150>100];400;0;0;0
+2015;5;168;Developer AZ 726 MIF;C;bidon (5l.);0;85.63;0;85.63
+2015;5;172;Wafer tweezers (plastic tip);C;pc;24;19.49;0;19.49
+2015;5;173;Box (20 x 7 x 3 cm) for pens, tweezers;C;;8;6.08;0;6.08
+2015;5;175;Anisole;C;1 Litre;0;66.6;0;66.6
+2015;5;176;PR pos. S1818 G2;C;bottle (1/4gal);0;308.99;0;308.99
+2015;5;177;AZ ECI 3027;C;bottle (1000ml);0;577.95;0;577.95
+2015;5;178;O2 gas (over 30 m3 per month);C;m3;6;0;0;0
+2015;5;179;GM1050;C;bottle (500ml);0;500;0;500
+2015;5;180;GM1050 SU8 bottle;C;bottle (60ml);0;85.02;0;85.02
+2015;5;181;ZEP 520 A (old);C;bottle (950ml);0;17978.3;0;17978.3
+2015;5;182;ZEP 520 A 100% (bottle);C;bottle (20ml);613;490.4;0;490.4
+2015;5;183;ZEP 520 A 50% (bottle);C;bottle (20ml);318;244.53;0;244.53
+2015;5;184;Acetone VLSI;C;bidon(s) 2.5L;0;14.45;0;14.45
+2015;5;186;Isopropanol (IPA) VLSI;C;bidon(s) 2.5L;0;14.74;0;14.74
+2015;5;187;Develop. AZ 351;C;bidon (5l.);0;54.31;0;54.31
+2015;5;188;Gel-Pak Sticky Box 2x2'' retention 0 ;C;;7;5.87;0;5.87
+2015;5;189;AZ ECI 3007;C;bottle (1000ml);0;456.91;0;456.91
+2015;5;190;AZ nLoF 2020 (2070-2.0um);C;bottle (500ml);0;399.95;0;399.95
+2015;5;191;MMA EL6;C;bottle (500 ml);0;618.35;0;618.35
+2015;5;192;MMA EL9;C;bottle (500 ml);0;618.35;0;618.35
+2015;5;193;PMMA 495K A2;C;bottle (500 ml);0;405.19;0;405.19
+2015;5;194;PMMA 495K A4;C;bottle (500 ml);0;409.12;0;409.12
+2015;5;195;PMMA 950K A2;C;bottle (500 ml);0;428.16;0;428.16
+2015;5;196;PMMA 950K A4;C;bottle (500 ml);0;428.16;0;428.16
+2015;5;197;PMMA 495K A8;C;bottle (500 ml);0;405.19;0;405.19
+2015;5;198;MMA EL6 (bottle);C;bottle (20ml);0;24.71;0;24.71
+2015;5;199;MMA EL9 (bottle);C;bottle (20ml);0;24.73;0;24.73
+2015;5;200;PMMA 495K A2 (bottle);C;bottle (20ml);0;16.15;0;16.15
+2015;5;201;PMMA 495K A4 (bottle);C;bottle (20ml);0;16.36;0;16.36
+2015;5;202;PMMA 950K A2 (bottle);C;bottle (20ml);0;17.12;0;17.12
+2015;5;203;PMMA 950K A4 (bottle);C;bottle (20ml);0;16.83;0;16.83
+2015;5;204;PMMA 495K A8 (bottle);C;bottle (20ml);0;16.06;0;16.06
+2015;5;205;Box 30L (black and red for storage);C;box;12;9.25;0;9.25
+2015;5;206;Technistrip Cr-01 ;C;bidon(s) 2.5L;0;76.25;0;76.25
+2015;5;207;HD-4100;C;bout. mère;0;1468.58;0;1468.58
+2015;5;208;Supressed HD-4100 bottle (30g.);C;30 à 35 g;0;206.52;0;206.52
+2015;5;209;Box 15L (black and blue for storage);C;box;5;4.5;0;4.5
+2015;5;210;Au : Gold grains - 6 g;C;tube(s);297;0;0;0
+2015;5;211;Cleanroom file;C;;23;19.56;0;19.56
+2015;5;212;SVC-14;C;bidon(s) 5L;0;185.78;0;185.78
+2015;5;213;Hydrochloric acid 37% VLSI;C;bidon(s) 2.5L;0;22.9;0;22.9
+2015;5;214;Sulphuric acid 96% VLSI;C;bidon(s) 2.5L;0;14.64;0;14.64
+2015;5;217;(10) Large W boats (ref 0482001) for VACO 250;C;lot 10 pcs;94;77.6;0;77.6
+2015;5;218;(10) Small W boats (ref 0482002) for VACO 250;C;lot 10 pcs;53;43.65;0;43.65
+2015;5;219;(5) Large W boats for VACO 250;C;lot 5 pcs;51;38.8;0;38.8
+2015;5;220;(5) Small W boats for VACO 250;C;lot 5 pcs;30;21.83;0;21.83
+2015;5;221;Stock Al : Aluminum rods [100 g];C;x 100 g;0;12;0;12
+2015;5;222;Stock Cr : Chromium granulate [100 g];C;x 100 g;0;114.7;0;114.7
+2015;5;223;Stock Cu : Copper rods  [100 g];C;x 100 g;0;13.07;0;13.07
+2015;5;224;Stock Ti : Titanium granulate  [100 g];C;x 100 g;0;200;0;200
+2015;5;225;Stock In : Indium rods ø 8mm  [100 g];C;x 100 g;0;307.2;0;307.2
+2015;5;226;Al : Aluminum rods - around 8 g;C;tube(s);5;0.96;0;0.96
+2015;5;227;Cr : Chromium granulate - around 10 g;C;tube(s);7;2.64;0;2.64
+2015;5;228;Cu : Copper rods - around 20 g;C;tube(s);7;2.61;0;2.61
+2015;5;229;In : Indium rods - around 25 g;C;tube(s);99;76.8;0;76.8
+2015;5;230;Ti : Titanium granulate - around 9 g;C;tube(s);26;18;0;18
+2015;5;233;Chrome Blank 4'';C;plaque;48;14.71;0;14.71
+2015;5;234;Nitric acid 69.5% VLSI;C;bidon(s) 2.5L;0;25.88;0;25.88
+2015;5;235;Hydrofluoric  acid 50% VLSI;C;bidon(s) 2.5L;0;44;0;44
+2015;5;236;Buffered Hydrofluoric  acid BOE 7:1   VLSI;C;bidon(s) 2.5L;0;37.08;0;37.08
+2015;5;237;Precision tweezers (plastic tip);C;pc;25;20.56;0;20.56
+2015;5;238;LAB600H - Au (630mm);C;nm;0.82;0;0;0
+2015;5;239;LAB600H - Pt (630mm);C;nm;1.16;0;0;0
+2015;5;240;LAB600H - Pd (630mm);C;nm;0.41;0;0;0
+2015;5;241;ALD - TiN;C;cycles;0.02;0;0;0
+2015;5;244;Stock Ag : Silver granulate  [50 g];C;x 50 g;0;117.91;0;117.91
+2015;5;245;Ag : Silver granulate - around 4 g;C;tube(s);14;0;0;0
+2015;5;246;ALD - TiO2;C;cycles;0.02;0;0;0
+2015;5;247;ALD - Al2O3;C;cycles;0.04;0;0;0
+2015;5;248;ALD - HfO2;C;cycles;0.05;0;0;0
+2015;5;249;ALD - Pt;C;cycles;1.58;0;0;0
+2015;5;250;ALD - Ru;C;cycles;0.31;0;0;0
+2015;5;251;Handling, packaging, freight: customer's account;X;;29.6;0;0;0
+2015;5;252;Wafer tweezers (stainless steel) 91F-SA;C;pc;24;20.25;0;20.25
+2015;5;253;Precision tweezers (stainless steel) FC-SA;C;pc;17;13.95;0;13.95
+2015;5;254;Miscellaneous items;C;;1;0;0;0
+2015;5;255;(10) FastScan-A Probes  for Bruker AFM;C;box 10 probes;701;584.33;0;584.33
+2015;5;256;(10) FastScan-C Probes  for Bruker AFM;C;box 10 probes;716;596.55;0;596.55
+2015;5;257;(10) ScanAsyst-Air  Probes  for Bruker AFM;C;box 10 probes;243;202.07;0;202.07
+2015;5;258;TechniStrip P1316;C;bidon (5l.);0;163.61;0;163.61
+2015;5;259;N-Amylacetat;C;bottle (1L);0;115.91;0;115.91
+2015;5;260;MiBK;C;2.5 Litre;0;62.21;6;68.21
+2015;5;261;SOI-725-1-1 [150mm];C;wafer(s);405;337.4;0;337.4
+2015;5;262;SOI-725-1-1 [100mm];C;wafer(s);689;337.4;0;337.4
+2015;5;263;Borofloat 33;C;wafer(s);28;22.89;0;22.89
+2015;5;264;H2 gas (over 25 m3 per month);C;m3;8.3;0;0;0
+2015;5;265;AZ ECI  3007 (3027-0.7um,1+0.6)bottle;C;95g.;0;47.83;0;47.83
+2015;5;266;S1818 G2 bottle;C;95g.;0;28;0;28
+2015;5;267;AZ ECI 3027 bottle;C;95g.;0;57.43;0;57.43
+2015;5;268;AZ 1512 bottle;C;95g.;0;39.56;0;39.56
+2015;5;269;AZ9260 bottle;C;95g.;0;68.31;0;68.31
+2015;5;270;TI35ES bottle;C;95g.;0;48.2;0;48.2
+2015;5;271;AZ92xx(3um) bottle;C;95g.;0;42.67;0;42.67
+2015;5;272;AZ nLoF 2020 bottle;C;95g.;0;79.99;0;79.99
+2015;5;273;Rabais;X;;-1;0;0;0
+2015;5;275;Amonia solution 29% MOS;C;bidon(s) 5L;0;70.27;0;70.27
+2015;5;276;DP650 - Au;C;W.h;1.33;0;0;0
+2015;5;277;DP650 - Pt;C;W.h;1.02;0;0;0
+2015;5;278;LOR 5A bottle (90g);C;90 g.;0;131.12;0;131.12
+2015;5;279;ZEP 520 A;C;950ml/ 40 doses;0;501.88;0;501.88
+2015;5;280;DP650 - Pd;C;W.h;0.49;0;0;0
+2015;5;281;SOI-725-1-1 [scraps];C;piece(s);57;33.74;0;33.74
+2015;5;282;SOI-725-2-0.34 [200mm];C;wafer(s);766;637.99;0;637.99
+2015;5;283;SOI-725-2-0.34 [100mm] ;C;wafer(s);525;319;0;319
+2015;5;284;SOI-725-2-0.34 [scraps];C;piece(s);200;159.5;0;159.5
+2015;5;285;Developer mr-D 4000/75;C;bidon 5L;0;0;0;0
+2015;5;286;EVA760 - Au (450mm);C;nm;0.7;0;0;0
+2015;5;287;EVA760 - Au (350mm);C;nm;0.42;0;0;0
+2015;5;288;EVA760 - Au (250mm);C;nm;0.22;0;0;0
+2015;5;289;EVA760 - Pt (450mm);C;nm;1.02;0;0;0
+2015;5;290;EVA760 - Pt (350mm);C;nm;0.62;0;0;0
+2015;5;291;EVA760 - Pt (250mm);C;nm;0.31;0;0;0
+2015;5;292;EVA760 - Pd (450mm);C;nm;0;0;0;0
+2015;5;293;EVA760 - Pd (350mm);C;nm;0;0;0;0
+2015;5;294;EVA760 - Pd (250mm);C;nm;0;0;0;0
+2015;5;295;AZ 9221 (AZ9260-2.1um grade, dil 1:0.392);C;bottle (1000ml);0;492.19;0;492.19
+2015;5;296;HMDS;C;bottle (1000ml);0;49.29;0;49.29
+2015;5;297;Aluminium Etchant ANPE 80/5/5/10  VLSI;C;bidon(s) 2.5L;0;39.42;0;39.42
+2015;5;298;Dimatix Cartridge - DMC;C;cartridge;72;63.39;0;63.39
+2015;5;299;Dimatix Cartridge - DMCLCP;C;cartridge;107;89.65;0;89.65
+2015;5;300;PMMA 950K A8;C;bottle (500 ml);0;0;0;0
+2015;5;301;PMMA 950K A8 (bottle);C;bottle (20ml);0;0;0;0
+2015;5;302;AZ nLoF 2003 ebeam bottle;C;35g.;0;20.07;0;20.07
+2015;5;305;EVA600 - Ag (service);C;nm;0.04;0;0;0
+2015;5;306;LAB600H - Ag (1010mm);C;nm;0.07;0;0;0
+2015;5;307;LAB600H - Ag (630mm);C;nm;0.03;0;0;0
+2015;5;308;DP650 - Ag;C;W.h;0.06;0;0;0
+2015;5;309;EVA760 - Ag (450mm);C;nm;0;0;0;0
+2015;5;310;EVA760 - Ag (350mm);C;nm;0;0;0;0
+2015;5;311;EVA760 - Ag (250mm);C;nm;0;0;0;0
+2015;5;312;Cleanroom occupation;X;h;59.5;0;0;0
+2015;5;313;DP650 - Ir;C;W.h;0.38;0;0;0
+2015;5;314;SiH4 gas;C;l;3.33;0;0;0
+2015;5;315;Sodium Hydroxide 1 mol/40g. FIXANAL;C;doses (40g.);0;14.15;0;14.15
+2015;5;316;MMA EL6 (25 doses);C;500ml/ 25 doses;0;23.76;0;23.76
+2015;5;317;MMA EL6 (bottle);C;bottle (20ml);54;23.76;0;23.76
+2015;5;318;MMA EL9 (25 doses);C;500ml/ 25 doses;0;24.44;0;24.44
+2015;5;319;MMA EL9 (bottle);C;bottle (20ml);30;24.44;0;24.44
+2015;5;320;PMMA 495K A2 (25 doses);C;500ml/ 25 doses;0;16.91;0;16.91
+2015;5;321;PMMA 495K A4 (25 doses);C;500ml/ 25 doses;0;16.19;0;16.19
+2015;5;322;PMMA 495K A8 (25 doses);C;500ml/ 25 doses;0;16.08;0;16.08
+2015;5;323;PMMA 950K A2 (25 doses);C;500ml/ 25 doses;0;17.05;0;17.05
+2015;5;324;PMMA 950K A4 (25 doses);C;500ml/ 25 doses;0;16.92;0;16.92
+2015;5;325;PMMA 950K A8 (25 doses);C;500ml/ 25 doses;0;16.99;0;16.99
+2015;5;326;PMMA 495K A2 (bottle);C;bottle (20ml);21;16.91;0;16.91
+2015;5;327;PMMA 495K A4 (bottle);C;bottle (20ml);20;16.19;0;16.19
+2015;5;328;PMMA 495K A8 (bottle);C;bottle (20ml);20;16.08;0;16.08
+2015;5;329;PMMA 950K A2 (bottle);C;bottle (20ml);21;17.05;0;17.05
+2015;5;330;PMMA 950K A4 (bottle);C;bottle (20ml);21;16.92;0;16.92
+2015;5;331;PMMA 950K A8 (bottle);C;bottle (20ml);21;16.99;0;16.99
+2015;5;332;100/P/DS/0.1-0.5 TTV8;C;;22;0;0;0
+2015;5;333;W-Probe needle 20deg r=12um for PM8 (T-12-20);C;PM8 needle;50;0;0;0
+2015;5;334;W-Probe needle 10deg r=7um for PM8 (T-07-10);C;PM8 needle fine;50;0;0;0
+2015;5;335;Inner gloves (10 pairs);C;lot;39;0;0;0
+2015;5;336;SOI-725-0.145-0.088 [200mm];C;wafer(s);749;0;0;0
+2015;5;337;SOI-725-0.145-0.088 [100mm];C;wafer(s);541;0;0;0
+2015;5;338;SOI-725-0.145-0.088 [scraps];C;piece(s);210;0;0;0
+2015;5;339;SOI-725-1-1-HR [200mm];C;wafer(s);656;0;0;0
+2015;5;340;SOI-725-1-1-HR [100mm];C;wafer(s);520;0;0;0
+2015;5;341;SOI-725-1-1-HR [scraps];C;piece(s);188;0;0;0
+2015;5;342;ALD - SiO2;C;cycles;0.05;0;0;0
+2015;5;60011;100/P/SS/0.1-100 - Test + Dry oxide 100nm;C;;30;12.5;0;12.5
+2015;5;60012;100/P/SS/0.1-100 - Test + Dry oxide 200nm;C;;37;14.37;0;14.37
+2015;5;60014;100/P/SS/0.1-100 - Test + Wet oxide 200nm;C;;26;11.36;0;11.36
+2015;5;60015;100/P/SS/0.1-100 - Test + Wet oxide 500nm;C;;27;10.99;0;10.99
+2015;5;60020;100/P/SS/0.1-100 - Test + Wet oxide 2.0µm;C;;47;10.83;0;10.83
+2015;5;60040;100/P/SS/0.1-100 - Test + Wet oxide 1.0µm;C;;31;10.78;0;10.78
+2015;5;60042;100/P/SS/0.1-100 - Test + Wet oxide 2.5µm;C;;49;18.65;0;18.65
+2015;5;60043;100/P/SS/0.1-100 - Test + Wet oxide 3.0µm;C;;54;18.02;0;18.02
+2015;5;60044;100/P/SS/0.1-100 - Test + LPCVD Si3N4 100nm;C;;28;11.4;0;11.4
+2015;5;60045;100/P/SS/0.1-100 - Test + LPCVD Si3N4 200nm;C;;29;10.77;0;10.77
+2015;5;60046;100/P/SS/0.1-100 - Test + LPCVD Si3N4 500nm;C;;35;10.77;0;10.77
+2015;5;60047;100/P/SS/0.1-100 - Test + LPCVD L.S. SiN 100nm;C;;43;16.8;0;16.8
+2015;5;60048;100/P/SS/0.1-100 - Test + LPCVD L.S. SiN 200nm;C;;44;14.05;0;14.05
+2015;5;60049;100/P/SS/0.1-100 - Test + LPCVD L.S. SiN 500nm;C;;46;13.01;0;13.01
+2015;5;60052;100/P/SS/0.1-100 - Test + Wox 650nm +Nit 200nm;C;;49;18.82;0;18.82
+2015;5;60082;100/P/SS/0.1-100 - Test + Wet oxide 4.0µm;C;;68;18.45;0;18.45
+2015;5;60084;100/P/SS/0.1-100 - Test + RCA;C;;17;10.77;0;10.77
+2015;5;80011;100/P/DS/1-10 + Dry oxide 100nm;C;;54;43.61;0;43.61
+2015;5;80012;100/P/DS/1-10 + Dry oxide 200nm;C;;55;26.53;0;26.53
+2015;5;80014;100/P/DS/1-10 + Wet oxide 200nm;C;;44;26.59;0;26.59
+2015;5;80015;100/P/DS/1-10 + Wet oxide 500nm;C;;45;32.5;0;32.5
+2015;5;80020;100/P/DS/1-10 + Wet oxide 2.0µm;C;;71;26.82;0;26.82
+2015;5;80040;100/P/DS/1-10 + Wet oxide 1.0µm;C;;46;29.05;0;29.05
+2015;5;80041;100/P/DS/1-10 + Wet oxide 1.5µm;C;;70;42.62;0;42.62
+2015;5;80042;100/P/DS/1-10 + Wet oxide 2.5µm;C;;80;44.94;0;44.94
+2015;5;80044;100/P/DS/1-10 + LPCVD Si3N4 100nm;C;;74;49.88;0;49.88
+2015;5;80045;100/P/DS/1-10 + LPCVD Si3N4 200nm;C;;79;52.8;0;52.8
+2015;5;80046;100/P/DS/1-10 + LPCVD Si3N4 500nm;C;;80;26.53;0;26.53
+2015;5;80047;100/P/DS/1-10 + LPCVD L.S. SiN 100nm;C;;46;35.63;0;35.63
+2015;5;80048;100/P/DS/1-10 + LPCVD L.S. SiN 200nm;C;;52;26.53;0;26.53
+2015;5;80049;100/P/DS/1-10 + LPCVD L.S. SiN 500nm;C;;58;28.26;0;28.26
+2015;5;80051;100/P/DS/1-10 + LPCVD L.S. SiN 2.0µm;C;;80;55.72;0;55.72
+2015;5;80082;100/P/DS/1-10 + Wet oxide 4.0µm;C;;104;48.53;0;48.53
+2015;5;80084;100/P/DS/1-10 + RCA;C;;37;26.53;0;26.53
+2015;5;80162;100/P/DS/1-10 + Wet oxide 5.0µm;C;;130;55.72;0;55.72
+2015;5;260011;100/P/DS/0.1-0.5 TTV2 + Dry oxide 100nm;C;;68;44.51;0;44.51
+2015;5;260012;100/P/DS/0.1-0.5 TTV2 + Dry oxide 200nm;C;;75;45.91;0;45.91
+2015;5;260014;100/P/DS/0.1-0.5 TTV2 + Wet oxide 200nm;C;;66;44.87;0;44.87
+2015;5;260015;100/P/DS/0.1-0.5 TTV2 + Wet oxide 500nm;C;;67;43.06;0;43.06
+2015;5;260020;100/P/DS/0.1-0.5 TTV2 + Wet oxide 2.0µm;C;;85;42.93;0;42.93
+2015;5;260040;100/P/DS/0.1-0.5 TTV2 + Wet oxide 1.0µm;C;;69;42.98;0;42.98
+2015;5;260041;100/P/DS/0.1-0.5 TTV2 + Wet oxide 1.5µm;C;;76;42.93;0;42.93
+2015;5;260042;100/P/DS/0.1-0.5 TTV2 + Wet oxide 2.5µm;C;;86;44.95;0;44.95
+2015;5;260043;100/P/DS/0.1-0.5 TTV2 + Wet oxide 3.0µm;C;;89;47.27;0;47.27
+2015;5;260044;100/P/DS/0.1-0.5 TTV2 + LPCVD Si3N4 100nm;C;;66;42.93;0;42.93
+2015;5;260046;100/P/DS/0.1-0.5 TTV2 + LPCVD Si3N4 500nm;C;;76;51.52;0;51.52
+2015;5;260047;100/P/DS/0.1-0.5 TTV2 + LPCVD L.S. SiN 100nm;C;;74;42.93;0;42.93
+2015;5;260048;100/P/DS/0.1-0.5 TTV2 + LPCVD L.S. SiN 200nm;C;;77;43.37;0;43.37
+2015;5;260049;100/P/DS/0.1-0.5 TTV2 + LPCVD L.S. SiN 500nm;C;;81;43.43;0;43.43
+2015;5;260052;100/P/DS/0.1-0.5 TTV2 + Wox 650nm +Nit 200nm;C;;81;44.95;0;44.95
+2015;5;260082;100/P/DS/0.1-0.5 TTV2 + Wet oxide 4.0µm;C;;102;46.96;0;46.96
+2015;5;260083;100/P/DS/0.1-0.5 TTV2 + Wet oxide 10.0µm;C;;176;53.64;0;53.64
+2015;5;260084;100/P/DS/0.1-0.5 TTV2 + RCA;C;;56;42.93;0;42.93
+2015;5;280011;100/P/SS/15-25 + Dry oxide 100nm;C;;43;23.64;0;23.64
+2015;5;280012;100/P/SS/15-25 + Dry oxide 200nm;C;;51;25.74;0;25.74
+2015;5;280014;100/P/SS/15-25 + Wet oxide 200nm;C;;43;25.7;0;25.7
+2015;5;280015;100/P/SS/15-25 + Wet oxide 500nm;C;;44;25.67;0;25.67
+2015;5;280020;100/P/SS/15-25 + Wet oxide 2.0µm;C;;63;25.16;0;25.16
+2015;5;280040;100/P/SS/15-25 + Wet oxide 1.0µm;C;;43;20.83;0;20.83
+2015;5;280041;100/P/SS/15-25 + Wet oxide 1.5µm;C;;51;22.37;0;22.37
+2015;5;280044;100/P/SS/15-25 + LPCVD Si3N4 100nm;C;;45;25.98;0;25.98
+2015;5;280045;100/P/SS/15-25 + LPCVD Si3N4 200nm;C;;47;25.84;0;25.84
+2015;5;280047;100/P/SS/15-25 + LPCVD L.S. SiN 100nm;C;;52;24.37;0;24.37
+2015;5;280048;100/P/SS/15-25 + LPCVD L.S. SiN 200nm;C;;53;22.21;0;22.21
+2015;5;280052;100/P/SS/15-25 + Wox 650nm +Nit 200nm;C;;53;22.21;0;22.21
+2015;5;280084;100/P/SS/15-25 + RCA;C;;34;22.68;0;22.68
+2015;5;290011;100/P/SS/0.1-0.5 + Dry oxide 100nm;C;;54;32.25;0;32.25
+2015;5;290012;100/P/SS/0.1-0.5 + Dry oxide 200nm;C;;60;31.96;0;31.96
+2015;5;290014;100/P/SS/0.1-0.5 + Wet oxide 200nm;C;;53;33.05;0;33.05
+2015;5;290015;100/P/SS/0.1-0.5 + Wet oxide 500nm;C;;55;33.67;0;33.67
+2015;5;290020;100/P/SS/0.1-0.5 + Wet oxide 2.0µm;C;;64;28.62;0;28.62
+2015;5;290040;100/P/SS/0.1-0.5 + Wet oxide 1.0µm;C;;59;34.31;0;34.31
+2015;5;290041;100/P/SS/0.1-0.5 + Wet oxide 1.5µm;C;;50;20.92;0;20.92
+2015;5;290043;100/P/SS/0.1-0.5 + Wet oxide 3.0µm;C;;74;34.74;0;34.74
+2015;5;290044;100/P/SS/0.1-0.5 + LPCVD Si3N4 100nm;C;;48;32.08;0;32.08
+2015;5;290045;100/P/SS/0.1-0.5 + LPCVD Si3N4 200nm;C;;49;20.43;0;20.43
+2015;5;290047;100/P/SS/0.1-0.5 + LPCVD L.S. SiN 100nm;C;;57;32.93;0;32.93
+2015;5;290048;100/P/SS/0.1-0.5 + LPCVD L.S. SiN 200nm;C;;58;20.23;0;20.23
+2015;5;290052;100/P/SS/0.1-0.5 + Wox 650nm +Nit 200nm;C;;51;20.23;0;20.23
+2015;5;290083;100/P/SS/0.1-0.5 + Wet oxide 10.0µm;C;;136;20.23;0;20.23
+2015;5;290084;100/P/SS/0.1-0.5 + RCA;C;;42;31.72;0;31.72
+2015;5;290162;100/P/SS/0.1-0.5 + Wet oxide 5.0µm;C;;87;20.23;0;20.23
+2015;5;300084;150/P/SS/15-25 + RCA;C;;79;62.68;0;62.68

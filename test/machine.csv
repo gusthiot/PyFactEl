@@ -1,0 +1,108 @@
+2015;5;Id-Machine;Nom Machine;Catégorie-Machine;Tarif horaire machine HP (P);Tarif horaire machine HP (NP);Tarif horaire opérateur HP (MO);Tarif horaire réservation HP (P);Tarif horaire réservation HP (NP);Tarif horaire machine HC (P);Tarif horaire machine HC (NP);Tarif horaire opérateur HC (MO);Tarif horaire réservation HC (P);Tarif horaire réservation HC (NP);Délai ouvré pour une suppression de réservation sans frais
+2015;5;mach002;Z13 Sawatec Coater & Hotplate for SU8;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach003;Z05 Suess DV10 - Developer for mask and thick positive resist;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach004;Z01 Suess MA150 - Double side mask aligner;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach005;Z02 Alcatel 601E - Plasma etcher - Fluorine chemistry;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach006;Z02 STS Multiplex ICP - Plasma etcher - Chlorine chemistry;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach007;Z02 Oxford PRS900 - RF and microwave plasma asher;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach008;Z02 Plade Oxide - Wet bench for oxide etch;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach009;Z02 Plade Metal - Wet bench for metal etch;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach010;Z02 UFT Piranha - Wet bench for Resist Stripping;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach011;Z03 EPFL1-1 Centrotherm - LPCVD Poly;A;60;20;100;0;0;0;0;0;0;0;0
+2015;5;mach012;Z03 EPFL1-2 Centrotherm - LPCVD Nitride;A;60;20;100;0;0;0;0;0;0;0;0
+2015;5;mach013;Z03 EPFL1-3 Centrotherm - Alloy;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach014;Z03 EPFL1-4 Centrotherm - POCl3;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach015;Z03 EPFL2-1 Centrotherm - Densification;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach017;Z03 EPFL2-3 Centrotherm - Gate Oxide;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach018;Z03 EPFL2-4 Centrotherm - Diffusion;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach019;Z03 Plade - Wet Bench RCA;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach020;Z03 Plade - Wet bench Reclaim;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach022;Z04 Balzers BAS450 - Sputter single chamber multi-target;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach023;Z04 Alcatel EVA600 - Evaporator;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach024;Z05 Plade - Silicon etching KOH 23% - 90°C max;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach025;Z05 Desaules - Wet bench for electroplating Cu, Ni;A;80;0;100;0;10;0;0;0;0;0;480
+2015;5;mach028;Z11 Tepla 300 - Microwave plasma stripper;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach029;Z08 OPTEC - Laser excimer;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach030;Z06 Suess RC8 THP - Manual Coater (entrance zone);A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach031;Z06 Suess MA&BA6 - Double side mask aligner and bond aligner;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach033;Z06 Coillard Photo - Wet bench for resist develop and strip;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach034;Z06 Coillard Etching - Wet bench for oxide and metal etch;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach035;Z06 Plade miscellaneous - Wet Bench for misc. applications;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach036;Z10 Vacotec - Basic Joule effect evaporator;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach039;Z06 Suess RC8 THP - Manual Coater (mid-zone);A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach040;Z03 EPFL2-2 Centrotherm - Wet Oxide;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach044;Z06 Suess SB6 - Vacuum anodic bonder;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach045;Z05 Mecapol - Chemical-mechanical polishing;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach046;Z09 DAD 321 - Scie a wafers;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach047;Z15 Süss PM8 - Manual prober;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach048;Z01 Zeiss LEO 1550 - Scanning Electron Microscope;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach053;Z01 Plade Solvent - Photolithography wet bench;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach054;Z01 RiteTrack Coater - Coater track for positive resist;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach055;Z01 RiteTrack Developer - Developer track for positive resist;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach058;Z02 UFT Remover - Wet bench for Resist Stripping;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach116;Z01 Heidelberg DWL200 - Laser lithography system;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach118;Z04 Pfeiffer-Vacuum SPIDER600 - Sputter multi-chamber;A;60;0;100;0;20;0;0;0;0;0;1440
+2015;5;mach119;Z03 EPFL3-1 Centrotherm - LPCVD LTO;A;40;40;100;0;0;0;0;0;0;0;0
+2015;5;mach121;Z03 EPFL3-4 Centrotherm - MEMS - Oxide;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach124;Z08 FEI Nova 600 NanoLab - DualBeam (SEM/FIB);C;120;0;100;0;0;0;0;0;0;0;0
+2015;5;mach125;Z05 Plade - Silicon etching KOH 40% - 60°C max;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach126;Z06 EVG150 - Coater and developer system for positive resist;A;60;0;100;20;0;0;0;0;0;0;720
+2015;5;mach127;Z05 Coillard - Wet bench HF release - CPD;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach128;Z09 Outil-Perceuse;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach129;Z09 Outil-Fraiseuse;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach130;Z09 Outil-Tour;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach131;Z09 Outil-Sableuse;A;20;0;100;10;0;0;0;0;5;0;300
+2015;5;mach132;Z15 Veeco Wyko NT1100 - Optical profiler;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach133;Z01 DataPlate - Programable Hotplate;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach134;Z01 Accu - Plate;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach135;Z02 Alcatel AMS200 DSE - Plasma etcher - Fluorine chemistry;A;60;0;100;12;0;0;0;0;0;0;720
+2015;5;mach136;Z04 Leybold-Optics LAB600 H - Evaporator Lift-off;A;60;0;100;16;0;0;0;0;0;0;1500
+2015;5;mach137;Z02 Heraeus T6060 - Multipurpose Oven;A;10;0;100;0;0;0;0;0;0;0;0
+2015;5;mach138;Z01 Sawatec LSM200 Coater for negative resist;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach139;Z01 Sawatec HP401Z Hotplate for Soft-bake;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach140;Z07 Vistec EPBG5000ES - Ebeam;B;80;0;100;20;20;40;0;100;0;20;1440
+2015;5;mach141;Z03 Sopra GES 5E - Spectroscopic Ellipsometer;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach142;Z05 Idonus - HF vapor;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach143;Z10 Comelec C-30-S  Parylene deposition system;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach145;Z10 VACO 250;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach146;Z13 P-PDMS Coater-Developer-Hot_Plate;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach147;Z11 Thermal NanoImprinter EHN-3250;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach148;Z11 Disco Grinder DAG810;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach149;Z11 Graphtec CE-5000-40-CRP Plotter-Cutter;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach150;Z12 Mixer THINKY;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach151;Z12 Wet Bench Dessicators;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach152;Z12 Wet Bench Bioprep;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach153;Z12 SCS6800 Coater PDMS;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach154;Z12 Plasma HARRICK;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach155;Z04 Beneq TFS200 - ALD;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach156;Z14 Wet Bench Solvent;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach157;Z14 Wet Bench Acid;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach158;Z14 Wet Bench Base;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach159;Z13 SSE Manual Coater line for Positive Photoresist;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach160;Z13 Ceram Hotplate for high Temperature;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach161;Z13 SussMicroTec MJB4- Single side mask aligner;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach162;Z11 Dimatix Inkjet Printer;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach163;Z02 Tepla GigaBatch - Microwave plasma stripper;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach164;Z15 Bruker FastScan - AFM;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach165;Z15 Zeiss Merlin - Scanning Electron Microscope;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach166;Z15 FilMetrics F20 UV - Reflectometer Spectroscopic;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach167;Z04 Bruker DektakXT - Mechanical profilometer;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach168;Z03 Surfx - Atmospheric plasma;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach169;Z11 Alliance-Concept DP650  - Sputter single chamber multi-target;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach170;Z11 Neytech Qex - Oven 50°C-1200°C;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach171;Z15 Toho Technology FLX 2320-S - Thin Film Stress Meas. tool;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach172;Z11 Despatch Industries LCD1-16N-3  - Oven 350°C;A;10;0;100;0;0;0;0;0;0;0;0
+2015;5;mach173;Z13 Sawatec 2nd Hotplate ;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach174;Z02 SPTS APS - Dielectric Plasma Etcher - Fluorine chemistry;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach175;Z11 Veeco IBE - Ion Beam Etcher;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach176;Z11 LIFT;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach177;Z11 Edwards Auto 306 - Thermal Evaporator;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach178;Z13 Bruker Vertex 70 - FTIR;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach179;Z11 Alliance-Concept EVA760  - Evaporator;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach180;Z14 Wet Bench Misc;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach181;Z05 Heidelberg VPG200 - Laser lithography system;A;60;0;100;20;0;0;0;0;0;0;720
+2015;5;mach183;Z13 Krüss DSA-30 - Drop Shape Analyzer;A;20;0;100;0;0;0;0;0;0;0;0
+2015;5;mach184;Z05 Heidelberg MLA 150 -  MaskLessAligner Beta Site;A;0;0;100;0;0;0;0;0;0;0;0
+2015;5;mach201;Z03 Jipelec Jetfirst 200 - Rapid Thermal Processing;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach202;Z17 TPT HB10 - Wire Bonder;A;80;0;100;0;0;0;0;0;0;0;0
+2015;5;mach203;Z10 T-TECH QC3500 - CNC tool;A;20;0;100;0;0;0;0;0;0;0;0
