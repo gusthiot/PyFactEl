@@ -17,7 +17,7 @@ class Compte(Fichier):
                 return 1
         return 0
 
-    def est_coherent(self, client, coefmachines, coefprests):
+    def est_coherent(self, client, coefmachines, coefprests, generaux):
         msg = ""
         ligne = 1
         codes = []
@@ -26,7 +26,7 @@ class Compte(Fichier):
 
         for donnee in self.donnees:
             if donnee['code_client'] == "":
-                msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+                msg += ""   # "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code_client'] not in codes:
                 codes.append(donnee['code_client'])
 
@@ -46,7 +46,7 @@ class Compte(Fichier):
         self.donnees = donnees_dict
 
         for code in codes:
-            if code not in client.obtenir_codes(coefmachines, coefprests):
+            if code not in client.obtenir_codes(coefmachines, coefprests, generaux):
                 msg += "la code client '" + code + "' n'est pas présente dans les clients\n"
 
         if msg != "":

@@ -53,9 +53,9 @@ class Reservation(Fichier):
             client = clients.donnees[compte['code_client']]
             coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
             duree_fact_hp = round(max(0, min(1, (1-float(donnee['duree_ouvree']) /
-                                                 float(machine['delai_sans_frais'])) * float(donnee['duree_hp']))), 0)
+                                                 float(machine['delai_sans_frais'])))) * float(donnee['duree_hp']), 0)
             duree_fact_hc = round(max(0, min(1, (1-float(donnee['duree_ouvree']) /
-                                                 float(machine['delai_sans_frais'])) * float(donnee['duree_hc']))), 0)
+                                                 float(machine['delai_sans_frais'])))) * float(donnee['duree_hc']), 0)
 
             donnee['pv'] = round(duree_fact_hp / 60 * round(float(machine['t_h_reservation_hp_p']) *
                                                             float(coefmachine['coef_p']), 2) + duree_fact_hc / 60 *

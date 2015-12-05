@@ -5,19 +5,17 @@ from interfaces import Interfaces
 class Client(Fichier):
     """client du CMi"""
 
-
     def __init__(self, nom_dossier, delimiteur, encodage):
-        cles = ['annee', 'mois', 'code', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_base',
+        cles = ['annee', 'mois', 'code', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_sans_activite',
                 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif', 'classe_tarif']
         nom_fichier = "client.csv"
         libelle = "Clients"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.codes = []
 
-
-    def obtenir_codes(self, coefmachines, coefprests):
+    def obtenir_codes(self, coefmachines, coefprests, generaux):
         if len(self.codes) == 0:
-            self.est_coherent(coefmachines, coefprests)
+            self.est_coherent(coefmachines, coefprests, generaux)
         return self.codes
 
     def est_coherent(self, coefmachines, coefprests, generaux):
@@ -33,7 +31,7 @@ class Client(Fichier):
                 classes.append(donnee['id_classe_tarif'])
 
             if donnee['code'] == "":
-                msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+                msg += ""  # "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code'] not in self.codes:
                 self.codes.append(donnee['code'])
                 del donnee['annee']
@@ -53,7 +51,7 @@ class Client(Fichier):
 
         self.donnees = donnees_dict
 
-        for classe in classes :
+        for classe in classes:
             if classe not in coefmachines.obtenir_classes():
                 msg += "la classe de tarif '" + classe + "' n'est pas présente dans les coefficients machines\n"
             if classe not in coefprests.obtenir_classes():

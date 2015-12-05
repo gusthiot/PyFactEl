@@ -9,7 +9,7 @@ import sys
 encodage = "ISO-8859-1"
 delimiteur = ';'
 dossier_data = Interfaces.choisir_dossier() + "/"
-edition = Edition(dossier_data,delimiteur,encodage) #Interfaces.choisir_edition()
+edition = Edition(dossier_data, delimiteur, encodage)  # Interfaces.choisir_edition()
 
 acces = Acces(dossier_data, delimiteur, encodage)
 clients = Client(dossier_data, delimiteur, encodage)
@@ -49,16 +49,20 @@ prestations.est_coherent(generaux)
 coefmachines.est_coherent()
 coefprests.est_coherent()
 clients.est_coherent(coefmachines, coefprests, generaux)
-comptes.est_coherent(clients, coefmachines, coefprests)
-
-print(generaux.obtenir_d1())
-print(generaux.obtenir_d2())
-print(generaux.obtenir_d3())
+comptes.est_coherent(clients, coefmachines, coefprests, generaux)
 
 livraisons.calcul_montants(prestations, coefprests, comptes, clients)
 reservations.calcul_montants(machines, coefmachines, comptes, clients)
 acces.calcul_montants(machines, coefmachines, comptes, clients)
 
-Sommes.sommes_par_projet(livraisons, reservations, acces, prestations)
+spp = Sommes.sommes_par_projet(livraisons, reservations, acces, prestations)
+spco = Sommes.somme_par_compte(spp, comptes)
+spca = Sommes.somme_par_categorie(spco, comptes)
+spcl = Sommes.somme_par_client(spca, clients)
+
+Sommes.afficher_somme_projet(spp, dossier_data, encodage, delimiteur)
+Sommes.afficher_somme_compte(spco, dossier_data, encodage, delimiteur)
+Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
+Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
 
 Interfaces.log_erreur("OK !!!")
