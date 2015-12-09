@@ -1,4 +1,5 @@
 from interfaces import Interfaces
+from rabais import Rabais
 import csv
 
 
@@ -33,14 +34,19 @@ class Sommes(object):
         return somme_projet
 
     @staticmethod
-    def sommes_par_projet(livraisons, reservations, acces, prestations):
+    def sommes_par_projet(livraisons, reservations, acces, prestations, comptes):
         spp = {}
         for acce in acces.donnees:
             id_compte = acce['id_compte']
-            if id_compte not in spp:
-                spp[id_compte] = {}
+            co = comptes.donnees[id_compte]
+            code_client = co['code_client']
+            if code_client not in spp:
+                spp[code_client] = {}
+            client = spp[code_client]
+            if id_compte not in client:
+                client[id_compte] = {}
             num_projet = acce['num_projet']
-            compte = spp[id_compte]
+            compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme_projet()
             projet = compte[num_projet]
@@ -54,10 +60,15 @@ class Sommes(object):
 
         for reservation in reservations.donnees:
             id_compte = reservation['id_compte']
-            if id_compte not in spp:
-                spp[id_compte] = {}
+            co = comptes.donnees[id_compte]
+            code_client = co['code_client']
+            if code_client not in spp:
+                spp[code_client] = {}
+            client = spp[code_client]
+            if id_compte not in client:
+                client[id_compte] = {}
             num_projet = reservation['num_projet']
-            compte = spp[id_compte]
+            compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme_projet()
             projet = compte[num_projet]
@@ -69,10 +80,15 @@ class Sommes(object):
 
         for livraison in livraisons.donnees:
             id_compte = livraison['id_compte']
-            if id_compte not in spp:
-                spp[id_compte] = {}
+            co = comptes.donnees[id_compte]
+            code_client = co['code_client']
+            if code_client not in spp:
+                spp[code_client] = {}
+            client = spp[code_client]
+            if id_compte not in client:
+                client[id_compte] = {}
             num_projet = livraison['num_projet']
-            compte = spp[id_compte]
+            compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme_projet()
             projet = compte[num_projet]
@@ -117,19 +133,23 @@ class Sommes(object):
         csv_fichier = open(nom_dossier + "somme_projet.csv", 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
 
-        keys = Sommes.ordonner_keys_str_par_int(somme_projet.keys())
-        for id_compte in keys:
-            print(id_compte)
-            compte = somme_projet[id_compte]
-            keys2 = Sommes.ordonner_keys_str_par_int(compte.keys())
-            for num_projet in keys2:
-                print("  " + str(num_projet))
-                fichier_writer.writerow([id_compte, num_projet])
-                projet = compte[num_projet]
-                for cle in Sommes.cles_somme_projet:
-                    print("   " + cle + " : %.2f" % projet[cle])
-                    fichier_writer.writerow([cle, "%.2f" % projet[cle]])
-                fichier_writer.writerow([" "])
+        keys0 = Sommes.ordonner_keys_str_par_int(somme_projet.keys())
+        for code_client in keys0:
+            print(code_client)
+            client = somme_projet[code_client]
+            keys = Sommes.ordonner_keys_str_par_int(client.keys())
+            for id_compte in keys:
+                print(id_compte)
+                compte = client[id_compte]
+                keys2 = Sommes.ordonner_keys_str_par_int(compte.keys())
+                for num_projet in keys2:
+                    print("  " + str(num_projet))
+                    fichier_writer.writerow([code_client, id_compte, num_projet])
+                    projet = compte[num_projet]
+                    for cle in Sommes.cles_somme_projet:
+                        print("   " + cle + " : %.2f" % projet[cle])
+                        fichier_writer.writerow([cle, "%.2f" % projet[cle]])
+                    fichier_writer.writerow([" "])
 
     @staticmethod
     def nouveau_somme_compte():
@@ -141,62 +161,70 @@ class Sommes(object):
     @staticmethod
     def somme_par_compte(somme_par_projet, comptes):
         spc = {}
-        for id_compte, compte in somme_par_projet.items():
-            spc[id_compte] = Sommes.nouveau_somme_compte()
-            somme = spc[id_compte]
-            for num_projet, projet in compte.items():
-                somme['somme_j_pu'] += projet['somme_p_pu']
-                somme['somme_j_pv'] += projet['somme_p_pv']
-                somme['somme_j_pm'] += projet['somme_p_pm']
-                somme['somme_j_qu'] += projet['somme_p_qu']
-                somme['somme_j_qv'] += projet['somme_p_qv']
-                somme['somme_j_qm'] += projet['somme_p_qm']
-                somme['somme_j_om'] += projet['somme_p_om']
-                somme['somme_j_nm'] += projet['somme_p_nm']
-                somme['somme_j_lm'] += projet['somme_p_lm']
-                somme['somme_j_lr'] += projet['somme_p_lr']
-                somme['lj'] += projet['lp']
-                somme['somme_j_cm'] += projet['somme_p_cm']
-                somme['somme_j_cr'] += projet['somme_p_cr']
-                somme['cj'] += projet['cp']
-                somme['somme_j_wm'] += projet['somme_p_wm']
-                somme['somme_j_wr'] += projet['somme_p_wr']
-                somme['wj'] += projet['wp']
-                somme['somme_j_xm'] += projet['somme_p_xm']
-                somme['somme_j_xr'] += projet['somme_p_xr']
-                somme['xj'] += projet['xp']
+        for code_client, client in somme_par_projet.items():
+            if code_client not in spc:
+                spc[code_client] = {}
+            cl = spc[code_client]
+            for id_compte, compte in client.items():
+                cc = comptes.donnees[id_compte]
+                cl[id_compte] = Sommes.nouveau_somme_compte()
+                somme = cl[id_compte]
+                for num_projet, projet in compte.items():
+                    somme['somme_j_pu'] += projet['somme_p_pu']
+                    somme['somme_j_pv'] += projet['somme_p_pv']
+                    somme['somme_j_pm'] += projet['somme_p_pm']
+                    somme['somme_j_qu'] += projet['somme_p_qu']
+                    somme['somme_j_qv'] += projet['somme_p_qv']
+                    somme['somme_j_qm'] += projet['somme_p_qm']
+                    somme['somme_j_om'] += projet['somme_p_om']
+                    somme['somme_j_nm'] += projet['somme_p_nm']
+                    somme['somme_j_lm'] += projet['somme_p_lm']
+                    somme['somme_j_lr'] += projet['somme_p_lr']
+                    somme['lj'] += projet['lp']
+                    somme['somme_j_cm'] += projet['somme_p_cm']
+                    somme['somme_j_cr'] += projet['somme_p_cr']
+                    somme['cj'] += projet['cp']
+                    somme['somme_j_wm'] += projet['somme_p_wm']
+                    somme['somme_j_wr'] += projet['somme_p_wr']
+                    somme['wj'] += projet['wp']
+                    somme['somme_j_xm'] += projet['somme_p_xm']
+                    somme['somme_j_xr'] += projet['somme_p_xr']
+                    somme['xj'] += projet['xp']
 
-            cc = comptes.donnees[id_compte]
-            seuil = float(cc['seuil'])
-            pourcent = float(cc['pourcent'])
-            somme['prj'] = -min(0, min(somme['somme_j_pm'], seuil) + pourcent * max(0, somme['somme_j_pm'] - seuil) -
-                               somme['somme_j_pm'])
-            somme['pj'] = somme['somme_j_pm'] - somme['prj']
-            somme['qrj'] = 0
-            somme['qj'] = somme['somme_j_qm'] - somme['qrj']
-            somme['orj'] = 0
-            somme['oj'] = somme['somme_j_om'] - somme['orj']
-            somme['nrj'] = somme['qrj'] + somme['orj']
-            somme['nj'] = somme['somme_j_nm'] - somme['nrj']
-            tot = somme['somme_j_pm'] + somme['somme_j_qm'] + somme['somme_j_om'] + somme['somme_j_lm'] + \
-                  somme['somme_j_cm'] + somme['somme_j_wm'] + somme['somme_j_xm']
-            if tot > 0:
-                somme['si_facture'] = 1
+                somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'],
+                                                                                      float(cc['seuil']),
+                                                                                      float(cc['pourcent']))
+
+                somme['pj'] = somme['somme_j_pm'] - somme['prj']
+                somme['qj'] = somme['somme_j_qm'] - somme['qrj']
+                somme['oj'] = somme['somme_j_om'] - somme['orj']
+
+                somme['nrj'] = somme['qrj'] + somme['orj']
+                somme['nj'] = somme['somme_j_nm'] - somme['nrj']
+                tot = somme['somme_j_pm'] + somme['somme_j_qm'] + somme['somme_j_om'] + somme['somme_j_lm'] + \
+                      somme['somme_j_cm'] + somme['somme_j_wm'] + somme['somme_j_xm']
+                if tot > 0:
+                    somme['si_facture'] = 1
         return spc
 
     @staticmethod
     def afficher_somme_compte(somme_compte, nom_dossier, encodage, delimiteur):
         csv_fichier = open(nom_dossier + "somme_compte.csv", 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
-        keys = Sommes.ordonner_keys_str_par_int(somme_compte.keys())
-        for id_compte in keys:
-            print(id_compte)
-            fichier_writer.writerow([id_compte])
-            compte = somme_compte[id_compte]
-            for cle in Sommes.cles_somme_compte:
-                print("   " + cle + " : %.2f" % compte[cle])
-                fichier_writer.writerow([cle, "%.2f" % compte[cle]])
-            fichier_writer.writerow([" "])
+
+        keys0 = Sommes.ordonner_keys_str_par_int(somme_compte.keys())
+        for code_client in keys0:
+            print(code_client)
+            client = somme_compte[code_client]
+            keys = Sommes.ordonner_keys_str_par_int(client.keys())
+            for id_compte in keys:
+                print(id_compte)
+                fichier_writer.writerow([code_client, id_compte])
+                compte = client[id_compte]
+                for cle in Sommes.cles_somme_compte:
+                    print("   " + cle + " : %.2f" % compte[cle])
+                    fichier_writer.writerow([cle, "%.2f" % compte[cle]])
+                fichier_writer.writerow([" "])
 
     @staticmethod
     def nouveau_somme_categorie():
@@ -208,46 +236,49 @@ class Sommes(object):
     @staticmethod
     def somme_par_categorie(somme_par_compte, comptes):
         spc = {}
-        for id_compte, compte in somme_par_compte.items():
-            co = comptes.donnees[id_compte]
-            categorie = co['categorie']
-            code_client = co['code_client']
+        for code_client, client in somme_par_compte.items():
             if code_client not in spc:
                 spc[code_client] = {}
-            client = spc[code_client]
+            cl = spc[code_client]
+            for id_compte, compte in cl.items():
+                co = comptes.donnees[id_compte]
+                categorie = co['categorie']
+                if code_client not in spc:
+                    spc[code_client] = {}
+                client = spc[code_client]
 
-            if categorie not in client:
-                client[categorie] = Sommes.nouveau_somme_categorie()
-            somme = client[categorie]
+                if categorie not in client:
+                    client[categorie] = Sommes.nouveau_somme_categorie()
+                somme = client[categorie]
 
-            somme['somme_k_pu'] += compte['somme_j_pu']
-            somme['somme_k_pv'] += compte['somme_j_pv']
-            somme['somme_k_pm'] += compte['somme_j_pm']
-            somme['somme_k_prj'] += compte['prj']
-            somme['pk'] += compte['pj']
-            somme['somme_k_qu'] += compte['somme_j_qu']
-            somme['somme_k_qv'] += compte['somme_j_qv']
-            somme['somme_k_qm'] += compte['somme_j_qm']
-            somme['somme_k_qrj'] += compte['qrj']
-            somme['qk'] += compte['qj']
-            somme['somme_k_om'] += compte['somme_j_om']
-            somme['somme_k_orj'] += compte['orj']
-            somme['ok'] += compte['oj']
-            somme['somme_k_nm'] += compte['somme_j_nm']
-            somme['somme_k_nrj'] += compte['nrj']
-            somme['nk'] += compte['nj']
-            somme['somme_k_lm'] += compte['somme_j_lm']
-            somme['somme_k_lr'] += compte['somme_j_lr']
-            somme['lk'] += compte['lj']
-            somme['somme_k_cm'] += compte['somme_j_cm']
-            somme['somme_k_cr'] += compte['somme_j_cr']
-            somme['ck'] += compte['cj']
-            somme['somme_k_wm'] += compte['somme_j_wm']
-            somme['somme_k_wr'] += compte['somme_j_wr']
-            somme['wk'] += compte['wj']
-            somme['somme_k_xm'] += compte['somme_j_xm']
-            somme['somme_k_xr'] += compte['somme_j_xr']
-            somme['xk'] += compte['xj']
+                somme['somme_k_pu'] += compte['somme_j_pu']
+                somme['somme_k_pv'] += compte['somme_j_pv']
+                somme['somme_k_pm'] += compte['somme_j_pm']
+                somme['somme_k_prj'] += compte['prj']
+                somme['pk'] += compte['pj']
+                somme['somme_k_qu'] += compte['somme_j_qu']
+                somme['somme_k_qv'] += compte['somme_j_qv']
+                somme['somme_k_qm'] += compte['somme_j_qm']
+                somme['somme_k_qrj'] += compte['qrj']
+                somme['qk'] += compte['qj']
+                somme['somme_k_om'] += compte['somme_j_om']
+                somme['somme_k_orj'] += compte['orj']
+                somme['ok'] += compte['oj']
+                somme['somme_k_nm'] += compte['somme_j_nm']
+                somme['somme_k_nrj'] += compte['nrj']
+                somme['nk'] += compte['nj']
+                somme['somme_k_lm'] += compte['somme_j_lm']
+                somme['somme_k_lr'] += compte['somme_j_lr']
+                somme['lk'] += compte['lj']
+                somme['somme_k_cm'] += compte['somme_j_cm']
+                somme['somme_k_cr'] += compte['somme_j_cr']
+                somme['ck'] += compte['cj']
+                somme['somme_k_wm'] += compte['somme_j_wm']
+                somme['somme_k_wr'] += compte['somme_j_wr']
+                somme['wk'] += compte['wj']
+                somme['somme_k_xm'] += compte['somme_j_xm']
+                somme['somme_k_xr'] += compte['somme_j_xr']
+                somme['xk'] += compte['xj']
         return spc
 
     @staticmethod
@@ -312,21 +343,13 @@ class Sommes(object):
                 somme['xt'] += som_cat['xk']
 
             cl = clients.donnees[code_client]
-            ebm = float(cl['emol_base_mens'])
-            ef = float(cl['emol_fixe'])
+            emb = float(cl['emol_base_mens'])
+            fix = float(cl['emol_fixe'])
             coef_a = float(cl['coef'])
-            sans_act = cl['emol_sans_activite']
-            somme['somme_eq'] = somme['pt'] + somme['qt']
-            somme['somme_sb'] = somme['pt'] + somme['qt'] + somme['ot']
-            somme['somme_t'] = somme['pt'] + somme['qt'] + somme['ot'] + somme['lt'] + somme['ct'] + somme['wt'] + \
-                               somme['xt']
-            somme['em'] = ebm
-            somme['er0'] = -round((min(ebm, max(0, ebm - ef - (coef_a - 1) * somme['somme_eq']))/10)*10, 0)
-            if ((sans_act == "ZERO") and (somme['somme_t'] == 0)) or ((sans_act == "NON") and (somme['somme_sb'] == 0)):
-                somme['er'] = somme['em']
-            else:
-                somme['er'] = somme['er0']
-            somme['e'] = somme['em'] - somme['er']
+            regle = cl['emol_sans_activite']
+            somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
+                Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
+                                    somme['xt'], emb, fix, coef_a, regle)
         return spc
 
     @staticmethod

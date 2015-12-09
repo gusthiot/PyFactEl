@@ -4,6 +4,7 @@ from interfaces import Interfaces
 from generaux import Generaux
 from edition import Edition
 from sommes import Sommes
+# from exportation import Exportation
 import sys
 
 
@@ -56,15 +57,15 @@ comptes.est_coherent(clients, coefmachines, coefprests, generaux)
 livraisons.calcul_montants(prestations, coefprests, comptes, clients)
 reservations.calcul_montants(machines, coefmachines, comptes, clients)
 acces.calcul_montants(machines, coefmachines, comptes, clients)
-
-spp = Sommes.sommes_par_projet(livraisons, reservations, acces, prestations)
-spco = Sommes.somme_par_compte(spp, comptes)
-spca = Sommes.somme_par_categorie(spco, comptes)
-spcl = Sommes.somme_par_client(spca, clients)
-
+spp = Sommes.sommes_par_projet(livraisons, reservations, acces, prestations, comptes)
 Sommes.afficher_somme_projet(spp, dossier_data, encodage, delimiteur)
+spco = Sommes.somme_par_compte(spp, comptes)
 Sommes.afficher_somme_compte(spco, dossier_data, encodage, delimiteur)
+spca = Sommes.somme_par_categorie(spco, comptes)
 Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
+spcl = Sommes.somme_par_client(spca, clients)
 Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
+
+# Exportation.factures(spcl, spco, dossier_data,encodage, delimiteur)
 
 Interfaces.log_erreur("OK !!!")
