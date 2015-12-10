@@ -27,11 +27,21 @@ class Sommes(object):
                              'somme_eq', 'somme_sb', 'somme_t', 'em', 'er0', 'er', 'e']
 
     @staticmethod
-    def nouveau_somme_projet():
-        somme_projet = {}
-        for cle in Sommes.cles_somme_projet:
-            somme_projet[cle] = 0
-        return somme_projet
+    def nouveau_somme(cles):
+        somme = {}
+        for cle in cles:
+            somme[cle] = 0
+        return somme
+
+    @staticmethod
+    def ordonner_keys_str_par_int(keys):
+        ordonne = []
+        for key in keys:
+            ordonne.append(int(key))
+        ordonne = sorted(ordonne)
+        for pos in range(0, len(ordonne)):
+            ordonne[pos] = str(ordonne[pos])
+        return ordonne
 
     @staticmethod
     def sommes_par_projet(livraisons, reservations, acces, prestations, comptes):
@@ -48,7 +58,7 @@ class Sommes(object):
             num_projet = acce['num_projet']
             compte = client[id_compte]
             if num_projet not in compte:
-                compte[num_projet] = Sommes.nouveau_somme_projet()
+                compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
             projet = compte[num_projet]
             projet['somme_p_pu'] += acce['pu']
             projet['somme_p_pm'] += acce['pu']
@@ -119,16 +129,6 @@ class Sommes(object):
         return spp
 
     @staticmethod
-    def ordonner_keys_str_par_int(keys):
-        ordonne = []
-        for key in keys:
-            ordonne.append(int(key))
-        ordonne = sorted(ordonne)
-        for pos in range(0, len(ordonne)):
-            ordonne[pos] = str(ordonne[pos])
-        return ordonne
-
-    @staticmethod
     def afficher_somme_projet(somme_projet, nom_dossier, encodage, delimiteur):
         csv_fichier = open(nom_dossier + "somme_projet.csv", 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
@@ -152,13 +152,6 @@ class Sommes(object):
                     fichier_writer.writerow([" "])
 
     @staticmethod
-    def nouveau_somme_compte():
-        somme_compte = {}
-        for cle in Sommes.cles_somme_compte:
-            somme_compte[cle] = 0
-        return somme_compte
-
-    @staticmethod
     def somme_par_compte(somme_par_projet, comptes):
         spc = {}
         for code_client, client in somme_par_projet.items():
@@ -167,7 +160,7 @@ class Sommes(object):
             cl = spc[code_client]
             for id_compte, compte in client.items():
                 cc = comptes.donnees[id_compte]
-                cl[id_compte] = Sommes.nouveau_somme_compte()
+                cl[id_compte] = Sommes.nouveau_somme(Sommes.cles_somme_compte)
                 somme = cl[id_compte]
                 for num_projet, projet in compte.items():
                     somme['somme_j_pu'] += projet['somme_p_pu']
@@ -227,13 +220,6 @@ class Sommes(object):
                 fichier_writer.writerow([" "])
 
     @staticmethod
-    def nouveau_somme_categorie():
-        somme_categorie = {}
-        for cle in Sommes.cles_somme_categorie:
-            somme_categorie[cle] = 0
-        return somme_categorie
-
-    @staticmethod
     def somme_par_categorie(somme_par_compte, comptes):
         spc = {}
         for code_client, client in somme_par_compte.items():
@@ -248,7 +234,7 @@ class Sommes(object):
                 client = spc[code_client]
 
                 if categorie not in client:
-                    client[categorie] = Sommes.nouveau_somme_categorie()
+                    client[categorie] = Sommes.nouveau_somme(Sommes.cles_somme_categorie)
                 somme = client[categorie]
 
                 somme['somme_k_pu'] += compte['somme_j_pu']
@@ -300,17 +286,10 @@ class Sommes(object):
                 fichier_writer.writerow([" "])
 
     @staticmethod
-    def nouveau_somme_client():
-        somme_client = {}
-        for cle in Sommes.cles_somme_client:
-            somme_client[cle] = 0
-        return somme_client
-
-    @staticmethod
     def somme_par_client(somme_par_categorie, clients):
         spc = {}
         for code_client, client in somme_par_categorie.items():
-            spc[code_client] = Sommes.nouveau_somme_client()
+            spc[code_client] = Sommes.nouveau_somme(Sommes.cles_somme_client)
             somme = spc[code_client]
             for categorie, som_cat in client.items():
                 somme['somme_t_pu'] += som_cat['somme_k_pu']
