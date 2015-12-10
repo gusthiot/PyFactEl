@@ -26,7 +26,7 @@ class Compte(Fichier):
 
         for donnee in self.donnees:
             if donnee['code_client'] == "":
-                msg += ""   # "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+                msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code_client'] not in codes:
                 codes.append(donnee['code_client'])
 

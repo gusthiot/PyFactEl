@@ -31,7 +31,7 @@ class Client(Fichier):
                 classes.append(donnee['id_classe_tarif'])
 
             if donnee['code'] == "":
-                msg += ""  # "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+                msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code'] not in self.codes:
                 self.codes.append(donnee['code'])
                 del donnee['annee']
