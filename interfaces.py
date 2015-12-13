@@ -17,7 +17,8 @@ class Interfaces(object):
     def choisir_dossier():
         fenetre = Tk()
         fenetre.title("Choix du dossier")
-        dossier = askdirectory(parent=fenetre, initialdir="/home/cgusthiot/Bureau", title='Choisissez un dossier de travail')
+        dossier = askdirectory(parent=fenetre, initialdir="/home/cgusthiot/Bureau",
+                               title='Choisissez un dossier de travail')
         fenetre.destroy()
         if dossier == "":
             Interfaces.log_erreur("Aucun dossier choisi")

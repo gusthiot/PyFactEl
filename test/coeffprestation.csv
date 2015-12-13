@@ -1,10 +1,13 @@
-2015;5;Id-Classe-Tarif;Intitulé classe de tarif;Catégorie-Prestation;Catégorie Prestation;Coefficient
-2015;5;2000;User EPFL;C;Consumables;1
-2015;5;2000;User EPFL;W;Labor costs;1
-2015;5;2000;User EPFL;X;Other fees;1
-2015;5;2100;User Acad. Ext. CH;C;Consumables;1.6
-2015;5;2100;User Acad. Ext. CH;W;Labor costs;1.5
-2015;5;2100;User Acad. Ext. CH;X;Other fees;1.35
-2015;5;2200;User Entr. CH;C;Consumables;1.6
-2015;5;2200;User Entr. CH;W;Labor costs;2
-2015;5;2200;User Entr. CH;X;Other fees;1.35
+2015;12;Id-Classe-Tarif;"Intitulé classe de tarif";Catégorie-Prestation;"Catégorie Prestation";Coefficient
+2015;12;2000;"User EPFL";W;"Labor costs";1
+2015;12;2100;"User Acad. Ext. CH";W;"Labor costs";1.5
+2015;12;2200;"User Entr. CH";W;"Labor costs";2
+2015;12;2000;"User EPFL";C;Consumables;1
+2015;12;2100;"User Acad. Ext. CH";C;Consumables;1.6
+2015;12;2200;"User Entr. CH";C;Consumables;1.6
+2015;12;2000;"User EPFL";X;"Frais Expéd.";1
+2015;12;2100;"User Acad. Ext. CH";X;"Frais Expéd.";1.35
+2015;12;2200;"User Entr. CH";X;"Frais Expéd.";1.35
+2015;12;2200;"User Entr. CH";L;"Occupation SB";1.6
+2015;12;2100;"User Acad. Ext. CH";L;"Occupation SB";1.6
+2015;12;2000;"User EPFL";L;"Occupation SB";0

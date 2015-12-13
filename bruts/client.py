@@ -47,6 +47,10 @@ class Client(Fichier):
                 msg + "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les types N\n"
 
+            if not((donnee['emol_sans_activite'] == "NON") or (donnee['emol_sans_activite'] == "ZERO") or
+                    (donnee['emol_sans_activite'] == "OUI")):
+                msg += "l'émolument à payer même sans activité de la ligne " + ligne + " doit valoir ZERO, NON ou OUI\n"
+
             ligne += 1
 
         self.donnees = donnees_dict

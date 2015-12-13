@@ -4,9 +4,8 @@ from interfaces import Interfaces
 from generaux import Generaux
 from edition import Edition
 from sommes import Sommes
-# from exportation import Exportation
+from exportation import Exportation
 import sys
-
 
 encodage = "ISO-8859-1"
 delimiteur = ';'
@@ -26,33 +25,51 @@ reservations = Reservation(dossier_data, delimiteur, encodage)
 
 generaux = Generaux(dossier_data, delimiteur, encodage)
 
-if (edition.version != '0') and (len(clients.donnees) > 1):
+verif = 0
+verif += acces.verification_date(edition.annee, edition.mois)
+verif += clients.verification_date(edition.annee, edition.mois)
+verif += coefmachines.verification_date(edition.annee, edition.mois)
+verif += coefprests.verification_date(edition.annee, edition.mois)
+verif += comptes.verification_date(edition.annee, edition.mois)
+verif += livraisons.verification_date(edition.annee, edition.mois)
+verif += machines.verification_date(edition.annee, edition.mois)
+verif += prestations.verification_date(edition.annee, edition.mois)
+verif += reservations.verification_date(edition.annee, edition.mois)
+
+if verif > 0:
+    sys.exit("Erreur dans les dates")
+
+verif += acces.est_coherent(comptes, machines)
+verif += reservations.est_coherent(comptes, machines)
+verif += livraisons.est_coherent(comptes, prestations)
+verif += machines.est_coherent(coefmachines)
+verif += prestations.est_coherent(generaux)
+verif += coefmachines.est_coherent()
+verif += coefprests.est_coherent()
+verif += clients.est_coherent(coefmachines, coefprests, generaux)
+
+
+clients_actifs = []
+for code in livraisons.obtenir_codes(comptes, prestations):
+    if code not in clients_actifs:
+        clients_actifs.append(code)
+for code in reservations.obtenir_codes(comptes, machines):
+    if code not in clients_actifs:
+        clients_actifs.append(code)
+for code in acces.obtenir_codes(comptes, machines):
+    if code not in clients_actifs:
+        clients_actifs.append(code)
+
+if (edition.version != '0') and (len(clients_actifs) > 1):
     Interfaces.log_erreur("Si version différente de 0, un seul client autorisé")
     sys.exit("Trop de clients pour version > 0")
 
-verif_dat = 0
-verif_dat += acces.verification_date(edition.annee, edition.mois)
-verif_dat += clients.verification_date(edition.annee, edition.mois)
-verif_dat += coefmachines.verification_date(edition.annee, edition.mois)
-verif_dat += coefprests.verification_date(edition.annee, edition.mois)
-verif_dat += comptes.verification_date(edition.annee, edition.mois)
-verif_dat += livraisons.verification_date(edition.annee, edition.mois)
-verif_dat += machines.verification_date(edition.annee, edition.mois)
-verif_dat += prestations.verification_date(edition.annee, edition.mois)
-verif_dat += reservations.verification_date(edition.annee, edition.mois)
+verif += comptes.est_coherent(clients, coefmachines, coefprests, generaux, clients_actifs)
 
-if verif_dat > 0:
-    sys.exit("Erreur dans les dates")
+if verif > 0:
+    sys.exit("Erreur dans la cohérence")
 
-acces.est_coherent(comptes, machines)
-reservations.est_coherent(comptes, machines)
-livraisons.est_coherent(comptes, prestations)
-machines.est_coherent(coefmachines)
-prestations.est_coherent(generaux)
-coefmachines.est_coherent()
-coefprests.est_coherent()
-clients.est_coherent(coefmachines, coefprests, generaux)
-comptes.est_coherent(clients, coefmachines, coefprests, generaux)
+
 
 livraisons.calcul_montants(prestations, coefprests, comptes, clients)
 reservations.calcul_montants(machines, coefmachines, comptes, clients)
@@ -66,6 +83,6 @@ Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
 spcl = Sommes.somme_par_client(spca, clients)
 Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
 
-# Exportation.factures(spcl, spco, dossier_data,encodage, delimiteur)
+Exportation.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
 
 Interfaces.log_erreur("OK !!!")

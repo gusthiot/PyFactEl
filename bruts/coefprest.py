@@ -5,7 +5,6 @@ from interfaces import Interfaces
 class CoefPrest(Fichier):
     """coefficient de prestations"""
 
-
     def __init__(self, nom_dossier, delimiteur, encodage):
         cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
         nom_fichier = "coeffprestation.csv"

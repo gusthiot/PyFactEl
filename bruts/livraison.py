@@ -12,6 +12,12 @@ class Livraison(Fichier):
         nom_fichier = "lvr.csv"
         libelle = "Livraison Prestations"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+        self.codes = []
+
+    def obtenir_codes(self, comptes, prestations):
+        if len(self.codes) == 0:
+            self.est_coherent(comptes, prestations)
+        return self.codes
 
     def est_coherent(self, comptes, prestations):
         msg = ""
@@ -31,6 +37,9 @@ class Livraison(Fichier):
             if prestations.contient_id(donnee['id_prestation']) == 0:
                 msg += "le prestation id '" + donnee['id_prestation'] + "' de la ligne " + ligne +\
                        " n'est pas référencé\n"
+
+            if donnee['code_client'] not in self.codes:
+                self.codes.append(donnee['code_client'])
 
             del donnee['annee']
             del donnee['mois']

@@ -7,24 +7,24 @@ class Sommes(object):
     """ métodes de claculs des sommes"""
 
     cles_somme_projet = ['somme_p_pu', 'somme_p_pv', 'somme_p_pm', 'somme_p_qu', 'somme_p_qv', 'somme_p_qm',
-                             'somme_p_om', 'somme_p_nm', 'somme_p_lm', 'somme_p_lr', 'lp', 'somme_p_cm', 'somme_p_cr',
-                             'cp', 'somme_p_wm', 'somme_p_wr', 'wp', 'somme_p_xm', 'somme_p_xr', 'xp']
+                         'somme_p_om', 'somme_p_nm', 'somme_p_lm', 'somme_p_lr', 'lp', 'somme_p_cm', 'somme_p_cr',
+                         'cp', 'somme_p_wm', 'somme_p_wr', 'wp', 'somme_p_xm', 'somme_p_xr', 'xp']
 
     cles_somme_compte = ['somme_j_pu', 'somme_j_pv', 'somme_j_pm', 'prj', 'pj', 'somme_j_qu', 'somme_j_qv',
-                             'somme_j_qm', 'qrj', 'qj', 'somme_j_om', 'orj', 'oj', 'somme_j_nm', 'nrj', 'nj',
-                             'somme_j_lm', 'somme_j_lr', 'lj', 'somme_j_cm', 'somme_j_cr', 'cj', 'somme_j_wm',
-                             'somme_j_wr', 'wj', 'somme_j_xm', 'somme_j_xr', 'xj', 'si_facture']
+                         'somme_j_qm', 'qrj', 'qj', 'somme_j_om', 'orj', 'oj', 'somme_j_nm', 'nrj', 'nj',
+                         'somme_j_lm', 'somme_j_lr', 'lj', 'somme_j_cm', 'somme_j_cr', 'cj', 'somme_j_wm',
+                         'somme_j_wr', 'wj', 'somme_j_xm', 'somme_j_xr', 'xj', 'si_facture']
 
     cles_somme_categorie = ['somme_k_pu', 'somme_k_pv', 'somme_k_pm', 'somme_k_prj', 'pk', 'somme_k_qu',
-                                'somme_k_qv', 'somme_k_qm', 'somme_k_qrj', 'qk', 'somme_k_om', 'somme_k_orj', 'ok',
-                                'somme_k_nm', 'somme_k_nrj', 'nk', 'somme_k_lm', 'somme_k_lr', 'lk', 'somme_k_cm',
-                                'somme_k_cr', 'ck', 'somme_k_wm', 'somme_k_wr', 'wk', 'somme_k_xm', 'somme_k_xr', 'xk']
+                            'somme_k_qv', 'somme_k_qm', 'somme_k_qrj', 'qk', 'somme_k_om', 'somme_k_orj', 'ok',
+                            'somme_k_nm', 'somme_k_nrj', 'nk', 'somme_k_lm', 'somme_k_lr', 'lk', 'somme_k_cm',
+                            'somme_k_cr', 'ck', 'somme_k_wm', 'somme_k_wr', 'wk', 'somme_k_xm', 'somme_k_xr', 'xk']
 
     cles_somme_client = ['somme_t_pu', 'somme_t_pv', 'somme_t_pm', 'somme_t_prj', 'pt', 'somme_t_qu',
-                                'somme_t_qv', 'somme_t_qm', 'somme_t_qrj', 'qt', 'somme_t_om', 'somme_t_orj', 'ot',
-                                'somme_t_nm', 'somme_t_nrj', 'nt', 'somme_t_lm', 'somme_t_lr', 'lt', 'somme_t_cm',
-                                'somme_t_cr', 'ct', 'somme_t_wm', 'somme_t_wr', 'wt', 'somme_t_xm', 'somme_t_xr', 'xt',
-                             'somme_eq', 'somme_sb', 'somme_t', 'em', 'er0', 'er', 'e']
+                         'somme_t_qv', 'somme_t_qm', 'somme_t_qrj', 'qt', 'somme_t_om', 'somme_t_orj', 'ot',
+                         'somme_t_nm', 'somme_t_nrj', 'nt', 'somme_t_lm', 'somme_t_lr', 'lt', 'somme_t_cm',
+                         'somme_t_cr', 'ct', 'somme_t_wm', 'somme_t_wr', 'wt', 'somme_t_xm', 'somme_t_xr', 'xt',
+                         'somme_eq', 'somme_sb', 'somme_t', 'em', 'er0', 'er', 'e']
 
     @staticmethod
     def nouveau_somme(cles):
@@ -80,7 +80,7 @@ class Sommes(object):
             num_projet = reservation['num_projet']
             compte = client[id_compte]
             if num_projet not in compte:
-                compte[num_projet] = Sommes.nouveau_somme_projet()
+                compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
             projet = compte[num_projet]
             projet['somme_p_pv'] += reservation['pv']
             projet['somme_p_pm'] += reservation['pv']
@@ -100,7 +100,7 @@ class Sommes(object):
             num_projet = livraison['num_projet']
             compte = client[id_compte]
             if num_projet not in compte:
-                compte[num_projet] = Sommes.nouveau_somme_projet()
+                compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
             projet = compte[num_projet]
 
             id_prestation = livraison['id_prestation']
@@ -328,7 +328,7 @@ class Sommes(object):
             regle = cl['emol_sans_activite']
             somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
                 Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
-                                    somme['xt'], emb, fix, coef_a, regle)
+                                        somme['xt'], emb, fix, coef_a, regle)
         return spc
 
     @staticmethod

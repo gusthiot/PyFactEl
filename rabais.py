@@ -6,7 +6,7 @@ class Rabais(object):
     def rabais_reservation(drsf, supp, shp, shc):
         if drsf == 0:
             return 0, 0
-        else :
+        else:
             k = max(0, min(1, (1-supp / drsf)))
             fhp = round(k * shp, 0)
             fhc = round(k * shc, 0)

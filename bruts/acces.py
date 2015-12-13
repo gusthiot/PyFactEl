@@ -5,7 +5,6 @@ from interfaces import Interfaces
 class Acces(Fichier):
     """Contrôle Accès Equipement"""
 
-
     def __init__(self, nom_dossier, delimiteur, encodage):
         cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
                 'prenom_user', 'num_projet', 'intitule_projet', 'id_machine', 'nom_machine', 'date_login',
@@ -14,6 +13,12 @@ class Acces(Fichier):
         nom_fichier = "cae.csv"
         libelle = "Contrôle Accès Equipement"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+        self.codes = []
+
+    def obtenir_codes(self, comptes, machines):
+        if len(self.codes) == 0:
+            self.est_coherent(comptes, machines)
+        return self.codes
 
     def est_coherent(self, comptes, machines):
         msg = ""
@@ -30,6 +35,9 @@ class Acces(Fichier):
                 msg += "le machine id de la ligne " + ligne + " ne peut être vide\n"
             elif machines.contient_id(donnee['id_machine']) == 0:
                 msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + ligne + " n'est pas référencé\n"
+
+            if donnee['code_client'] not in self.codes:
+                self.codes.append(donnee['code_client'])
 
             del donnee['annee']
             del donnee['mois']

@@ -1,281 +1,274 @@
-2015;5;Code Client;Abrev. Labo;Nom Labo;Référence de facture spécifique au client;Destinataire;Type Labo;Émolument à payer même sans activité;Émolument de base mensuel;Émolument fixe;Coefficient A;Id-Classe-Tarif;Intitulé classe de tarif
-2015;5;100609;EXT-POLIMI;Politecnico di Milano ;;Dipartimento  Chimica Materiali e;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;101225;EXT-FEMTO-LPMO;Institut FEMTO-ST LPMO;;Département de Physique et;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;101329;EXT-UNI-BOSTON;Boston University;;Departement of Electricial and Computer Engineering;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;101397;EXT-UNISEVILLA;Universidad de Sevilla;;C/ San Fernando, 4;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;101431;EXT-CNRS-Gamby;CNRS UPR 15;;Laboratoire Interfaces et Systèmes Electrochimiques (LISE);A;NON;0;0;1;2100;User Acad. Ext
-2015;5;101772;EXT-Flowdit;FLOWDIT;;M. Gabriel Giovannelli;E;NON;2000;500;2;2200;User Entr.
-2015;5;102080;EXT-Thales;Thales Systèmes Aéroportés;;Monsieur Pierre NICOLE;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;102575;EXT-SilMach;SilMach SA;;Bâtiment USITECH;E;NON;2000;500;2;2200;User Entr.
-2015;5;103035;EXT-UNI-ST-ETIENNE;Laboratoire TSI UMR CNRS 5516;;A l'att. de M. Yves Jourlin;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;103131;EXT-FEMTO-ST-MIMU;Institut FEMTO-ST Equipe : MIMU;;Département Micro Nano Sciences & Systèmes;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;103131;EXT-LMN-AC-Besancon;LMN-AC;;UFR ST;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;103458;EXT-UNI-SOUTHAMPTON;University of Southampton;;School of Electronics and Computer Science Highfield;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;103518;EXT-SAES-Group;Dr. Sara Guadagnuolo, Senior Scientist;;Vacuum Technolog. & Thin Films lab;E;NON;2000;500;2;2200;User Entr.
-2015;5;103990;EXT-Tronics;TRONIC'S Microsystems;;A l'att. de Philippe AZOLEY;E;NON;2000;500;2;2200;User Entr.
-2015;5;104099;EXT-Senseor;SENSeOR S.A.S.;;"Parc de Haute Technologie ""Font de l'Orme""";E;NON;2000;500;2;2200;User Entr.
-2015;5;104192;EXT-Siltronix;SIL'TRONIX Silicon Technologies;;Nathalie THOMAS, Back end Manager;E;NON;2000;500;2;2200;User Entr.
-2015;5;104334;EXT-CEA-Valduc;CEA Valduc;;Bureau Financier;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;105844;EXT-FEMTO-DMA;Institut FEMTO-ST DMA;;Département Mécanique Appliquée;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;106033;EPM;Ecole Polytechnique de Montréal;;A l'attention d'Yves-Alain Peter;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;106293;EXT-SILSEF;SILSEF SAS;;382, Rue Louis Rustin;E;NON;2000;0;1;2200;User Entr.
-2015;5;200036;EXT-IR-Microsystems;IR-Microsystems SA;;Parc scientifique de l' EPFL;E;NON;2000;500;2;2200;User Entr.
-2015;5;200090;EXT-HESVS;HES-SO Valais;;Institut Systèmes industriels;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200118;EXT-Rolex;ROLEX SA;;Département Achat;E;NON;2000;500;2;2200;User Entr.
-2015;5;200125;EXT-Microflow;EP Systems SA;;Microflow Division;E;NON;2000;500;2;2200;User Entr.
-2015;5;200126;EXT-CSEM_E1;CSEM SA E1;;A l'attention de Karlen;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_N1;CSEM SA N1;;A l'attention de Raphaël Pugin;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_N2;CSEM SA N2;;A l'attention de Ross Stanley;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_T1;CSEM SA T1;;A l'attention d'Olivier Dubochet;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_T2;CSEM SA T2;;A l'attention de Philippe Niedermann;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_T3;CSEM SA T3;;A l'attention de Mireille Leboeuf;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200126;EXT-CSEM_V1;CSEM SA V1;;A l'attention de Julien Bailat;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200139;EXT-UNIGE-Sciences;Université de Genève - Sciences III;;Groupe du Prof.  Halazonetis;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200199;EXT-CERN;CERN;;Alessandro Mapelli;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200485;EXT-Asulab;The Swatch Group R&D SA;;Divison Asulab;E;NON;2000;500;2;2200;User Entr.
-2015;5;200494;EXT-UNINE;University of Neuchâtel;;Institut de microtechnique;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200615;EXT-Colibrys;Colibrys (Switzerland) Ltd;;Secrétariat;E;NON;2000;500;2;2200;User Entr.
-2015;5;200665;EXT-CSEM_Alpnach;CSEM SA Alpnach;;A l'attention de Sandra Giudice;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200667;EXT-UNIL_vanderMeer;UNIL - Lausanne;;Groupe du Prof. Jan Roelof van der Meer;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200676;EXT-Debiotech;DEBIOTECH SA;;Secrétariat;E;NON;2000;500;2;2200;User Entr.
-2015;5;200704;EXT-UNIGE-DPMC;Université de Genève, DPMC;;A l'attention du Prof. Patrycja Paruch;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;200890;EXT-HEIG-VD;HEIG-VD;;Comptabilité CeTT;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;201144;EXT-UniFribourg-Sche;University of Fribourg - Off. 1.55;;Prof. Frank SCHEFFOLD ;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;201541;EXT-UNIBE;University of Berne;;ARTORG Center, Medical Faculty;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;201972;EXT-MicroChemical;MicroChemical Systems SA;;Rue de Porcena 15;E;NON;2000;500;2;2200;User Entr.
-2015;5;201989;EXT-HEARC;Haute Ecole ARC Ingénierie;;A l'att. d'Alexandra Kaempfer-Homsy;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;202109;EXT-IBM;IBM Research GmbH;;Zürich Research Laboratory;E;NON;2000;500;2;2200;User Entr.
-2015;5;202588;EXT-Leister;LEISTER Process Technologies;;Microsystems Division;E;NON;2000;500;2;2200;User Entr.
-2015;5;203055;EXT-Nanoworld;Nanoworld Technologies GmbH ;;Rue Jaquet-Droz 1;E;NON;2000;500;2;2200;User Entr.
-2015;5;203216;EXT-Karmic;Karmic Sàrl;;M. Stephan GAMPER;E;NON;2000;500;2;2200;User Entr.
-2015;5;203426;EXT-ISI;INNOVATIVE SILICON ISI SA;;Parc scientifique de l' EPFL;E;NON;2000;500;2;2200;User Entr.
-2015;5;204136;EXT-UNI-ZH;University Hospital Zurich;;Biomedical Optics Research Laboratory;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;205461;EXT-HUG;Université de Genève CMU;;Département de Chirurgie;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;205755;EXT-Orthofil;ORTHOFIL Sàrl;;M. Thomas Steinmann;E;NON;2000;500;2;2200;User Entr.
-2015;5;206115;EXT-Adv-Silicon;Advanced Silicon SA;;A l'att . de M. Dr. H. Ballan;E;NON;2000;500;2;2200;User Entr.
-2015;5;206170;EXT-Bruker;BRUKER BIOSPIN AG;;Industriestrasse 26;E;NON;2000;500;2;2200;User Entr.
-2015;5;206171;EXT-PhM;Philip Morris International Management SA;;A l'att. de Chee Joong Ng;E;NON;2000;500;2;2200;User Entr.
-2015;5;206435;EXT-Eurmicros;Eurmicros Headquarters;;Siewardstrasse 105;E;NON;2000;500;2;2200;User Entr.
-2015;5;206746;EXT-Icoflex;IcoFlex Sàrl;;Dr Dominique Solignac;E;NON;2000;500;2;2200;User Entr.
-2015;5;206750;EXT-idQ;id Quantique SA;;A l'att. de M. Alexis Rochas;E;NON;2000;500;2;2200;User Entr.
-2015;5;207046;EXT-Gersteltec;GERSTELTEC Sàrl;;A l'att. du Dr. Moshe P. Judelewicz;E;NON;2000;500;2;2200;User Entr.
-2015;5;207929;EXT-Nickel Chrome;NICKEL CHROME Sàrl;;A l'att. de M. David GHIDONI;E;NON;2000;500;2;2200;User Entr.
-2015;5;208026;EXT-Atracsys;ATRACSYS Sarl;;Advanced Tracking Systems;E;NON;2000;500;2;2200;User Entr.
-2015;5;208048;EXT-Idonus;IDONUS Sàrl;;A l'att. de M. Christian Spoerl;E;NON;2000;500;2;2200;User Entr.
-2015;5;208105;EXT-Intersema;INTERSEMA SENSORIC SA;;Ch. Chapons-des-Près 11;E;NON;2000;500;2;2200;User Entr.
-2015;5;208244;EXT-Nivarox;Nivarox;;Avenue du Collège 10;E;NON;2000;500;2;2200;User Entr.
-2015;5;208455;EXT-Microsens;Microsens SA;;A l'attention d'Alain Grisel;E;NON;2000;500;2;2200;User Entr.
-2015;5;208960;EXT-UniBas;University of Basel;;Department of Physics;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;208965;EXT-Sensirion;Sensirion AG;;;E;NON;2000;500;2;2200;User Entr.
-2015;5;209609;EXT-Sigatec;SIGATEC SA;;Rue des Iles 20;E;NON;2000;500;2;2200;User Entr.
-2015;5;209762;EXT-Microcrystal;MICRO CRYSTAL AG;;A l'att. de H.-C. Schneider;E;NON;2000;500;2;2200;User Entr.
-2015;5;209833;EXT-Biocartis;BIOCARTIS SA;;EPFL - Quartier de l'Innovation;E;NON;2000;500;2;2200;User Entr.
-2015;5;209841;EXT-EXALOS;EXALOS AG;;Wagistrasse 21;E;NON;2000;500;2;2200;User Entr.
-2015;5;210385;EXT-Synova;Synova SA Innovative Laser Systems;;Chemin de la Dent d' Oche;E;NON;2000;500;2;2200;User Entr.
-2015;5;210924;EXT-Hamamatsu;Hamamatsu Photonics;;Dornacherplatz 7;E;NON;2000;500;2;2200;User Entr.
-2015;5;211260;EXT-LMA-Urology;LMA Urology Suisse S.A.;;Le Grand Atrium;E;NON;2000;500;2;2200;User Entr.
-2015;5;211353;EXT-MCH-processing;Cyrille Hibert;;MCH-processing;E;NON;2000;0;1;2200;User Entr.
-2015;5;211405;EXT-Lemoptix;Lemoptix SA;;Parc Scientifique de l'EPFL ;E;NON;2000;500;2;2200;User Entr.
-2015;5;211491;EXT-Sensimed;Sensimed AG;;A l'att. de Raphaël Fritschi;E;NON;2000;500;2;2200;User Entr.
-2015;5;211494;EXT-TEL-Solar-Lab;TEL Solar-Lab SA;;A l'att. de Xavier Multone;E;NON;2000;500;2;2200;User Entr.
-2015;5;213439;EXT-Microdiamant;Microdiamant AG;;A l'attention de M. Christian Jentgens;E;NON;2000;500;2;2200;User Entr.
-2015;5;213630;EXT-Novagan;Novagan sàrl;;Chemin de Mornex 5;E;NON;2000;500;2;2200;User Entr.
-2015;5;213745;EXT-Aleva;Aleva Neurotherapeutics SA ;;Parc Scientifique de l'EPFL ;E;NON;2000;500;2;2200;User Entr.
-2015;5;213793;EXT-Abionic;ABIONIC SA;;Parc Scientifique de l'EPFL - PSE B;E;NON;2000;500;2;2200;User Entr.
-2015;5;214039;EXT-ValFleurier;Manufacture Horlogère ValFleurier;;Branch of Richemont International SA;E;NON;2000;500;2;2200;User Entr.
-2015;5;214507;EXT-Qwane;QWANE Biosciences;;Parc scientifique de l' EPFL;E;NON;2000;500;2;2200;User Entr.
-2015;5;214635;EXT-Sercalo;SERCALO microtechnology ltd.;;Landstrasse 151;E;NON;2000;500;2;2200;User Entr.
-2015;5;214762;EXT-Axetris;Axetris AG;;Buchhaltung;E;NON;2000;500;2;2200;User Entr.
-2015;5;215640;EXT-FORIMTECH;FORIMTECH S.A.;;A l'att. de Mme Iris Desforges;E;NON;2000;500;2;2200;User Entr.
-2015;5;216684;EXT-Meister-Abrasive;Meister Abrasives;;A l'att. de Carmine Sileno;E;NON;2000;500;2;2200;User Entr.
-2015;5;217219;EXT-Nanolive;Nanolive SA;;A l att. de Sebastien Equis;E;NON;2000;0;1;2200;User Entr.
-2015;5;217345;EXT-LémanMicro;Léman Micro Devices SA;;Dr. Shady Gawad;E;NON;2000;500;2;2200;User Entr.
-2015;5;217480;EXT-LSPR;LSPR AG;;A l'att. de M. Benedikt Oswald;E;NON;2000;500;2;2200;User Entr.
-2015;5;218040;EXT-Mackinac;Mackinac MicroOptics SA;;A l'att. de K. J. Weible;E;NON;2000;500;2;2200;User Entr.
-2015;5;219269;SB-ICMP-LPQM1;EPFL SB ICMP LPQM1;;Groupe du Prof. Tobias Kippenberg;I;NON;0;0;1;2000;User EPFL
-2015;5;; STI-IBI-LBP ;EPFL STI IBI-STI LBP ;;Groupe du prof. Sylvie Roke;I;NON;0;0;1;2000;User EPFL
-2015;5;;CDM-TPI-CGSE;EPFL CDM TPI CGSE;;Groupe du Prof. Hans Björn Püttgen;I;NON;0;0;1;2000;User EPFL
-2015;5;;CMI;CMI;;BM 1.124 (Bâtiment BM);I;NON;0;0;1;2000;User EPFL
-2015;5;;CMI-AZ;CMI-AZ;;BM 1.132;I;NON;0;0;1;2000;User EPFL
-2015;5;;CMI-LEMOPTIX;CMI-Lemoptix;;BM 1.124;I;NON;0;0;1;2000;User EPFL
-2015;5;;CMI-SECR;CMI-Secrétariat;;BM 1.124 (Bâtiment BM);I;NON;0;0;1;2000;User EPFL
-2015;5;;CMi-TP;CMi-TP;;BM 1.126;I;NON;0;0;1;2000;User EPFL
-2015;5;;ENAC-IA-LIV;EPFL ENAC IA LIV;;Groupe du Prof. Georges Abou Jaoudé;I;NON;0;0;1;2000;User EPFL
-2015;5;;ENAC-IIC-LESO-PB;EPFL ENAC IIC LESO-PB;;Groupe du Prof. Jean-Louis Scartezzini;I;NON;0;0;1;2000;User EPFL
-2015;5;;ENAC-IIE-DISAL;EPFL ENAC IIE DISAL;;Groupe du Prof. Alcherio Martinoli;I;NON;0;0;1;2000;User EPFL
-2015;5;;EPFL-ENAC-IIC-LMR;EPFL ENAC IIC LMR;;Groupe du Prof. Jian Zhao;I;NON;0;0;1;2000;User EPFL
-2015;5;;EPFL-Valais-LEPA;EPFL-Valais LEPA;;Campus de Chimie Energypolis;I;NON;0;0;1;2000;User EPFL
-2015;5;;EXT-Aïmago;Aïmago SA;;A l'attention de Michael Friedrich;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Almatech;Almatech Sàrl ;;A l'attention de Cottard Hervé  ;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Alpsitec;ALPSITEC;;M. Marc Peltier ;E;NON;0;0;1;2200;User Entr.
-2015;5;;EXT-Aptasic;Aptasic SA;;Rte de la Gare 55a ;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Attolight;Attolight AG;;Parc Scientifique de l'EPFL;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Audemars;AUDEMARS PIGUET;;Manufacture de l'Horlogerie;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-BASF;BASF Schweiz AG;;GM/IT, R-1059.2.12;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-BNB-Concept;BNB Concept SA;;13, Route de Genolier;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Burkert;BÜRKERT SAS;;Rue du Giessen;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-CCAT;CCAT;;Dr R. Apter;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-CEA-Thuillier;CEA, Centre DAM-Ile de France;;Dép. sécurité, protection, gestion Servie finances,;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-CERN-Alpha;CERN Alpha;;ALPHA Collaboration (TRIUMF);A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-Crystal;EXT-Crystal;;PASSIF !!!;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-EMMicroelectroni;EM Microelectronic - Marin SA;;Swatch Group Electronic Systems;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-EMPA;EMPA;;Zentraler Rechnungseingang;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-Esiee;ESIEE Paris Cité Descartes;;Service SMM;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-ETHZ;ETH Zurich;;;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-ETHZ-Basel;ETH Zürich;;D-BSSE, WRO-1058, Colette Bichsel;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-ETHZ-Lee;ETH Zurich, D-BSSE;;A l'att. de Reto Schoch;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-ETHZ-Roesgen;ETH Zentrum;;Prof. Dr. Thomas Rösgen;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-ETR-TEST;Entrepr. Etr. test;;test;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Flexcell;VHF-Technologies SA;;« Flexcell »;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Houston;Houston Methodist Research Institute;;The Department of Nanomedicine ;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-Imina;Imina Technologie Sàrl ;;A l'att. de M. Dobrzynski;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-INTEL;Intel Semiconductor AG;;Attn: Accounts Payable;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-ITU;Istanbul Technical University;;School of Mechanical Engineering;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-LNE-Thuillier;Laboratoire national de métrologie et d'essais;;A l'att. de Gaël THUILLIER;E;NON;0;0;1;2200;User Entr.
-2015;5;;EXT-Lunaphore;Lunaphore Technologies SA;;EPFL Innovation Park;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-Metas;METAS;;Lindenweg 50;E;NON;0;0;1;2200;User Entr.
-2015;5;;EXT-Mics;EXT-Mics;;PASSIF !!!;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Morphotonix;Morphotonix;;EPFL Innovation Park;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-Patek;Patek Philippe Technologies SA;;A l'att. de M. Guillot;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-PoliTorino;Politecnico di Torino;;Dipartimento di Elettronica;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-PSI;Paul Scherrer Institut;;Laboratory for Micro- and Nanotechnology VILLA;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-SICPA;SICPA Security Solutions SA;;A l'att. de Benedicte GALEA;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-SiliconBiosystem;Silicon Biosystems S.p.A.;;Via dei Lapidari, 12;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Soitec;SOITEC SA;;Parc technologique des Fontaines;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-Spinomix;SPINOMIX SA;;PSE C;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-StettlerSapphire;Stettler Sapphire AG;;A l'att. d'Alexis Bernard;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-SwissNanoCoat;Swiss Nano Coat;;A l'att. de Serguei Mikhailov;E;NON;2000;0;1;2200;User Entr.
-2015;5;;EXT-ThermoFisher;Thermo Fisher Scientific;;En Vallaire Ouest C - Case postale;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-Unaxis;EXT-Unaxis;;PASSIF !!!;E;NON;2000;500;2;2200;User Entr.
-2015;5;;EXT-UNI-BARCELONA;Dpto. Nanotechnologia;;Centro National de Microelectronica;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNI-Space;Space Research and Planetary Sciences Division;;University of Bern;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIBE-Phys.;Université de Berne;;Institut für Physiologie;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UniFribourg;University of Fribourg;;Prof. Simon Sprecher;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIGE-Decroux;Université de Genève, DPMC, Prof Decroux;;A l'att. du Prof. Michel Decroux;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIGE-GAP;Université de Genève, GAP;;GAP-Optique ;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIGE-PHD;Université de Genève, Physic Department;;A l'att. du Prof. Renner;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIGE-ScienceII;University of Geneva - Science II;;Prof. Dr. Kaori Sugihara;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;EXT-UNIL_Martin;UNIL Lausanne;;Groupe du Prof. Sophie Martin;A;NON;0;0;1;2100;User Acad. Ext
-2015;5;;IC-ISIM-LAP;EPFL-IC-ISIM-LAP;;Groupe du Prof. Paolo Ienne;I;NON;0;0;1;2000;User EPFL
-2015;5;;IC-ISIM-LSI1;IC ISIM LSI1;;Groupe du Prof. Giovanni De Micheli;I;NON;0;0;1;2000;User EPFL
-2015;5;;IC-ISIM-LSP;EPFL IC ISIM LSP;;Groupe du Prof. Roger Hersch;I;NON;0;0;1;2000;User EPFL
-2015;5;;IV-CEN;EPFL IV CEN;;Groupe du Prof. Hans Björn Püttgen;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-CIME;EPFL-SB-CIME-GE;;Groupe du Prof. Cécile Hebert;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-EPSL;EPFL SB ICMP EPSL;;Groupe du Prof. Philippe Gillet;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-GE;EPFL SB ICMP-GE ;;A l'attention du Prof. Nicolas Grandjean;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LASPE;EPFL SB ICMP LASPE;;Groupe du Prof. Nicolas Grandjean;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LNS;EPFL SB ICMP LNS;;Groupe du Prof. H. Brune;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LNSD;EPFL SB ICMP LNSD ;;Groupe du Prof. Mathias Kläui;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LOEQ;EPFL SB ICMP LOEQ;;Groupe du Prof. Benoît Deveaud-Plédran;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LPMC;EPFL SB ICMP LPMC;;Groupe du Prof. Laszlo Forro;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LPMN;EPFL SB ICMP LPMN;;Groupe du Prof. Jean-Philippe Ansermet;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LPN;EPFL SB ICMP LPN;;Groupe du Prof. Elyahou Kapon;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LQM;EPFL SB ICMP LQM ;;Groupe du Prof. Henrik Rønnow;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LSE;EPFL SB ICMP LSE ;;Groupe du Prof. Giorgio Margaritondo;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ICMP-LUMES;EPFL SB ICMP LUMES ;;Groupe du Prof. Fabrizio Carbone;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPEP-LPHE1;EPFL-SB-IPEP-LPHE1;;Groupe du Prof. Aurélio Bay;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPEQ-LPDS;SB-IPEQ-LPDS;;PASSIF !!!;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPSB-LCB;EPFL SB IPSB LCB;;Groupe du Prof. Jean-Jacques Meister;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPSB-LEB;EPFL SB IPSB LEB  ;;Groupe du Prof. Manley Suliana ;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPSB-LIFMET;EPFL SB IPSB LIFMET;;Groupe du Prof. Rolf Gruetter;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-IPSB-LPMV;EPFL SB IPSB LPMV;;Groupe du Prof. Giovanni Dietler;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-GE;EPFL SB ISIC-GE;;Groupe du Prof. Dyson Paul Joseph;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LCOM;EPFL SB ISIC LCOM ;;Groupe du Prof. Paul Joseph Dyson;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LCPM;EPFL SB ISIC LCPM;;Groupe du Prof. Thomas Rizzo;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LCPPM;EPFL SB ISIC LCPPM;;Groupe du Prof. Horst Vogel;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LGCB;EPFL-SB-ISIC-LGCB;;Groupe du Prof. Urs von Stockar;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LIMNO;EPFL SB ISIC LIMNO ;;Groupe du Prof. Kevin Sivula;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LIP;EPFL SB ISIC LIP ;;Groupe du Prof. Kai Johnsson;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LNB;EPFL SB ISIC LNB;;Groupe du Prof. Ardemis Boghossian;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LPDC;EPFL SB ISIC LPDC ;;Groupe du Prof. Jeremy Luterbacher;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LPI;EPFL SB ISIC LPI;;Groupe du Prof. Michaël Gräzel;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LSCI;EPFL SB ISIC LSCI ;;Groupe du Prof. Xile Hu;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LSPM;EPFL SB ISIC LSPM;;Groupe du Prof. Ulf Anders Hagfeldt;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-LSU;EPFL SB ISIC LSU;;Groupe du Prof. Majed Chergui;I;NON;0;0;1;2000;User EPFL
-2015;5;;SB-ISIC-SCI-MN;EPFL SB ISIC SCI MN;;Groupe du Prof. Paul Joseph Dyson;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-CBT-LBO;EPFL STI CBT LBO;;Groupe du Prof. Dominique Pioletti;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-BIOS;EPFL STI IBI BIOS;;Groupe du Prof. Hatice Altug ;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-CLSE;EPFL STI IBI CLSE;;Groupe du Prof. Carlotta Guiducci;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-CNBI;EPFL STI IBI CNBI;;Groupe du Prof. José del R. Millán;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-LBEN;EPFL STI IBI LBEN;;Groupe du Prof. Aleksandra Radenovic;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-LBNC;EPFL STI IBI LBNC;;Groupe du Prof. Sebastian Maerkl;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-LBNI;EPFL STI IBI LBNI;;Groupe du Prof. Georg Fantner;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-LBP;EPFL STI IBI LBP;;Groupe du Prof. Sylvie Roke;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-LHTC;EPFL STI IBI LHTC;;Groupe du Prof. Nikolaos Stergiopulos;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IBI-TNE;EPFL STI IBI TNE;;Groupe du Prof. Silvestro Micera;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-ESL;EPFL STI IEL ESL;;Groupe du Prof. David Atienza Alonso;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-GR-JPC;EPFL STI IEL GR-JPC;;Groupe du Prof. Julien Perruisseau-Carrier;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-GR-SCI;EPFL STI IEL GR-SCI;;A l'att. de M. Jean-Michel Sallèse;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-LANES;EPFL STI IEL LANES;;Groupe du Prof. Andreas Kis;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-LEMA;EPFL STI IEL LEMA;;Groupe du Prof. Juan Ramon Mosig;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-LSM;EPFL STI IEL LSM;;Groupe du Prof. Yusuf Leblebici;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-NANOLAB;EPFL STI IEL NANOLAB;;Groupe du Prof. Mihai Adrian Ionescu;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-NANOMEMS;EPFL STI IEL NANOLAB MEMS;;Groupe du Prof. Mihai Adrian Ionescu;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-PHOSL;EPFL STI IEL PHOSL;;Groupe du Prof. Camille Sophie Brès;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IEL-POWERLAB;EPFL STI IEL POWERLAB;;Groupe du Prof. Elison Matioli ;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGBM-LRO;EPFL STI IGBM LRO;;Groupe du Prof. Dominique Pioletti;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LAMD;EPFL STI IGM LAMD ;;Groupe du Prof. Jürg Alexander Schiffmann;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LCSM;EPFL STI IGM LCSM;;Groupe du Prof. Giovanola Jacques;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LENI;EPFL STI IGM LENI;;Groupe du Prof. Daniel Favrat;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LFMI;EPFL STI IGM LFMI ;;Groupe du Prof. François Gallaire;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LMAF;EPFL STI IGM LMAF ;;Groupe du Prof. Ioannis Botsis;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LRESE;EPFL STI IGM LRESE ;;Groupe du Prof. Sophia Haussener;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-LTCM;EPFL STI IGM LTCM;;Groupe du Prof. John Richard Thome;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IGM-RRL;EPFL STI IGM RRL;;Groupe du Prof. Jamie Paik;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-GR-LVT;EPFL STI IMT GR-LVT ;;Groupe du Prof. Guillermo Villanueva;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LAPD;EPFL STI IMT LAPD ;;Groupe du Prof. Christophe Moser;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LIB;EPFL STI IMT LIB ;;Groupe du Prof. Michaël Unser;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LIS;EPFL STI IMT LIS ;;Groupe du Prof. Dario Floreano;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LMIS1;EPFL STI IMT LMIS1;;Groupe du Prof. Jürgen Brugger;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LMIS2;EPFL STI IMT LMIS2;;Groupe du Prof. Martin Gijs;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LMIS3;EPFL STI IMT LMIS3;;Groupe du Prof. Popovic;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LMIS4;EPFL STI IMT LMIS4;;Groupe du Prof. Philippe Renaud;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LO;EPFL STI IMT LO;;Groupe du Prof. Demetri Psaltis;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LOA;EPFL STI IMT LOA;;A l'attention du Prof. Demetri Psaltis;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LOB;EPFL STI IMT LOB;;Groupe du Prof. Theo Lasser;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LPM;EPFL STI IMT LPM;;Groupe du Prof. Peter Ryser;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LPMAT;EPFL STI IMT LPMAT ;;Groupe du Prof. Gian-Luca Bona;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LSBI;EPFL STI IMT LSBI;;Groupe du Prof. Stéphanie Lacour;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LSRO1;EPFL STI IMT LSRO1;;Groupe du Prof. Hannes Bleuler;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-LSRO2;EPFL-STI-IMT-LSRO2;;Groupe du Prof. Reymond Clavel;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NAM;EPFL-STI IMT NAM;;Groupe du Prof. Olivier Martin;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-ESPLAB;EPFL STI IMT NE ESPLAB;;Groupe du Prof. Farine;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-INSTANT-L;EPFL STI IMT NE INSTANT-LAB ;;Groupe du Prof. Simon Henein;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-LAI;EPFL STI IMT-NE LAI;;Groupe du Prof. Yves Perriard;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-LMTS;EPFL STI IMT-NE LMTS;;Groupe du Prof. Herbert Shea;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-OPT;EPFL STI IMT-NE OPT;;Groupe du Prof. Herzig;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-PV-LAB;EPFL STI IMT-NE PV-LAB ;;A l'attention du Prof. Christophe Ballif;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMT-NE-SAMLAB;EPFL STI IMT-NE SAMLAB;;Groupe du Prof. de Rooij;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-FIMAP;EPFL STI IMX FIMAP;;Groupe du Prof.  Fabien Sorin;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-GE;EPFL STI IMX-GE ;;Groupe du Prof. Harm-Anton Klok;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LC;EPFL STI IMX LC;;Groupe du Prof. Paul Muralt;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMC;EPFL-STI-IMX-LMC;;Groupe du Prof. Karen Scrivener;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMCH;EPFL STI IMX LMCH;;MXC 231 (Bâtiment MXC);I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMGN;EPFL STI IMX LMGN;;Groupe du Prof. Dirk Grundler;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMM;EPFL STI IMX LMM;;Groupe du Prof. Andreas Mortensen;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMOM;EPFL STI IMX LMOM;;Groupe du Prof. Holger Frauenrath;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LMSC;EPFL STI IMX LMSC;;Groupe du Prof. Anna Fontcuberta i Morral;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LOMM;EPFL-STI-IMX-LOMM;;Groupe du Prof. Zuppiroli Libero;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LP;EPFL STI IMX LP;;Groupe du Prof. Harm-Anton Klok;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LTC;EPFL-STI-IMX-LTC;;Groupe du Prof. Jan-Anders Månson;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-LTP;EPFL-STI-IMX-LTP;;Groupe du Prof. Heinrich Hofmann;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-SMAL;EPFL STI IMX SMAL;;Groupe du Prof. Esther Amstad;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IMX-SUNMIL;EPFL STI IMX SUNMIL;;Groupe du Prof.  Francesco Stellacci ;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-IPR-LCSM;EPFL-STI-IPR-LCSM;;Groupe du Prof. Matthias Lutolf;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-ISE-LMH;STI-ISE-LMH;;PASSIF !!!;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-SCI-CD;EPFL STI SCI CD ;;Groupe de Catherine Dehollain;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-SCI-HL;EPFL STI IMT SCI HL;;Groupe du Prof. Hans Georg Limberger;I;NON;0;0;1;2000;User EPFL
-2015;5;;STI-STI-EC;EPFL SCI STI EC ;;Groupe du Prof. Giovanni de Micheli;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV GHI LVG ;EPFL SV GHI LVG ;;Groupe du Prof. Didier Trono;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-BMI-LMNN;EPFL SV BMI LMNN;;Groupe du Prof. Hilal Lashuel;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-BMI-LNMC;EPFL SV BMI LNMC;;Groupe du Prof. Henry Markram;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-BMI-LSYM;EPFL SV BMI LSYM ;;Groupe du Prof. Ralf Schneggenburger;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-GHI-UPKIN;EPFL SV GHI UPKIN;;Groupe du Prof. John McKinney;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-GHI-VDG;EPFL SV GHI VDG ;;Groupe du Prof. Gisou van der Goot;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-LDCS;EPFL SV IBI LDCS;;Groupe du Prof. Yann Barrandon;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-LLCB;EPFL SV IBI LLCB;;Groupe du Prof. Melody Swartz;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-LMRP1;EPFL-SV-IBI-LMRP1;;Groupe du Prof. Jeffrey Alan Hubbell;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-UPDEPLA;EPFL SV  IBI  UPDEPLA;;Groupe du Prof. Bart Deplancke;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-UPLUT;EPFL SV IBI UPLUT;;Groupe du Prof. Matthias Lutolf;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-IBI-UPSUTER;EPFL SV IBI UPSUTER;;Groupe du Prof. David Suter;I;NON;0;0;1;2000;User EPFL
-2015;5;;SV-ISREC-CDTSO;EPFL SV ISREC CDTSO;;Groupe du Prof. Joerg Huelsken;I;NON;0;0;1;2000;User EPFL
+2015;12;"Code Client";"Abrev. Labo";"Nom Labo";"Référence de facture spécifique au client";Destinataire;"Type Labo";"Émolument à payer même sans activité";"Émolument de base mensuel";"Émolument fixe";"Coefficient A";Id-Classe-Tarif;"Intitulé classe de tarif"
+2015;12;219427;CMi;CMi;"SAP PRD 219455";"BM 1.124 (Bâtiment BM)";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219047;ENAC-IA-LIV;"EPFL ENAC IA LIV";"SAP PRD 219076";"Groupe du Prof. Georges Abou Jaoudé";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219067;ENAC-IIC-LESO-PB;"EPFL ENAC IIC LESO-PB";"SAP PRD 219096";"Groupe du Prof. Jean-Louis Scartezzini";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219069;ENAC-IIC-LMR;"EPFL ENAC IIC LMR";"SAP PRD 219098";"Groupe du Prof. Jian Zhao";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219078;ENAC-IIE-DISAL;"EPFL ENAC IIE DISAL";"SAP PRD 219107";"Groupe du Prof. Alcherio Martinoli";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219320;EPFL-Valais-LEPA;"EPFL-Valais LEPA";"SAP PRD 219349";"Groupe du Prof. Girault ";I;NON;0;0;1;2000;"User EPFL"
+2015;12;213793;EXT-Abionic;"ABIONIC SA";;"A l'attention de Nicolas Durand";E;NON;2000;500;2;2200;"User Entr."
+2015;12;206115;EXT-Adv-Silicon;"Advanced Silicon SA";;"A l'att . de M. Dr. H. Ballan";E;NON;2000;500;2;2200;"User Entr."
+2015;12;212261;EXT-Aïmago;"Aïmago SA";;"A l'attention de Michael Friedrich";E;NON;2000;500;2;2200;"User Entr."
+2015;12;213745;EXT-Aleva;"Aleva Neurotherapeutics SA ";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;211838;EXT-Almatech;"Almatech Sàrl ";;"A l'attention de Cottard Hervé  ";E;NON;2000;500;2;2200;"User Entr."
+2015;12;208137;EXT-Alpsens;"Alpsens Technologies SA";;"Att: Gérald Chambon";E;NON;0;0;1;2200;"User Entr."
+2015;12;107355;EXT-Alpsitec;ALPSITEC;;"M. Marc Peltier ";E;NON;0;0;1;2200;"User Entr."
+2015;12;202701;EXT-Aptasic;"Aptasic SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;200485;EXT-Asulab;"The Swatch Group R&D SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;208026;EXT-Atracsys;"ATRACSYS Sarl";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;213985;EXT-Attolight;"Attolight AG";;"Samuel Sonderegger, CEO";E;NON;2000;500;2;2200;"User Entr."
+2015;12;211113;EXT-Audemars;"AUDEMARS PIGUET";;"A l'att. de James Hide";E;NON;2000;500;2;2200;"User Entr."
+2015;12;214762;EXT-Axetris;"Axetris AG";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;214940;EXT-BASF;"BASF Schweiz AG";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;209833;EXT-Biocartis;"BIOCARTIS SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;220213;EXT-BNB-Concept;"BNB Concept SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;206170;EXT-Bruker;"BRUKER BIOSPIN AG";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;105071;EXT-Burkert;"BÜRKERT SAS";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;220214;EXT-CCAT;CCAT;;"A l'attention du Dr R. Apter";E;NON;2000;500;2;2200;"User Entr."
+2015;12;105688;EXT-CEA-Thuillier;"CEA, Centre DAM-Ile de France";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;104334;EXT-CEA-Valduc;"CEA Valduc";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200199;EXT-CERN;CERN;;"A l'attention d'Alessandro Mapelli";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999991;EXT-CERN-Alpha;"CERN Alpha";;"Juan Mario Michan";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;101431;EXT-CNRS-Gamby;"CNRS UPR 15";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200615;EXT-Colibrys;"Colibrys (Switzerland) Ltd";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;200665;EXT-CSEM_Alpnach;"CSEM SA Alpnach";;"A l'attention de Sandra Giudice";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200126;EXT-CSEM_E1;"CSEM SA E1";;"A l'attention de Karlen";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999997;EXT-CSEM_N1;"CSEM SA N1";;"A l'attention de Raphaël Pugin";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999996;EXT-CSEM_N2;"CSEM SA N2";;"A l'attention de Ross Stanley";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999995;EXT-CSEM_T1;"CSEM SA T1";;"A l'attention d'Olivier Dubochet";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999994;EXT-CSEM_T2;"CSEM SA T2";;"A l'attention de Philippe Niedermann";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999993;EXT-CSEM_T3;"CSEM SA T3";;"A l'attention de Mme V. Monnier";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999992;EXT-CSEM_V1;"CSEM SA V1";;"A l'attention de Julien Bailat";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200676;EXT-Debiotech;"DEBIOTECH SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;200518;EXT-EMMicroelectroni;"EM Microelectronic - Marin SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;56;EXT-EMPA;EMPA;Ref-10002783;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;106033;EXT-EPM;"Ecole Polytechnique de Montréal";;"A l'attention d'Yves-Alain Peter";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;102188;EXT-Esiee;"ESIEE Paris Cité Descartes";;"A l'att. de Sylvie Paradowski ";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;111;EXT-ETHZ;"ETH Zurich";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;112;EXT-ETHZ-Basel;"ETH Zürich";;"A l'att. de Colette Bichsel ";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;113;EXT-ETHZ-Lee;"ETH Zurich, D-BSSE";;"A l'att. de Reto Schoch";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;114;EXT-ETHZ-Roesgen;"ETH Zentrum";;"Prof. Dr. Thomas Rösgen";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220222;EXT-Eulitha;"Eulitha AG";;"Att: M. Harun H. Solak";E;NON;2000;0;1;2200;"User Entr."
+2015;12;206435;EXT-Eurmicros;"Eurmicros Headquarters";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;209841;EXT-EXALOS;"EXALOS AG";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;105844;EXT-FEMTO-DMA;"Institut FEMTO-ST DMA";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;101225;EXT-FEMTO-LPMO;"Institut FEMTO-ST LPMO";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;103131;EXT-FEMTO-ST-MIMU;"Institut FEMTO-ST Equipe : MIMU";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;107877;EXT-FEMTO-ST-MN2S;"Institut FEMTO-ST MN2S";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;212560;EXT-Flexcell;"VHF-Technologies SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;101772;EXT-Flowdit;FLOWDIT;;"M. Gabriel Giovannelli";E;NON;2000;500;2;2200;"User Entr."
+2015;12;215640;EXT-FORIMTECH;"FORIMTECH S.A.";;"A l'att. de Mme Iris Desforges";E;NON;2000;500;2;2200;"User Entr."
+2015;12;207046;EXT-Gersteltec;"GERSTELTEC Sàrl";;"A l'att. du Dr. Moshe P. Judelewicz";E;NON;2000;500;2;2200;"User Entr."
+2015;12;210924;EXT-Hamamatsu;"Hamamatsu Photonics";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;201989;EXT-HEARC;"Haute Ecole ARC Ingénierie";;"A l'att. d'Alexandra Kaempfer-Homsy";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200890;EXT-HEIG-VD;HEIG-VD;;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;212520;EXT-HESGE;"HES-SO HEPIA Genève";;"att : Prof. Marc Jobin";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200090;EXT-HESVS;"HES-SO Valais";;"A l'att. de Faouzi Khechana";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;219882;EXT-Hightec;"HIGHTEC MC AG";;"Att: Eyad ASSAF";E;NON;2000;0;1;2200;"User Entr."
+2015;12;107401;EXT-Houston;"Houston Methodist Research Institute";;"Alessandro Grattoni, Ph.D., Co-Chair & Assistant Member";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;205461;EXT-HUG;"Université de Genève CMU";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;202109;EXT-IBM;"IBM Research GmbH";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;206746;EXT-Icoflex;"IcoFlex Sàrl";;"Dr Dominique Solignac";E;NON;2000;500;2;2200;"User Entr."
+2015;12;208048;EXT-Idonus;"IDONUS Sàrl";;"A l'att. de M. Christian Spoerl";E;NON;2000;500;2;2200;"User Entr."
+2015;12;206750;EXT-idQ;"id Quantique SA";;"A l'att. de M. Alexis Rochas";E;NON;2000;500;2;2200;"User Entr."
+2015;12;212219;EXT-Imina;"Imina Technologie Sàrl ";;"A l'att. de M. Dobrzynski";E;NON;2000;500;2;2200;"User Entr."
+2015;12;218717;EXT-INTEL;"Intel Semiconductor AG";"ref PO # 3000961157";;E;NON;2000;500;2;2200;"User Entr."
+2015;12;208105;EXT-Intersema;"INTERSEMA SENSORIC SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;200036;EXT-IR-Microsystems;"IR-Microsystems SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;203426;EXT-ISI;"INNOVATIVE SILICON ISI SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;106963;EXT-ITU;"Istanbul Technical University";;"Attn: Erdal BULGAN, PhD, Assistant Professor";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;203216;EXT-Karmic;"Karmic Sàrl";;"M. Stephan GAMPER";E;NON;2000;500;2;2200;"User Entr."
+2015;12;202588;EXT-Leister;"LEISTER Process Technologies";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;217345;EXT-LémanMicro;"Léman Micro Devices SA";;"Dr. Shady Gawad";E;NON;2000;500;2;2200;"User Entr."
+2015;12;211405;EXT-Lemoptix;"Lemoptix SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;211260;EXT-LMA-Urology;"LMA Urology Suisse S.A.";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;104878;EXT-LMN-AC-Besancon;LMN-AC;;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;107535;EXT-LNE-Thuillier;"Laboratoire national de métrologie et d'essais";;"A l'att. de Gaël THUILLIER";E;NON;0;0;1;2200;"User Entr."
+2015;12;217480;EXT-LSPR;"LSPR AG";;"A l'att. de M. Benedikt Oswald";E;NON;2000;500;2;2200;"User Entr."
+2015;12;218303;EXT-Lunaphore;"Lunaphore Technologies SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;218040;EXT-Mackinac;"Mackinac MicroOptics SA";;"A l'att. de K. J. Weible";E;NON;2000;500;2;2200;"User Entr."
+2015;12;211353;EXT-MCH-processing;"Cyrille Hibert";;;E;NON;2000;0;1;2200;"User Entr."
+2015;12;999999;EXT-Meggitt;"Meggitt Sensorex SAS";;;E;NON;2000;0;1;2200;"User Entr."
+2015;12;216684;EXT-Meister-Abrasive;"Meister Abrasives";;"A l'att. de Carmine Sileno";E;NON;2000;500;2;2200;"User Entr."
+2015;12;220231;EXT-Metas;METAS;;;E;NON;0;0;1;2200;"User Entr."
+2015;12;201972;EXT-MicroChemical;"MicroChemical Systems SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;209762;EXT-Microcrystal;"MICRO CRYSTAL AG";;"A l'att. de H.-C. Schneider";E;NON;2000;500;2;2200;"User Entr."
+2015;12;213439;EXT-Microdiamant;"Microdiamant AG";;"A l’attention de M. Christian Jentgens";E;NON;2000;500;2;2200;"User Entr."
+2015;12;200125;EXT-Microflow;"EP Systems SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;"208455 ";EXT-Microsens;"Microsens SA";;"A l'attention d'Alain Grisel";E;NON;2000;500;2;2200;"User Entr."
+2015;12;218495;EXT-Morphotonix;Morphotonix;;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;217219;EXT-Nanolive;"Nanolive SA";;"A l att. de Sebastien Equis";E;NON;2000;0;1;2200;"User Entr."
+2015;12;203055;EXT-Nanoworld;"Nanoworld Technologies GmbH ";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;207929;"EXT-Nickel Chrome";"NICKEL CHROME Sàrl";;"A l'att. de M. David GHIDONI";E;NON;2000;500;2;2200;"User Entr."
+2015;12;208244;EXT-Nivarox;Nivarox;;"A l'att. de Jean-Philippe Thiébaud";E;NON;2000;500;2;2200;"User Entr."
+2015;12;213630;EXT-Novagan;"Novagan sàrl";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;205755;EXT-Orthofil;"ORTHOFIL Sàrl";;"M. Thomas Steinmann";E;NON;2000;500;2;2200;"User Entr."
+2015;12;220234;EXT-Patek;"Patek Philippe Technologies SA";;"A l'att. de M. Guillot";E;NON;2000;500;2;2200;"User Entr."
+2015;12;206171;EXT-PhM;"Philip Morris International Management SA";;"A l'att. de Chee Joong Ng";E;NON;2000;500;2;2200;"User Entr."
+2015;12;100609;EXT-POLIMI;"Politecnico di Milano ";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;102225;EXT-PoliTorino;"Politecnico di Torino";;"Prof. Danilo Demarchi";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;36;EXT-PSI;"Paul Scherrer Institut";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;214507;EXT-Qwane;"QWANE Biosciences";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;200118;EXT-Rolex;"ROLEX SA";"Ref 4500694806";;E;NON;2000;500;2;2200;"User Entr."
+2015;12;103518;EXT-SAES-Group;"SAES Getters S.p.A.";;"Dr. Sara Guadagnuolo, Senior Scientist";E;NON;2000;500;2;2200;"User Entr."
+2015;12;104099;EXT-Senseor;"SENSeOR S.A.S.";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;211491;EXT-Sensimed;"Sensimed AG";;"A l'att. de Raphaël Fritschi";E;NON;2000;500;2;2200;"User Entr."
+2015;12;208965;EXT-Sensirion;"Sensirion AG";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;214635;EXT-Sercalo;"SERCALO microtechnology ltd.";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;212589;EXT-SICPA;"SICPA Security Solutions SA";;"A l'att. de Benedicte GALEA";E;NON;2000;0;1;2200;"User Entr."
+2015;12;209609;EXT-Sigatec;"SIGATEC SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;107884;EXT-SiliconBiosystem;"Silicon Biosystems S.p.A.";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;102575;EXT-SilMach;"SilMach SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;106293;EXT-SILSEF;"SILSEF SAS";;;E;NON;2000;0;1;2200;"User Entr."
+2015;12;104192;EXT-Siltronix;"SIL'TRONIX Silicon Technologies";;"Nathalie THOMAS, Back end Manager";E;NON;2000;500;2;2200;"User Entr."
+2015;12;220235;EXT-Smartfish;"Smartfish ";;"Koni Schafroth";E;NON;2000;0;1;2200;"User Entr."
+2015;12;104757;EXT-Soitec;"SOITEC SA";;"A l'att. de Daniel Delprat";E;NON;2000;0;1;2200;"User Entr."
+2015;12;208348;EXT-Spinomix;"SPINOMIX SA";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;214130;EXT-StettlerSapphire;"Stettler Sapphire AG";;"A l'att. d'Alexis Bernard";E;NON;2000;500;2;2200;"User Entr."
+2015;12;215849;EXT-SwissNanoCoat;"Swiss Nano Coat";;"A l'att. de Serguei Mikhailov";E;NON;2000;0;1;2200;"User Entr."
+2015;12;210385;EXT-Synova;"Synova SA Innovative Laser Systems";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;211494;EXT-TEL-Solar-Lab;"TEL Solar-Lab SA";;"A l'att. de Xavier Multone";E;NON;2000;500;2;2200;"User Entr."
+2015;12;102080;EXT-Thales;"Thales Systèmes Aéroportés";;"Monsieur Pierre NICOLE";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;206400;EXT-ThermoFisher;"Thermo Fisher Scientific";;;E;NON;2000;500;2;2200;"User Entr."
+2015;12;103990;EXT-Tronics;"TRONIC'S Microsystems";;"A l'att. Jean-Marc GILET";E;NON;2000;500;2;2200;"User Entr."
+2015;12;104089;EXT-UNI-BARCELONA;"Dpto. Nanotechnologia";;"Attn: Julien Arcamone";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;101329;EXT-UNI-BOSTON;"Boston University";;"Attn : Selim Unlü, Associate Professor";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;103458;EXT-UNI-SOUTHAMPTON;"University of Southampton";;"Prof. Morgan Hywel";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220209;EXT-UNI-Space;"Space Research and Planetary Sciences Division";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;103035;EXT-UNI-ST-ETIENNE;"Laboratoire TSI UMR CNRS 5516";;"A l'att. de M. Yves Jourlin";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;204136;EXT-UNI-ZH;"University Hospital Zurich";;"A l att. de Damien de Courten";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220203;EXT-UniBas;"University of Basel";;"Attn. Mme Barbara Kammermann";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220204;EXT-UNIBE;"University of Berne";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220205;EXT-UNIBE-Phys.;"Université de Berne";;"A l'att. du Prof. Jan Kucera";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;201144;EXT-UniFribourg;"University of Fribourg";;"Prof. Simon Sprecher";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220206;EXT-UniFribourg-Sche;"University of Fribourg - Off. 1.55";;"Prof. Frank SCHEFFOLD ";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200704;EXT-UNIGE-Decroux;"Université de Genève, DPMC, Prof Decroux";;"A l'att. du Prof. Michel Decroux";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999990;EXT-UNIGE-DPMC;"Université de Genève, DPMC";;"A l'attention du Prof. Patrycja Paruch";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;220208;EXT-UNIGE-GAP;"Université de Genève, GAP";;"A l'att. de Félix Bussières";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;999989;EXT-UNIGE-PHD;"Université de Genève, Physic Department";;"A l'att. du Prof. Renner";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200703;EXT-UNIGE-ScienceII;"University of Geneva - Science II";;"Prof. Dr. Kaori Sugihara";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200139;EXT-UNIGE-Sciences;"Université de Genève - Sciences III";;"Groupe du Prof.  Halazonetis";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;202059;EXT-UNIL_Martin;"UNIL Lausanne";;"Groupe du Prof. Sophie Martin";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200667;EXT-UNIL_vanderMeer;"UNIL - Lausanne";;"Groupe du Prof. Jan Roelof van der Meer";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;200494;EXT-UNINE;"University of Neuchâtel";;"A l'attention de M. Leboeuf";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;101397;EXT-UNISEVILLA;"Universidad de Sevilla";;;A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;214039;EXT-ValFleurier;"Manufacture Horlogère ValFleurier";;"Jean-Charles Fiaccabrino, Responsable Recherche";E;NON;2000;500;2;2200;"User Entr."
+2015;12;999998;EXT-Wyss_Center;"Wyss Center for Bio and Neuro Engineering";;"Anthony Guillet";A;NON;0;0;1;2100;"User Acad. Ext"
+2015;12;219174;IC-ISIM-LAP;EPFL-IC-ISIM-LAP;"SAP PRD 219203";"Groupe du Prof. Paolo Ienne";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219179;IC-ISIM-LSI1;"EPFL IC ISIM LSI1";"SAP PRD 219208";"Groupe du Prof. Giovanni De Micheli";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219180;IC-ISIM-LSP;"EPFL IC ISIM LSP";"SAP PRD 219209";"Groupe du Prof. Roger Hersch";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219107;IV-CEN;"EPFL IV CEN";"SAP PRD 219136";"Groupe du Prof. Hans Björn Püttgen";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219249;SB-CIME;EPFL-SB-CIME-GE;"SAP PRD 219278";"Groupe du Prof. Cécile Hebert";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219260;SB-ICMP-EPSL;"EPFL SB ICMP EPSL";"SAP PRD 219289";"Groupe du Prof. Philippe Gillet";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219262;SB-ICMP-GE;"EPFL SB ICMP-GE ";"SAP PRD 219291";"A l'attention du Prof. Nicolas Grandjean";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219263;SB-ICMP-LASPE;"EPFL SB ICMP LASPE";"SAP PRD 219292";"Groupe du Prof. Nicolas Grandjean";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219264;SB-ICMP-LNS;"EPFL SB ICMP LNS";"SAP PRD 219293";"Groupe du Prof. H. Brune";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219265;SB-ICMP-LOEQ;"EPFL SB ICMP LOEQ";"SAP PRD 219294";"Groupe du Prof. Benoît Deveaud-Plédran";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219266;SB-ICMP-LPMC;"EPFL SB ICMP LPMC";"SAP PRD 219295";"Groupe du Prof. Laszlo Forro";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219267;SB-ICMP-LPMN;"EPFL SB ICMP LPMN";"SAP PRD 219296";"Groupe du Prof. Jean-Philippe Ansermet";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219268;SB-ICMP-LPN;"EPFL SB ICMP LPN";"SAP PRD 219297";"Groupe du Prof. Elyahou Kapon";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219269;SB-ICMP-LPQM1;"EPFL SB ICMP LPQM1";"SAP PRD 219298";"Groupe du Prof. Tobias Kippenberg";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219270;SB-ICMP-LQM;"EPFL SB ICMP LQM ";"SAP PRD 219299";"Groupe du Prof. Henrik Rønnow";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219271;SB-ICMP-LSE;"EPFL SB ICMP LSE ";"SAP PRD 219300";"Groupe du Prof. Giorgio Margaritondo";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219275;SB-ICMP-LUMES;"EPFL SB ICMP LUMES ";"SAP PRD 219304";"Groupe du Prof. Fabrizio Carbone";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219281;SB-IPEP-LPHE1;EPFL-SB-IPEP-LPHE1;"SAP PRD 219310";"Groupe du Prof. Aurélio Bay";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219293;SB-IPSB-LCB;"EPFL SB IPSB LCB";"SAP PRD 219322";"Groupe du Prof. Jean-Jacques Meister";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219294;SB-IPSB-LEB;"EPFL SB IPSB LEB  ";"SAP PRD 219323";"Groupe du Prof. Manley Suliana ";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219295;SB-IPSB-LIFMET;"EPFL SB IPSB LIFMET";"SAP PRD 219324";"Groupe du Prof. Rolf Gruetter";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219296;SB-IPSB-LPMV;"EPFL SB IPSB LPMV";"SAP PRD 219325";"Groupe du Prof. Giovanni Dietler";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219304;SB-ISIC-GE;"EPFL SB ISIC-GE";"SAP PRD 219333";"Groupe du Prof. Dyson Paul Joseph";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219312;SB-ISIC-LCOM;"EPFL SB ISIC LCOM ";"SAP PRD 219341";"Groupe du Prof. Paul Joseph Dyson";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219313;SB-ISIC-LCPM;"EPFL SB ISIC LCPM";"SAP PRD 219342";"Groupe du Prof. Thomas Rizzo";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219314;SB-ISIC-LCPPM;"EPFL SB ISIC LCPPM";"SAP PRD 219343";"Groupe du Prof. Horst Vogel";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219322;SB-ISIC-LIMNO;"EPFL SB ISIC LIMNO ";"SAP PRD 219351";"Groupe du Prof. Kevin Sivula";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219323;SB-ISIC-LIP;"EPFL SB ISIC LIP ";"SAP PRD 219352";"Groupe du Prof. Kai Johnsson";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219327;SB-ISIC-LNB;"EPFL SB ISIC LNB";"SAP PRD 219356";"Groupe du Prof. Ardemis Boghossian";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219328;SB-ISIC-LPDC;"EPFL SB ISIC LPDC ";"SAP PRD 219357";"Groupe du Prof. Jeremy Luterbacher";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219329;SB-ISIC-LPI;"EPFL SB ISIC LPI";"SAP PRD 219358";"Groupe du Prof. Michaël Gräzel";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219333;SB-ISIC-LSCI;"EPFL SB ISIC LSCI ";"SAP PRD 219362";"Groupe du Prof. Xile Hu";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219335;SB-ISIC-LSPM;"EPFL SB ISIC LSPM";"SAP PRD 219364";"Groupe du Prof. Ulf Anders Hagfeldt";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219337;SB-ISIC-LSU;"EPFL SB ISIC LSU";"SAP PRD 219366";"Groupe du Prof. Majed Chergui";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219339;SB-ISIC-SCI-MN;"EPFL SB ISIC SCI MN";"SAP PRD 219368";"Groupe du Prof. M.K. Nazeeruddin";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219251;SB-NL-CMNT;"EPFL SB NL-CMNT";"SAP PRD 219280";"Groupe du Prof. Klaus Kern";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219424;STI-CBT-LBO;"EPFL STI CBT LBO";"SAP PRD 219452";"Groupe du Prof. Dominique Pioletti";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219429;STI-IBI-BIOS;"EPFL STI IBI BIOS";"SAP PRD 219457";"Groupe du Prof. Hatice Altug ";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219430;STI-IBI-CLSE;"EPFL STI IBI CLSE";"SAP PRD 219458";"Groupe du Prof. Carlotta Guiducci";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219431;STI-IBI-CNBI;"EPFL STI IBI CNBI";"SAP PRD 219459";"Groupe du Prof. José del R. Millán";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219435;STI-IBI-LBEN;"EPFL STI IBI LBEN";"SAP PRD 219463";"Groupe du Prof. Aleksandra Radenovic";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219436;STI-IBI-LBNC;"EPFL STI IBI LBNC";"SAP PRD 219464";"Groupe du Prof. Sebastian Maerkl";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219437;STI-IBI-LBNI;"EPFL STI IBI LBNI";"SAP PRD 219437";"Groupe du Prof. Georg Fantner";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219438;STI-IBI-LBP;"EPFL STI IBI LBP";"SAP PRD 219466";"Groupe du Prof. Sylvie Roke";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219439;STI-IBI-LHTC;"EPFL STI IBI LHTC";"SAP PRD 219467";"Groupe du Prof. Nikolaos Stergiopulos";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219442;STI-IBI-LNE;"EPFL STI IBI LNE";"SAP PRD 219470";"Groupe du Prof. Diego Ghezzi";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219440;STI-IBI-TNE;"EPFL STI IBI TNE";"SAP PRD 219468";"Groupe du Prof. Silvestro Micera";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219445;STI-IEL-ESL;"EPFL STI IEL ESL";"SAP PRD 219473";"Groupe du Prof. David Atienza Alonso";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219447;STI-IEL-GR-JPC;"EPFL STI IEL GR-JPC";"SAP PRD 219475";"Groupe du Prof. Julien Perruisseau-Carrier";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219449;STI-IEL-GR-SCI;"EPFL STI IEL GR-SCI";"SAP PRD 219477";"A l'att. de M. Jean-Michel Sallèse";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219451;STI-IEL-LANES;"EPFL STI IEL LANES";"SAP PRD 219479";"Groupe du Prof. Andreas Kis";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219453;STI-IEL-LEMA;"EPFL STI IEL LEMA";"SAP PRD 219481";"Groupe du Prof. Juan Ramon Mosig";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219459;STI-IEL-LSM;"EPFL STI IEL LSM";"SAP PRD 219487";"Groupe du Prof. Yusuf Leblebici";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219463;STI-IEL-NANOLAB;"EPFL STI IEL NANOLAB";"SAP PRD 219491";"Groupe du Prof. Mihai Adrian Ionescu";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219465;STI-IEL-PHOSL;"EPFL STI IEL PHOSL";"SAP PRD 219493";"Groupe du Prof. Camille Sophie Brès";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219475;STI-IEL-POWERLAB;"EPFL STI IEL POWERLAB";"SAP PRD 219503";"Groupe du Prof. Elison Matioli ";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219485;STI-IGM-LAMD;"EPFL STI IGM LAMD ";"SAP PRD 219513";"Groupe du Prof. Jürg Alexander Schiffmann";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219487;STI-IGM-LCSM;"EPFL STI IGM LCSM";"SAP PRD 219515";"Groupe du Prof. Giovanola Jacques";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219488;STI-IGM-LENI;"EPFL STI IGM LENI";"SAP PRD 219516";"Groupe du Prof. Daniel Favrat";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219489;STI-IGM-LFMI;"EPFL STI IGM LFMI ";"SAP PRD 219517";"Groupe du Prof. François Gallaire";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219492;STI-IGM-LMAF;"EPFL STI IGM LMAF ";"SAP PRD 219520";"Groupe du Prof. Ioannis Botsis";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219496;STI-IGM-LRESE;"EPFL STI IGM LRESE ";"SAP PRD 219524";"Groupe du Prof. Sophia Haussener";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219497;STI-IGM-LTCM;"EPFL STI IGM LTCM";"SAP PRD 219525";"Groupe du Prof. John Richard Thome";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219498;STI-IGM-RRL;"EPFL STI IGM RRL";"SAP PRD 219526";"Groupe du Prof. Jamie Paik";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219505;STI-IMT-GR-LVT;"EPFL STI IMT GR-LVT ";"SAP PRD 219533";"Groupe du Prof. Guillermo Villanueva";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219506;STI-IMT-GR-QUA;"EPFL STI IMT GR-QUA";"SAP PRD 219534";"Groupe du Prof. Niels Quack";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219511;STI-IMT-LAPD;"EPFL STI IMT LAPD ";"SAP PRD 219539";"Groupe du Prof. Christophe Moser";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219513;STI-IMT-LIB;"EPFL STI IMT LIB ";"SAP PRD 219541";"Groupe du Prof. Michaël Unser";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219514;STI-IMT-LIS;"EPFL STI IMT LIS ";"SAP PRD 219542";"Groupe du Prof. Dario Floreano";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219516;STI-IMT-LMIS1;"EPFL STI IMT LMIS1";"SAP PRD 219544";"Groupe du Prof. Jürgen Brugger";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219517;STI-IMT-LMIS2;"EPFL STI IMT LMIS2";"SAP PRD 219545";"Groupe du Prof. Martin Gijs";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219518;STI-IMT-LMIS4;"EPFL STI IMT LMIS4";"SAP PRD 219546";"Groupe du Prof. Philippe Renaud";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219520;STI-IMT-LO;"EPFL STI IMT LO";"SAP PRD 219548";"Groupe du Prof. Demetri Psaltis";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219521;STI-IMT-LOA;"EPFL STI IMT LOA";"SAP PRD 219549";"A l'attention du Prof. Demetri Psaltis";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219522;STI-IMT-LOB;"EPFL STI IMT LOB";"SAP PRD 219550";"Groupe du Prof. Theo Lasser";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219523;STI-IMT-LPM;"EPFL STI IMT LPM";"SAP PRD 219551";"Groupe du Prof. Peter Ryser";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219525;STI-IMT-LPMAT;"EPFL STI IMT LPMAT ";"SAP PRD 219553";"Groupe du Prof. Gian-Luca Bona";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219526;STI-IMT-LSBI;"EPFL STI IMT LSBI";"SAP PRD 219554";"Groupe du Prof. Stéphanie Lacour";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219528;STI-IMT-LSRO2;EPFL-STI-IMT-LSRO2;"SAP PRD 219556";"Groupe du Prof. Reymond Clavel";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219529;STI-IMT-NAM;"EPFL-STI IMT NAM";"SAP PRD 219557";"Groupe du Prof. Olivier Martin";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219504;STI-IMT-NE-ESPLAB;"EPFL STI IMT NE ESPLAB";"SAP PRD 219532";"Groupe du Prof. Farine";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219509;STI-IMT-NE-INSTANT-L;"EPFL STI IMT NE INSTANT-LAB ";"SAP PRD 219537";"Groupe du Prof. Simon Henein";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219510;STI-IMT-NE-LAI;"EPFL STI IMT-NE LAI";"SAP PRD 219538";"Groupe du Prof. Yves Perriard";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219519;STI-IMT-NE-LMTS;"EPFL STI IMT-NE LMTS";"SAP PRD 219547";"Groupe du Prof. Herbert Shea";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219530;STI-IMT-NE-OPT;"EPFL STI IMT-NE OPT";"SAP PRD 219558";"Groupe du Prof. Herzig";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219531;STI-IMT-NE-PV-LAB;"EPFL STI IMT-NE PV-LAB ";"SAP PRD 219559";"A l'attention du Prof. Christophe Ballif";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219532;STI-IMT-NE-SAMLAB;"EPFL STI IMT-NE SAMLAB";"SAP PRD 219560";"Groupe du Prof. de Rooij";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219538;STI-IMX-FIMAP;"EPFL STI IMX FIMAP";"SAP PRD 219565";"Groupe du Prof.  Fabien Sorin";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219540;STI-IMX-GE;"EPFL STI IMX-GE ";"SAP PRD 219567";"Groupe du Prof. Harm-Anton Klok";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219541;STI-IMX-LC;"EPFL STI IMX LC";"SAP PRD 219568";"Groupe du Prof. Paul Muralt";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219542;STI-IMX-LMC;EPFL-STI-IMX-LMC;"SAP PRD 219569";"Groupe du Prof. Karen Scrivener";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219557;STI-IMX-LMGN;"EPFL STI IMX LMGN";"SAP PRD 219584";"Groupe du Prof. Dirk Grundler";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219543;STI-IMX-LMM;"EPFL STI IMX LMM";"SAP PRD 219570";"Groupe du Prof. Andreas Mortensen";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219544;STI-IMX-LMOM;"EPFL STI IMX LMOM";"SAP PRD 219571";"Groupe du Prof. Holger Frauenrath";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219545;STI-IMX-LMSC;"EPFL STI IMX LMSC";"SAP PRD 219572";"Groupe du Prof. Anna Fontcuberta i Morral";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219547;STI-IMX-LOMM;EPFL-STI-IMX-LOMM;"SAP PRD 219574";"Groupe du Prof. Zuppiroli Libero";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219548;STI-IMX-LP;"EPFL STI IMX LP";"SAP PRD 219575";"Groupe du Prof. Harm-Anton Klok";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219550;STI-IMX-LTC;EPFL-STI-IMX-LTC;"SAP PRD 219577";"Groupe du Prof. Jan-Anders Månson";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219551;STI-IMX-LTP;EPFL-STI-IMX-LTP;"SAP PRD 219578";"Groupe du Prof. Heinrich Hofmann";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219554;STI-IMX-SMAL;"EPFL STI IMX SMAL";"SAP PRD 219581";"Groupe du Prof. Esther Amstad";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219555;STI-IMX-SUNMIL;"EPFL STI IMX SUNMIL";"SAP PRD 219582";"Groupe du Prof.  Francesco Stellacci ";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219494;STI-ISE-LMH;STI-ISE-LMH;"SAP PRD 219522";"PASSIF !!!";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219466;STI-SCI-CD;"EPFL STI SCI CD ";"SAP PRD 219494";"Groupe de Catherine Dehollain";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219468;STI-SCI-EC;"EPFL SCI STI EC ";"SAP PRD 219496";"Groupe du Prof. Giovanni de Micheli";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219534;STI-SCI-HL;"EPFL STI IMT SCI HL";"SAP PRD 219562";"Groupe du Prof. Hans Georg Limberger";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219593;SV-BMI-LMNN;"EPFL SV BMI LMNN";"SAP PRD 219619";"Groupe du Prof. Hilal Lashuel";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219599;SV-BMI-LNMC;"EPFL SV BMI LNMC";"SAP PRD 219625";"Groupe du Prof. Henry Markram";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219602;SV-BMI-LSYM;"EPFL SV BMI LSYM ";"SAP PRD 219628";"Groupe du Prof. Ralf Schneggenburger";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219612;SV-GHI-LVG;"EPFL SV GHI LVG ";"SAP PRD 219638";"Groupe du Prof. Didier Trono";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219617;SV-GHI-UPKIN;"EPFL SV GHI UPKIN";"SAP PRD 219643";"Groupe du Prof. John McKinney";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219619;SV-GHI-VDG;"EPFL SV GHI VDG ";"SAP PRD 219645";"Groupe du Prof. Gisou van der Goot";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219625;SV-IBI-LDCS;"EPFL SV IBI LDCS";"SAP PRD 219651";"Groupe du Prof. Yann Barrandon";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219626;SV-IBI-LLCB;"EPFL SV IBI LLCB";"SAP PRD 219652";"Groupe du Prof. Melody Swartz";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219627;SV-IBI-LMRP;EPFL-SV-IBI-LMRP;"SAP PRD 219653";"Groupe du Prof. Jeffrey Alan Hubbell";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219630;SV-IBI-UPDEPLA;"EPFL SV  IBI  UPDEPLA";"SAP PRD 219656";"Groupe du Prof. Bart Deplancke";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219632;SV-IBI-UPLUT;"EPFL SV IBI UPLUT";"SAP PRD 219658";"Groupe du Prof. Matthias Lutolf";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219634;SV-IBI-UPSUTER;"EPFL SV IBI UPSUTER";"SAP PRD 219660";"Groupe du Prof. David Suter";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219635;SV-ISREC-CDTSO;"EPFL SV ISREC CDTSO";"SAP PRD 219661";"Groupe du Prof. Joerg Huelsken";I;NON;0;0;1;2000;"User EPFL"
+2015;12;219654;SV-ISREC-UPSIM;"EPFL SV ISREC UPSIM";"SAP PRD 219680";"Groupe du Prof. Viesturs Simanis";I;NON;0;0;1;2000;"User EPFL"

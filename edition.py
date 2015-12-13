@@ -32,4 +32,4 @@ class Edition(object):
         self.mois = int(donnees_csv[1][1])
         self.version = donnees_csv[2][1]
 
-        print(str(self.annee) + " | " + str(self.mois) + " | " + self.version)
+        # print(str(self.annee) + " | " + str(self.mois) + " | " + self.version)
