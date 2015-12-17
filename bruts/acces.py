@@ -79,3 +79,11 @@ class Acces(Fichier):
 
             donnees_list.append(donnee)
         self.donnees = donnees_list
+
+    def acces_pour_projet(self, num_projet, id_compte, code_client):
+        donnees_list = []
+        for donnee in self.donnees:
+            if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \
+                    and  (donnee['num_projet'] == num_projet):
+                donnees_list.append(donnee)
+        return donnees_list

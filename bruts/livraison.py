@@ -68,3 +68,15 @@ class Livraison(Fichier):
             donnee['rabais_r'] = round(float(donnee['rabais']), 2)
             donnees_list.append(donnee)
         self.donnees = donnees_list
+
+    def livraisons_pour_projet_par_categorie(self, num_projet, id_compte, code_client, prestations):
+        donnees_dico = {}
+        for donnee in self.donnees:
+            if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \
+                    and  (donnee['num_projet'] == num_projet):
+                categorie = prestations.donnees[donnee['id_prestation']]['categorie']
+                if categorie not in donnees_dico:
+                    donnees_dico[categorie] = []
+                liste = donnees_dico[categorie]
+                liste.append(donnee)
+        return donnees_dico

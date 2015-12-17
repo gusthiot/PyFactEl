@@ -69,20 +69,21 @@ verif += comptes.est_coherent(clients, coefmachines, coefprests, generaux, clien
 if verif > 0:
     sys.exit("Erreur dans la cohérence")
 
-
-
 livraisons.calcul_montants(prestations, coefprests, comptes, clients)
 reservations.calcul_montants(machines, coefmachines, comptes, clients)
 acces.calcul_montants(machines, coefmachines, comptes, clients)
 spp = Sommes.sommes_par_projet(livraisons, reservations, acces, prestations, comptes)
-Sommes.afficher_somme_projet(spp, dossier_data, encodage, delimiteur)
+# Sommes.afficher_somme_projet(spp, dossier_data, encodage, delimiteur)
 spco = Sommes.somme_par_compte(spp, comptes)
-Sommes.afficher_somme_compte(spco, dossier_data, encodage, delimiteur)
+# Sommes.afficher_somme_compte(spco, dossier_data, encodage, delimiteur)
 spca = Sommes.somme_par_categorie(spco, comptes)
-Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
+# Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
 spcl = Sommes.somme_par_client(spca, clients)
-Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
+# Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
 
 Exportation.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
+
+Exportation.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
+                               prestations, comptes, dossier_data)
 
 Interfaces.log_erreur("OK !!!")

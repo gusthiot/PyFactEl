@@ -226,16 +226,12 @@ class Sommes(object):
             if code_client not in spc:
                 spc[code_client] = {}
             cl = spc[code_client]
-            for id_compte, compte in cl.items():
+            for id_compte, compte in client.items():
                 co = comptes.donnees[id_compte]
                 categorie = co['categorie']
-                if code_client not in spc:
-                    spc[code_client] = {}
-                client = spc[code_client]
-
-                if categorie not in client:
-                    client[categorie] = Sommes.nouveau_somme(Sommes.cles_somme_categorie)
-                somme = client[categorie]
+                if categorie not in cl:
+                    cl[categorie] = Sommes.nouveau_somme(Sommes.cles_somme_categorie)
+                somme = cl[categorie]
 
                 somme['somme_k_pu'] += compte['somme_j_pu']
                 somme['somme_k_pv'] += compte['somme_j_pv']
