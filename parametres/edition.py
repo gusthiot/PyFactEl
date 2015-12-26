@@ -27,9 +27,12 @@ class Edition(object):
             print(info)
             Interfaces.log_erreur(info)
             sys.exit("Erreur de consistance")
+        try:
+            self.annee = int(donnees_csv[0][1])
+            self.mois = int(donnees_csv[1][1])
+        except ValueError:
+            info = Edition.libelle + "le mois et l'anée doivent être des nombres"
+            Interfaces.log_erreur(info)
+            sys.exit("Erreur de consistance")
 
-        self.annee = int(donnees_csv[0][1])
-        self.mois = int(donnees_csv[1][1])
         self.version = donnees_csv[2][1]
-
-        # print(str(self.annee) + " | " + str(self.mois) + " | " + self.version)

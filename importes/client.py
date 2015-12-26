@@ -1,4 +1,4 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
@@ -50,6 +50,13 @@ class Client(Fichier):
             if not((donnee['emol_sans_activite'] == "NON") or (donnee['emol_sans_activite'] == "ZERO") or
                     (donnee['emol_sans_activite'] == "OUI")):
                 msg += "l'émolument à payer même sans activité de la ligne " + ligne + " doit valoir ZERO, NON ou OUI\n"
+
+            donnee['emol_base_mens'], info = self.est_un_nombre(donnee['emol_base_mens'], "l'émolument de base", ligne)
+            msg += info
+            donnee['emol_fixe'], info = self.est_un_nombre(donnee['emol_fixe'], "l'émolument fixe", ligne)
+            msg += info
+            donnee['coef'], info = self.est_un_nombre(donnee['coef'], "le coefficient a", ligne)
+            msg += info
 
             ligne += 1
 

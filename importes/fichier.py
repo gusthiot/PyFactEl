@@ -54,3 +54,10 @@ class Fichier(object):
             Interfaces.log_erreur(msg)
             return 1
         return 0
+
+    def est_un_nombre(self, donnee, colonne, ligne):
+        try:
+            fl_d = float(donnee)
+            return fl_d, ""
+        except ValueError:
+            return 0, colonne + " de la ligne " + str(ligne) + " doit être un nombre\n"

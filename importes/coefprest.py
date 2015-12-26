@@ -1,14 +1,14 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
-class CoefMachine(Fichier):
-    """coefficient de machine"""
+class CoefPrest(Fichier):
+    """coefficient de prestations"""
 
     def __init__(self, nom_dossier, delimiteur, encodage):
-        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'coef_p', 'coef_np', 'coef_mo']
-        nom_fichier = "coeffmachine.csv"
-        libelle = "Coefficients Machines"
+        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
+        nom_fichier = "coeffprestation.csv"
+        libelle = "Coefficients Prestations"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.classes = []
 
@@ -16,12 +16,6 @@ class CoefMachine(Fichier):
         if len(self.classes) == 0:
             self.est_coherent()
         return self.classes
-
-    def contient_categorie(self, categorie):
-        for coefmachine in self.donnees:
-            if coefmachine['categorie'] == categorie:
-                return 1
-        return 0
 
     def est_coherent(self):
         msg = ""
@@ -50,7 +44,10 @@ class CoefMachine(Fichier):
                     donnees_dict[donnee['id_classe_tarif']+donnee['categorie']] = donnee
                 else:
                     msg += "Couple categorie '" + donnee['categorie'] + "' et classe de tarif '" + \
-                           donnee['id_classe_tarif'] + "' de la ligne " + ligne + " pas unique\n"
+                           donnee['id_classe_tarif'] + "' de la ligne " + str(ligne) + " pas unique\n"
+
+            donnee['coefficient'], info = self.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
+            msg += info
 
             ligne += 1
 

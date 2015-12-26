@@ -1,4 +1,4 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
@@ -41,6 +41,11 @@ class Compte(Fichier):
             else:
                 msg += "l'id compte '" + donnee['id_compte'] + "' de la ligne " + ligne +\
                        " n'est pas unique\n"
+
+            donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
+            # msg += info
+            donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
+            # msg += info
 
             ligne += 1
 

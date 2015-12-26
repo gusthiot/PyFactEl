@@ -184,9 +184,8 @@ class Sommes(object):
                     somme['somme_j_xr'] += projet['somme_p_xr']
                     somme['xj'] += projet['xp']
 
-                somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'],
-                                                                                      float(cc['seuil']),
-                                                                                      float(cc['pourcent']))
+                somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'], cc['seuil'],
+                                                                                      cc['pourcent'])
 
                 somme['pj'] = somme['somme_j_pm'] - somme['prj']
                 somme['qj'] = somme['somme_j_qm'] - somme['qrj']
@@ -318,13 +317,10 @@ class Sommes(object):
                 somme['xt'] += som_cat['xk']
 
             cl = clients.donnees[code_client]
-            emb = float(cl['emol_base_mens'])
-            fix = float(cl['emol_fixe'])
-            coef_a = float(cl['coef'])
-            regle = cl['emol_sans_activite']
             somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
                 Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
-                                        somme['xt'], emb, fix, coef_a, regle)
+                                        somme['xt'], cl['emol_base_mens'], cl['emol_fixe'], cl['coef'],
+                                        cl['emol_sans_activite'])
         return spc
 
     @staticmethod

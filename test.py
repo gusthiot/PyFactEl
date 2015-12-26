@@ -1,11 +1,12 @@
-from os import getcwd
-from bruts import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
-from interfaces import Interfaces
-from generaux import Generaux
-from edition import Edition
-from sommes import Sommes
-from exportation import Exportation
 import sys
+from os import getcwd
+
+from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
+from annexes import Annexes
+from facture import Facture
+from interfaces import Interfaces
+from parametres import Edition, Generaux
+from sommes import Sommes
 
 encodage = "ISO-8859-1"
 delimiteur = ';'
@@ -81,9 +82,9 @@ spca = Sommes.somme_par_categorie(spco, comptes)
 spcl = Sommes.somme_par_client(spca, clients)
 # Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
 
-Exportation.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
+Facture.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
 
-Exportation.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
-                               prestations, comptes, dossier_data)
+Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
+                           prestations, comptes, dossier_data)
 
 Interfaces.log_erreur("OK !!!")

@@ -1,4 +1,4 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 from rabais import Rabais
 
@@ -40,6 +40,13 @@ class Reservation(Fichier):
             if donnee['code_client'] not in self.codes:
                 self.codes.append(donnee['code_client'])
 
+            donnee['duree_hp'], info = self.est_un_nombre(donnee['duree_hp'], "la durée réservée HP", ligne)
+            msg += info
+            donnee['duree_hc'], info = self.est_un_nombre(donnee['duree_hc'], "la durée réservée HC", ligne)
+            msg += info
+            donnee['duree_ouvree'], info = self.est_un_nombre(donnee['duree_ouvree'], "la durée ouvrée", ligne)
+            msg += info
+
             del donnee['annee']
             del donnee['mois']
             donnees_list.append(donnee)
@@ -62,18 +69,18 @@ class Reservation(Fichier):
             machine = machines.donnees[donnee['id_machine']]
             client = clients.donnees[compte['code_client']]
             coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
-            duree_fact_hp, duree_fact_hc = Rabais.rabais_reservation(float(machine['delai_sans_frais']),
-                                                                     float(donnee['duree_ouvree']),
-                                                                     float(donnee['duree_hp']),
-                                                                     float(donnee['duree_hc']))
+            duree_fact_hp, duree_fact_hc = Rabais.rabais_reservation(machine['delai_sans_frais'],
+                                                                     donnee['duree_ouvree'],
+                                                                     donnee['duree_hp'],
+                                                                     donnee['duree_hc'])
 
-            donnee['pv'] = round(duree_fact_hp / 60 * round(float(machine['t_h_reservation_hp_p']) *
-                                                            float(coefmachine['coef_p']), 2) + duree_fact_hc / 60 *
-                                 round(float(machine['t_h_reservation_hc_p']) * float(coefmachine['coef_p'])), 2)
+            donnee['pv'] = round(duree_fact_hp / 60 * round(machine['t_h_reservation_hp_p'] *
+                                                            coefmachine['coef_p'], 2) + duree_fact_hc / 60 *
+                                 round(machine['t_h_reservation_hc_p'] * coefmachine['coef_p']), 2)
 
-            donnee['qv'] = round(duree_fact_hp / 60 * round(float(machine['t_h_reservation_hp_np']) *
-                                                            float(coefmachine['coef_np']), 2) + duree_fact_hc / 60 *
-                                 round(float(machine['t_h_reservation_hc_np']) * float(coefmachine['coef_np'])), 2)
+            donnee['qv'] = round(duree_fact_hp / 60 * round(machine['t_h_reservation_hp_np'] *
+                                                            coefmachine['coef_np'], 2) + duree_fact_hc / 60 *
+                                 round(machine['t_h_reservation_hc_np'] * coefmachine['coef_np']), 2)
 
             donnee['duree_fact_hp'] = duree_fact_hp
             donnee['duree_fact_hc'] = duree_fact_hc
@@ -84,6 +91,6 @@ class Reservation(Fichier):
         donnees_list = []
         for donnee in self.donnees:
             if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \
-                    and  (donnee['num_projet'] == num_projet):
+                    and (donnee['num_projet'] == num_projet):
                 donnees_list.append(donnee)
         return donnees_list

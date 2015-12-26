@@ -1,4 +1,4 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
@@ -41,6 +41,17 @@ class Prestation(Fichier):
             elif donnee['categorie'] not in generaux.obtenir_d3():
                 msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + ligne +\
                        " n'existe pas dans les paramètres D3\n"
+
+            donnee['prix_unit'], info = self.est_un_nombre(donnee['prix_unit'], "le prix unitaire", ligne)
+            msg += info
+            donnee['val_moy_achat'], info = self.est_un_nombre(donnee['val_moy_achat'], "la valeur moyenne d'achat",
+                                                               ligne)
+            msg += info
+            donnee['cout_unit'], info = self.est_un_nombre(donnee['cout_unit'], "le coût unitaire", ligne)
+            msg += info
+            donnee['prix_rev_unit'], info = self.est_un_nombre(donnee['prix_rev_unit'], "le prix de revient unitaire",
+                                                               ligne)
+            msg += info
 
             ligne += 1
 

@@ -1,14 +1,14 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
-class CoefPrest(Fichier):
-    """coefficient de prestations"""
+class CoefMachine(Fichier):
+    """coefficient de machine"""
 
     def __init__(self, nom_dossier, delimiteur, encodage):
-        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
-        nom_fichier = "coeffprestation.csv"
-        libelle = "Coefficients Prestations"
+        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'coef_p', 'coef_np', 'coef_mo']
+        nom_fichier = "coeffmachine.csv"
+        libelle = "Coefficients Machines"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.classes = []
 
@@ -16,6 +16,12 @@ class CoefPrest(Fichier):
         if len(self.classes) == 0:
             self.est_coherent()
         return self.classes
+
+    def contient_categorie(self, categorie):
+        for coefmachine in self.donnees:
+            if coefmachine['categorie'] == categorie:
+                return 1
+        return 0
 
     def est_coherent(self):
         msg = ""
@@ -44,7 +50,14 @@ class CoefPrest(Fichier):
                     donnees_dict[donnee['id_classe_tarif']+donnee['categorie']] = donnee
                 else:
                     msg += "Couple categorie '" + donnee['categorie'] + "' et classe de tarif '" + \
-                           donnee['id_classe_tarif'] + "' de la ligne " + str(ligne) + " pas unique\n"
+                           donnee['id_classe_tarif'] + "' de la ligne " + ligne + " pas unique\n"
+
+            donnee['coef_p'], info = self.est_un_nombre(donnee['coef_p'], "le coefficient P", ligne)
+            msg += info
+            donnee['coef_np'], info = self.est_un_nombre(donnee['coef_np'], "le coefficient NP", ligne)
+            msg += info
+            donnee['coef_mo'], info = self.est_un_nombre(donnee['coef_mo'], "le coefficient MO", ligne)
+            msg += info
 
             ligne += 1
 

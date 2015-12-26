@@ -1,4 +1,4 @@
-from . import Fichier
+from importes import Fichier
 from interfaces import Interfaces
 
 
@@ -39,6 +39,19 @@ class Acces(Fichier):
             if donnee['code_client'] not in self.codes:
                 self.codes.append(donnee['code_client'])
 
+            donnee['duree_machine_hp'], info = self.est_un_nombre(donnee['duree_machine_hp'], "la durée machine hp",
+                                                                  ligne)
+            msg += info
+            donnee['duree_machine_hc'], info = self.est_un_nombre(donnee['duree_machine_hc'], "la durée machine hc",
+                                                                  ligne)
+            msg += info
+            donnee['duree_operateur_hp'], info = self.est_un_nombre(donnee['duree_operateur_hp'],
+                                                                    "la durée opérateur hp", ligne)
+            msg += info
+            donnee['duree_operateur_hc'], info = self.est_un_nombre(donnee['duree_operateur_hc'],
+                                                                    "la durée opérateur hc", ligne)
+            msg += info
+
             del donnee['annee']
             del donnee['mois']
             donnees_list.append(donnee)
@@ -62,20 +75,20 @@ class Acces(Fichier):
             client = clients.donnees[compte['code_client']]
             coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
 
-            donnee['pu'] = round(float(donnee['duree_machine_hp']) / 60 * round(float(machine['t_h_machine_hp_p']) *
-                                                                                float(coefmachine['coef_p']), 2) +
-                                 float(donnee['duree_machine_hc']) / 60 * round(float(machine['t_h_machine_hc_p']) *
-                                                                                float(coefmachine['coef_p'])), 2)
+            donnee['pu'] = round(donnee['duree_machine_hp'] / 60 * round(machine['t_h_machine_hp_p'] *
+                                                                         coefmachine['coef_p'], 2) +
+                                 donnee['duree_machine_hc'] / 60 * round(machine['t_h_machine_hc_p'] *
+                                                                         coefmachine['coef_p']), 2)
 
-            donnee['qu'] = round(float(donnee['duree_machine_hp']) / 60 * round(float(machine['t_h_machine_hp_np']) *
-                                                                                float(coefmachine['coef_np']), 2) +
-                                 float(donnee['duree_machine_hc']) / 60 * round(float(machine['t_h_machine_hc_np']) *
-                                                                                float(coefmachine['coef_np'])), 2)
+            donnee['qu'] = round(donnee['duree_machine_hp'] / 60 * round(machine['t_h_machine_hp_np'] *
+                                                                         coefmachine['coef_np'], 2) +
+                                 donnee['duree_machine_hc'] / 60 * round(machine['t_h_machine_hc_np'] *
+                                                                         coefmachine['coef_np']), 2)
 
-            donnee['om'] = round(float(donnee['duree_operateur_hp']) / 60 *
-                                 round(float(machine['t_h_operateur_hp_mo']) * float(coefmachine['coef_mo']), 2) +
-                                 float(donnee['duree_operateur_hc']) / 60 *
-                                 round(float(machine['t_h_operateur_hc_mo']) * float(coefmachine['coef_mo'])), 2)
+            donnee['om'] = round(donnee['duree_operateur_hp'] / 60 *
+                                 round(machine['t_h_operateur_hp_mo'] * coefmachine['coef_mo'], 2) +
+                                 donnee['duree_operateur_hc'] / 60 *
+                                 round(machine['t_h_operateur_hc_mo'] * coefmachine['coef_mo']), 2)
 
             donnees_list.append(donnee)
         self.donnees = donnees_list
@@ -84,6 +97,6 @@ class Acces(Fichier):
         donnees_list = []
         for donnee in self.donnees:
             if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \
-                    and  (donnee['num_projet'] == num_projet):
+                    and (donnee['num_projet'] == num_projet):
                 donnees_list.append(donnee)
         return donnees_list
