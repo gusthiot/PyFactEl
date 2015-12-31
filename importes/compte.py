@@ -3,21 +3,44 @@ from interfaces import Interfaces
 
 
 class Compte(Fichier):
-    """compte client du CMi"""
+    """
+    Classe pour l'importation des données de Comptes Cmi
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_compte', 'intitule', 'categorie', 'code_client', 'abrev_labo', 'seuil', 'pourcent']
         nom_fichier = "compte.csv"
         libelle = "Comptes"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
 
     def contient_id(self, id_compte):
+        """
+        vérifie si un compte contient l'id donné
+        :param id_compte: id à vérifier
+        :return: 1 si id contenu, 0 sinon
+        """
         for compte in self.donnees:
             if compte['id_compte'] == id_compte:
                 return 1
         return 0
 
     def est_coherent(self, client, coefmachines, coefprests, generaux, clients_actifs):
+        """
+        vérifie que les données du fichier importé sont cohérentes (code client dans clients,
+        ou alors absent des clients actifs, id compte unique), et efface les colonnes mois et année
+        :param client: clients importés
+        :param coefmachines: coefficients machines importés
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
+        :param clients_actifs: codes des clients présents dans accès, réservations et livraisons
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         codes = []
@@ -27,7 +50,7 @@ class Compte(Fichier):
         for donnee in self.donnees:
             if donnee['code_client'] == "":
                 print("code client du compte vide")
-                # msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+            #    msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code_client'] not in codes:
                 codes.append(donnee['code_client'])
 
@@ -43,8 +66,10 @@ class Compte(Fichier):
                        " n'est pas unique\n"
 
             donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
+            print(info)
             # msg += info
             donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
+            print(info)
             # msg += info
 
             ligne += 1

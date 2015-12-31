@@ -2,9 +2,16 @@ from tkinter.filedialog import *
 
 
 class Interfaces(object):
+    """
+    Classe contenant quelques interfaces graphiques
+    """
 
     @staticmethod
     def log_erreur(message):
+        """
+        affiche une petite boite de dialogue avec un message d'erreur et un bouton OK
+        :param message: message à afficher
+        """
         fenetre = Tk()
         fenetre.title("Erreur")
         label = Label(fenetre, text=message)
@@ -15,6 +22,10 @@ class Interfaces(object):
 
     @staticmethod
     def choisir_dossier():
+        """
+        affiche une interface permettant de choisir un dossier
+        :return: la position du dossier sélectionné
+        """
         fenetre = Tk()
         fenetre.title("Choix du dossier")
         dossier = askdirectory(parent=fenetre, initialdir="/home/cgusthiot/Bureau",
@@ -23,11 +34,14 @@ class Interfaces(object):
         if dossier == "":
             Interfaces.log_erreur("Aucun dossier choisi")
             sys.exit("Aucun dossier choisi")
-        print(dossier)
         return dossier
 
     @staticmethod
     def choisir_edition():
+        """
+        affiche l'interface d'édition tant que la sélection n'est pas cohérente (non-utilisé actuellement)
+        :return: tableau contenant 'année', 'mois' et 'version'
+        """
         while 1:
             entree = Interfaces.interface_edition()
             if entree['annee'] == "" or entree['mois'] == "" or entree['version'] == "":
@@ -45,6 +59,10 @@ class Interfaces(object):
 
     @staticmethod
     def interface_edition():
+        """
+        affiche une boite de dialogue permettant de choisir les paramètres d'édition (non utilisé actuellement)
+        :return: tableau contenant 'année', 'mois' et 'version'
+        """
         reponse = {}
         fenetre = Tk()
 

@@ -3,9 +3,17 @@ from interfaces import Interfaces
 
 
 class CoefPrest(Fichier):
-    """coefficient de prestations"""
+    """
+    Classe pour l'importation des données de Coefficients Prestations
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
         nom_fichier = "coeffprestation.csv"
         libelle = "Coefficients Prestations"
@@ -13,11 +21,20 @@ class CoefPrest(Fichier):
         self.classes = []
 
     def obtenir_classes(self):
+        """
+        retourne toutes les classes de tarif présentes
+        :return: toutes les classes de tarif présentes
+        """
         if len(self.classes) == 0:
             self.est_coherent()
         return self.classes
 
     def est_coherent(self):
+        """
+        vérifie que les données du fichier importé sont cohérentes (si couple catégorie - classe de tarif est unique),
+        et efface les colonnes mois et année
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         categories = []

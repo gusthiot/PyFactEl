@@ -4,7 +4,9 @@ from interfaces import Interfaces
 
 
 class Generaux(object):
-    """paramètres généraux"""
+    """
+    Classe pour l'importation des paramètres généraux
+    """
 
     cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'financier', 'fond', 'entete',
             'poste_emolument', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite', 'unite',
@@ -13,6 +15,12 @@ class Generaux(object):
     libelle = "Paramètres Généraux"
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         donnees_csv = []
         try:
             csv_fichier = open(nom_dossier + Generaux.nom_fichier, newline='', encoding=encodage)
@@ -39,10 +47,16 @@ class Generaux(object):
             del(donnee[0])
             self.donnees[Generaux.cles[xx]] = donnee
 
-        # print(self.donnees)
-
-    def obtenir_donnees_cle(self,cle):
-        return self.donnees[cle][1:]
+    def obtenir_code_n(self):
+        """
+        retourne les codes N
+        :return: codes N
+        """
+        return self.donnees['code_n'][1:]
 
     def obtenir_d3(self):
+        """
+        retourne les codes D3
+        :return: codes D3
+        """
         return self.donnees['code_d'][4:]

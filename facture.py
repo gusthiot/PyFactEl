@@ -3,9 +3,24 @@ from sommes import Sommes
 
 
 class Facture(object):
+    """
+    Classe contenant les méthodes nécessaires à la génération des factures
+    """
 
     @staticmethod
     def factures(somme_client, somme_compte, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes):
+        """
+        génère la facture sous forme de csv
+        :param somme_client: dictionnaire des sommes par clients
+        :param somme_compte: dictionnaire des sommes par comptes
+        :param nom_dossier: nom du dossier dans lequel enregistrer le csv
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        :param edition: paramètres d'édition
+        :param generaux: paramètres généraux
+        :param clients: clients importés
+        :param comptes: comptes importés
+        """
         mois = edition.mois
         if mois < 10:
             mois = "0" + str(mois)
@@ -117,6 +132,17 @@ class Facture(object):
 
     @staticmethod
     def ligne_facture(generaux, index, poste, net, rabais, op_centre, consommateur):
+        """
+        retourne une ligne de facturation  formatée
+        :param generaux: paramètres généraux
+        :param index: index de colonne des paramètres généraux
+        :param poste: indice de poste
+        :param net: montant net
+        :param rabais: rabais sur le montant
+        :param op_centre: centre d'opération
+        :param consommateur: consommateur
+        :return: ligne de facturation formatée
+        """
         if rabais == 0:
             rabais = ""
         code_op = generaux.donnees['code_t'][1] + op_centre + generaux.donnees['code_d'][index]

@@ -4,12 +4,20 @@ from interfaces import Interfaces
 
 
 class Edition(object):
-    """paramètres d'édition"""
+    """
+    Classe pour l'importation des paramètres d'édition
+    """
 
     nom_fichier = "paramedit.csv"
     libelle = "Paramètres d'Edition"
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         donnees_csv = []
         try:
             csv_fichier = open(nom_dossier + Edition.nom_fichier, newline='', encoding=encodage)

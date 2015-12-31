@@ -3,9 +3,17 @@ from interfaces import Interfaces
 
 
 class Acces(Fichier):
-    """Contrôle Accès Equipement"""
+    """
+    Classe pour l'importation des données de Contrôle Accès Equipement
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
                 'prenom_user', 'num_projet', 'intitule_projet', 'id_machine', 'nom_machine', 'date_login',
                 'duree_machine_hp', 'duree_machine_hc', 'duree_operateur_hp', 'duree_operateur_hc', 'id_op', 'nom_op',
@@ -16,11 +24,24 @@ class Acces(Fichier):
         self.codes = []
 
     def obtenir_codes(self, comptes, machines):
+        """
+        retourne la liste de tous les codes clients
+        :param comptes: comptes importés
+        :param machines: machines importées
+        :return: liste des codes clients présents dans les données cae importées
+        """
         if len(self.codes) == 0:
             self.est_coherent(comptes, machines)
         return self.codes
 
     def est_coherent(self, comptes, machines):
+        """
+        vérifie que les données du fichier importé sont cohérentes (id compte parmi comptes,
+        id machine parmi machines), et efface les colonnes mois et année
+        :param comptes: comptes importés
+        :param machines: machines importées
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         donnees_list = []
@@ -68,6 +89,13 @@ class Acces(Fichier):
         return 0
 
     def calcul_montants(self, machines, coefmachines, comptes, clients):
+        """
+        calcule les montants 'pu', 'qu' et 'mo' et les ajoute aux données
+        :param machines: machines importées
+        :param coefmachines: coefficients machines importés
+        :param comptes: comptes importés
+        :param clients: clients importés
+        """
         donnees_list = []
         for donnee in self.donnees:
             compte = comptes.donnees[donnee['id_compte']]
@@ -94,6 +122,13 @@ class Acces(Fichier):
         self.donnees = donnees_list
 
     def acces_pour_projet(self, num_projet, id_compte, code_client):
+        """
+        retourne toutes les données cae pour un projet donné
+        :param num_projet: le numéro du projet
+        :param id_compte: l'id du compte du projet
+        :param code_client: le code client du compte
+        :return: les données cae pour le projet donné
+        """
         donnees_list = []
         for donnee in self.donnees:
             if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \

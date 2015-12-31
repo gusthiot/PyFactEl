@@ -3,9 +3,17 @@ from interfaces import Interfaces
 
 
 class Machine(Fichier):
-    """machine du CMi"""
+    """
+    Classe pour l'importation des données de Machines Cmi
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_machine', 'nom', 'categorie', 't_h_machine_hp_p', 't_h_machine_hp_np',
                 't_h_operateur_hp_mo', 't_h_reservation_hp_p', 't_h_reservation_hp_np', 't_h_machine_hc_p',
                 't_h_machine_hc_np', 't_h_operateur_hc_mo', 't_h_reservation_hc_p', 't_h_reservation_hc_np',
@@ -15,6 +23,11 @@ class Machine(Fichier):
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
 
     def contient_id(self, id_machine):
+        """
+        vérifie si une machine contient l'id donné
+        :param id_machine: id à vérifier
+        :return: 1 si id contenu, 0 sinon
+        """
         ligne = 1
         for machine in self.donnees:
             if machine['id_machine'] == id_machine:
@@ -23,6 +36,12 @@ class Machine(Fichier):
         return 0
 
     def est_coherent(self, coefmachines):
+        """
+        vérifie que les données du fichier importé sont cohérentes (id machine unique,
+        catégorie machine référencé dans les coefficients machines), et efface les colonnes mois et année
+        :param coefmachines: coefficients machines importés
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         ids = []

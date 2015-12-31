@@ -8,6 +8,10 @@ from interfaces import Interfaces
 from parametres import Edition, Generaux
 from sommes import Sommes
 
+"""
+ fichier à lancer pour faire tourner le logiciel avec les csv de test
+"""
+
 encodage = "ISO-8859-1"
 delimiteur = ';'
 dossier_travail = getcwd()

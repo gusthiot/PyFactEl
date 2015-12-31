@@ -4,7 +4,9 @@ import csv
 
 
 class Sommes(object):
-    """ métodes de claculs des sommes"""
+    """
+    Classe contenant les méthodes pour le calcul des sommes par projet, compte, catégorie et client
+    """
 
     cles_somme_projet = ['somme_p_pu', 'somme_p_pv', 'somme_p_pm', 'somme_p_qu', 'somme_p_qv', 'somme_p_qm',
                          'somme_p_om', 'somme_p_nm', 'somme_p_lm', 'somme_p_lr', 'lp', 'somme_p_cm', 'somme_p_cr',
@@ -28,6 +30,11 @@ class Sommes(object):
 
     @staticmethod
     def nouveau_somme(cles):
+        """
+        créé un nouveau dictionnaire avec les clés entrées
+        :param cles: clés pour le dictionnaire
+        :return: dictionnaire indexé par les clés données, avec valeurs à zéro
+        """
         somme = {}
         for cle in cles:
             somme[cle] = 0
@@ -35,6 +42,11 @@ class Sommes(object):
 
     @staticmethod
     def ordonner_keys_str_par_int(keys):
+        """
+        ordonne une liste de clés-nombres enregistrées comme string par ordre croissant
+        :param keys: clés à trier
+        :return: clés triées
+        """
         ordonne = []
         for key in keys:
             ordonne.append(int(key))
@@ -45,6 +57,15 @@ class Sommes(object):
 
     @staticmethod
     def sommes_par_projet(livraisons, reservations, acces, prestations, comptes):
+        """
+        retourne les sommes par projets
+        :param livraisons: livraisons importées
+        :param reservations: réservations importées
+        :param acces: accès machines importés
+        :param prestations: prestations importées
+        :param comptes: comptes importés
+        :return: sommes par projets sous forme de dictionnaire : client->compte->projet->clés_sommes
+        """
         spp = {}
         for acce in acces.donnees:
             id_compte = acce['id_compte']
@@ -153,6 +174,12 @@ class Sommes(object):
 
     @staticmethod
     def somme_par_compte(somme_par_projet, comptes):
+        """
+        retourne les sommes par comptes
+        :param somme_par_projet: dictionnaire des sommes par projets
+        :param comptes: comptes importés
+        :return: sommes par comptes sous forme de dictionnaire : client->compte->clés_sommes
+        """
         spc = {}
         for code_client, client in somme_par_projet.items():
             if code_client not in spc:
@@ -220,6 +247,12 @@ class Sommes(object):
 
     @staticmethod
     def somme_par_categorie(somme_par_compte, comptes):
+        """
+        retourne les sommes par catégories
+        :param somme_par_compte: dictionnaire des sommes par comptes
+        :param comptes: comptes importés
+        :return: sommes par catégories sous forme de dictionnaire : client->catégorie->clés_sommes
+        """
         spc = {}
         for code_client, client in somme_par_compte.items():
             if code_client not in spc:
@@ -282,6 +315,12 @@ class Sommes(object):
 
     @staticmethod
     def somme_par_client(somme_par_categorie, clients):
+        """
+        retourne les sommes par clientd
+        :param somme_par_categorie: dictionnaire des sommes par catégories
+        :param clients: clients importés
+        :return: sommes par clients sous forme de dictionnaire : client->clés_sommes
+        """
         spc = {}
         for code_client, client in somme_par_categorie.items():
             spc[code_client] = Sommes.nouveau_somme(Sommes.cles_somme_client)

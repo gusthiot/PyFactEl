@@ -3,9 +3,17 @@ from interfaces import Interfaces
 
 
 class Client(Fichier):
-    """client du CMi"""
+    """
+    Classe pour l'importation des données de Clients Cmi
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'code', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_sans_activite',
                 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif', 'classe_tarif']
         nom_fichier = "client.csv"
@@ -14,11 +22,26 @@ class Client(Fichier):
         self.codes = []
 
     def obtenir_codes(self, coefmachines, coefprests, generaux):
+        """
+        retourne les codes de tous les clients
+        :param coefmachines: coefficients machines importés
+        :param coefprests: coefficients prestations
+        :param generaux: paramètres généraux
+        :return: codes de tous les clients
+        """
         if len(self.codes) == 0:
             self.est_coherent(coefmachines, coefprests, generaux)
         return self.codes
 
     def est_coherent(self, coefmachines, coefprests, generaux):
+        """
+        vérifie que les données du fichier importé sont cohérentes (code client unique,
+        classe tarif présente dans coefficients, type de labo dans paramètres), et efface les colonnes mois et année
+        :param coefmachines: coefficients machines importés
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         classes = []
@@ -43,7 +66,7 @@ class Client(Fichier):
 
             if donnee['type_labo'] == "":
                 msg += "le type de labo de la ligne " + ligne + " ne peut être vide\n"
-            elif donnee['type_labo'] not in generaux.obtenir_donnees_cle('code_n'):
+            elif donnee['type_labo'] not in generaux.obtenir_code_n():
                 msg + "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les types N\n"
 

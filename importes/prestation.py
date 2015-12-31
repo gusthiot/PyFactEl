@@ -3,9 +3,18 @@ from interfaces import Interfaces
 
 
 class Prestation(Fichier):
-    """prestation du catalogue"""
+    """
+    Classe pour l'importation des données de Prestations du catalogue
+    """
+
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_prestation', 'designation', 'categorie', 'unite_prest', 'prix_unit',
                 'val_moy_achat', 'cout_unit', 'prix_rev_unit']
         nom_fichier = "prestation.csv"
@@ -13,12 +22,23 @@ class Prestation(Fichier):
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
 
     def contient_id(self, id_prestation):
+        """
+        vérifie si une prestation contient l'id donné
+        :param id_prestation: id à vérifier
+        :return: 1 si id contenu, 0 sinon
+        """
         for prestation in self.donnees:
             if prestation['id_prestation'] == id_prestation:
                 return 1
         return 0
 
     def est_coherent(self, generaux):
+        """
+        vérifie que les données du fichier importé sont cohérentes (id prestation unique,
+        catégorie prestation présente dans les paramètres D3), et efface les colonnes mois et année
+        :param generaux: paramètres généraux
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         ids = []

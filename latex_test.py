@@ -1,5 +1,9 @@
 from annexes import Annexes
 
+"""
+ fichier pour tester la création d'un fichier PDF avec LaTeX
+"""
+
 content = r'''\documentclass[a4paper,landscape]{article}
 \usepackage[utf8]{inputenc}
 

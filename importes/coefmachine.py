@@ -3,9 +3,17 @@ from interfaces import Interfaces
 
 
 class CoefMachine(Fichier):
-    """coefficient de machine"""
+    """
+    Classe pour l'importation des données de Coefficients Machines
+    """
 
     def __init__(self, nom_dossier, delimiteur, encodage):
+        """
+        initialisation de la structure des données et du nom et de la position du fichier importé
+        :param nom_dossier: nom du dossier où se trouve le fichier à importer
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param encodage: encodage du texte
+        """
         cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'coef_p', 'coef_np', 'coef_mo']
         nom_fichier = "coeffmachine.csv"
         libelle = "Coefficients Machines"
@@ -13,17 +21,31 @@ class CoefMachine(Fichier):
         self.classes = []
 
     def obtenir_classes(self):
+        """
+        retourne toutes les classes de tarif présentes
+        :return: toutes les classes de tarif présentes
+        """
         if len(self.classes) == 0:
             self.est_coherent()
         return self.classes
 
     def contient_categorie(self, categorie):
+        """
+        vérifie si la catégorie est présente
+        :param categorie:
+        :return: 1 si présente, 0 sinon
+        """
         for coefmachine in self.donnees:
             if coefmachine['categorie'] == categorie:
                 return 1
         return 0
 
     def est_coherent(self):
+        """
+        vérifie que les données du fichier importé sont cohérentes (si couple catégorie - classe de tarif est unique),
+        et efface les colonnes mois et année
+        :return: 1 s'il y a une erreur, 0 sinon
+        """
         msg = ""
         ligne = 1
         categories = []

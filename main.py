@@ -7,10 +7,14 @@ from parametres import Edition, Generaux
 from sommes import Sommes
 from facture import Facture
 
+"""
+ fichier principal à lancer pour faire tourner le logiciel
+"""
+
 encodage = "ISO-8859-1"
 delimiteur = ';'
 dossier_data = Interfaces.choisir_dossier() + "/"
-edition = Edition(dossier_data, delimiteur, encodage)  # Interfaces.choisir_edition()
+edition = Edition(dossier_data, delimiteur, encodage)
 
 acces = Acces(dossier_data, delimiteur, encodage)
 clients = Client(dossier_data, delimiteur, encodage)

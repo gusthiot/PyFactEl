@@ -30,38 +30,12 @@ class Annexes(object):
             '''
 
         for code_client in keys:
+            # ## CLIENT
             scl = somme_client[code_client]
             client = clients.donnees[code_client]
             sca = somme_categorie[code_client]
 
             contenu = debut
-
-            dic_entete = {'code': code_client, 'nom': client['nom_labo'], 'annee': edition.annee, 'mois': edition.mois}
-            entete = r'''%(code)s
-                \newline
-                %(nom)s
-                \newline
-                %(annee)s/%(mois)s
-                \newline
-                \newline
-                ''' % dic_entete
-
-            contenu += entete
-
-            dic_emo = {'emb':  "%.2f" % client['emol_base_mens'], 'ef':  "%.2f" % client['emol_fixe'],
-                       'pente': client['coef'], 'tot_eq_p': "%.2f" % scl['pt'], 'tot_eq_np': "%.2f" % scl['qt'],
-                       'tot_eq': "%.2f" % scl['somme_eq'], 'rabais': "%.2f" % scl['er']}
-
-            structure_emolument = r'''{|p{2cm}|p{2cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}'''
-            legende_emolument = r'''Emolument pour client ''' + code_client
-            contenu_emolument = r'''
-                Emolument de base & Emolument fixe & Pente & Total EQ P & Total EQ NP & Total EQ & Rabais émolument \\
-                \hline
-                %(emb)s & %(ef)s & %(pente)s & %(tot_eq_p)s & %(tot_eq_np)s & %(tot_eq)s & %(rabais)s \\
-                \hline
-                ''' % dic_emo
-
-            contenu += Annexes.tableau(contenu_emolument, structure_emolument, legende_emolument)
 
             structure_recap_compte = r'''{|p{2cm}|p{1cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|
                 p{1.5cm}|}'''
@@ -73,7 +47,18 @@ class Annexes(object):
 
             client_comptes = somme_compte[code_client]
             keys2 = Sommes.ordonner_keys_str_par_int(client_comptes.keys())
+
             for id_compte in keys2:
+                # ## COMPTE
+                co = comptes.donnees[id_compte]
+                dico_nom = {'labo': Annexes.echappe_caracteres(client['abrev_labo']),
+                            'utilisateur': Annexes.echappe_caracteres(co['intitule']),
+                            'date': str(edition.mois) + "/" + str(edition.annee)}
+                contenu += r'''
+                    %(labo)s - %(utilisateur)s - %(date)s
+                    \newline
+                    ''' % dico_nom
+
                 client_compte_projet = somme_projet[code_client][id_compte]
                 keys3 = Sommes.ordonner_keys_str_par_int(client_compte_projet.keys())
                 structure_recap_projet = r'''{|p{2.2cm}|p{1.5cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.5cm}|p{1.5cm}|
@@ -85,8 +70,11 @@ class Annexes(object):
                     '''
 
                 for num_projet in keys3:
-
+                    # ## PROJET
                     sp = somme_projet[code_client][id_compte][num_projet]
+
+                    machines_utilisees = {}
+
                     total = sp['somme_p_pm'] + sp['somme_p_nm'] + sp['lp'] + sp['cp'] + sp['wp'] + sp['xp']
                     dico_recap_projet = {'num': num_projet, 'plafond': "%.2f" % sp['somme_p_pm'],
                                          'non_plafond': "%.2f" % sp['somme_p_nm'], 'loc_sb': "%.2f" % sp['lp'],
@@ -97,6 +85,7 @@ class Annexes(object):
                         \hline
                         ''' % dico_recap_projet
 
+                    # ## CAE
                     structure_cae = r'''{|p{1.5cm}|p{1.2cm}|p{4cm}|p{0.5cm}|p{0.9cm}|p{0.9cm}||p{0.5cm}|p{0.5cm}|
                         p{0.5cm}||p{1.2cm}|p{1.2cm}|p{1.2cm}|}'''
                     dico_cae = {'compte': id_compte, 'projet': num_projet}
@@ -104,18 +93,26 @@ class Annexes(object):
                         \multicolumn{3}{l||}{CHF/h} & \multicolumn{3}{l|}{CHF} \\
                         \hline
                         Date & Heure & Equipement & & mach. & oper. & P & NP & OP & P & NP & OP\\
-                        \hline''' % dico_cae
+                        \hline
+                        ''' % dico_cae
                     nombre_cae = 0
                     legende_cae = r'''Récapitulatif CAE compte : ''' + id_compte + r''' / projet : ''' + num_projet
 
                     cae_proj = acces.acces_pour_projet(num_projet, id_compte, code_client)
                     for cae in cae_proj:
                         nombre_cae += 1
+                        if cae['id_machine'] not in machines_utilisees:
+                            machines_utilisees[cae['id_machine']] = {'machine': cae['nom_machine'], 'usage': 0,
+                                                                     'reservation': 0}
+                        machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hp']
+                        machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hc']
                         contenu_cae += Annexes.ligne_cae(cae, machines.donnees[cae['id_machine']])
 
                     if nombre_cae > 0:
                         contenu += Annexes.tableau(contenu_cae, structure_cae, legende_cae)
+                    # ## cae
 
+                    # ## RES
                     structure_res = r'''{|p{1.5cm}|p{1.2cm}|p{5cm}|p{0.5cm}|p{0.9cm}|p{0.9cm}||p{0.5cm}|p{0.5cm}||
                         p{1.2cm}|p{1.2cm}|}'''
                     dico_res = {'compte': id_compte, 'projet': num_projet}
@@ -123,7 +120,8 @@ class Annexes(object):
                         \multicolumn{2}{l||}{CHF/h} & \multicolumn{2}{l|}{CHF} \\
                         \hline
                         Date & Heure & Equipement & & slot & fact. & P & NP & P & NP\\
-                        \hline''' % dico_res
+                        \hline
+                        ''' % dico_res
                     nombre_res = 0
                     legende_res = r'''Récapitulatif Réservation compte : ''' + id_compte + r''' / projet :
                         ''' + num_projet
@@ -131,11 +129,18 @@ class Annexes(object):
                     res_proj = reservations.reservation_pour_projet(num_projet, id_compte, code_client)
                     for res in res_proj:
                         nombre_res += 1
+                        if res['id_machine'] not in machines_utilisees:
+                            machines_utilisees[res['id_machine']] = {'machine': res['nom_machine'], 'usage': 0,
+                                                                     'reservation': 0}
+                        machines_utilisees[res['id_machine']]['reservation'] += res['duree_hp']
+                        machines_utilisees[res['id_machine']]['reservation'] += res['duree_hc']
                         contenu_res += Annexes.ligne_res(res, machines.donnees[res['id_machine']])
 
                     if nombre_res > 0:
                         contenu += Annexes.tableau(contenu_res, structure_res, legende_res)
+                    # ## res
 
+                    # ## LIV
                     liv_proj_cat = livraisons.livraisons_pour_projet_par_categorie(num_projet, id_compte, code_client,
                                                                                    prestations)
 
@@ -145,6 +150,27 @@ class Annexes(object):
                             for liv in livs:
                                 tableau = Annexes.tableau_livraison(liv, prestations.donnees[liv['id_prestation']])
                                 contenu += tableau
+                    # ## liv
+
+                    structure_stat_machines = r'''{|p{9cm}|p{2cm}|p{2cm}|}'''
+                    legende_stat_machines = r'''Statistiques de réservation/utilisation par machine
+                        pour le projet ''' + num_projet
+                    contenu_stat_machines = r'''Equipement & Usage & Réservation \\
+                        \hline
+                        '''
+
+                    for machine in machines_utilisees:
+                        dico_stat_machines = {
+                            'machine': Annexes.echappe_caracteres(machines_utilisees[machine]['machine']),
+                            'usage': Annexes.format_heure(machines_utilisees[machine]['usage']),
+                            'reservation': Annexes.format_heure(machines_utilisees[machine]['reservation'])}
+                        contenu_stat_machines += r'''%(machine)s & %(usage)s & %(reservation)s \\
+                            \hline
+                            ''' % dico_stat_machines
+
+                    contenu += Annexes.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
+
+                    # ## projet
 
                 sco = somme_compte[code_client][id_compte]
 
@@ -167,8 +193,6 @@ class Annexes(object):
                     ''' % dico_recap_projet
 
                 contenu += Annexes.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
-
-                co = comptes.donnees[id_compte]
 
                 dico_recap_compte = {'compte': id_compte, 'type': co['categorie'], 'plafond': "%.2f" % sco['pj'],
                                      'non_plafond': "%.2f" % sco['nj'], 'loc_sb': "%.2f" % sco['lj'],
@@ -197,15 +221,15 @@ class Annexes(object):
 
                 contenu_recap_poste = r'''Compte  ''' + id_compte + r''' & Montant & Rabais & Total \\
                     \hline
-                    Montant utilisation Machine P & %(spu)s & %(prj)s & %(pj)s \\
+                    Montant utilisation Machine P & %(spu)s & \multirow{2}{*}{%(prj)s} & \multirow{2}{*}{%(pj)s} \\
+                    \cline{1-2}
+                    Montant réservation Machine P & %(spv)s &  & \\
                     \hline
-                    Montant réservation Machine P & %(spv)s & %(prj)s & %(pj)s \\
-                    \hline
-                    Montant utilisation Machine NP & %(squ)s & %(nrj)s & %(nj)s \\
-                    \hline
-                    Montant réservation Machine NP & %(sqv)s & %(nrj)s & %(nj)s \\
-                    \hline
-                    Montant Main d'oeuvre & %(som)s & %(nrj)s & %(nj)s \\
+                    Montant utilisation Machine NP & %(squ)s & \multirow{3}{*}{%(nrj)s} & \multirow{3}{*}{%(nj)s} \\
+                    \cline{1-2}
+                    Montant réservation Machine NP & %(sqv)s &  &  \\
+                    \cline{1-2}
+                    Montant Main d'oeuvre & %(som)s &  &  \\
                     \hline
                     Location salle blanche & %(slm)s & %(slr)s & %(lj)s \\
                     \hline
@@ -220,6 +244,30 @@ class Annexes(object):
                 contenu += Annexes.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
 
                 contenu += r'''\clearpage'''
+                # ## compte
+
+            dic_entete = {'code': code_client, 'nom': Annexes.echappe_caracteres(client['abrev_labo']),
+                          'date': str(edition.mois) + "/" + str(edition.annee)}
+            entete = r'''
+                %(code)s - %(nom)s - %(date)s/
+                ''' % dic_entete
+
+            contenu += entete
+
+            dic_emo = {'emb':  "%.2f" % client['emol_base_mens'], 'ef':  "%.2f" % client['emol_fixe'],
+                       'pente': client['coef'], 'tot_eq_p': "%.2f" % scl['pt'], 'tot_eq_np': "%.2f" % scl['qt'],
+                       'tot_eq': "%.2f" % scl['somme_eq'], 'rabais': "%.2f" % scl['er']}
+
+            structure_emolument = r'''{|p{2cm}|p{2cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}'''
+            legende_emolument = r'''Emolument pour client ''' + code_client
+            contenu_emolument = r'''
+                Emolument de base & Emolument fixe & Pente & Total EQ P & Total EQ NP & Total EQ & Rabais émolument \\
+                \hline
+                %(emb)s & %(ef)s & %(pente)s & %(tot_eq_p)s & %(tot_eq_np)s & %(tot_eq)s & %(rabais)s \\
+                \hline
+                ''' % dic_emo
+
+            contenu += Annexes.tableau(contenu_emolument, structure_emolument, legende_emolument)
 
             dico_recap_compte = {'plafond': "%.2f" % scl['pt'], 'non_plafond': "%.2f" % scl['nt'],
                                  'loc_sb': "%.2f" % scl['lt'], 'conso': "%.2f" % scl['ct'],
@@ -279,9 +327,9 @@ class Annexes(object):
                 \hline
                 Machine P & %(tpm)s & %(tprj)s & %(pt)s \\
                 \hline
-                Machine NP & %(tqm)s & %(tnrj)s & %(nt)s \\
-                \hline
-                Main d'oeuvre & %(tom)s & %(tnrj)s & %(nt)s \\
+                Machine NP & %(tqm)s & \multirow{2}{*}{%(tnrj)s} & \multirow{2}{*}{%(nt)s} \\
+                \cline{1-2}
+                Main d'oeuvre & %(tom)s & & \\
                 \hline
                 Location salle blanche & %(tlm)s & %(tlr)s & %(lt)s \\
                 \hline
@@ -305,6 +353,8 @@ class Annexes(object):
             nom = "annexeT_" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + "_" + code_client
 
             Annexes.creer_latex(nom, contenu, dossier_annexe)
+
+            # ## client
 
     @staticmethod
     def tableau(contenu, structure, legende):
@@ -342,21 +392,48 @@ class Annexes(object):
                 't5': "%d" % machine['t_h_machine_hc_np'], 't6': "%d" % machine['t_h_operateur_hc_mo'],
                 'p1': p1, 'p2': p2, 'p3': p3, 'p4': p4, 'p5': p5, 'p6': p6}
 
-        ligne = ""
+        nb = 0
         if (cae['duree_machine_hp'] > 0) or (cae['duree_operateur_hp'] > 0):
-            ligne += r'''%(date)s & %(heure)s & %(machine)s & HP & %(deq_hp)s & %(dmo_hp)s & %(t1)s & %(t2)s & %(t3)s &
-                %(p1)s & %(p2)s & %(p3)s \\
-                \hline''' % dico
+            nb += 1
 
         if (cae['duree_machine_hc'] > 0) or (cae['duree_operateur_hc'] > 0):
-            ligne += r'''%(date)s & %(heure)s & %(machine)s & HC & %(deq_hc)s & %(dmo_hc)s & %(t4)s & %(t5)s & %(t6)s &
-                %(p4)s & %(p5)s & %(p6)s \\
-                \hline''' % dico
+            nb += 1
+
+        if nb == 0:
+            return ""
 
         if (cae['remarque_staff'] != "") or (cae['remarque_op'] != ""):
-            ligne += r'''%(date)s & %(heure)s & \multicolumn{10}{l|}{%(operateur)s ; %(rem_op)s ; %(rem_staff)s}\\
-                \hline''' % dico
+            nb += 1
 
+        if nb == 1:
+            ligne = r'''%(date)s & %(heure)s''' % dico
+        else:
+            ligne = r'''\multirow{''' + str(nb) + r'''}{*}{%(date)s} & \multirow{''' % dico
+            ligne += str(nb) + r'''}{*}{%(heure)s}''' % dico
+
+        nb = 0
+        if (cae['duree_machine_hp'] > 0) or (cae['duree_operateur_hp'] > 0):
+            ligne += r''' & %(machine)s & HP & %(deq_hp)s & %(dmo_hp)s & %(t1)s & %(t2)s & %(t3)s &
+                %(p1)s & %(p2)s & %(p3)s \\
+                ''' % dico
+            nb += 1
+
+        if (cae['duree_machine_hc'] > 0) or (cae['duree_operateur_hc'] > 0):
+            if nb > 0:
+                ligne += r'''& &'''
+            else:
+                ligne += r'''& %(machine)s ''' % dico
+            ligne += r''' & HC & %(deq_hc)s & %(dmo_hc)s & %(t4)s & %(t5)s & %(t6)s &
+                %(p4)s & %(p5)s & %(p6)s \\
+                ''' % dico
+
+        if (cae['remarque_staff'] != "") or (cae['remarque_op'] != ""):
+            ligne += r'''\cline{3-12}
+                &  & \multicolumn{10}{l|}{%(operateur)s ; %(rem_op)s ; %(rem_staff)s}\\
+                ''' % dico
+
+        ligne += r'''\hline
+            '''
         return ligne
 
     @staticmethod
@@ -380,20 +457,46 @@ class Annexes(object):
                 't9': "%d" % machine['t_h_machine_hc_p'], 't10': "%d" % machine['t_h_machine_hc_np'], 'p7': p7,
                 'p8': p8, 'p9': p9, 'p10': p10}
 
-        ligne = ""
+        nb = 0
         if res['duree_fact_hp'] > 0:
-            ligne += r'''%(date)s & %(heure)s & %(machine)s & HP & %(shp)s & %(fhp)s & %(t7)s & %(t8)s & %(p7)s &
-                %(p8)s \\
-                \hline''' % dico
+            nb += 1
 
         if res['duree_fact_hc'] > 0:
-            ligne += r'''%(date)s & %(heure)s & %(machine)s & HC & %(shc)s & %(fhc)s & %(t9)s & %(t10)s & %(p9)s &
-                %(p10)s \\
-                \hline''' % dico
+            nb += 1
+
+        if nb == 0:
+            return ""
 
         if res['date_suppression'] != "":
-            ligne += r'''%(date)s & %(heure)s & \multicolumn{8}{l|}{Supprimé le : %(supprime)s} \\
-                \hline''' % dico
+            nb += 1
+
+        if nb == 1:
+            ligne = r'''%(date)s & %(heure)s''' % dico
+        else:
+            ligne = r'''\multirow{''' + str(nb) + r'''}{*}{%(date)s} & \multirow{''' % dico
+            ligne += str(nb) + r'''}{*}{%(heure)s}''' % dico
+
+        nb = 0
+        if res['duree_fact_hp'] > 0:
+            ligne += r''' & %(machine)s & HP & %(shp)s & %(fhp)s & %(t7)s & %(t8)s & %(p7)s & %(p8)s \\
+                ''' % dico
+            nb += 1
+
+        if res['duree_fact_hc'] > 0:
+            if nb > 0:
+                ligne += r'''& &'''
+            else:
+                ligne += r'''& %(machine)s ''' % dico
+            ligne += r''' & HC & %(shc)s & %(fhc)s & %(t9)s & %(t10)s & %(p9)s & %(p10)s \\
+                ''' % dico
+
+        if res['date_suppression'] != "":
+            ligne += r'''\cline{3-10}
+                &  & \multicolumn{8}{l|}{Supprimé le : %(supprime)s} \\
+                ''' % dico
+
+        ligne += r'''\hline
+            '''
 
         return ligne
 
@@ -418,15 +521,15 @@ class Annexes(object):
             %(date)s & %(prestation)s & %(categorie)s & %(quantite)s & %(unite)s &
             %(rapport)s & %(montant)s & %(rabais)s & %(total)s \\
             \hline
-            Projet & %(projet)s & & & & & & & \\
-            \hline
-            Num livraison & %(id)s & & & & & & & \\
-            \hline
-            Livré par & %(responsable)s & & & & & & & \\
-            \hline
-            Commande & %(commande)s & & & & & & & \\
-            \hline
-            Remarque & %(remarque)s & & & & & & & \\
+            Projet & %(projet)s & \multicolumn{7}{l|}{\multirow{5}{*}{ }} \\
+            \cline{1-2}
+            Num livraison & %(id)s  & \multicolumn{7}{l|}{}\\
+            \cline{1-2}
+            Livré par & %(responsable)s & \multicolumn{7}{l|}{}\\
+            \cline{1-2}
+            Commande & %(commande)s & \multicolumn{7}{l|}{}\\
+            \cline{1-2}
+            Remarque & %(remarque)s & \multicolumn{7}{l|}{}\\
             \hline
             ''' % dico
 
@@ -464,6 +567,8 @@ class Annexes(object):
 
     @staticmethod
     def format_heure(nombre):
+        if nombre == 0:
+            return ""
         heures = "%d" % (nombre // 60)
         if (nombre // 60) < 10:
             heures = '0' + heures
