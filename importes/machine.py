@@ -29,10 +29,16 @@ class Machine(Fichier):
         :return: 1 si id contenu, 0 sinon
         """
         ligne = 1
-        for machine in self.donnees:
-            if machine['id_machine'] == id_machine:
-                return ligne
-            ligne += 1
+        if isinstance(self.donnees, dict):
+            for cle, machine in self.donnees.items():
+                if machine['id_machine'] == id_machine:
+                    return ligne
+                ligne += 1
+        else:
+            for machine in self.donnees:
+                if machine['id_machine'] == id_machine:
+                    return ligne
+                ligne += 1
         return 0
 
     def est_coherent(self, coefmachines):

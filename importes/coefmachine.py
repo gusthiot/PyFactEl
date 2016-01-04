@@ -35,9 +35,14 @@ class CoefMachine(Fichier):
         :param categorie:
         :return: 1 si présente, 0 sinon
         """
-        for coefmachine in self.donnees:
-            if coefmachine['categorie'] == categorie:
-                return 1
+        if isinstance(self.donnees, dict):
+            for cle, coefmachine in self.donnees.items():
+                if coefmachine['categorie'] == categorie:
+                    return 1
+        else:
+            for coefmachine in self.donnees:
+                if coefmachine['categorie'] == categorie:
+                    return 1
         return 0
 
     def est_coherent(self):

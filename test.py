@@ -7,6 +7,7 @@ from facture import Facture
 from interfaces import Interfaces
 from parametres import Edition, Generaux
 from sommes import Sommes
+from bilan_mensuel import BilanMensuel
 
 """
  fichier à lancer pour faire tourner le logiciel avec les csv de test
@@ -88,7 +89,10 @@ spcl = Sommes.somme_par_client(spca, clients)
 
 Facture.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
 
-Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
-                           prestations, comptes, dossier_data)
+# Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
+#                            prestations, comptes, dossier_data)
+
+BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition, spca, spcl, clients, generaux, acces, reservations,
+                   livraisons, comptes)
 
 Interfaces.log_erreur("OK !!!")

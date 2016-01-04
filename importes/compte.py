@@ -25,9 +25,14 @@ class Compte(Fichier):
         :param id_compte: id à vérifier
         :return: 1 si id contenu, 0 sinon
         """
-        for compte in self.donnees:
-            if compte['id_compte'] == id_compte:
-                return 1
+        if isinstance(self.donnees, dict):
+            for cle, compte in self.donnees.items():
+                if compte['id_compte'] == id_compte:
+                    return 1
+        else:
+            for compte in self.donnees:
+                if compte['id_compte'] == id_compte:
+                    return 1
         return 0
 
     def est_coherent(self, client, coefmachines, coefprests, generaux, clients_actifs):

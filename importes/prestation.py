@@ -27,9 +27,14 @@ class Prestation(Fichier):
         :param id_prestation: id à vérifier
         :return: 1 si id contenu, 0 sinon
         """
-        for prestation in self.donnees:
-            if prestation['id_prestation'] == id_prestation:
-                return 1
+        if isinstance(self.donnees, dict):
+            for cle, prestation in self.donnees.items():
+                if prestation['id_prestation'] == id_prestation:
+                    return 1
+        else:
+            for prestation in self.donnees:
+                if prestation['id_prestation'] == id_prestation:
+                    return 1
         return 0
 
     def est_coherent(self, generaux):

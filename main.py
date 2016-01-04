@@ -6,6 +6,7 @@ from interfaces import Interfaces
 from parametres import Edition, Generaux
 from sommes import Sommes
 from facture import Facture
+from bilan_mensuel import BilanMensuel
 
 """
  fichier principal à lancer pour faire tourner le logiciel
@@ -88,5 +89,7 @@ Facture.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, genera
 
 Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
                                prestations, comptes, dossier_data)
+
+BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition)
 
 Interfaces.log_erreur("OK !!!")
