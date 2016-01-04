@@ -12,7 +12,7 @@ class BilanMensuel(object):
             mois = "0" + str(mois)
         else:
             mois = str(mois)
-        nom = nom_dossier + "bilan" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + ".csv"
+        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + ".csv"
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
 
