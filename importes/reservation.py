@@ -23,15 +23,16 @@ class Reservation(Fichier):
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.codes = []
 
-    def obtenir_codes(self, comptes, machines):
+    def obtenir_codes(self):
         """
         retourne la liste de tous les codes clients
-        :param comptes: comptes importés
-        :param machines: machines importées
         :return: liste des codes clients présents dans les données réservations importées
         """
-        if len(self.codes) == 0:
-            self.est_coherent(comptes, machines)
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les codes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return []
         return self.codes
 
     def est_coherent(self, comptes, machines):
@@ -42,6 +43,16 @@ class Reservation(Fichier):
         :param machines: machines importées
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         donnees_list = []
@@ -75,6 +86,7 @@ class Reservation(Fichier):
             ligne += 1
 
         self.donnees = donnees_list
+        self.verifie_coherence = 1
 
         if msg != "":
             msg = self.libelle + "\n" + msg
@@ -91,6 +103,12 @@ class Reservation(Fichier):
         :param comptes: comptes importés
         :param clients: clients importés
         """
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de calculer les montants"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
         donnees_list = []
         for donnee in self.donnees:
             compte = comptes.donnees[donnee['id_compte']]

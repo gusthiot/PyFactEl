@@ -21,16 +21,16 @@ class Client(Fichier):
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.codes = []
 
-    def obtenir_codes(self, coefmachines, coefprests, generaux):
+    def obtenir_codes(self):
         """
         retourne les codes de tous les clients
-        :param coefmachines: coefficients machines importés
-        :param coefprests: coefficients prestations
-        :param generaux: paramètres généraux
         :return: codes de tous les clients
         """
-        if len(self.codes) == 0:
-            self.est_coherent(coefmachines, coefprests, generaux)
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les codes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return []
         return self.codes
 
     def est_coherent(self, coefmachines, coefprests, generaux):
@@ -42,6 +42,16 @@ class Client(Fichier):
         :param generaux: paramètres généraux
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         classes = []
@@ -84,6 +94,7 @@ class Client(Fichier):
             ligne += 1
 
         self.donnees = donnees_dict
+        self.verifie_coherence = 1
 
         for classe in classes:
             if classe not in coefmachines.obtenir_classes():

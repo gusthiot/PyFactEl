@@ -7,6 +7,7 @@ from parametres import Edition, Generaux
 from sommes import Sommes
 from facture import Facture
 from bilan_mensuel import BilanMensuel
+from verification import Verification
 
 """
  fichier principal à lancer pour faire tourner le logiciel
@@ -29,48 +30,12 @@ reservations = Reservation(dossier_data, delimiteur, encodage)
 
 generaux = Generaux(dossier_data, delimiteur, encodage)
 
-verif = 0
-verif += acces.verification_date(edition.annee, edition.mois)
-verif += clients.verification_date(edition.annee, edition.mois)
-verif += coefmachines.verification_date(edition.annee, edition.mois)
-verif += coefprests.verification_date(edition.annee, edition.mois)
-verif += comptes.verification_date(edition.annee, edition.mois)
-verif += livraisons.verification_date(edition.annee, edition.mois)
-verif += machines.verification_date(edition.annee, edition.mois)
-verif += prestations.verification_date(edition.annee, edition.mois)
-verif += reservations.verification_date(edition.annee, edition.mois)
-
-if verif > 0:
+if Verification.verification_date(edition, acces, clients, coefmachines, coefprests, comptes, livraisons, machines,
+                                  prestations, reservations) > 0:
     sys.exit("Erreur dans les dates")
 
-verif += acces.est_coherent(comptes, machines)
-verif += reservations.est_coherent(comptes, machines)
-verif += livraisons.est_coherent(comptes, prestations)
-verif += machines.est_coherent(coefmachines)
-verif += prestations.est_coherent(generaux)
-verif += coefmachines.est_coherent()
-verif += coefprests.est_coherent()
-verif += clients.est_coherent(coefmachines, coefprests, generaux)
-
-
-clients_actifs = []
-for code in livraisons.obtenir_codes(comptes, prestations):
-    if code not in clients_actifs:
-        clients_actifs.append(code)
-for code in reservations.obtenir_codes(comptes, machines):
-    if code not in clients_actifs:
-        clients_actifs.append(code)
-for code in acces.obtenir_codes(comptes, machines):
-    if code not in clients_actifs:
-        clients_actifs.append(code)
-
-if (edition.version != '0') and (len(clients_actifs) > 1):
-    Interfaces.log_erreur("Si version différente de 0, un seul client autorisé")
-    sys.exit("Trop de clients pour version > 0")
-
-verif += comptes.est_coherent(clients, coefmachines, coefprests, generaux, clients_actifs)
-
-if verif > 0:
+if Verification.verification_cohérence(generaux, edition, acces, clients, coefmachines, coefprests, comptes, livraisons,
+                                       machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
 livraisons.calcul_montants(prestations, coefprests, comptes, clients)
@@ -90,6 +55,7 @@ Facture.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, genera
 Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
                                prestations, comptes, dossier_data)
 
-BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition)
+BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition, spca, spcl, clients, generaux, acces, reservations,
+                   livraisons, comptes)
 
 Interfaces.log_erreur("OK !!!")

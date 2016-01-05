@@ -32,7 +32,7 @@ class BilanMensuel(object):
             reference = nature + str(edition.annee)[2:] + mois + "." + code_client
             nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
             cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
-            cat = {'1':0, '2':0, '3':0, '4':0}
+            cat = {'1': 0, '2': 0, '3': 0, '4': 0}
             nb_c = 0
             for cpte in cptes:
                 nb_c += 1

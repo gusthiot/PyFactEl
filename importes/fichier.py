@@ -30,6 +30,8 @@ class Fichier(object):
                     continue
                 donnees_csv.append(donnees_ligne)
             self.donnees = donnees_csv
+            self.verifie_date = 0
+            self.verifie_coherence = 0
         except IOError:
             Interfaces.log_erreur("impossible d'ouvrir le fichier : "+nom_fichier)
             sys.exit("Erreur I/O")
@@ -58,6 +60,10 @@ class Fichier(object):
         :param mois: mois selon paramètres d'édition
         :return: 0 si ok, 1 sinon
         """
+        if self.verifie_date == 1:
+            print(self.libelle + ": date déjà vérifiée")
+            return 0
+
         msg = ""
         position = 1
         for donnee in self.donnees:
@@ -69,6 +75,7 @@ class Fichier(object):
             position += 1
 
         del self.donnees[0]
+        self.verifie_date = 1
 
         if msg != "":
             msg = self.libelle + "\n" + msg
@@ -77,7 +84,8 @@ class Fichier(object):
             return 1
         return 0
 
-    def est_un_nombre(self, donnee, colonne, ligne):
+    @staticmethod
+    def est_un_nombre(donnee, colonne, ligne):
         """
         vérifie que la donnée est bien un nombre
         :param donnee: donnée à vérifier

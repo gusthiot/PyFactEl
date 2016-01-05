@@ -7,7 +7,6 @@ class Prestation(Fichier):
     Classe pour l'importation des données de Prestations du catalogue
     """
 
-
     def __init__(self, nom_dossier, delimiteur, encodage):
         """
         initialisation de la structure des données et du nom et de la position du fichier importé
@@ -27,7 +26,7 @@ class Prestation(Fichier):
         :param id_prestation: id à vérifier
         :return: 1 si id contenu, 0 sinon
         """
-        if isinstance(self.donnees, dict):
+        if self.verifie_coherence == 1:
             for cle, prestation in self.donnees.items():
                 if prestation['id_prestation'] == id_prestation:
                     return 1
@@ -44,6 +43,16 @@ class Prestation(Fichier):
         :param generaux: paramètres généraux
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         ids = []
@@ -81,6 +90,7 @@ class Prestation(Fichier):
             ligne += 1
 
         self.donnees = donnees_dict
+        self.verifie_coherence = 1
 
         if msg != "":
             msg = self.libelle + "\n" + msg

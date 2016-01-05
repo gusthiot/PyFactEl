@@ -25,7 +25,7 @@ class Compte(Fichier):
         :param id_compte: id à vérifier
         :return: 1 si id contenu, 0 sinon
         """
-        if isinstance(self.donnees, dict):
+        if self.verifie_coherence == 1:
             for cle, compte in self.donnees.items():
                 if compte['id_compte'] == id_compte:
                     return 1
@@ -35,17 +35,24 @@ class Compte(Fichier):
                     return 1
         return 0
 
-    def est_coherent(self, client, coefmachines, coefprests, generaux, clients_actifs):
+    def est_coherent(self, clients, clients_actifs):
         """
         vérifie que les données du fichier importé sont cohérentes (code client dans clients,
         ou alors absent des clients actifs, id compte unique), et efface les colonnes mois et année
-        :param client: clients importés
-        :param coefmachines: coefficients machines importés
-        :param coefprests: coefficients prestations importés
-        :param generaux: paramètres généraux
+        :param clients: clients importés
         :param clients_actifs: codes des clients présents dans accès, réservations et livraisons
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         codes = []
@@ -80,9 +87,10 @@ class Compte(Fichier):
             ligne += 1
 
         self.donnees = donnees_dict
+        self.verifie_coherence = 1
 
         for code in codes:
-            if code not in client.obtenir_codes(coefmachines, coefprests, generaux):
+            if code not in clients.obtenir_codes():
                 if code in clients_actifs:
                     msg += "la code client '" + code + "' n'est pas présente dans les clients\n"
 

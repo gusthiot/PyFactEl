@@ -29,7 +29,7 @@ class Machine(Fichier):
         :return: 1 si id contenu, 0 sinon
         """
         ligne = 1
-        if isinstance(self.donnees, dict):
+        if self.verifie_coherence == 1:
             for cle, machine in self.donnees.items():
                 if machine['id_machine'] == id_machine:
                     return ligne
@@ -48,6 +48,16 @@ class Machine(Fichier):
         :param coefmachines: coefficients machines importés
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         ids = []
@@ -108,6 +118,7 @@ class Machine(Fichier):
             ligne += 1
 
         self.donnees = donnees_dict
+        self.verifie_coherence = 1
 
         if msg != "":
             msg = self.libelle + "\n" + msg

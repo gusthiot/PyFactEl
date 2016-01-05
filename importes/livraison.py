@@ -22,15 +22,16 @@ class Livraison(Fichier):
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.codes = []
 
-    def obtenir_codes(self, comptes, prestations):
+    def obtenir_codes(self):
         """
         retourne la liste de tous les codes clients
-        :param comptes: comptes importés
-        :param prestations: prestations importées
         :return: liste des codes clients présents dans les données livraisons importées
         """
-        if len(self.codes) == 0:
-            self.est_coherent(comptes, prestations)
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les codes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return []
         return self.codes
 
     def est_coherent(self, comptes, prestations):
@@ -41,6 +42,16 @@ class Livraison(Fichier):
         :param prestations: prestations importées
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         donnees_list = []
@@ -74,6 +85,7 @@ class Livraison(Fichier):
             ligne += 1
 
         self.donnees = donnees_list
+        self.verifie_coherence = 1
 
         if msg != "":
             msg = self.libelle + "\n" + msg
@@ -90,6 +102,12 @@ class Livraison(Fichier):
         :param comptes: comptes importés
         :param clients: clients importés
         """
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de calculer les montants"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
         donnees_list = []
         for donnee in self.donnees:
             prestation = prestations.donnees[donnee['id_prestation']]
@@ -111,6 +129,14 @@ class Livraison(Fichier):
         :param prestations: prestations importées
         :return: les livraisons pour le projet donné, pour une catégorie de prestations donnée
         """
+
+        if prestations.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence des prestations avant de pouvvoir sélectionner " \
+                                  "les livraisons par catégorie"
+            print(info)
+            Interfaces.log_erreur(info)
+            return {}
+
         donnees_dico = {}
         for donnee in self.donnees:
             if (donnee['id_compte'] == id_compte) and (donnee['code_client'] == code_client) \

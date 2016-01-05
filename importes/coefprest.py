@@ -25,8 +25,11 @@ class CoefPrest(Fichier):
         retourne toutes les classes de tarif présentes
         :return: toutes les classes de tarif présentes
         """
-        if len(self.classes) == 0:
-            self.est_coherent()
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les classes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return []
         return self.classes
 
     def est_coherent(self):
@@ -35,6 +38,16 @@ class CoefPrest(Fichier):
         et efface les colonnes mois et année
         :return: 1 s'il y a une erreur, 0 sinon
         """
+        if self.verifie_date == 0:
+            info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
+            print(info)
+            Interfaces.log_erreur(info)
+            return 1
+
+        if self.verifie_coherence == 1:
+            print(self.libelle + ": cohérence déjà vérifiée")
+            return 0
+
         msg = ""
         ligne = 1
         categories = []
@@ -69,6 +82,7 @@ class CoefPrest(Fichier):
             ligne += 1
 
         self.donnees = donnees_dict
+        self.verifie_coherence = 1
 
         for categorie in categories:
             for classe in self.classes:
