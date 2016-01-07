@@ -78,11 +78,13 @@ class Compte(Fichier):
                        " n'est pas unique\n"
 
             donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
-            print(info)
-            msg += info
+            if info != "":
+                print(info)
+            msg += info + "\n"
             donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
-            print(info)
-            msg += info
+            if info != "":
+                print(info)
+            msg += info + "\n"
 
             ligne += 1
 

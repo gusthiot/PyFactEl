@@ -8,7 +8,7 @@ class Sommes(object):
     Classe contenant les méthodes pour le calcul des sommes par projet, compte, catégorie et client
     """
 
-    cles_somme_projet = ['somme_p_pu', 'somme_p_pv', 'somme_p_pm', 'somme_p_qu', 'somme_p_qv', 'somme_p_qm',
+    cles_somme_projet = ['intitule', 'somme_p_pu', 'somme_p_pv', 'somme_p_pm', 'somme_p_qu', 'somme_p_qv', 'somme_p_qm',
                          'somme_p_om', 'somme_p_nm', 'somme_p_lm', 'somme_p_lr', 'lp', 'somme_p_cm', 'somme_p_cr',
                          'cp', 'somme_p_wm', 'somme_p_wr', 'wp', 'somme_p_xm', 'somme_p_xr', 'xp']
 
@@ -80,7 +80,10 @@ class Sommes(object):
             compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
-            projet = compte[num_projet]
+                projet = compte[num_projet]
+                projet['intitule'] = acce['intitule_projet']
+            else:
+                projet = compte[num_projet]
             projet['somme_p_pu'] += acce['pu']
             projet['somme_p_pm'] += acce['pu']
             projet['somme_p_qu'] += acce['qu']
@@ -102,7 +105,10 @@ class Sommes(object):
             compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
-            projet = compte[num_projet]
+                projet = compte[num_projet]
+                projet['intitule'] = reservation['intitule_projet']
+            else:
+                projet = compte[num_projet]
             projet['somme_p_pv'] += reservation['pv']
             projet['somme_p_pm'] += reservation['pv']
             projet['somme_p_qv'] += reservation['qv']
@@ -122,7 +128,10 @@ class Sommes(object):
             compte = client[id_compte]
             if num_projet not in compte:
                 compte[num_projet] = Sommes.nouveau_somme(Sommes.cles_somme_projet)
-            projet = compte[num_projet]
+                projet = compte[num_projet]
+                projet['intitule'] = livraison['intitule_projet']
+            else:
+                projet = compte[num_projet]
 
             id_prestation = livraison['id_prestation']
             prestation = prestations.donnees[id_prestation]
