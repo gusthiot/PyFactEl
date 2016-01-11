@@ -94,16 +94,16 @@ class Livraison(Fichier):
             return 1
         return 0
 
-    def calcul_montants(self, prestations, coefprests, comptes, clients):
+    def calcul_montants(self, prestations, coefprests, comptes, clients, verification):
         """
         calcule le 'montant' et le 'rabais_r' et les ajoute aux données
-        :param prestations: prestations importées
-        :param coefprests: coefficients prestations importés
-        :param comptes: comptes importés
-        :param clients: clients importés
+        :param prestations: prestations importées et vérifiées
+        :param coefprests: coefficients prestations importés et vérifiés
+        :param comptes: comptes importés et vérifiés
+        :param clients: clients importés et vérifiés
         """
-        if self.verifie_coherence == 0:
-            info = self.libelle + ". vous devez vérifier la cohérence avant de calculer les montants"
+        if verification.a_verifier != 0:
+            info = self.libelle + ". vous devez faire les vérifications avant de calculer les montants"
             print(info)
             Interfaces.log_erreur(info)
             return
@@ -126,7 +126,7 @@ class Livraison(Fichier):
         :param num_projet: lenuméro de projet
         :param id_compte: l'id du compte
         :param code_client: le code du client
-        :param prestations: prestations importées
+        :param prestations: prestations importées et vérifiées
         :return: les livraisons pour le projet donné, pour une catégorie de prestations donnée
         """
 

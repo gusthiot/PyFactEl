@@ -95,16 +95,16 @@ class Reservation(Fichier):
             return 1
         return 0
 
-    def calcul_montants(self, machines, coefmachines, comptes, clients):
+    def calcul_montants(self, machines, coefmachines, comptes, clients, verification):
         """
         calcule les montants 'pv' et 'qv' et les ajoute aux données
-        :param machines: machines importées
-        :param coefmachines: coefficients machines importés
-        :param comptes: comptes importés
-        :param clients: clients importés
+        :param machines: machines importées et vérifiées
+        :param coefmachines: coefficients machines importés et vérifiés
+        :param comptes: comptes importés et vérifiés
+        :param clients: clients importés et vérifiés
         """
-        if self.verifie_coherence == 0:
-            info = self.libelle + ". vous devez vérifier la cohérence avant de calculer les montants"
+        if verification.a_verifier != 0:
+            info = self.libelle + ". vous devez faire les vérifications avant de calculer les montants"
             print(info)
             Interfaces.log_erreur(info)
             return
@@ -133,7 +133,7 @@ class Reservation(Fichier):
             donnees_list.append(donnee)
         self.donnees = donnees_list
 
-    def reservation_pour_projet(self, num_projet, id_compte, code_client):
+    def reservations_pour_projet(self, num_projet, id_compte, code_client):
         """
         retourne toutes les données réservations pour un projet donné
         :param num_projet: le numéro du projet

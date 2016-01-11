@@ -1,4 +1,5 @@
 from sommes import Sommes
+from interfaces import Interfaces
 import os
 import subprocess
 import re
@@ -7,14 +8,20 @@ import re
 class Annexes(object):
 
     @staticmethod
-    def annexes_techniques(somme_client, somme_compte, somme_categorie, somme_projet, clients, edition, livraisons,
-                           acces, machines, reservations, prestations, comptes, nom_dossier):
+    def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                           nom_dossier):
+
+        if sommes.calculees == 0:
+            info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer les annexes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
 
         dossier_annexe = nom_dossier + "annexes_techniques/"
         if not os.path.exists(dossier_annexe):
             os.makedirs(dossier_annexe)
 
-        keys = Sommes.ordonner_keys_str_par_int(somme_client.keys())
+        keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         debut = r'''\documentclass[a4paper,10pt]{article}
             \usepackage[utf8]{inputenc}
@@ -32,9 +39,9 @@ class Annexes(object):
 
         for code_client in keys:
             # ## CLIENT
-            scl = somme_client[code_client]
+            scl = sommes.sommes_clients[code_client]
             client = clients.donnees[code_client]
-            sca = somme_categorie[code_client]
+            sca = sommes.sommes_categories[code_client]
 
             contenu = debut
 
@@ -48,7 +55,7 @@ class Annexes(object):
                 \hline
                 '''
 
-            client_comptes = somme_compte[code_client]
+            client_comptes = sommes.sommes_comptes[code_client]
             keys2 = Sommes.ordonner_keys_str_par_int(client_comptes.keys())
 
             for id_compte in keys2:
@@ -62,7 +69,7 @@ class Annexes(object):
                     %(labo)s - %(utilisateur)s - %(date)s
                     ''' % dico_nom
 
-                client_compte_projet = somme_projet[code_client][id_compte]
+                client_compte_projet = sommes.sommes_projets[code_client][id_compte]
                 keys3 = Sommes.ordonner_keys_str_par_int(client_compte_projet.keys())
                 structure_recap_projet = r'''{|l|l|l|l|l|l|l|l|}'''
                 # structure_recap_projet = r'''{|p{2.2cm}|p{1.5cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.5cm}|p{1.5cm}|
@@ -76,7 +83,7 @@ class Annexes(object):
 
                 for num_projet in keys3:
                     # ## PROJET
-                    sp = somme_projet[code_client][id_compte][num_projet]
+                    sp = sommes.sommes_projets[code_client][id_compte][num_projet]
                     intitule_projet = Annexes.echappe_caracteres(sp['intitule'])
 
                     machines_utilisees = {}
@@ -139,7 +146,7 @@ class Annexes(object):
                     nombre_res = 0
                     legende_res = r'''Récapitulatif Réservations : ''' + intitule_compte + r''' / ''' + intitule_projet
 
-                    res_proj = reservations.reservation_pour_projet(num_projet, id_compte, code_client)
+                    res_proj = reservations.reservations_pour_projet(num_projet, id_compte, code_client)
                     for res in res_proj:
                         nombre_res += 1
                         if res['id_machine'] not in machines_utilisees:
@@ -204,7 +211,7 @@ class Annexes(object):
 
                     # ## projet
 
-                sco = somme_compte[code_client][id_compte]
+                sco = sommes.sommes_comptes[code_client][id_compte]
 
                 sj = sco['pj'] + sco['nj'] + sco['lj'] + sco['cj'] + sco['wj'] + sco['xj']
                 dico_recap_projet = {'plafond': "%.2f" % sco['somme_j_pm'], 'non_plafond': "%.2f" % sco['somme_j_nm'],

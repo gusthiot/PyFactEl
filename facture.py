@@ -1,5 +1,6 @@
 import csv
 from sommes import Sommes
+from interfaces import Interfaces
 
 
 class Facture(object):
@@ -8,11 +9,10 @@ class Facture(object):
     """
 
     @staticmethod
-    def factures(somme_client, somme_compte, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes):
+    def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes):
         """
         génère la facture sous forme de csv
-        :param somme_client: dictionnaire des sommes par clients
-        :param somme_compte: dictionnaire des sommes par comptes
+        :param sommes: sommes calculées
         :param nom_dossier: nom du dossier dans lequel enregistrer le csv
         :param delimiteur: code délimiteur de champ dans le fichier csv
         :param encodage: encodage du texte
@@ -21,6 +21,13 @@ class Facture(object):
         :param clients: clients importés
         :param comptes: comptes importés
         """
+
+        if sommes.calculees == 0:
+            info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer la facture"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
         mois = edition.mois
         if mois < 10:
             mois = "0" + str(mois)
@@ -62,11 +69,11 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
-        keys = Sommes.ordonner_keys_str_par_int(somme_client.keys())
+        keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         for code_client in keys:
             poste = 0
-            client = somme_client[code_client]
+            client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
             if cl['type_labo'] == "I":
                 genre = generaux.donnees['code_int'][1]
@@ -88,7 +95,7 @@ class Facture(object):
                                                               op_centre, ""))
 
             inc = 1
-            client_comptes = somme_compte[code_client]
+            client_comptes = sommes.sommes_comptes[code_client]
             keys2 = Sommes.ordonner_keys_str_par_int(client_comptes.keys())
             for id_compte in keys2:
                 compte = client_comptes[id_compte]

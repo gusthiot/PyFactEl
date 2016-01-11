@@ -35,7 +35,7 @@ class CoefMachine(Fichier):
     def contient_categorie(self, categorie):
         """
         vérifie si la catégorie est présente
-        :param categorie:
+        :param categorie: la catégorie à vérifier
         :return: 1 si présente, 0 sinon
         """
         if self.verifie_coherence == 1:

@@ -32,32 +32,29 @@ reservations = Reservation(dossier_data, delimiteur, encodage)
 
 generaux = Generaux(dossier_data, delimiteur, encodage)
 
-if Verification.verification_date(edition, acces, clients, coefmachines, coefprests, comptes, livraisons, machines,
+verification = Verification()
+
+if verification.verification_date(edition, acces, clients, coefmachines, coefprests, comptes, livraisons, machines,
                                   prestations, reservations) > 0:
     sys.exit("Erreur dans les dates")
 
-if Verification.verification_cohérence(generaux, edition, acces, clients, coefmachines, coefprests, comptes, livraisons,
+if verification.verification_cohérence(generaux, edition, acces, clients, coefmachines, coefprests, comptes, livraisons,
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-livraisons.calcul_montants(prestations, coefprests, comptes, clients)
-reservations.calcul_montants(machines, coefmachines, comptes, clients)
-acces.calcul_montants(machines, coefmachines, comptes, clients)
-spp = Sommes.sommes_par_projet(livraisons, reservations, acces, prestations, comptes)
-# Sommes.afficher_somme_projet(spp, dossier_data, encodage, delimiteur)
-spco = Sommes.somme_par_compte(spp, comptes)
-# Sommes.afficher_somme_compte(spco, dossier_data, encodage, delimiteur)
-spca = Sommes.somme_par_categorie(spco, comptes)
-# Sommes.afficher_somme_categorie(spca, dossier_data, encodage, delimiteur)
-spcl = Sommes.somme_par_client(spca, clients)
-# Sommes.afficher_somme_client(spcl, dossier_data, encodage, delimiteur)
+livraisons.calcul_montants(prestations, coefprests, comptes, clients, verification)
+reservations.calcul_montants(machines, coefmachines, comptes, clients, verification)
+acces.calcul_montants(machines, coefmachines, comptes, clients, verification)
 
-Facture.factures(spcl, spco, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
+sommes = Sommes(verification)
+sommes.calculer_toutes(livraisons, reservations, acces, prestations, comptes, clients)
 
-Annexes.annexes_techniques(spcl, spco, spca, spp, clients, edition, livraisons, acces, machines, reservations,
+Facture.factures(sommes, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
+
+Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations,
                            prestations, comptes, dossier_data)
 
-BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition, spca, spcl, clients, generaux, acces, reservations,
+BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition, sommes, clients, generaux, acces, reservations,
                    livraisons, comptes)
 
 Interfaces.log_erreur("OK !!!")

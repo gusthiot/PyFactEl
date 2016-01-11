@@ -4,8 +4,10 @@ from interfaces import Interfaces
 
 class Verification(object):
 
-    @staticmethod
-    def verification_date(edition, acces, clients, coefmachines, coefprests, comptes, livraisons, machines,
+    def __init__(self):
+        self.a_verifier = 2
+
+    def verification_date(self, edition, acces, clients, coefmachines, coefprests, comptes, livraisons, machines,
                           prestations, reservations):
         verif = 0
         verif += acces.verification_date(edition.annee, edition.mois)
@@ -17,10 +19,10 @@ class Verification(object):
         verif += machines.verification_date(edition.annee, edition.mois)
         verif += prestations.verification_date(edition.annee, edition.mois)
         verif += reservations.verification_date(edition.annee, edition.mois)
+        self.a_verifier = 1
         return verif
 
-    @staticmethod
-    def verification_cohérence(generaux, edition, acces, clients, coefmachines, coefprests, comptes, livraisons,
+    def verification_cohérence(self, generaux, edition, acces, clients, coefmachines, coefprests, comptes, livraisons,
                                machines, prestations, reservations):
         verif = 0
         verif += acces.est_coherent(comptes, machines)
@@ -39,6 +41,7 @@ class Verification(object):
             sys.exit("Trop de clients pour version > 0")
 
         verif += comptes.est_coherent(clients, clients_actifs)
+        self.a_verifier = 0
         return verif
 
     @staticmethod

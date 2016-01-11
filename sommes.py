@@ -28,6 +28,24 @@ class Sommes(object):
                          'somme_t_cr', 'ct', 'somme_t_wm', 'somme_t_wr', 'wt', 'somme_t_xm', 'somme_t_xr', 'xt',
                          'somme_eq', 'somme_sb', 'somme_t', 'em', 'er0', 'er', 'e']
 
+    def __init__(self, verification):
+
+        self.verification = verification
+        self.sommes_projets = {}
+        self.sp = 0
+        self.sommes_comptes = {}
+        self.sco = 0
+        self.sommes_categories = {}
+        self.sca = 0
+        self.sommes_clients = {}
+        self.calculees = 0
+
+    def calculer_toutes(self, livraisons, reservations, acces, prestations, comptes, clients):
+        self.sommes_par_projet(livraisons, reservations, acces, prestations, comptes)
+        self.somme_par_compte(comptes)
+        self.somme_par_categorie(comptes)
+        self.somme_par_client(clients)
+
     @staticmethod
     def nouveau_somme(cles):
         """
@@ -55,17 +73,22 @@ class Sommes(object):
             ordonne[pos] = str(ordonne[pos])
         return ordonne
 
-    @staticmethod
-    def sommes_par_projet(livraisons, reservations, acces, prestations, comptes):
+    def sommes_par_projet(self, livraisons, reservations, acces, prestations, comptes):
         """
-        retourne les sommes par projets
-        :param livraisons: livraisons importées
-        :param reservations: réservations importées
-        :param acces: accès machines importés
-        :param prestations: prestations importées
-        :param comptes: comptes importés
-        :return: sommes par projets sous forme de dictionnaire : client->compte->projet->clés_sommes
+        calcule les sommes par projets sous forme de dictionnaire : client->compte->projet->clés_sommes
+        :param livraisons: livraisons importées et vérifiées
+        :param reservations: réservations importées et vérifiées
+        :param acces: accès machines importés et vérifiés
+        :param prestations: prestations importées et vérifiées
+        :param comptes: comptes importés et vérifiés
         """
+
+        if self.verification.a_verifier != 0:
+            info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
         spp = {}
         for acce in acces.donnees:
             id_compte = acce['id_compte']
@@ -156,7 +179,8 @@ class Sommes(object):
             else:
                 Interfaces.log_erreur("Catégorie de prestation non-disponible")
 
-        return spp
+        self.sp = 1
+        self.sommes_projets = spp
 
     @staticmethod
     def afficher_somme_projet(somme_projet, nom_dossier, encodage, delimiteur):
@@ -181,59 +205,65 @@ class Sommes(object):
                         fichier_writer.writerow([cle, "%.2f" % projet[cle]])
                     fichier_writer.writerow([" "])
 
-    @staticmethod
-    def somme_par_compte(somme_par_projet, comptes):
+    def somme_par_compte(self, comptes):
         """
-        retourne les sommes par comptes
-        :param somme_par_projet: dictionnaire des sommes par projets
-        :param comptes: comptes importés
-        :return: sommes par comptes sous forme de dictionnaire : client->compte->clés_sommes
+        calcule les sommes par comptes sous forme de dictionnaire : client->compte->clés_sommes
+        :param comptes: comptes importés et vérifiés
         """
-        spc = {}
-        for code_client, client in somme_par_projet.items():
-            if code_client not in spc:
-                spc[code_client] = {}
-            cl = spc[code_client]
-            for id_compte, compte in client.items():
-                cc = comptes.donnees[id_compte]
-                cl[id_compte] = Sommes.nouveau_somme(Sommes.cles_somme_compte)
-                somme = cl[id_compte]
-                for num_projet, projet in compte.items():
-                    somme['somme_j_pu'] += projet['somme_p_pu']
-                    somme['somme_j_pv'] += projet['somme_p_pv']
-                    somme['somme_j_pm'] += projet['somme_p_pm']
-                    somme['somme_j_qu'] += projet['somme_p_qu']
-                    somme['somme_j_qv'] += projet['somme_p_qv']
-                    somme['somme_j_qm'] += projet['somme_p_qm']
-                    somme['somme_j_om'] += projet['somme_p_om']
-                    somme['somme_j_nm'] += projet['somme_p_nm']
-                    somme['somme_j_lm'] += projet['somme_p_lm']
-                    somme['somme_j_lr'] += projet['somme_p_lr']
-                    somme['lj'] += projet['lp']
-                    somme['somme_j_cm'] += projet['somme_p_cm']
-                    somme['somme_j_cr'] += projet['somme_p_cr']
-                    somme['cj'] += projet['cp']
-                    somme['somme_j_wm'] += projet['somme_p_wm']
-                    somme['somme_j_wr'] += projet['somme_p_wr']
-                    somme['wj'] += projet['wp']
-                    somme['somme_j_xm'] += projet['somme_p_xm']
-                    somme['somme_j_xr'] += projet['somme_p_xr']
-                    somme['xj'] += projet['xp']
 
-                somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'], cc['seuil'],
-                                                                                      cc['pourcent'])
+        if self.sp != 0:
+            spc = {}
+            for code_client, client in self.sommes_projets.items():
+                if code_client not in spc:
+                    spc[code_client] = {}
+                cl = spc[code_client]
+                for id_compte, compte in client.items():
+                    cc = comptes.donnees[id_compte]
+                    cl[id_compte] = Sommes.nouveau_somme(Sommes.cles_somme_compte)
+                    somme = cl[id_compte]
+                    for num_projet, projet in compte.items():
+                        somme['somme_j_pu'] += projet['somme_p_pu']
+                        somme['somme_j_pv'] += projet['somme_p_pv']
+                        somme['somme_j_pm'] += projet['somme_p_pm']
+                        somme['somme_j_qu'] += projet['somme_p_qu']
+                        somme['somme_j_qv'] += projet['somme_p_qv']
+                        somme['somme_j_qm'] += projet['somme_p_qm']
+                        somme['somme_j_om'] += projet['somme_p_om']
+                        somme['somme_j_nm'] += projet['somme_p_nm']
+                        somme['somme_j_lm'] += projet['somme_p_lm']
+                        somme['somme_j_lr'] += projet['somme_p_lr']
+                        somme['lj'] += projet['lp']
+                        somme['somme_j_cm'] += projet['somme_p_cm']
+                        somme['somme_j_cr'] += projet['somme_p_cr']
+                        somme['cj'] += projet['cp']
+                        somme['somme_j_wm'] += projet['somme_p_wm']
+                        somme['somme_j_wr'] += projet['somme_p_wr']
+                        somme['wj'] += projet['wp']
+                        somme['somme_j_xm'] += projet['somme_p_xm']
+                        somme['somme_j_xr'] += projet['somme_p_xr']
+                        somme['xj'] += projet['xp']
 
-                somme['pj'] = somme['somme_j_pm'] - somme['prj']
-                somme['qj'] = somme['somme_j_qm'] - somme['qrj']
-                somme['oj'] = somme['somme_j_om'] - somme['orj']
+                    somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'], cc['seuil'],
+                                                                                          cc['pourcent'])
 
-                somme['nrj'] = somme['qrj'] + somme['orj']
-                somme['nj'] = somme['somme_j_nm'] - somme['nrj']
-                tot = somme['somme_j_pm'] + somme['somme_j_qm'] + somme['somme_j_om'] + somme['somme_j_lm'] + \
-                      somme['somme_j_cm'] + somme['somme_j_wm'] + somme['somme_j_xm']
-                if tot > 0:
-                    somme['si_facture'] = 1
-        return spc
+                    somme['pj'] = somme['somme_j_pm'] - somme['prj']
+                    somme['qj'] = somme['somme_j_qm'] - somme['qrj']
+                    somme['oj'] = somme['somme_j_om'] - somme['orj']
+
+                    somme['nrj'] = somme['qrj'] + somme['orj']
+                    somme['nj'] = somme['somme_j_nm'] - somme['nrj']
+                    tot = somme['somme_j_pm'] + somme['somme_j_qm'] + somme['somme_j_om'] + somme['somme_j_lm'] + \
+                          somme['somme_j_cm'] + somme['somme_j_wm'] + somme['somme_j_xm']
+                    if tot > 0:
+                        somme['si_facture'] = 1
+
+                    self.sco = 1
+                    self.sommes_comptes = spc
+
+        else:
+            info = "Vous devez d'abord faire la somme par projet, avant la somme par compte"
+            print(info)
+            Interfaces.log_erreur(info)
 
     @staticmethod
     def afficher_somme_compte(somme_compte, nom_dossier, encodage, delimiteur):
@@ -254,55 +284,67 @@ class Sommes(object):
                     fichier_writer.writerow([cle, "%.2f" % compte[cle]])
                 fichier_writer.writerow([" "])
 
-    @staticmethod
-    def somme_par_categorie(somme_par_compte, comptes):
+    def somme_par_categorie(self, comptes):
         """
-        retourne les sommes par catégories
-        :param somme_par_compte: dictionnaire des sommes par comptes
-        :param comptes: comptes importés
-        :return: sommes par catégories sous forme de dictionnaire : client->catégorie->clés_sommes
+        calcule les sommes par catégories sous forme de dictionnaire : client->catégorie->clés_sommes
+        :param comptes: comptes importés et vérifiés
         """
-        spc = {}
-        for code_client, client in somme_par_compte.items():
-            if code_client not in spc:
-                spc[code_client] = {}
-            cl = spc[code_client]
-            for id_compte, compte in client.items():
-                co = comptes.donnees[id_compte]
-                categorie = co['categorie']
-                if categorie not in cl:
-                    cl[categorie] = Sommes.nouveau_somme(Sommes.cles_somme_categorie)
-                somme = cl[categorie]
 
-                somme['somme_k_pu'] += compte['somme_j_pu']
-                somme['somme_k_pv'] += compte['somme_j_pv']
-                somme['somme_k_pm'] += compte['somme_j_pm']
-                somme['somme_k_prj'] += compte['prj']
-                somme['pk'] += compte['pj']
-                somme['somme_k_qu'] += compte['somme_j_qu']
-                somme['somme_k_qv'] += compte['somme_j_qv']
-                somme['somme_k_qm'] += compte['somme_j_qm']
-                somme['somme_k_qrj'] += compte['qrj']
-                somme['qk'] += compte['qj']
-                somme['somme_k_om'] += compte['somme_j_om']
-                somme['somme_k_orj'] += compte['orj']
-                somme['ok'] += compte['oj']
-                somme['somme_k_nm'] += compte['somme_j_nm']
-                somme['somme_k_nrj'] += compte['nrj']
-                somme['nk'] += compte['nj']
-                somme['somme_k_lm'] += compte['somme_j_lm']
-                somme['somme_k_lr'] += compte['somme_j_lr']
-                somme['lk'] += compte['lj']
-                somme['somme_k_cm'] += compte['somme_j_cm']
-                somme['somme_k_cr'] += compte['somme_j_cr']
-                somme['ck'] += compte['cj']
-                somme['somme_k_wm'] += compte['somme_j_wm']
-                somme['somme_k_wr'] += compte['somme_j_wr']
-                somme['wk'] += compte['wj']
-                somme['somme_k_xm'] += compte['somme_j_xm']
-                somme['somme_k_xr'] += compte['somme_j_xr']
-                somme['xk'] += compte['xj']
-        return spc
+        if self.verification.a_verifier != 0:
+            info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
+        if self.sco != 0:
+            spc = {}
+            for code_client, client in self.sommes_comptes.items():
+                if code_client not in spc:
+                    spc[code_client] = {}
+                cl = spc[code_client]
+                for id_compte, compte in client.items():
+                    co = comptes.donnees[id_compte]
+                    categorie = co['categorie']
+                    if categorie not in cl:
+                        cl[categorie] = Sommes.nouveau_somme(Sommes.cles_somme_categorie)
+                    somme = cl[categorie]
+
+                    somme['somme_k_pu'] += compte['somme_j_pu']
+                    somme['somme_k_pv'] += compte['somme_j_pv']
+                    somme['somme_k_pm'] += compte['somme_j_pm']
+                    somme['somme_k_prj'] += compte['prj']
+                    somme['pk'] += compte['pj']
+                    somme['somme_k_qu'] += compte['somme_j_qu']
+                    somme['somme_k_qv'] += compte['somme_j_qv']
+                    somme['somme_k_qm'] += compte['somme_j_qm']
+                    somme['somme_k_qrj'] += compte['qrj']
+                    somme['qk'] += compte['qj']
+                    somme['somme_k_om'] += compte['somme_j_om']
+                    somme['somme_k_orj'] += compte['orj']
+                    somme['ok'] += compte['oj']
+                    somme['somme_k_nm'] += compte['somme_j_nm']
+                    somme['somme_k_nrj'] += compte['nrj']
+                    somme['nk'] += compte['nj']
+                    somme['somme_k_lm'] += compte['somme_j_lm']
+                    somme['somme_k_lr'] += compte['somme_j_lr']
+                    somme['lk'] += compte['lj']
+                    somme['somme_k_cm'] += compte['somme_j_cm']
+                    somme['somme_k_cr'] += compte['somme_j_cr']
+                    somme['ck'] += compte['cj']
+                    somme['somme_k_wm'] += compte['somme_j_wm']
+                    somme['somme_k_wr'] += compte['somme_j_wr']
+                    somme['wk'] += compte['wj']
+                    somme['somme_k_xm'] += compte['somme_j_xm']
+                    somme['somme_k_xr'] += compte['somme_j_xr']
+                    somme['xk'] += compte['xj']
+
+                    self.sca = 1
+                    self.sommes_categories = spc
+
+        else:
+            info = "Vous devez d'abord faire la somme par compte, avant la somme par catégorie"
+            print(info)
+            Interfaces.log_erreur(info)
 
     @staticmethod
     def afficher_somme_categorie(somme_categorie, nom_dossier, encodage, delimiteur):
@@ -322,54 +364,66 @@ class Sommes(object):
                     fichier_writer.writerow([cle, "%.2f" % cat[cle]])
                 fichier_writer.writerow([" "])
 
-    @staticmethod
-    def somme_par_client(somme_par_categorie, clients):
+    def somme_par_client(self, clients):
         """
-        retourne les sommes par clientd
-        :param somme_par_categorie: dictionnaire des sommes par catégories
-        :param clients: clients importés
-        :return: sommes par clients sous forme de dictionnaire : client->clés_sommes
+        calcule les sommes par clients sous forme de dictionnaire : client->clés_sommes
+        :param clients: clients importés et vérifiés
         """
-        spc = {}
-        for code_client, client in somme_par_categorie.items():
-            spc[code_client] = Sommes.nouveau_somme(Sommes.cles_somme_client)
-            somme = spc[code_client]
-            for categorie, som_cat in client.items():
-                somme['somme_t_pu'] += som_cat['somme_k_pu']
-                somme['somme_t_pv'] += som_cat['somme_k_pv']
-                somme['somme_t_pm'] += som_cat['somme_k_pm']
-                somme['somme_t_prj'] += som_cat['somme_k_prj']
-                somme['pt'] += som_cat['pk']
-                somme['somme_t_qu'] += som_cat['somme_k_qu']
-                somme['somme_t_qv'] += som_cat['somme_k_qv']
-                somme['somme_t_qm'] += som_cat['somme_k_qm']
-                somme['somme_t_qrj'] += som_cat['somme_k_qrj']
-                somme['qt'] += som_cat['qk']
-                somme['somme_t_om'] += som_cat['somme_k_om']
-                somme['somme_t_orj'] += som_cat['somme_k_orj']
-                somme['ot'] += som_cat['ok']
-                somme['somme_t_nm'] += som_cat['somme_k_nm']
-                somme['somme_t_nrj'] += som_cat['somme_k_nrj']
-                somme['nt'] += som_cat['nk']
-                somme['somme_t_lm'] += som_cat['somme_k_lm']
-                somme['somme_t_lr'] += som_cat['somme_k_lr']
-                somme['lt'] += som_cat['lk']
-                somme['somme_t_cm'] += som_cat['somme_k_cm']
-                somme['somme_t_cr'] += som_cat['somme_k_cr']
-                somme['ct'] += som_cat['ck']
-                somme['somme_t_wm'] += som_cat['somme_k_wm']
-                somme['somme_t_wr'] += som_cat['somme_k_wr']
-                somme['wt'] += som_cat['wk']
-                somme['somme_t_xm'] += som_cat['somme_k_xm']
-                somme['somme_t_xr'] += som_cat['somme_k_xr']
-                somme['xt'] += som_cat['xk']
 
-            cl = clients.donnees[code_client]
-            somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
-                Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
-                                        somme['xt'], cl['emol_base_mens'], cl['emol_fixe'], cl['coef'],
-                                        cl['emol_sans_activite'])
-        return spc
+        if self.verification.a_verifier != 0:
+            info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
+        if self.sca != 0:
+            spc = {}
+            for code_client, client in self.sommes_categories.items():
+                spc[code_client] = Sommes.nouveau_somme(Sommes.cles_somme_client)
+                somme = spc[code_client]
+                for categorie, som_cat in client.items():
+                    somme['somme_t_pu'] += som_cat['somme_k_pu']
+                    somme['somme_t_pv'] += som_cat['somme_k_pv']
+                    somme['somme_t_pm'] += som_cat['somme_k_pm']
+                    somme['somme_t_prj'] += som_cat['somme_k_prj']
+                    somme['pt'] += som_cat['pk']
+                    somme['somme_t_qu'] += som_cat['somme_k_qu']
+                    somme['somme_t_qv'] += som_cat['somme_k_qv']
+                    somme['somme_t_qm'] += som_cat['somme_k_qm']
+                    somme['somme_t_qrj'] += som_cat['somme_k_qrj']
+                    somme['qt'] += som_cat['qk']
+                    somme['somme_t_om'] += som_cat['somme_k_om']
+                    somme['somme_t_orj'] += som_cat['somme_k_orj']
+                    somme['ot'] += som_cat['ok']
+                    somme['somme_t_nm'] += som_cat['somme_k_nm']
+                    somme['somme_t_nrj'] += som_cat['somme_k_nrj']
+                    somme['nt'] += som_cat['nk']
+                    somme['somme_t_lm'] += som_cat['somme_k_lm']
+                    somme['somme_t_lr'] += som_cat['somme_k_lr']
+                    somme['lt'] += som_cat['lk']
+                    somme['somme_t_cm'] += som_cat['somme_k_cm']
+                    somme['somme_t_cr'] += som_cat['somme_k_cr']
+                    somme['ct'] += som_cat['ck']
+                    somme['somme_t_wm'] += som_cat['somme_k_wm']
+                    somme['somme_t_wr'] += som_cat['somme_k_wr']
+                    somme['wt'] += som_cat['wk']
+                    somme['somme_t_xm'] += som_cat['somme_k_xm']
+                    somme['somme_t_xr'] += som_cat['somme_k_xr']
+                    somme['xt'] += som_cat['xk']
+
+                cl = clients.donnees[code_client]
+                somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
+                    Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
+                                            somme['xt'], cl['emol_base_mens'], cl['emol_fixe'], cl['coef'],
+                                            cl['emol_sans_activite'])
+
+                self.calculees = 1
+                self.sommes_clients = spc
+
+        else:
+            info = "Vous devez d'abord faire la somme par catégorie, avant la somme par client"
+            print(info)
+            Interfaces.log_erreur(info)
 
     @staticmethod
     def afficher_somme_client(somme_client, nom_dossier, encodage, delimiteur):

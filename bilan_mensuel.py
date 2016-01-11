@@ -1,12 +1,20 @@
 import csv
 from sommes import Sommes
+from interfaces import Interfaces
 
 
 class BilanMensuel(object):
 
     @staticmethod
-    def bilan(nom_dossier, encodage, delimiteur, edition, somme_categorie, somme_client, clients, generaux, acces,
-              reservations, livraisons, comptes):
+    def bilan(nom_dossier, encodage, delimiteur, edition, sommes, clients, generaux, acces, reservations, livraisons,
+              comptes):
+
+        if sommes.calculees == 0:
+            info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer le bilan mensuel"
+            print(info)
+            Interfaces.log_erreur(info)
+            return
+
         mois = edition.mois
         if mois < 10:
             mois = "0" + str(mois)
@@ -22,11 +30,11 @@ class BilanMensuel(object):
                                  "somme EQ", "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "pt", "qt", "ot", "nt",
                                  "lt", "ct", "wt", "xt"])
 
-        keys = Sommes.ordonner_keys_str_par_int(somme_client.keys())
+        keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         for code_client in keys:
-            scl = somme_client[code_client]
-            sca = somme_categorie[code_client]
+            scl = sommes.sommes_clients[code_client]
+            sca = sommes.sommes_categories[code_client]
             cl = clients.donnees[code_client]
             nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
             reference = nature + str(edition.annee)[2:] + mois + "." + code_client
