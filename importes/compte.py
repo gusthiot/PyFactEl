@@ -62,7 +62,7 @@ class Compte(Fichier):
         for donnee in self.donnees:
             if donnee['code_client'] == "":
                 print("code client du compte vide")
-                msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
+            #    msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['code_client'] not in codes:
                 codes.append(donnee['code_client'])
 
@@ -80,11 +80,11 @@ class Compte(Fichier):
             donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
             if info != "":
                 print(info)
-            msg += info + "\n"
+            # msg += info + "\n"
             donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
             if info != "":
                 print(info)
-            msg += info + "\n"
+            # msg += info + "\n"
 
             ligne += 1
 

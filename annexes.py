@@ -24,7 +24,8 @@ class Annexes(object):
         keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         debut = r'''\documentclass[a4paper,10pt]{article}
-            \usepackage[utf8]{inputenc}
+            \usepackage[latin1]{inputenc}
+            \usepackage[french]{babel}
             \usepackage{microtype}
             \usepackage[margin=10mm, includefoot]{geometry}
             \usepackage{multirow}
@@ -127,7 +128,7 @@ class Annexes(object):
                         contenu_cae += Annexes.ligne_cae(cae, machines.donnees[cae['id_machine']])
 
                     if nombre_cae > 0:
-                        contenu += Annexes.tableau(contenu_cae, structure_cae, legende_cae)
+                        contenu += Annexes.long_tableau(contenu_cae, structure_cae, legende_cae)
                     # ## cae
 
                     # ## RES
@@ -157,7 +158,7 @@ class Annexes(object):
                         contenu_res += Annexes.ligne_res(res, machines.donnees[res['id_machine']])
 
                     if nombre_res > 0:
-                        contenu += Annexes.tableau(contenu_res, structure_res, legende_res)
+                        contenu += Annexes.long_tableau(contenu_res, structure_res, legende_res)
                     # ## res
 
                     # ## LIV
@@ -185,7 +186,7 @@ class Annexes(object):
                                 contenu_liv += Annexes.ligne_liv(liv, prestations.donnees[liv['id_prestation']])
 
                     if nombre_liv > 0:
-                        contenu += Annexes.tableau(contenu_liv, structure_liv, legende_liv)
+                        contenu += Annexes.long_tableau(contenu_liv, structure_liv, legende_liv)
                     # ## liv
 
                     structure_stat_machines = r'''{|l|l|l|}'''
@@ -591,17 +592,17 @@ class Annexes(object):
         os.unlink(nom_fichier + '.tex')
         os.unlink(nom_fichier + '.log')
         os.unlink(nom_fichier + '.aux')
-
-        if nom_dossier != "":
+        """
+        if nom_dossier != '':
             proc = subprocess.Popen(['mv', nom_fichier + ".pdf", nom_dossier])
-            proc.communicate()
+            proc.communicate()"""
 
     @staticmethod
     def echappe_caracteres(texte):
         p = re.compile("[^ a-zA-Z0-9_'èéêàô.:,;\-%&$/|]")
         texte = p.sub('', texte)
-        caracteres = ['%', '$', '_', '&']
-        latex_c = ['\%', '\$', '\_', '\&']
+        caracteres = ['%', '$', '_', '&', 'é', 'à', 'è', 'ê', 'ô']
+        latex_c = ['\%', '\$', '\_', '\&', 'e', 'a', 'e', 'e', 'o']
         for pos in range(0, len(caracteres)):
             texte = texte.replace(caracteres[pos], latex_c[pos])
         return texte
