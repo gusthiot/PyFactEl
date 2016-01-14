@@ -14,6 +14,7 @@ from verification import Verification
  fichier à lancer pour faire tourner le logiciel avec les csv de test
 """
 
+plateforme = sys.platform
 encodage = "ISO-8859-1"
 delimiteur = ';'
 dossier_travail = getcwd()
@@ -52,7 +53,7 @@ sommes.calculer_toutes(livraisons, reservations, acces, prestations, comptes, cl
 Facture.factures(sommes, dossier_data, encodage, delimiteur, edition, generaux, clients, comptes)
 
 Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations,
-                           prestations, comptes, dossier_data)
+                           prestations, comptes, dossier_data, plateforme)
 
 BilanMensuel.bilan(dossier_data, encodage, delimiteur, edition, sommes, clients, generaux, acces, reservations,
                    livraisons, comptes)

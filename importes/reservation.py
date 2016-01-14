@@ -21,19 +21,19 @@ class Reservation(Fichier):
         nom_fichier = "res.csv"
         libelle = "Réservation Equipement"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
-        self.codes = []
+        self.comptes = {}
 
-    def obtenir_codes(self):
+    def obtenir_comptes(self):
         """
-        retourne la liste de tous les codes clients
-        :return: liste des codes clients présents dans les données réservations importées
+        retourne la liste de tous les comptes clients
+        :return: liste des comptes clients présents dans les données réservations importées
         """
         if self.verifie_coherence == 0:
-            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les codes"
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les comptes"
             print(info)
             Interfaces.log_erreur(info)
             return []
-        return self.codes
+        return self.comptes
 
     def est_coherent(self, comptes, machines):
         """
@@ -62,15 +62,16 @@ class Reservation(Fichier):
                 msg += "le compte id de la ligne " + ligne + " ne peut être vide\n"
             elif comptes.contient_id(donnee['id_compte']) == 0:
                 msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + ligne + " n'est pas référencé\n"
+            elif donnee['code_client'] not in self.comptes:
+                self.comptes['code_client'] = [donnee['id_compte']]
+            elif donnee['id_compte'] not in self.comptes['code_client']:
+                self.comptes['code_client'].append(donnee['id_compte'])
 
             if donnee['id_machine'] == "":
                 msg += "le machine id de la ligne " + ligne + " ne peut être vide\n"
             elif machines.contient_id(donnee['id_machine']) == 0:
                 msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + ligne \
                        + " n'est pas référencé\n"
-
-            if donnee['code_client'] not in self.codes:
-                self.codes.append(donnee['code_client'])
 
             donnee['duree_hp'], info = self.est_un_nombre(donnee['duree_hp'], "la durée réservée HP", ligne)
             msg += info

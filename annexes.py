@@ -2,6 +2,7 @@ from sommes import Sommes
 from interfaces import Interfaces
 import os
 import subprocess
+import shutil
 import re
 
 
@@ -9,7 +10,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           nom_dossier):
+                           nom_dossier, plateforme):
 
         if sommes.calculees == 0:
             info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer les annexes"
@@ -24,13 +25,29 @@ class Annexes(object):
         keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         debut = r'''\documentclass[a4paper,10pt]{article}
-            \usepackage[latin1]{inputenc}
+            \usepackage[T1]{fontenc}
+            \usepackage{lmodern}
             \usepackage[french]{babel}
             \usepackage{microtype}
             \usepackage[margin=10mm, includefoot]{geometry}
             \usepackage{multirow}
             \usepackage{longtable}
             \usepackage[scriptsize]{caption}
+            '''
+        if plateforme == "win32":
+            debut += r'''
+                \usepackage[cp1252]{inputenc}
+                '''
+        elif plateforme == "darwin":
+            debut += r'''
+                \usepackage[appelmac]{inputenc}
+                '''
+        else:
+            debut += r'''
+                \usepackage[utf8]{inputenc}
+                '''
+
+        debut += r'''
             \begin{document}
             \renewcommand{\arraystretch}{1.5}
 
@@ -62,7 +79,7 @@ class Annexes(object):
             for id_compte in keys2:
                 # ## COMPTE
                 co = comptes.donnees[id_compte]
-                intitule_compte = Annexes.echappe_caracteres(co['intitule'])
+                intitule_compte = id_compte + " - " + Annexes.echappe_caracteres(co['intitule'])
                 dico_nom = {'labo': Annexes.echappe_caracteres(client['abrev_labo']),
                             'utilisateur': Annexes.echappe_caracteres(co['intitule']),
                             'date': str(edition.mois) + "/" + str(edition.annee)}
@@ -85,7 +102,7 @@ class Annexes(object):
                 for num_projet in keys3:
                     # ## PROJET
                     sp = sommes.sommes_projets[code_client][id_compte][num_projet]
-                    intitule_projet = Annexes.echappe_caracteres(sp['intitule'])
+                    intitule_projet = num_projet + " - " + Annexes.echappe_caracteres(sp['intitule'])
 
                     machines_utilisees = {}
 
@@ -108,7 +125,7 @@ class Annexes(object):
                     dico_cae = {'compte': intitule_compte, 'projet': intitule_projet}
                     contenu_cae = r'''
                         \hline
-                        \multicolumn{3}{|l|}{%(compte)s/%(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
+                        \multicolumn{3}{|l|}{%(compte)s / %(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
                         \multicolumn{3}{l||}{CHF/h} & \multicolumn{3}{l|}{CHF} \\
                         \hline
                         Date & Heure & Equipement & & mach. & oper. & P & NP & OP & P & NP & OP\\
@@ -138,7 +155,7 @@ class Annexes(object):
                     dico_res = {'compte': intitule_compte, 'projet': intitule_projet}
                     contenu_res = r'''
                         \hline
-                        \multicolumn{3}{|l|}{%(compte)s/%(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
+                        \multicolumn{3}{|l|}{%(compte)s / %(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
                         \multicolumn{2}{l||}{CHF/h} & \multicolumn{2}{l|}{CHF} \\
                         \hline
                         Date & Heure & Equipement & & slot & fact. & P & NP & P & NP\\
@@ -167,7 +184,7 @@ class Annexes(object):
                     dico_liv = {'compte': intitule_compte, 'projet': intitule_projet}
                     contenu_liv = r'''
                         \hline
-                        \multicolumn{2}{|l|}{%(compte)s/%(projet)s} & & & & & &  \\
+                        \multicolumn{2}{|l|}{%(compte)s / %(projet)s} & & & & & &  \\
                         \hline
                         Date livr. & Désignation & Q & Unité & PU & Montant & Rabais & Total \\
                         \hline
@@ -547,8 +564,8 @@ class Annexes(object):
                 'prestation': Annexes.echappe_caracteres(livraison['designation']),
                 'quantite': livraison['quantite'], 'unite': Annexes.echappe_caracteres(livraison['unite']),
                 'rapport': "%.2f" % prestation['prix_unit'], 'montant': "%.2f" % montant,
-                'rabais': "%.2f" % livraison['rabais'], 'total': "%.2f" % total,
-                'id': livraison['id_livraison'], 'responsable': Annexes.echappe_caracteres(livraison['responsable']),
+                'rabais': "%.2f" % livraison['rabais'], 'total': "%.2f" % total, 'id': livraison['id_livraison'],
+                'responsable': Annexes.echappe_caracteres(livraison['responsable']),
                 'commande': Annexes.echappe_caracteres(livraison['date_commande']),
                 'remarque': Annexes.echappe_caracteres(livraison['remarque'])}
 
@@ -592,17 +609,18 @@ class Annexes(object):
         os.unlink(nom_fichier + '.tex')
         os.unlink(nom_fichier + '.log')
         os.unlink(nom_fichier + '.aux')
-        """
+
         if nom_dossier != '':
-            proc = subprocess.Popen(['mv', nom_fichier + ".pdf", nom_dossier])
-            proc.communicate()"""
+            shutil.copy(nom_fichier + ".pdf", nom_dossier)
+            os.unlink(nom_fichier + '.pdf')
 
     @staticmethod
     def echappe_caracteres(texte):
         p = re.compile("[^ a-zA-Z0-9_'èéêàô.:,;\-%&$/|]")
         texte = p.sub('', texte)
-        caracteres = ['%', '$', '_', '&', 'é', 'à', 'è', 'ê', 'ô']
-        latex_c = ['\%', '\$', '\_', '\&', 'e', 'a', 'e', 'e', 'o']
+
+        caracteres = ['%', '$', '_', '&']
+        latex_c = ['\%', '\$', '\_', '\&']
         for pos in range(0, len(caracteres)):
             texte = texte.replace(caracteres[pos], latex_c[pos])
         return texte

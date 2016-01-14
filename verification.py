@@ -34,26 +34,37 @@ class Verification(object):
         verif += coefprests.est_coherent()
         verif += clients.est_coherent(coefmachines, coefprests, generaux)
 
-        clients_actifs = Verification.obtenir_clients_actifs(acces, reservations, livraisons)
+        comptes_actifs, clients_actifs = Verification.obtenir_comptes_clients_actifs(acces, reservations, livraisons)
 
         if (edition.version != '0') and (len(clients_actifs) > 1):
             Interfaces.log_erreur("Si version différente de 0, un seul client autorisé")
             sys.exit("Trop de clients pour version > 0")
 
-        verif += comptes.est_coherent(clients, clients_actifs)
+        verif += comptes.est_coherent(clients, comptes_actifs)
         self.a_verifier = 0
         return verif
 
     @staticmethod
-    def obtenir_clients_actifs(acces, reservations, livraisons):
+    def obtenir_comptes_clients_actifs(acces, reservations, livraisons):
+        comptes_actifs = []
         clients_actifs = []
-        for code in livraisons.obtenir_codes():
-            if code not in clients_actifs:
-                clients_actifs.append(code)
-        for code in reservations.obtenir_codes():
-            if code not in clients_actifs:
-                clients_actifs.append(code)
-        for code in acces.obtenir_codes():
-            if code not in clients_actifs:
-                clients_actifs.append(code)
-        return clients_actifs
+        for client, comptes in livraisons.obtenir_comptes().items():
+            if client not in clients_actifs:
+                clients_actifs.append(client)
+            for compte in comptes:
+                if compte not in comptes_actifs:
+                    comptes_actifs.append(compte)
+        for client, comptes in reservations.obtenir_comptes().items():
+            if client not in clients_actifs:
+                clients_actifs.append(client)
+            for compte in comptes:
+                if compte not in comptes_actifs:
+                    comptes_actifs.append(compte)
+        for client, comptes in acces.obtenir_comptes().items():
+            if client not in clients_actifs:
+                clients_actifs.append(client)
+            for compte in comptes:
+                if compte not in comptes_actifs:
+                    comptes_actifs.append(compte)
+
+        return comptes_actifs, clients_actifs

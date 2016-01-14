@@ -97,4 +97,4 @@ class Fichier(object):
             fl_d = float(donnee)
             return fl_d, ""
         except ValueError:
-            return 0, colonne + " de la ligne " + str(ligne) + " doit être un nombre"
+            return 0, colonne + " de la ligne " + str(ligne) + " doit être un nombre\n"

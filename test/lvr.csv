@@ -1,163 +1,479 @@
-2015;12;Id-Compte;"Intitulé compte";"Code Client labo";"Abrev. Labo";Id-User;"Nom User";"Prénom User";"N° Projet";"Intitulé projet";Id-Prestation;"Désignation prestation";"Date de livraison";"Quantité livrée";"Unité de livraison";"Rabais [CHF]";Responsable;ID-Livraison;"Date et Heure de la commande";"Date et Heure de la prise en charge";Remarque
-2015;12;4263;"S. Gupta";219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;6;;0.00;"Adin Ferhatovic";CP46525;"2015-11-30 12:33:34";"2015-11-30 15:19:05";
-2015;12;1304;"C. Raillon";219518;STI-IMT-LMIS4;user01009;Raillon;Camille;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;2;;0.00;"Adin Ferhatovic";CP46536;"2015-11-30 16:17:42";"2015-12-01 10:09:11";
-2015;12;4615;"A. Billat";219465;STI-IEL-PHOSL;user02135;Billat;Adrien;1000;"Projet par défaut";269;"AZ9260 bottle";;1;95g.;0.00;"Gatera Kumuntu";CP46526;"2015-11-30 12:35:47";"2015-11-30 14:35:58";
-2015;12;4988;"C. Tringides";219526;STI-IMT-LSBI;user02311;Tringides;Christina;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;1;;0.00;"Adin Ferhatovic";CP46537;"2015-11-30 17:59:05";"2015-12-01 10:09:11";
-2015;12;5093;"S. Geraldo";219632;SV-IBI-UPLUT;user02362;Geraldo;"Sara ";1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;2;;0.00;"Adin Ferhatovic";CP46527;"2015-11-30 12:51:48";"2015-11-30 15:19:12";
-2015;12;4988;"C. Tringides";219526;STI-IMT-LSBI;user02311;Tringides;Christina;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;25;;0.00;"Adin Ferhatovic";CP46538;"2015-11-30 17:59:25";"2015-12-01 10:09:11";
-2015;12;3398;"N. Vachicouras";219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46528;"2015-11-30 13:15:46";"2015-11-30 14:35:58";
-2015;12;4934;"N. Ammoury";219439;STI-IBI-LHTC;user02288;Ammoury;Nadim;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;10;;0.00;"Adin Ferhatovic";CP46540;"2015-12-01 09:45:15";"2015-12-01 10:09:17";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";140;"GM1060 SU8 bottle";;1;"bottle (120ml)";0.00;"Adin Ferhatovic";CP46533;"2015-11-30 15:24:28";"2015-12-01 10:09:04";
-2015;12;3034;"H. Michaud";219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;8;;0.00;"Adin Ferhatovic";CP46529;"2015-11-30 13:49:07";"2015-11-30 15:19:12";
-2015;12;4971;"M. Comino";219430;STI-IBI-CLSE;user02306;Comino;"Marta  ";1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;2;;0.00;"Adin Ferhatovic";CP46549;"2015-12-01 10:18:19";"2015-12-01 14:19:40";
-2015;12;4973;"R. Abdul Khadar";219475;STI-IEL-POWERLAB;user02307;"Abdul Khadar";"Riyaz Mohammed";1000;"Projet par défaut";205;"Box 30L (black and red for storage)";;1;box;0.00;"Gatera Kumuntu";CP46508;"2015-11-30 10:56:54";"2015-11-30 14:35:58";
-2015;12;2794;"P. Maoddi";219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;"Projet par défaut";37;Float;;10;;0.00;"Adin Ferhatovic";CP46530;"2015-11-30 14:30:16";"2015-11-30 15:19:12";
-2015;12;3034;"H. Michaud";219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46550;"2015-12-01 10:20:55";"2015-12-01 14:19:40";
-2015;12;4615;"A. Billat";219465;STI-IEL-PHOSL;user02135;Billat;Adrien;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;4;;0.00;"Adin Ferhatovic";CP46509;"2015-11-30 11:12:57";"2015-11-30 15:19:05";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";141;"GM1070 SU8 bottle";;1;"bottle (120ml)";0.00;"Adin Ferhatovic";CP46534;"2015-11-30 15:24:39";"2015-12-01 10:09:04";
-2015;12;4275;"B. Korzh";220208;EXT-UNIGE-GAP;user01972;Korzh;Boris;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;4;;0.00;"Adin Ferhatovic";CP46551;"2015-12-01 10:25:21";"2015-12-01 14:19:40";
-2015;12;1304;"C. Raillon";219518;STI-IMT-LMIS4;user01009;Raillon;Camille;1000;"Projet par défaut";37;Float;;4;;0.00;"Adin Ferhatovic";CP46510;"2015-11-30 11:35:44";"2015-11-30 15:19:05";
-2015;12;5020;"C. Lipp";219525;STI-IMT-LPMAT;user02326;Lipp;Clémentine;1000;"Projet par défaut";268;"AZ 1512 bottle";;1;95g.;0.00;"Adin Ferhatovic";CP46535;"2015-11-30 15:32:24";"2015-12-01 10:09:04";
-2015;12;5070;"A. Muhech";219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;"Projet par défaut";3;"Chrome Blank 5''";;2;plaque;0.00;"Adin Ferhatovic";CP46553;"2015-12-01 11:25:15";"2015-12-01 14:19:48";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;4;;0.00;"Adin Ferhatovic";CP46554;"2015-12-01 14:23:04";"2015-12-02 09:57:07";
-2015;12;1087;"S. Gamper";203216;EXT-Karmic;user00856;Gamper;Stephan;3324;Karmic_1;8;100/P/DS/1-10;;40;;0.00;"Adin Ferhatovic";CP46563;"2015-12-02 08:34:12";"2015-12-02 09:57:23";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";37;Float;;4;;0.00;"Adin Ferhatovic";CP46555;"2015-12-01 14:23:53";"2015-12-02 09:57:07";
-2015;12;3034;"H. Michaud";219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;1;;0.00;"Adin Ferhatovic";CP46564;"2015-12-02 08:59:09";"2015-12-02 09:57:23";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";317;"MMA EL6 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46556;"2015-12-01 14:24:25";"2015-12-02 09:57:07";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";329;"PMMA 950K A2 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46557;"2015-12-01 14:24:39";"2015-12-02 09:57:16";
-2015;12;4928;"A. Glushkova";219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;8;;0.00;"Adin Ferhatovic";CP46558;"2015-12-01 14:48:37";"2015-12-02 09:57:16";
-2015;12;4152;"M. Airaghi Leccardi";219442;STI-IBI-LNE;user01912;"Airaghi Leccardi";Marta;1000;"Projet par défaut";180;"GM1050 SU8 bottle";;1;"bottle (60ml)";0.00;"Adin Ferhatovic";CP46559;"2015-12-01 16:42:06";"2015-12-02 09:57:16";
-2015;12;4037;"N. Hosseini";219437;STI-IBI-LBNI;user01860;Hosseini;Nahid;1000;"Projet par défaut";3;"Chrome Blank 5''";;6;plaque;0.00;"Adin Ferhatovic";CP46560;"2015-12-01 18:48:33";"2015-12-02 09:57:23";
-2015;12;1397;"C. Pannatier";209609;EXT-Sigatec;user01063;Pannatier;Christophe;1000;"Projet par défaut";60;"Handling, packaging, freight costs (La Poste)";;1;;0.00;"Adin Ferhatovic";CP46561;"2015-12-02 07:26:31";"2015-12-02 07:26:31";
-2015;12;3638;"Y. Tabata";219632;SV-IBI-UPLUT;user01694;Tabata;Yoji;1000;"Projet par défaut";253;"Precision tweezers (stainless steel) FC-SA";;2;pc;0.00;"Gatera Kumuntu";CP46575;"2015-12-02 13:20:51";"2015-12-03 09:50:51";
-2015;12;5093;"S. Geraldo";219632;SV-IBI-UPLUT;user02362;Geraldo;"Sara ";1000;"Projet par défaut";3;"Chrome Blank 5''";;2;plaque;0.00;"Adin Ferhatovic";CP46589;"2015-12-03 11:09:46";"2015-12-04 10:38:52";
-2015;12;4379;"M. Fighera";219532;STI-IMT-NE-SAMLAB;user02023;Fighera;Marianna;1000;"Projet par défaut";37;Float;;20;;0.00;"Gatera Kumuntu";CP46581;"2015-12-02 15:31:54";"2015-12-03 09:51:04";
-2015;12;4601;"S. Py";102575;EXT-SilMach;user02128;Py;Stéphane;1000;"Projet par défaut";56;"Single 100mm wafer carrier, STATPRO (black) ";;6;;0.00;"Adin Ferhatovic";CP46744;"2015-12-03 16:03:34";"2015-12-04 10:38:52";
-2015;12;4060;"J. Cottet";219518;STI-IMT-LMIS4;user01869;Cottet;Jonathan;1000;"Projet par défaut";141;"GM1070 SU8 bottle";;1;"bottle (120ml)";0.00;"Gatera Kumuntu";CP46582;"2015-12-02 16:33:32";"2015-12-03 09:51:04";
-2015;12;5118;"D. Khachariya";219475;STI-IEL-POWERLAB;user02374;Khachariya;Dolar;1000;"Projet par défaut";4;"Cleanroom notebook";;1;;0.00;"Adin Ferhatovic";CP46746;"2015-12-03 16:48:26";"2015-12-04 10:39:00";
-2015;12;4283;"R. Nigon";219541;STI-IMX-LC;user01976;Nigon;Robin;1000;"Projet par défaut";57;"Single 150mm wafer carrier, PP (white) ";;10;;0.00;"Gatera Kumuntu";CP46566;"2015-12-02 10:51:06";"2015-12-03 09:50:30";
-2015;12;725;"TP MICRO-332";219427;CMi;user00229;MICRO-332;TP;1000;"Projet par défaut";271;"AZ9221 bottle";;1;95g.;0.00;"Gatera Kumuntu";CP46583;"2015-12-02 19:57:48";"2015-12-03 09:51:14";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46747;"2015-12-03 20:56:00";"2015-12-04 10:39:00";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46567;"2015-12-02 11:08:39";"2015-12-03 09:50:30";
-2015;12;4575;"M. Lihter";219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;"Projet par défaut";128;"PI-2611 bottle (30g.)";;1;30g;0.00;"Gatera Kumuntu";CP46585;"2015-12-02 21:26:42";"2015-12-03 09:51:14";
-2015;12;4998;"N. Vulic";219545;STI-IMX-LMSC;user02315;Vulic;Natasa;1000;"Projet par défaut";326;"PMMA 495K A2 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46748;"2015-12-04 09:41:56";"2015-12-04 10:39:00";
-2015;12;5052;"M. Nasr Esfahani";219459;STI-IEL-LSM;user02342;"Nasr Esfahani";"Mohammad ";1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;10;;0.00;"Gatera Kumuntu";CP46569;"2015-12-02 11:58:47";"2015-12-03 09:50:30";
-2015;12;5070;"A. Muhech";219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46570;"2015-12-02 12:09:50";"2015-12-03 09:50:51";
-2015;12;3398;"N. Vachicouras";219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;"Projet par défaut";127;"PI-2610 bottle (30g.) ";;1;30g;0.00;"Gatera Kumuntu";CP46586;"2015-12-03 08:42:11";"2015-12-03 09:51:14";
-2015;12;4998;"N. Vulic";219545;STI-IMX-LMSC;user02315;Vulic;Natasa;1000;"Projet par défaut";329;"PMMA 950K A2 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46749;"2015-12-04 09:42:11";"2015-12-04 10:39:06";
-2015;12;5002;"J. Jiang ";219505;STI-IMT-GR-LVT;user02317;"Jiang ";Jiacheng;1000;"Projet par défaut";55;"Single 100mm wafer carrier, PP (white) ";;2;;0.00;"Gatera Kumuntu";CP46571;"2015-12-02 13:14:17";"2015-12-03 09:50:51";
-2015;12;1705;"R. Matloub";219541;STI-IMX-LC;user01254;Matloub;Ramin;1000;"Projet par défaut";3;"Chrome Blank 5''";;4;plaque;0.00;"Gatera Kumuntu";CP46587;"2015-12-03 09:47:44";"2015-12-03 09:51:24";
-2015;12;75;"D. Bouvet";219427;CMi;user00031;Bouvet;Didier;1000;"Projet par défaut";37;Float;;1;;0.00;"Gatera Kumuntu";CP46577;"2015-12-02 13:42:42";"2015-12-03 09:51:04";
-2015;12;4971;"M. Comino";219430;STI-IBI-CLSE;user02306;Comino;"Marta  ";1000;"Projet par défaut";3;"Chrome Blank 5''";;6;plaque;0.00;"Adin Ferhatovic";CP46588;"2015-12-03 10:59:47";"2015-12-04 10:38:52";
-2015;12;4633;"V. Costa Bassetto";219320;EPFL-Valais-LEPA;user02143;"Costa Bassetto";Victor;1000;"Projet par défaut";298;"Dimatix Cartridge - DMC";;5;cartridge;0.00;"Adin Ferhatovic";CP46756;"2015-12-04 15:35:39";"2015-12-07 10:14:41";
-2015;12;1433;"M. CMI";219427;CMi;user00118;CMI;Maintenance;1000;"Projet par défaut";342;"ALD - SiO2";;300;cycles;0.05;"Didier Bouvet";CP46765;"2015-12-07 08:01:24";"2015-12-07 08:01:24";
-2015;12;4947;"P. Chang";219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;"Projet par défaut";246;"ALD - TiO2";;114;cycles;0.00;"Didier Bouvet";CP46773;"2015-12-07 08:03:14";"2015-12-07 08:03:14";
-2015;12;4928;"A. Glushkova";219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;"Projet par défaut";253;"Precision tweezers (stainless steel) FC-SA";;1;pc;0.00;"Adin Ferhatovic";CP46781;"2015-12-07 10:30:46";"2015-12-07 14:01:29";
-2015;12;4545;"M. Jovic";219320;EPFL-Valais-LEPA;user02100;Jovic;Milica;1000;"Projet par défaut";298;"Dimatix Cartridge - DMC";;5;cartridge;0.00;"Adin Ferhatovic";CP46757;"2015-12-04 15:54:19";"2015-12-07 10:14:53";
-2015;12;4510;"A. Saeidi";219463;STI-IEL-NANOLAB;user02086;Saeidi;Ali;1000;"Projet par défaut";342;"ALD - SiO2";;40;cycles;0.00;"Didier Bouvet";CP46766;"2015-12-07 08:01:45";"2015-12-07 08:01:45";
-2015;12;4947;"P. Chang";219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;"Projet par défaut";246;"ALD - TiO2";;342;cycles;0.00;"Didier Bouvet";CP46774;"2015-12-07 08:03:19";"2015-12-07 08:03:19";
-2015;12;1087;"S. Gamper";203216;EXT-Karmic;user00856;Gamper;Stephan;3326;Karmic_3;3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46782;"2015-12-07 11:22:45";"2015-12-07 14:01:29";
-2015;12;1331;"S. Kilchenmann";219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;"Projet par défaut";3;"Chrome Blank 5''";;4;plaque;0.00;"Adin Ferhatovic";CP46759;"2015-12-04 17:49:30";"2015-12-07 10:14:53";
-2015;12;4510;"A. Saeidi";219463;STI-IEL-NANOLAB;user02086;Saeidi;Ali;1000;"Projet par défaut";248;"ALD - HfO2";;460;cycles;0.00;"Didier Bouvet";CP46767;"2015-12-07 08:01:52";"2015-12-07 08:01:52";
-2015;12;4981;"D. Unuchek";219451;STI-IEL-LANES;user02309;Unuchek;Dmitrii;1000;"Projet par défaut";248;"ALD - HfO2";;300;cycles;0.00;"Didier Bouvet";CP46775;"2015-12-07 08:03:36";"2015-12-07 08:03:36";
-2015;12;4060;"J. Cottet";219518;STI-IMT-LMIS4;user01869;Cottet;Jonathan;1000;"Projet par défaut";37;Float;;5;;0.00;"Adin Ferhatovic";CP46783;"2015-12-07 13:45:53";"2015-12-07 14:01:42";
-2015;12;4700;"M. Yilmaz";219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;"Projet par défaut";329;"PMMA 950K A2 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46760;"2015-12-05 17:20:49";"2015-12-07 10:14:53";
-2015;12;4263;"S. Gupta";219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;"Projet par défaut";248;"ALD - HfO2";;450;cycles;0.00;"Didier Bouvet";CP46768;"2015-12-07 08:02:08";"2015-12-07 08:02:08";
-2015;12;5034;"B. Ghadiani";219516;STI-IMT-LMIS1;user02333;Ghadiani;Bahareh;1000;"Projet par défaut";342;"ALD - SiO2";;170;cycles;0.00;"Didier Bouvet";CP46776;"2015-12-07 08:04:06";"2015-12-07 08:04:06";
-2015;12;5012;"J. Hernandez";219526;STI-IMT-LSBI;user02322;Hernandez;Jacob;1000;"Projet par défaut";37;Float;;10;;0.00;"Adin Ferhatovic";CP46784;"2015-12-07 13:55:10";"2015-12-07 14:01:42";
-2015;12;4700;"M. Yilmaz";219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;"Projet par défaut";326;"PMMA 495K A2 (bottle)";;1;"bottle (20ml)";0.00;"Adin Ferhatovic";CP46761;"2015-12-05 17:21:00";"2015-12-07 10:14:59";
-2015;12;4441;"E. Frau";219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;"Projet par défaut";246;"ALD - TiO2";;114;cycles;0.00;"Didier Bouvet";CP46769;"2015-12-07 08:02:25";"2015-12-07 08:02:25";
-2015;12;1309;"J. Dorsaz";219427;CMi;user01014;Dorsaz;Julien;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;15;;0.00;"Adin Ferhatovic";CP46777;"2015-12-07 08:22:59";"2015-12-07 10:15:06";
-2015;12;533;"N. Leiser";219262;SB-ICMP-GE;user00540;Leiser;Nicolas;1000;"Projet par défaut";94;"Remover 1165";;1;"bidon(s) 5L";0.00;"Adin Ferhatovic";CP46785;"2015-12-07 14:00:25";"2015-12-07 14:00:25";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";269;"AZ9260 bottle";;1;95g.;0.00;"Adin Ferhatovic";CP46762;"2015-12-06 15:33:08";"2015-12-07 10:14:59";
-2015;12;3733;"A. Marette";219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;"Projet par défaut";247;"ALD - Al2O3";;800;cycles;0.00;"Didier Bouvet";CP46770;"2015-12-07 08:02:50";"2015-12-07 08:02:50";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";55;"Single 100mm wafer carrier, PP (white) ";;5;;0.00;"Adin Ferhatovic";CP46778;"2015-12-07 09:42:50";"2015-12-07 10:15:06";
-2015;12;5052;"M. Nasr Esfahani";219459;STI-IEL-LSM;user02342;"Nasr Esfahani";"Mohammad ";1000;"Projet par défaut";55;"Single 100mm wafer carrier, PP (white) ";;4;;0.00;"Adin Ferhatovic";CP46750;"2015-12-04 11:06:41";"2015-12-07 10:14:41";
-2015;12;3398;"N. Vachicouras";219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;"Projet par défaut";210;"Au : Gold grains - 6 g";;2;tube(s);0.00;"Adin Ferhatovic";CP46763;"2015-12-06 19:22:12";"2015-12-07 10:14:59";
-2015;12;3733;"A. Marette";219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;"Projet par défaut";247;"ALD - Al2O3";;800;cycles;0.00;"Didier Bouvet";CP46771;"2015-12-07 08:02:54";"2015-12-07 08:02:54";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;6;;0.00;"Adin Ferhatovic";CP46779;"2015-12-07 09:43:26";"2015-12-07 10:15:13";
-2015;12;4263;"S. Gupta";219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;2;;0.00;"Adin Ferhatovic";CP46754;"2015-12-04 13:48:33";"2015-12-07 10:14:41";
-2015;12;1055;"A. Mapelli";200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;6;"100/P/SS/0.1-100 - Test";;2;;0.00;"Adin Ferhatovic";CP46764;"2015-12-06 20:14:03";"2015-12-07 10:15:06";
-2015;12;4947;"P. Chang";219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;"Projet par défaut";246;"ALD - TiO2";;23;cycles;0.00;"Didier Bouvet";CP46772;"2015-12-07 08:03:09";"2015-12-07 08:03:09";
-2015;12;4928;"A. Glushkova";219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;"Projet par défaut";237;"Precision tweezers (plastic tip)";;2;pc;0.00;"Adin Ferhatovic";CP46780;"2015-12-07 10:28:41";"2015-12-07 14:01:29";
-2015;12;4629;"S. Suter";219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Adin Ferhatovic";CP46792;"2015-12-07 15:45:16";"2015-12-08 10:08:55";
-2015;12;3398;"N. Vachicouras";219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;25;;0.00;"Adin Ferhatovic";CP46800;"2015-12-08 08:33:37";"2015-12-08 10:09:11";
-2015;12;1717;"C. Nyffeler";219459;STI-IEL-LSM;user01262;Nyffeler;Clemens;1000;"Projet par défaut";4;"Cleanroom notebook";;1;;0.00;"Adin Ferhatovic";CP46809;"2015-12-08 14:11:17";"2015-12-08 14:30:53";
-2015;12;4629;"S. Suter";219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;"Projet par défaut";29;100/P/SS/0.1-0.5;;1;;0.00;"Adin Ferhatovic";CP46793;"2015-12-07 15:45:41";"2015-12-08 10:08:55";
-2015;12;1087;"S. Gamper";203216;EXT-Karmic;user00856;Gamper;Stephan;3324;Karmic_1;8;100/P/DS/1-10;;4;;0.00;"Adin Ferhatovic";CP46802;"2015-12-08 10:01:14";"2015-12-08 10:09:17";
-2015;12;1717;"C. Nyffeler";219459;STI-IEL-LSM;user01262;Nyffeler;Clemens;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;5;;0.00;"Adin Ferhatovic";CP46810;"2015-12-08 14:11:27";"2015-12-08 14:30:53";
-2015;12;4745;"R. Ricca";219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46794;"2015-12-07 16:13:35";"2015-12-08 10:08:55";
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";5;"Fused silica";;1;;0.00;"Adin Ferhatovic";CP46803;"2015-12-08 11:07:28";"2015-12-08 14:30:38";
-2015;12;3906;"B. Huguet";219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46811;"2015-12-08 14:12:36";"2015-12-08 14:30:53";
-2015;12;4745;"R. Ricca";219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Adin Ferhatovic";CP46795;"2015-12-07 16:13:48";"2015-12-08 10:09:02";
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";263;"Borofloat 33";;1;wafer(s);0.00;"Adin Ferhatovic";CP46804;"2015-12-08 11:08:52";"2015-12-08 14:30:38";
-2015;12;3906;"B. Huguet";219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;1;;0.00;"Adin Ferhatovic";CP46812;"2015-12-08 14:13:04";"2015-12-08 14:30:59";
-2015;12;1496;"Y. Lisunova";219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;1;;0.00;"Adin Ferhatovic";CP46796;"2015-12-07 17:01:04";"2015-12-08 10:09:02";
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";37;Float;;1;;0.00;"Adin Ferhatovic";CP46805;"2015-12-08 11:09:06";"2015-12-08 14:30:38";
-2015;12;3580;"A. Lesch";219320;EPFL-Valais-LEPA;user01670;Lesch;Andreas;1000;"Projet par défaut";298;"Dimatix Cartridge - DMC";;5;cartridge;0.00;"Adin Ferhatovic";CP46789;"2015-12-07 14:45:41";"2015-12-08 10:08:46";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";346;"(10) ScanAsyst-Fluid+ Probes  for Bruker AFM";;1;"box 10 probes";0.00;"Adin Ferhatovic";CP46797;"2015-12-07 17:53:04";"2015-12-08 10:09:02";
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";55;"Single 100mm wafer carrier, PP (white) ";;3;;0.00;"Adin Ferhatovic";CP46806;"2015-12-08 11:09:44";"2015-12-08 14:30:46";
-2015;12;3873;"J. Sandrini";219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;8;;0.00;"Adin Ferhatovic";CP46790;"2015-12-07 15:15:17";"2015-12-08 10:08:46";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46798;"2015-12-07 18:05:53";"2015-12-08 10:09:11";
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";237;"Precision tweezers (plastic tip)";;1;pc;0.00;"Adin Ferhatovic";CP46807;"2015-12-08 11:10:05";"2015-12-08 14:30:46";
-2015;12;4900;"M. Kiss";219506;STI-IMT-GR-QUA;user02271;Kiss;Marcell;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Adin Ferhatovic";CP46791;"2015-12-07 15:20:03";"2015-12-08 10:08:46";
-2015;12;4961;"O. Castillo";219518;STI-IMT-LMIS4;user02301;Castillo;Oscar;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Adin Ferhatovic";CP46799;"2015-12-07 18:20:08";"2015-12-08 10:09:11";
-2015;12;3034;"H. Michaud";219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;"Projet par défaut";269;"AZ9260 bottle";;1;95g.;0.00;"Adin Ferhatovic";CP46808;"2015-12-08 11:13:03";"2015-12-08 14:30:46";
-2015;12;1675;"J. Pernollet";219427;CMi;user01236;Pernollet;Joffrey;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Joffrey Pernollet";CP46824;"2015-12-09 13:47:22";"2015-12-09 13:47:22";"test ebeam + evaporation"
-2015;12;5130;"V. Pashchenko";219541;STI-IMX-LC;user02380;Pashchenko;"Vladimir ";1000;"Projet par défaut";205;"Box 30L (black and red for storage)";;1;box;0.00;"Gatera Kumuntu";CP46839;"2015-12-09 18:11:52";"2015-12-10 10:09:23";
-2015;12;1309;"J. Dorsaz";219427;CMi;user01014;Dorsaz;Julien;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;15;;0.00;"Gatera Kumuntu";CP46847;"2015-12-10 07:48:07";"2015-12-10 10:41:45";
-2015;12;4449;"G. Huszka";219517;STI-IMT-LMIS2;user02056;Huszka;Gergely;1000;"Projet par défaut";263;"Borofloat 33";;2;wafer(s);0.00;"Adin Ferhatovic";CP46865;"2015-12-10 14:39:16";"2015-12-11 10:18:53";
-2015;12;4700;"M. Yilmaz";219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;"Projet par défaut";4;"Cleanroom notebook";;1;;0.00;"Gatera Kumuntu";CP46822;"2015-12-09 12:58:07";"2015-12-09 13:44:15";
-2015;12;5130;"V. Pashchenko";219541;STI-IMX-LC;user02380;Pashchenko;"Vladimir ";1000;"Projet par défaut";172;"Wafer tweezers (plastic tip)";;2;pc;0.00;"Gatera Kumuntu";CP46840;"2015-12-09 18:12:03";"2015-12-10 10:09:50";
-2015;12;4745;"R. Ricca";219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;1;;0.00;"Gatera Kumuntu";CP46854;"2015-12-10 08:34:25";"2015-12-10 10:41:45";
-2015;12;4949;"J. Hur";219557;STI-IMX-LMGN;user02295;Hur;Joon;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;1;;0.00;"Adin Ferhatovic";CP46866;"2015-12-10 14:42:50";"2015-12-11 10:19:03";
-2015;12;5118;"D. Khachariya";219475;STI-IEL-POWERLAB;user02374;Khachariya;Dolar;1000;"Projet par défaut";173;"Box (20 x 7 x 3 cm) for pens, tweezers";;1;;0.00;"Gatera Kumuntu";CP46823;"2015-12-09 13:17:43";"2015-12-09 13:44:15";
-2015;12;5130;"V. Pashchenko";219541;STI-IMX-LC;user02380;Pashchenko;"Vladimir ";1000;"Projet par défaut";237;"Precision tweezers (plastic tip)";;2;pc;0.00;"Gatera Kumuntu";CP46841;"2015-12-09 18:12:16";"2015-12-10 10:09:50";
-2015;12;4745;"R. Ricca";219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46855;"2015-12-10 08:34:36";"2015-12-10 10:41:57";
-2015;12;5054;"L. Liardet";219333;SB-ISIC-LSCI;user02343;Liardet;"Laurent ";1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;5;;0.00;"Adin Ferhatovic";CP46868;"2015-12-10 15:06:57";"2015-12-11 10:19:03";
-2015;12;5130;"V. Pashchenko";219541;STI-IMX-LC;user02380;Pashchenko;"Vladimir ";1000;"Projet par défaut";173;"Box (20 x 7 x 3 cm) for pens, tweezers";;2;;0.00;"Gatera Kumuntu";CP46842;"2015-12-09 18:12:29";"2015-12-10 10:09:50";
-2015;12;4637;"M. Maqueda López";219463;STI-IEL-NANOLAB;user02145;"Maqueda López";Mariazel;1000;"Projet par défaut";5;"Fused silica";;1;;0.00;"Gatera Kumuntu";CP46856;"2015-12-10 09:30:20";"2015-12-10 10:41:57";
-2015;12;4973;"R. Abdul Khadar";219475;STI-IEL-POWERLAB;user02307;"Abdul Khadar";"Riyaz Mohammed";1000;"Projet par défaut";278;"LOR 5A bottle (90g)";;1;"90 g.";0.00;"Adin Ferhatovic";CP46869;"2015-12-10 15:34:48";"2015-12-11 10:19:10";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46834;"2015-12-09 15:59:15";"2015-12-10 10:09:10";
-2015;12;4447;"C. Ozdemir";219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;"Projet par défaut";188;"Gel-Pak Sticky Box 2x2'' retention 0 ";;5;;0.00;"Gatera Kumuntu";CP46843;"2015-12-09 18:17:32";"2015-12-10 10:10:10";
-2015;12;3311;"J. Lamy";219263;SB-ICMP-LASPE;user01558;Lamy;Jean-Michel;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46857;"2015-12-10 10:13:26";"2015-12-10 10:41:57";
-2015;12;5151;"P. Maoddi";200199;EXT-CERN;user02388;CMaoddi;Pietro;1000;"Projet par défaut";55;"Single 100mm wafer carrier, PP (white) ";;2;;0.00;"Adin Ferhatovic";CP46871;"2015-12-10 15:57:03";"2015-12-11 10:19:03";
-2015;12;4539;"M. Graf";219435;STI-IBI-LBEN;user02097;Graf;Michael;1000;"Projet par défaut";182;"ZEP 520 A 100% (bottle)";;1;"bottle (20ml)";0.00;"Gatera Kumuntu";CP46813;"2015-12-08 14:45:49";"2015-12-09 13:44:03";
-2015;12;4052;"A. Kordts";219269;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;"Projet par défaut";183;"ZEP 520 A 50% (bottle)";;1;"bottle (20ml)";0.00;"Gatera Kumuntu";CP46835;"2015-12-09 16:31:24";"2015-12-10 10:09:10";
-2015;12;4447;"C. Ozdemir";219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;5;;0.00;"Gatera Kumuntu";CP46844;"2015-12-09 18:17:45";"2015-12-10 10:10:10";
-2015;12;3860;"M. Bahramipanah";217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;5;;0.00;"Adin Ferhatovic";CP46862;"2015-12-10 14:14:00";"2015-12-10 15:52:57";
-2015;12;2794;"P. Maoddi";219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;"Projet par défaut";160;"Single 2'' wafer carrier, PP (white)";;5;;0.00;"Adin Ferhatovic";CP46872;"2015-12-10 15:57:37";"2015-12-11 10:19:10";
-2015;12;4971;"M. Comino";219430;STI-IBI-CLSE;user02306;Comino;"Marta  ";1000;"Projet par défaut";3;"Chrome Blank 5''";;2;plaque;0.00;"Gatera Kumuntu";CP46814;"2015-12-08 16:53:17";"2015-12-09 13:44:03";
-2015;12;3906;"B. Huguet";219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Gatera Kumuntu";CP46836;"2015-12-09 17:38:01";"2015-12-10 10:09:10";
-2015;12;4447;"C. Ozdemir";219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;"Projet par défaut";173;"Box (20 x 7 x 3 cm) for pens, tweezers";;1;;0.00;"Gatera Kumuntu";CP46845;"2015-12-09 18:18:39";"2015-12-10 10:10:10";
-2015;12;4721;"A. Belushkin";219429;STI-IBI-BIOS;user02185;Belushkin;Alexander;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;10;;0.00;"Adin Ferhatovic";CP46863;"2015-12-10 14:30:28";"2015-12-11 10:18:53";
-2015;12;5114;"V. Palaniappan";219463;STI-IEL-NANOLAB;user02372;Palaniappan;Valliappan;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;4;;0.00;"Gatera Kumuntu";CP46820;"2015-12-09 10:20:06";"2015-12-09 13:44:03";
-2015;12;3906;"B. Huguet";219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;"Projet par défaut";237;"Precision tweezers (plastic tip)";;1;pc;0.00;"Gatera Kumuntu";CP46837;"2015-12-09 17:38:21";"2015-12-10 10:09:23";
-2015;12;5130;"V. Pashchenko";219541;STI-IMX-LC;user02380;Pashchenko;"Vladimir ";1000;"Projet par défaut";4;"Cleanroom notebook";;1;;0.00;"Gatera Kumuntu";CP46838;"2015-12-09 18:11:37";"2015-12-10 10:09:23";
-2015;12;4170;"K. Yang";219529;STI-IMT-NAM;user01921;Yang;Kuang-Yu;1000;"Projet par défaut";5;"Fused silica";;2;;0.00;"Gatera Kumuntu";CP46846;"2015-12-09 18:28:38";"2015-12-10 10:41:45";
-2015;12;4449;"G. Huszka";219517;STI-IMT-LMIS2;user02056;Huszka;Gergely;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;5;;0.00;"Adin Ferhatovic";CP46864;"2015-12-10 14:39:07";"2015-12-11 10:18:53";
-2015;12;4973;"R. Abdul Khadar";219475;STI-IEL-POWERLAB;user02307;"Abdul Khadar";"Riyaz Mohammed";1000;"Projet par défaut";173;"Box (20 x 7 x 3 cm) for pens, tweezers";;1;;0.00;"Gatera Kumuntu";CP46821;"2015-12-09 12:35:55";"2015-12-09 13:44:15";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";3;"Chrome Blank 5''";;1;plaque;0.00;"Adin Ferhatovic";CP46875;"2015-12-11 10:26:00";"2015-12-11 14:59:20";
-2015;12;4869;"M. Sordet";200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;"Projet par défaut";312;"Cleanroom occupation";;1;h;0.00;"Philippe Langlet";CP46884;"2015-12-11 16:28:24";"2015-12-11 16:28:24";"14.08.2015 08:40"
-2015;12;312;"F. Calame";200118;EXT-Rolex;user00366;Calame;Florian;1000;"Projet par défaut";157;"Chrome Blank 7''";;10;plaque;0.00;"Adin Ferhatovic";CP46876;"2015-12-11 10:50:08";"2015-12-11 14:59:20";
-2015;12;4869;"M. Sordet";200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;"Projet par défaut";312;"Cleanroom occupation";;1;h;0.00;"Philippe Langlet";CP46885;"2015-12-11 16:28:41";"2015-12-11 16:28:41";"06.11.2015 13:44"
-2015;12;4514;"M. Snyder";219632;SV-IBI-UPLUT;user02088;Snyder;Michael;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;6;;0.00;"Adin Ferhatovic";CP46877;"2015-12-11 10:54:04";"2015-12-11 14:59:27";
-2015;12;4869;"M. Sordet";200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;"Projet par défaut";312;"Cleanroom occupation";;1;h;0.00;"Philippe Langlet";CP46886;"2015-12-11 16:29:00";"2015-12-11 16:29:00";10.12.2015
-2015;12;3815;"F. Yesilkoy";219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;"Projet par défaut";269;"AZ9260 bottle";;1;95g.;0.00;"Adin Ferhatovic";CP46879;"2015-12-11 11:47:50";"2015-12-11 14:59:27";
-2015;12;3831;"L. Steier";219329;SB-ISIC-LPI;user01768;Steier;Ludmilla;1000;"Projet par défaut";6;"100/P/SS/0.1-100 - Test";;3;;0.00;"Adin Ferhatovic";CP46880;"2015-12-11 13:29:27";"2015-12-11 14:59:27";
-2015;12;5114;"V. Palaniappan";219463;STI-IEL-NANOLAB;user02372;Palaniappan;Valliappan;1000;"Projet par défaut";205;"Box 30L (black and red for storage)";;1;box;0.00;"Adin Ferhatovic";CP46881;"2015-12-11 13:32:48";"2015-12-11 14:59:34";
-2015;12;3797;"M. Majidian";219266;SB-ICMP-LPMC;user01756;Majidian;Maryam;1000;"Projet par défaut";140;"GM1060 SU8 bottle";;1;"bottle (120ml)";0.00;"Adin Ferhatovic";CP46873;"2015-12-11 09:38:23";"2015-12-11 10:19:10";
-2015;12;4647;"L. Dejace";219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;"Projet par défaut";3;"Chrome Blank 5''";;3;plaque;0.00;"Adin Ferhatovic";CP46882;"2015-12-11 14:32:29";"2015-12-11 14:59:34";
-2015;12;5110;"A. Baris";219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;"Projet par défaut";53;"Box for single 5'' Cr mask";;1;;0.00;"Adin Ferhatovic";CP46874;"2015-12-11 10:25:53";"2015-12-11 14:59:20";
-2015;12;4869;"M. Sordet";200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;"Projet par défaut";312;"Cleanroom occupation";;1;h;0.00;"Philippe Langlet";CP46883;"2015-12-11 16:27:54";"2015-12-11 16:27:54";"28.07.2015 13:50"
-2015;12;4971;"M. Comino";219430;STI-IBI-CLSE;user02306;Comino;"Marta  ";1000;"Projet par défaut";60040;"100/P/SS/0.1-100 - Test + Wet oxide 1.0µm";;2;;0.00;"Adin Ferhatovic";PF4683;"2015-12-01 10:18:51";"2015-12-01 14:19:48";
-2015;12;5099;"C. Herkommer";219269;SB-ICMP-LPQM1;user02365;Herkommer;"Clemens ";1000;"Projet par défaut";60020;"100/P/SS/0.1-100 - Test + Wet oxide 2.0µm";;2;;0.00;"Gatera Kumuntu";PF4684;"2015-12-02 11:24:07";"2015-12-03 09:51:24";
-2015;12;1331;"S. Kilchenmann";219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;"Projet par défaut";60040;"100/P/SS/0.1-100 - Test + Wet oxide 1.0µm";;6;;0.00;"Adin Ferhatovic";PF4685;"2015-12-04 17:28:53";"2015-12-07 10:15:13";
-2015;12;1055;"A. Mapelli";200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;60012;"100/P/SS/0.1-100 - Test + Dry oxide 200nm";;1;;0.00;"Adin Ferhatovic";PF4686;"2015-12-06 20:14:15";"2015-12-07 10:15:13";
-2015;12;1055;"A. Mapelli";200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;60015;"100/P/SS/0.1-100 - Test + Wet oxide 500nm";;1;;0.00;"Adin Ferhatovic";PF4687;"2015-12-06 20:14:23";"2015-12-07 10:15:19";
-2015;12;1496;"Y. Lisunova";219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;"Projet par défaut";60015;"100/P/SS/0.1-100 - Test + Wet oxide 500nm";;1;;0.00;"Adin Ferhatovic";PF4692;"2015-12-07 17:00:08";"2015-12-08 10:09:23";
-2015;12;4900;"M. Kiss";219506;STI-IMT-GR-QUA;user02271;Kiss;Marcell;1000;"Projet par défaut";60011;"100/P/SS/0.1-100 - Test + Dry oxide 100nm";;2;;0.00;"Adin Ferhatovic";PF4689;"2015-12-07 15:19:56";"2015-12-08 10:09:17";
-2015;12;1496;"Y. Lisunova";219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;"Projet par défaut";60011;"100/P/SS/0.1-100 - Test + Dry oxide 100nm";;1;;0.00;"Adin Ferhatovic";PF4690;"2015-12-07 16:59:36";"2015-12-08 10:09:17";
-2015;12;1705;"R. Matloub";219541;STI-IMX-LC;user01254;Matloub;Ramin;1000;"Projet par défaut";260014;"100/P/DS/0.1-0.5 TTV2 + Wet oxide 200nm";;4;;0.00;"Adin Ferhatovic";PF4693;"2015-12-08 15:19:12";"2015-12-08 15:19:46";
-2015;12;1496;"Y. Lisunova";219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;"Projet par défaut";60012;"100/P/SS/0.1-100 - Test + Dry oxide 200nm";;1;;0.00;"Adin Ferhatovic";PF4691;"2015-12-07 16:59:48";"2015-12-08 10:09:23";
-2015;12;4629;"S. Suter";219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;"Projet par défaut";60046;"100/P/SS/0.1-100 - Test + LPCVD Si3N4 500nm";;1;;0.00;"Silvan Suter";PF4695;"2015-12-11 17:33:47";"0000-00-00 00:00:00";
+2015;12;Id-Compte;Intitulé compte;Code Client labo;Abrev. Labo;Id-User;Nom User;Prénom User;N° Projet;Intitulé projet;Id-Prestation;Désignation prestation;Date de livraison;Quantité livrée;Unité de livraison;Rabais [CHF];Responsable;ID-Livraison;Date et Heure de la commande;Date et Heure de la prise en charge;Remarque
+2015;12;4263;S. Gupta;219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;Projet par défaut;53;Box for single 5'' Cr mask;;6;;0;Adin Ferhatovic;CP46525;30.11.2015 12:33;30.11.2015 15:19;
+2015;12;1304;C. Raillon;219518;STI-IMT-LMIS4;user01009;Raillon;Camille;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;2;;0;Adin Ferhatovic;CP46536;30.11.2015 16:17;01.12.2015 10:09;
+2015;12;3916;D. Etezadi;219429;STI-IBI-BIOS;user01806;Etezadi;Dordaneh;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47046;01.12.2015 00:00;01.12.2015 00:00;7453 @ 16:51 , 100% , Fix= 10nm
+2015;12;4615;A. Billat;219465;STI-IEL-PHOSL;user02135;Billat;Adrien;1000;Projet par défaut;269;AZ9260 bottle;;1;95g.;0;Gatera Kumuntu;CP46526;30.11.2015 12:35;30.11.2015 14:35;
+2015;12;3801;E. Casu;219463;STI-IEL-NANOLAB;user01758;Casu;Emanuele;1000;Projet par défaut;19;SPIDER600 - Pt;;13;W.h;0;Guy François Clerc;CP47031;01.12.2015 00:00;01.12.2015 00:00;0.068 - 0.081 , 100%
+2015;12;4988;C. Tringides;219526;STI-IMT-LSBI;user02311;Tringides;Christina;1000;Projet par défaut;53;Box for single 5'' Cr mask;;1;;0;Adin Ferhatovic;CP46537;30.11.2015 17:59;01.12.2015 10:09;
+2015;12;5093;S. Geraldo;219632;SV-IBI-UPLUT;user02362;Geraldo;Sara ;1000;Projet par défaut;53;Box for single 5'' Cr mask;;2;;0;Adin Ferhatovic;CP46527;30.11.2015 12:51;30.11.2015 15:19;
+2015;12;4149;M. Thammasack;219179;IC-ISIM-LSI1;user01911;Thammasack;Maxime;1000;Projet par défaut;19;SPIDER600 - Pt;;48;W.h;0;Guy François Clerc;CP47032;01.12.2015 00:00;01.12.2015 00:00;0.081 - 0.129 , 100%
+2015;12;4988;C. Tringides;219526;STI-IMT-LSBI;user02311;Tringides;Christina;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;25;;0;Adin Ferhatovic;CP46538;30.11.2015 17:59;01.12.2015 10:09;
+2015;12;3801;E. Casu;219463;STI-IEL-NANOLAB;user01758;Casu;Emanuele;1000;Projet par défaut;288;EVA760 - Au (250mm);;150;nm;0;Philippe Langlet;CP47224;01.12.2015 00:00;01.12.2015 00:00;10:58 , 100% , Fix= 50nm
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46528;30.11.2015 13:15;30.11.2015 14:35;
+2015;12;4934;N. Ammoury;219439;STI-IBI-LHTC;user02288;Ammoury;Nadim;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Adin Ferhatovic;CP46540;01.12.2015 09:45;01.12.2015 10:09;
+2015;12;4496;S. Gribi;219526;STI-IMT-LSBI;user02079;Gribi;Sandra;1000;Projet par défaut;289;EVA760 - Pt (450mm);;345;nm;0;Philippe Langlet;CP47225;01.12.2015 00:00;01.12.2015 00:00;18:30 , 100% , Fix= 15nm
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;8;;0;Adin Ferhatovic;CP46529;30.11.2015 13:49;30.11.2015 15:19;
+2015;12;4971;M. Comino;219430;STI-IBI-CLSE;user02306;Comino;Marta  ;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;2;;0;Adin Ferhatovic;CP46549;01.12.2015 10:18;01.12.2015 14:19;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;140;GM1060 SU8 bottle;;1;bottle (120ml);0;Adin Ferhatovic;CP46533;30.11.2015 15:24;01.12.2015 10:09;
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;37;Float;;10;;0;Adin Ferhatovic;CP46530;30.11.2015 14:30;30.11.2015 15:19;
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46550;01.12.2015 10:20;01.12.2015 14:19;
+2015;12;4973;R. Abdul Khadar;219475;STI-IEL-POWERLAB;user02307;Abdul Khadar;Riyaz Mohammed;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Gatera Kumuntu;CP46508;30.11.2015 10:56;30.11.2015 14:35;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;141;GM1070 SU8 bottle;;1;bottle (120ml);0;Adin Ferhatovic;CP46534;30.11.2015 15:24;01.12.2015 10:09;
+2015;12;4275;B. Korzh;220208;EXT-UNIGE-GAP;user01972;Korzh;Boris;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Adin Ferhatovic;CP46551;01.12.2015 10:25;01.12.2015 14:19;
+2015;12;4615;A. Billat;219465;STI-IEL-PHOSL;user02135;Billat;Adrien;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Adin Ferhatovic;CP46509;30.11.2015 11:12;30.11.2015 15:19;
+2015;12;1304;C. Raillon;219518;STI-IMT-LMIS4;user01009;Raillon;Camille;1000;Projet par défaut;37;Float;;4;;0;Adin Ferhatovic;CP46510;30.11.2015 11:35;30.11.2015 15:19;
+2015;12;5020;C. Lipp;219525;STI-IMT-LPMAT;user02326;Lipp;Clémentine;1000;Projet par défaut;268;AZ 1512 bottle;;1;95g.;0;Adin Ferhatovic;CP46535;30.11.2015 15:32;01.12.2015 10:09;
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46553;01.12.2015 11:25;01.12.2015 14:19;
+2015;12;5038;K. Matsuura;219451;STI-IEL-LANES;user02335;Matsuura;Kentaro;1000;Projet par défaut;79;LAB600H - Au (1010mm);;80;nm;0;Philippe Langlet;CP47045;01.12.2015 00:00;01.12.2015 00:00;7451 @ 11:56 , 100% , Fix= 10nm
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Adin Ferhatovic;CP46554;01.12.2015 14:23;02.12.2015 09:57;
+2015;12;1087;S. Gamper;203216;EXT-Karmic;user00856;Gamper;Stephan;3324;Karmic_1;8;100/P/DS/1-10;;40;;0;Adin Ferhatovic;CP46563;02.12.2015 08:34;02.12.2015 09:57;
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;37;Float;;4;;0;Adin Ferhatovic;CP46555;01.12.2015 14:23;02.12.2015 09:57;
+2015;12;4981;D. Unuchek;219451;STI-IEL-LANES;user02309;Unuchek;Dmitrii;1000;Projet par défaut;79;LAB600H - Au (1010mm);;35;nm;0;Philippe Langlet;CP47047;02.12.2015 00:00;02.12.2015 00:00;7455 @ 09:09 , 100% , Fix= 10nm
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;53;Box for single 5'' Cr mask;;1;;0;Adin Ferhatovic;CP46564;02.12.2015 08:59;02.12.2015 09:57;
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;317;MMA EL6 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46556;01.12.2015 14:24;02.12.2015 09:57;
+2015;12;3978;H. Potts;219545;STI-IMX-LMSC;user01832;Potts;Heidi;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47048;02.12.2015 00:00;02.12.2015 00:00;7456 @ 12:12 , 100% , Fix= 10nm
+2015;12;4441;E. Frau;219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;Projet par défaut;19;SPIDER600 - Pt;;14;W.h;0;Guy François Clerc;CP47033;02.12.2015 00:00;02.12.2015 00:00;0.129 - 0.143 , 100%
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;329;PMMA 950K A2 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46557;01.12.2015 14:24;02.12.2015 09:57;
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;8;;0;Adin Ferhatovic;CP46558;01.12.2015 14:48;02.12.2015 09:57;
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;180;GM1050 SU8 bottle;;1;bottle (60ml);0;Adin Ferhatovic;CP46559;01.12.2015 16:42;02.12.2015 09:57;
+2015;12;4037;N. Hosseini;219437;STI-IBI-LBNI;user01860;Hosseini;Nahid;1000;Projet par défaut;3;Chrome Blank 5'';;6;plaque;0;Adin Ferhatovic;CP46560;01.12.2015 18:48;02.12.2015 09:57;
+2015;12;1397;C. Pannatier;209609;EXT-Sigatec;user01063;Pannatier;Christophe;1000;Projet par défaut;60;Handling, packaging, freight costs (La Poste);;1;;0;Adin Ferhatovic;CP46561;02.12.2015 07:26;02.12.2015 07:26;
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47054;03.12.2015 00:00;03.12.2015 00:00;7461 @ 16:38 , 100% , Fix= 10nm
+2015;12;4245;E. Lemaire;219519;STI-IMT-NE-LMTS;user01958;Lemaire;Etienne;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;160;nm;0;Philippe Langlet;CP47049;03.12.2015 00:00;03.12.2015 00:00;7459 @ 11:18 , 100% , Fix= 10nm
+2015;12;206;C. Hibert;219427;CMi;user00165;Hibert;Cyrille;1000;Projet par défaut;19;SPIDER600 - Pt;;4;W.h;0;Guy François Clerc;CP47034;03.12.2015 00:00;03.12.2015 00:00;0.143 - 0.147 , 100%
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47050;03.12.2015 00:00;03.12.2015 00:00;7460 @ 13:56 , 100% , Fix= 40nm
+2015;12;4037;N. Hosseini;219437;STI-IBI-LBNI;user01860;Hosseini;Nahid;1000;Projet par défaut;286;EVA760 - Au (450mm);;65;nm;0;Philippe Langlet;CP47226;03.12.2015 00:00;03.12.2015 00:00;15:09 , 100% , Fix= 15nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47051;03.12.2015 00:00;03.12.2015 00:00;7460 @ 14:02 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47052;03.12.2015 00:00;03.12.2015 00:00;7460 @ 14:12 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47053;03.12.2015 00:00;03.12.2015 00:00;7460 @ 14:22 , 100% , Fix= 40nm
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;276;DP650 - Au;;1.9;W.h;0;Philippe Langlet;CP47126;04.12.2015 00:00;04.12.2015 00:00;17:47
+2015;12;3638;Y. Tabata;219632;SV-IBI-UPLUT;user01694;Tabata;Yoji;1000;Projet par défaut;253;Precision tweezers (stainless steel) FC-SA;;2;pc;0;Gatera Kumuntu;CP46575;02.12.2015 13:20;03.12.2015 09:50;
+2015;12;5093;S. Geraldo;219632;SV-IBI-UPLUT;user02362;Geraldo;Sara ;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46589;03.12.2015 11:09;04.12.2015 10:38;
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47055;04.12.2015 00:00;04.12.2015 00:00;7462 @ 12:02 , 100% , Fix= 10nm
+2015;12;4379;M. Fighera;219532;STI-IMT-NE-SAMLAB;user02023;Fighera;Marianna;1000;Projet par défaut;37;Float;;20;;0;Gatera Kumuntu;CP46581;02.12.2015 15:31;03.12.2015 09:51;
+2015;12;4601;S. Py;102575;EXT-SilMach;user02128;Py;Stéphane;1000;Projet par défaut;56;Single 100mm wafer carrier, STATPRO (black) ;;6;;0;Adin Ferhatovic;CP46744;03.12.2015 16:03;04.12.2015 10:38;
+2015;12;4283;R. Nigon;219541;STI-IMX-LC;user01976;Nigon;Robin;1000;Projet par défaut;57;Single 150mm wafer carrier, PP (white) ;;10;;0;Gatera Kumuntu;CP46566;02.12.2015 10:51;03.12.2015 09:50;
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;79;LAB600H - Au (1010mm);;40;nm;0;Philippe Langlet;CP47056;04.12.2015 00:00;04.12.2015 00:00;7463 @ 14:29 , 100% , Fix= 10nm
+2015;12;4060;J. Cottet;219518;STI-IMT-LMIS4;user01869;Cottet;Jonathan;1000;Projet par défaut;141;GM1070 SU8 bottle;;1;bottle (120ml);0;Gatera Kumuntu;CP46582;02.12.2015 16:33;03.12.2015 09:51;
+2015;12;5118;D. Khachariya;219475;STI-IEL-POWERLAB;user02374;Khachariya;Dolar;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Adin Ferhatovic;CP46746;03.12.2015 16:48;04.12.2015 10:39;
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46567;02.12.2015 11:08;03.12.2015 09:50;
+2015;12;5038;K. Matsuura;219451;STI-IEL-LANES;user02335;Matsuura;Kentaro;1000;Projet par défaut;87;LAB600H - Pd (1010mm);;15;nm;0;Philippe Langlet;CP47057;04.12.2015 00:00;04.12.2015 00:00;7464 @ 16:19 , 100% , Fix= 10nm
+2015;12;725;TP MICRO-332;219427;CMi;user00229;MICRO-332;TP;1000;Projet par défaut;271;AZ9221 bottle;;1;95g.;0;Gatera Kumuntu;CP46583;02.12.2015 19:57;03.12.2015 09:51;
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46747;03.12.2015 20:56;04.12.2015 10:39;
+2015;12;5052;M. Nasr Esfahani;219459;STI-IEL-LSM;user02342;Nasr Esfahani;Mohammad ;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Gatera Kumuntu;CP46569;02.12.2015 11:58;03.12.2015 09:50;
+2015;12;5038;K. Matsuura;219451;STI-IEL-LANES;user02335;Matsuura;Kentaro;1000;Projet par défaut;79;LAB600H - Au (1010mm);;42;nm;0;Philippe Langlet;CP47058;04.12.2015 00:00;04.12.2015 00:00;7464 @ 16:25 , 100% , Fix= 10nm
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;128;PI-2611 bottle (30g.);;1;30g;0;Gatera Kumuntu;CP46585;02.12.2015 21:26;03.12.2015 09:51;
+2015;12;4998;N. Vulic;219545;STI-IMX-LMSC;user02315;Vulic;Natasa;1000;Projet par défaut;326;PMMA 495K A2 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46748;04.12.2015 09:41;04.12.2015 10:39;
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;276;DP650 - Au;;13.1;W.h;0;Philippe Langlet;CP47123;04.12.2015 00:00;04.12.2015 00:00;11:52
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46570;02.12.2015 12:09;03.12.2015 09:50;
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;127;PI-2610 bottle (30g.) ;;1;30g;0;Gatera Kumuntu;CP46586;03.12.2015 08:42;03.12.2015 09:51;
+2015;12;4998;N. Vulic;219545;STI-IMX-LMSC;user02315;Vulic;Natasa;1000;Projet par défaut;329;PMMA 950K A2 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46749;04.12.2015 09:42;04.12.2015 10:39;
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;276;DP650 - Au;;14.3;W.h;0;Philippe Langlet;CP47124;04.12.2015 00:00;04.12.2015 00:00;12:04
+2015;12;5002;J. Jiang ;219505;STI-IMT-GR-LVT;user02317;Jiang ;Jiacheng;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;2;;0;Gatera Kumuntu;CP46571;02.12.2015 13:14;03.12.2015 09:50;
+2015;12;1705;R. Matloub;219541;STI-IMX-LC;user01254;Matloub;Ramin;1000;Projet par défaut;3;Chrome Blank 5'';;4;plaque;0;Gatera Kumuntu;CP46587;03.12.2015 09:47;03.12.2015 09:51;
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;7.4;W.h;0;Philippe Langlet;CP47125;04.12.2015 00:00;04.12.2015 00:00;17:22
+2015;12;75;D. Bouvet;219427;CMi;user00031;Bouvet;Didier;1000;Projet par défaut;37;Float;;1;;0;Gatera Kumuntu;CP46577;02.12.2015 13:42;03.12.2015 09:51;
+2015;12;4971;M. Comino;219430;STI-IBI-CLSE;user02306;Comino;Marta  ;1000;Projet par défaut;3;Chrome Blank 5'';;6;plaque;0;Adin Ferhatovic;CP46588;03.12.2015 10:59;04.12.2015 10:38;
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;313;DP650 - Ir;;5.4;W.h;0;Philippe Langlet;CP47127;05.12.2015 00:00;05.12.2015 00:00;15:58
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47134;06.12.2015 00:00;06.12.2015 00:00;19:29
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47135;06.12.2015 00:00;06.12.2015 00:00;19:43
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;276;DP650 - Au;;3.4;W.h;0;Philippe Langlet;CP47128;06.12.2015 00:00;06.12.2015 00:00;15:30
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47136;06.12.2015 00:00;06.12.2015 00:00;19:52
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47129;06.12.2015 00:00;06.12.2015 00:00;18:40
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47137;06.12.2015 00:00;06.12.2015 00:00;20:00
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47130;06.12.2015 00:00;06.12.2015 00:00;18:49
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47131;06.12.2015 00:00;06.12.2015 00:00;19:00
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47132;06.12.2015 00:00;06.12.2015 00:00;19:09
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47133;06.12.2015 00:00;06.12.2015 00:00;19:17
+2015;12;4633;V. Costa Bassetto;219320;EPFL-Valais-LEPA;user02143;Costa Bassetto;Victor;1000;Projet par défaut;298;Dimatix Cartridge - DMC;;5;cartridge;0;Adin Ferhatovic;CP46756;04.12.2015 15:35;07.12.2015 10:14;
+2015;12;1433;M. CMI;219427;CMi;user00118;CMI;Maintenance;1000;Projet par défaut;342;ALD - SiO2;;300;cycles;0.05;Didier Bouvet;CP46765;07.12.2015 08:01;07.12.2015 08:01;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;114;cycles;0;Didier Bouvet;CP46773;07.12.2015 08:03;07.12.2015 08:03;
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;253;Precision tweezers (stainless steel) FC-SA;;1;pc;0;Adin Ferhatovic;CP46781;07.12.2015 10:30;07.12.2015 14:01;
+2015;12;4545;M. Jovic;219320;EPFL-Valais-LEPA;user02100;Jovic;Milica;1000;Projet par défaut;298;Dimatix Cartridge - DMC;;5;cartridge;0;Adin Ferhatovic;CP46757;04.12.2015 15:54;07.12.2015 10:14;
+2015;12;4510;A. Saeidi;219463;STI-IEL-NANOLAB;user02086;Saeidi;Ali;1000;Projet par défaut;342;ALD - SiO2;;40;cycles;0;Didier Bouvet;CP46766;07.12.2015 08:01;07.12.2015 08:01;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;342;cycles;0;Didier Bouvet;CP46774;07.12.2015 08:03;07.12.2015 08:03;
+2015;12;1087;S. Gamper;203216;EXT-Karmic;user00856;Gamper;Stephan;3326;Karmic_3;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46782;07.12.2015 11:22;07.12.2015 14:01;
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;3;Chrome Blank 5'';;4;plaque;0;Adin Ferhatovic;CP46759;04.12.2015 17:49;07.12.2015 10:14;
+2015;12;4510;A. Saeidi;219463;STI-IEL-NANOLAB;user02086;Saeidi;Ali;1000;Projet par défaut;248;ALD - HfO2;;460;cycles;0;Didier Bouvet;CP46767;07.12.2015 08:01;07.12.2015 08:01;
+2015;12;4981;D. Unuchek;219451;STI-IEL-LANES;user02309;Unuchek;Dmitrii;1000;Projet par défaut;248;ALD - HfO2;;300;cycles;0;Didier Bouvet;CP46775;07.12.2015 08:03;07.12.2015 08:03;
+2015;12;4060;J. Cottet;219518;STI-IMT-LMIS4;user01869;Cottet;Jonathan;1000;Projet par défaut;37;Float;;5;;0;Adin Ferhatovic;CP46783;07.12.2015 13:45;07.12.2015 14:01;
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;329;PMMA 950K A2 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46760;05.12.2015 17:20;07.12.2015 10:14;
+2015;12;4263;S. Gupta;219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;Projet par défaut;248;ALD - HfO2;;450;cycles;0;Didier Bouvet;CP46768;07.12.2015 08:02;07.12.2015 08:02;
+2015;12;5034;B. Ghadiani;219516;STI-IMT-LMIS1;user02333;Ghadiani;Bahareh;1000;Projet par défaut;342;ALD - SiO2;;170;cycles;0;Didier Bouvet;CP46776;07.12.2015 08:04;07.12.2015 08:04;
+2015;12;5012;J. Hernandez;219526;STI-IMT-LSBI;user02322;Hernandez;Jacob;1000;Projet par défaut;37;Float;;10;;0;Adin Ferhatovic;CP46784;07.12.2015 13:55;07.12.2015 14:01;
+2015;12;5012;J. Hernandez;219526;STI-IMT-LSBI;user02322;Hernandez;Jacob;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47138;07.12.2015 00:00;07.12.2015 00:00;13:03
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;326;PMMA 495K A2 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46761;05.12.2015 17:21;07.12.2015 10:14;
+2015;12;4441;E. Frau;219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;Projet par défaut;246;ALD - TiO2;;114;cycles;0;Didier Bouvet;CP46769;07.12.2015 08:02;07.12.2015 08:02;
+2015;12;1309;J. Dorsaz;219427;CMi;user01014;Dorsaz;Julien;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;15;;0;Adin Ferhatovic;CP46777;07.12.2015 08:22;07.12.2015 10:15;
+2015;12;533;N. Leiser;219262;SB-ICMP-GE;user00540;Leiser;Nicolas;1000;Projet par défaut;94;Remover 1165;;1;bidon(s) 5L;0;Adin Ferhatovic;CP46785;07.12.2015 14:00;07.12.2015 14:00;
+2015;12;4878;A. Lozzi ;219505;STI-IMT-GR-LVT;user02260;Lozzi ;Andrea;1000;Projet par défaut;19;SPIDER600 - Pt;;96;W.h;0;Guy François Clerc;CP47035;07.12.2015 00:00;07.12.2015 00:00;0.147 - 0.243 , 100%
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;313;DP650 - Ir;;36.8;W.h;0;Philippe Langlet;CP47139;07.12.2015 00:00;07.12.2015 00:00;14:19
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47059;07.12.2015 00:00;07.12.2015 00:00;7465 @ 11:46 , 100% , Fix= 10nm
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;269;AZ9260 bottle;;1;95g.;0;Adin Ferhatovic;CP46762;06.12.2015 15:33;07.12.2015 10:14;
+2015;12;3733;A. Marette;219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;Projet par défaut;247;ALD - Al2O3;;800;cycles;0;Didier Bouvet;CP46770;07.12.2015 08:02;07.12.2015 08:02;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;5;;0;Adin Ferhatovic;CP46778;07.12.2015 09:42;07.12.2015 10:15;
+2015;12;3552;A. Hirsch;219526;STI-IMT-LSBI;user01659;Hirsch;Arthur;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47140;07.12.2015 00:00;07.12.2015 00:00;15:19
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;30;nm;0;Philippe Langlet;CP47060;07.12.2015 00:00;07.12.2015 00:00;7466 @ 13:54 , 100% , Fix= 10nm
+2015;12;5052;M. Nasr Esfahani;219459;STI-IEL-LSM;user02342;Nasr Esfahani;Mohammad ;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;4;;0;Adin Ferhatovic;CP46750;04.12.2015 11:06;07.12.2015 10:14;
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;210;Au : Gold grains - 6 g;;2;tube(s);0;Adin Ferhatovic;CP46763;06.12.2015 19:22;07.12.2015 10:14;
+2015;12;3733;A. Marette;219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;Projet par défaut;247;ALD - Al2O3;;800;cycles;0;Didier Bouvet;CP46771;07.12.2015 08:02;07.12.2015 08:02;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;6;;0;Adin Ferhatovic;CP46779;07.12.2015 09:43;07.12.2015 10:15;
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47061;07.12.2015 00:00;07.12.2015 00:00;7467 @ 16:52 , 100% , Fix= 10nm
+2015;12;4263;S. Gupta;219526;STI-IMT-LSBI;user01967;Gupta;Swati;1000;Projet par défaut;53;Box for single 5'' Cr mask;;2;;0;Adin Ferhatovic;CP46754;04.12.2015 13:48;07.12.2015 10:14;
+2015;12;1055;A. Mapelli;200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;6;100/P/SS/0.1-100 - Test;;2;;0;Adin Ferhatovic;CP46764;06.12.2015 20:14;07.12.2015 10:15;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;23;cycles;0;Didier Bouvet;CP46772;07.12.2015 08:03;07.12.2015 08:03;
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;237;Precision tweezers (plastic tip);;2;pc;0;Adin Ferhatovic;CP46780;07.12.2015 10:28;07.12.2015 14:01;
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;25;;0;Adin Ferhatovic;CP46800;08.12.2015 08:33;08.12.2015 10:09;
+2015;12;1717;C. Nyffeler;219459;STI-IEL-LSM;user01262;Nyffeler;Clemens;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Adin Ferhatovic;CP46809;08.12.2015 14:11;08.12.2015 14:30;
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;277;DP650 - Pt;;22.5;W.h;0;Philippe Langlet;CP47142;08.12.2015 00:00;08.12.2015 00:00;09:24
+2015;12;4779;G. Santoruvo;219475;STI-IEL-POWERLAB;user02214;Santoruvo;Giovanni;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47062;08.12.2015 00:00;08.12.2015 00:00;7468 @ 13:36 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47150;08.12.2015 00:00;08.12.2015 00:00;18:14
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Adin Ferhatovic;CP46792;07.12.2015 15:45;08.12.2015 10:08;
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;29;100/P/SS/0.1-0.5;;1;;0;Adin Ferhatovic;CP46793;07.12.2015 15:45;08.12.2015 10:08;
+2015;12;1087;S. Gamper;203216;EXT-Karmic;user00856;Gamper;Stephan;3324;Karmic_1;8;100/P/DS/1-10;;4;;0;Adin Ferhatovic;CP46802;08.12.2015 10:01;08.12.2015 10:09;
+2015;12;1717;C. Nyffeler;219459;STI-IEL-LSM;user01262;Nyffeler;Clemens;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Adin Ferhatovic;CP46810;08.12.2015 14:11;08.12.2015 14:30;
+2015;12;3552;A. Hirsch;219526;STI-IMT-LSBI;user01659;Hirsch;Arthur;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47143;08.12.2015 00:00;08.12.2015 00:00;10:01
+2015;12;4981;D. Unuchek;219451;STI-IEL-LANES;user02309;Unuchek;Dmitrii;1000;Projet par défaut;79;LAB600H - Au (1010mm);;73;nm;0;Philippe Langlet;CP47063;08.12.2015 00:00;08.12.2015 00:00;7469 @ 13:43 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.7;W.h;0;Philippe Langlet;CP47151;08.12.2015 00:00;08.12.2015 00:00;18:38
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46794;07.12.2015 16:13;08.12.2015 10:08;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;5;Fused silica;;1;;0;Adin Ferhatovic;CP46803;08.12.2015 11:07;08.12.2015 14:30;
+2015;12;3906;B. Huguet;219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46811;08.12.2015 14:12;08.12.2015 14:30;
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;313;DP650 - Ir;;36.8;W.h;0;Philippe Langlet;CP47144;08.12.2015 00:00;08.12.2015 00:00;10:48
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Adin Ferhatovic;CP46795;07.12.2015 16:13;08.12.2015 10:09;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;263;Borofloat 33;;1;wafer(s);0;Adin Ferhatovic;CP46804;08.12.2015 11:08;08.12.2015 14:30;
+2015;12;3906;B. Huguet;219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;Projet par défaut;53;Box for single 5'' Cr mask;;1;;0;Adin Ferhatovic;CP46812;08.12.2015 14:13;08.12.2015 14:30;
+2015;12;4949;J. Hur;219557;STI-IMX-LMGN;user02295;Hur;Joon;1000;Projet par défaut;276;DP650 - Au;;22.1;W.h;0;Philippe Langlet;CP47145;08.12.2015 00:00;08.12.2015 00:00;12:36
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;1;;0;Adin Ferhatovic;CP46796;07.12.2015 17:01;08.12.2015 10:09;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;37;Float;;1;;0;Adin Ferhatovic;CP46805;08.12.2015 11:09;08.12.2015 14:30;
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;277;DP650 - Pt;;2;W.h;0;Philippe Langlet;CP47146;08.12.2015 00:00;08.12.2015 00:00;16:50
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;346;(10) ScanAsyst-Fluid+ Probes  for Bruker AFM;;1;box 10 probes;0;Adin Ferhatovic;CP46797;07.12.2015 17:53;08.12.2015 10:09;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;3;;0;Adin Ferhatovic;CP46806;08.12.2015 11:09;08.12.2015 14:30;
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47147;08.12.2015 00:00;08.12.2015 00:00;17:02
+2015;12;3580;A. Lesch;219320;EPFL-Valais-LEPA;user01670;Lesch;Andreas;1000;Projet par défaut;298;Dimatix Cartridge - DMC;;5;cartridge;0;Adin Ferhatovic;CP46789;07.12.2015 14:45;08.12.2015 10:08;
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46798;07.12.2015 18:05;08.12.2015 10:09;
+2015;12;3801;E. Casu;219463;STI-IEL-NANOLAB;user01758;Casu;Emanuele;1000;Projet par défaut;19;SPIDER600 - Pt;;13;W.h;0;Guy François Clerc;CP47036;08.12.2015 00:00;08.12.2015 00:00;0.243 - 0.256 , 100%
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;237;Precision tweezers (plastic tip);;1;pc;0;Adin Ferhatovic;CP46807;08.12.2015 11:10;08.12.2015 14:30;
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47148;08.12.2015 00:00;08.12.2015 00:00;17:27
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;8;;0;Adin Ferhatovic;CP46790;07.12.2015 15:15;08.12.2015 10:08;
+2015;12;4961;O. Castillo;219518;STI-IMT-LMIS4;user02301;Castillo;Oscar;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Adin Ferhatovic;CP46799;07.12.2015 18:20;08.12.2015 10:09;
+2015;12;1705;R. Matloub;219541;STI-IMX-LC;user01254;Matloub;Ramin;1000;Projet par défaut;19;SPIDER600 - Pt;;70;W.h;0;Guy François Clerc;CP47037;08.12.2015 00:00;08.12.2015 00:00;0.256 - 0.326 , 100%
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;269;AZ9260 bottle;;1;95g.;0;Adin Ferhatovic;CP46808;08.12.2015 11:13;08.12.2015 14:30;
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47141;08.12.2015 00:00;08.12.2015 00:00;09:06
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47149;08.12.2015 00:00;08.12.2015 00:00;17:51
+2015;12;4900;M. Kiss;219506;STI-IMT-GR-QUA;user02271;Kiss;Marcell;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Adin Ferhatovic;CP46791;07.12.2015 15:20;08.12.2015 10:08;
+2015;12;4060;J. Cottet;219518;STI-IMT-LMIS4;user01869;Cottet;Jonathan;1000;Projet par défaut;19;SPIDER600 - Pt;;65;W.h;0;Guy François Clerc;CP47038;09.12.2015 00:00;09.12.2015 00:00;0.326 - 0.391 , 100%
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;19;SPIDER600 - Pt;;43;W.h;0;Guy François Clerc;CP47039;09.12.2015 00:00;09.12.2015 00:00;0.391 - 0.434 , 100%
+2015;12;1675;J. Pernollet;219427;CMi;user01236;Pernollet;Joffrey;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Joffrey Pernollet;CP46824;09.12.2015 13:47;09.12.2015 13:47;test ebeam + evaporation
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47064;09.12.2015 00:00;09.12.2015 00:00;7471 @ 12:07 , 100% , Fix= 10nm
+2015;12;4934;N. Ammoury;219439;STI-IBI-LHTC;user02288;Ammoury;Nadim;1000;Projet par défaut;277;DP650 - Pt;;126.7;W.h;0;Philippe Langlet;CP47152;09.12.2015 00:00;09.12.2015 00:00;08:02
+2015;12;4934;N. Ammoury;219439;STI-IBI-LHTC;user02288;Ammoury;Nadim;1000;Projet par défaut;277;DP650 - Pt;;126.7;W.h;0;Philippe Langlet;CP47153;09.12.2015 00:00;09.12.2015 00:00;08:45
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;276;DP650 - Au;;4.1;W.h;0;Philippe Langlet;CP47154;09.12.2015 00:00;09.12.2015 00:00;09:52
+2015;12;3034;H. Michaud;219526;STI-IMT-LSBI;user01453;Michaud;Hadrien;1000;Projet par défaut;276;DP650 - Au;;4.1;W.h;0;Philippe Langlet;CP47155;09.12.2015 00:00;09.12.2015 00:00;10:01
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;308;DP650 - Ag;;38.8;W.h;0;Philippe Langlet;CP47156;09.12.2015 00:00;09.12.2015 00:00;13:07
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;308;DP650 - Ag;;31.1;W.h;0;Philippe Langlet;CP47157;09.12.2015 00:00;09.12.2015 00:00;14:35
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Gatera Kumuntu;CP46822;09.12.2015 12:58;09.12.2015 13:44;
+2015;12;5130;V. Pashchenko;219541;STI-IMX-LC;user02380;Pashchenko;Vladimir ;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Gatera Kumuntu;CP46839;09.12.2015 18:11;10.12.2015 10:09;
+2015;12;1309;J. Dorsaz;219427;CMi;user01014;Dorsaz;Julien;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;15;;0;Gatera Kumuntu;CP46847;10.12.2015 07:48;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47070;10.12.2015 00:00;10.12.2015 00:00;7475 @ 14:17 , 100% , Fix= 40nm
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;276;DP650 - Au;;2.4;W.h;0;Philippe Langlet;CP47158;10.12.2015 00:00;10.12.2015 00:00;12:59
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;210;nm;0;Philippe Langlet;CP47078;10.12.2015 00:00;10.12.2015 00:00;7477 @ 19:30 , 100% , Fix= 10nm
+2015;12;5118;D. Khachariya;219475;STI-IEL-POWERLAB;user02374;Khachariya;Dolar;1000;Projet par défaut;173;Box (20 x 7 x 3 cm) for pens, tweezers;;1;;0;Gatera Kumuntu;CP46823;09.12.2015 13:17;09.12.2015 13:44;
+2015;12;5130;V. Pashchenko;219541;STI-IMX-LC;user02380;Pashchenko;Vladimir ;1000;Projet par défaut;172;Wafer tweezers (plastic tip);;2;pc;0;Gatera Kumuntu;CP46840;09.12.2015 18:12;10.12.2015 10:09;
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;53;Box for single 5'' Cr mask;;1;;0;Gatera Kumuntu;CP46854;10.12.2015 08:34;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47071;10.12.2015 00:00;10.12.2015 00:00;7475 @ 14:24 , 100% , Fix= 40nm
+2015;12;4941;L. Pan ;219335;SB-ISIC-LSPM;user02291;Pan ;Linfeng;1000;Projet par défaut;276;DP650 - Au;;10.3;W.h;0;Philippe Langlet;CP47159;10.12.2015 00:00;10.12.2015 00:00;15:41
+2015;12;5130;V. Pashchenko;219541;STI-IMX-LC;user02380;Pashchenko;Vladimir ;1000;Projet par défaut;237;Precision tweezers (plastic tip);;2;pc;0;Gatera Kumuntu;CP46841;09.12.2015 18:12;10.12.2015 10:09;
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46855;10.12.2015 08:34;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47072;10.12.2015 00:00;10.12.2015 00:00;7475 @ 14:35 , 100% , Fix= 40nm
+2015;12;4941;L. Pan ;219335;SB-ISIC-LSPM;user02291;Pan ;Linfeng;1000;Projet par défaut;276;DP650 - Au;;10.2;W.h;0;Philippe Langlet;CP47160;10.12.2015 00:00;10.12.2015 00:00;15:53
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46834;09.12.2015 15:59;10.12.2015 10:09;
+2015;12;5130;V. Pashchenko;219541;STI-IMX-LC;user02380;Pashchenko;Vladimir ;1000;Projet par défaut;173;Box (20 x 7 x 3 cm) for pens, tweezers;;2;;0;Gatera Kumuntu;CP46842;09.12.2015 18:12;10.12.2015 10:09;
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;540;nm;0;Philippe Langlet;CP47065;10.12.2015 00:00;10.12.2015 00:00;7473 @ 10:01 , 100% , Fix= 40nm
+2015;12;4637;M. Maqueda López;219463;STI-IEL-NANOLAB;user02145;Maqueda López;Mariazel;1000;Projet par défaut;5;Fused silica;;1;;0;Gatera Kumuntu;CP46856;10.12.2015 09:30;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47073;10.12.2015 00:00;10.12.2015 00:00;7475 @ 14:46 , 100% , Fix= 40nm
+2015;12;5103;S. Shadmanyazdi;219545;STI-IMX-LMSC;user02367;Shadmanyazdi;Shahrzad;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47161;10.12.2015 00:00;10.12.2015 00:00;16:23
+2015;12;4539;M. Graf;219435;STI-IBI-LBEN;user02097;Graf;Michael;1000;Projet par défaut;182;ZEP 520 A 100% (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP46813;08.12.2015 14:45;09.12.2015 13:44;
+2015;12;4052;A. Kordts;219269;SB-ICMP-LPQM1;user01866;Kordts;Arne;1000;Projet par défaut;183;ZEP 520 A 50% (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP46835;09.12.2015 16:31;10.12.2015 10:09;
+2015;12;4447;C. Ozdemir;219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;Projet par défaut;188;Gel-Pak Sticky Box 2x2'' retention 0 ;;5;;0;Gatera Kumuntu;CP46843;09.12.2015 18:17;10.12.2015 10:10;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47066;10.12.2015 00:00;10.12.2015 00:00;7474 @ 11:52 , 100% , Fix= 40nm
+2015;12;3311;J. Lamy;219263;SB-ICMP-LASPE;user01558;Lamy;Jean-Michel;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46857;10.12.2015 10:13;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47074;10.12.2015 00:00;10.12.2015 00:00;7476 @ 16:55 , 100% , Fix= 40nm
+2015;12;5103;S. Shadmanyazdi;219545;STI-IMX-LMSC;user02367;Shadmanyazdi;Shahrzad;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47162;10.12.2015 00:00;10.12.2015 00:00;16:51
+2015;12;4971;M. Comino;219430;STI-IBI-CLSE;user02306;Comino;Marta  ;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Gatera Kumuntu;CP46814;08.12.2015 16:53;09.12.2015 13:44;
+2015;12;3906;B. Huguet;219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP46836;09.12.2015 17:38;10.12.2015 10:09;
+2015;12;4447;C. Ozdemir;219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Gatera Kumuntu;CP46844;09.12.2015 18:17;10.12.2015 10:10;
+2015;12;3967;M. Modestino;219520;STI-IMT-LO;user01827;Modestino;Miguel;1000;Projet par défaut;286;EVA760 - Au (450mm);;215;nm;0;Philippe Langlet;CP47227;10.12.2015 00:00;10.12.2015 00:00;10:53 , 100% , Fix= 15nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47067;10.12.2015 00:00;10.12.2015 00:00;7474 @ 12:00 , 100% , Fix= 40nm
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Adin Ferhatovic;CP46862;10.12.2015 14:14;10.12.2015 15:52;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;56;nm;0;Philippe Langlet;CP47075;10.12.2015 00:00;10.12.2015 00:00;7476 @ 17:01 , 100% , Fix= 40nm
+2015;12;5103;S. Shadmanyazdi;219545;STI-IMX-LMSC;user02367;Shadmanyazdi;Shahrzad;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47163;10.12.2015 00:00;10.12.2015 00:00;17:41
+2015;12;5114;V. Palaniappan;219463;STI-IEL-NANOLAB;user02372;Palaniappan;Valliappan;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Gatera Kumuntu;CP46820;09.12.2015 10:20;09.12.2015 13:44;
+2015;12;3906;B. Huguet;219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;Projet par défaut;237;Precision tweezers (plastic tip);;1;pc;0;Gatera Kumuntu;CP46837;09.12.2015 17:38;10.12.2015 10:09;
+2015;12;4447;C. Ozdemir;219429;STI-IBI-BIOS;user02055;Ozdemir;Cenk;1000;Projet par défaut;173;Box (20 x 7 x 3 cm) for pens, tweezers;;1;;0;Gatera Kumuntu;CP46845;09.12.2015 18:18;10.12.2015 10:10;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47068;10.12.2015 00:00;10.12.2015 00:00;7474 @ 12:12 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;56;nm;0;Philippe Langlet;CP47076;10.12.2015 00:00;10.12.2015 00:00;7476 @ 17:12 , 100% , Fix= 40nm
+2015;12;5103;S. Shadmanyazdi;219545;STI-IMX-LMSC;user02367;Shadmanyazdi;Shahrzad;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47164;10.12.2015 00:00;10.12.2015 00:00;17:50
+2015;12;4973;R. Abdul Khadar;219475;STI-IEL-POWERLAB;user02307;Abdul Khadar;Riyaz Mohammed;1000;Projet par défaut;173;Box (20 x 7 x 3 cm) for pens, tweezers;;1;;0;Gatera Kumuntu;CP46821;09.12.2015 12:35;09.12.2015 13:44;
+2015;12;5130;V. Pashchenko;219541;STI-IMX-LC;user02380;Pashchenko;Vladimir ;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Gatera Kumuntu;CP46838;09.12.2015 18:11;10.12.2015 10:09;
+2015;12;4170;K. Yang;219529;STI-IMT-NAM;user01921;Yang;Kuang-Yu;1000;Projet par défaut;5;Fused silica;;2;;0;Gatera Kumuntu;CP46846;09.12.2015 18:28;10.12.2015 10:41;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47069;10.12.2015 00:00;10.12.2015 00:00;7474 @ 12:24 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;56;nm;0;Philippe Langlet;CP47077;10.12.2015 00:00;10.12.2015 00:00;7476 @ 17:22 , 100% , Fix= 40nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47166;11.12.2015 00:00;11.12.2015 00:00;14:22
+2015;12;4869;M. Sordet;200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;Projet par défaut;312;Cleanroom occupation;;1;h;0;Philippe Langlet;CP46885;11.12.2015 16:28;11.12.2015 16:28;06.11.2015 13:44
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;30;nm;0;Philippe Langlet;CP47079;11.12.2015 00:00;11.12.2015 00:00;7478 @ 12:02 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47167;11.12.2015 00:00;11.12.2015 00:00;14:42
+2015;12;4869;M. Sordet;200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;Projet par défaut;312;Cleanroom occupation;;1;h;0;Philippe Langlet;CP46886;11.12.2015 16:29;11.12.2015 16:29;10.12.2015 08:55
+2015;12;3860;M. Bahramipanah;217480;EXT-LSPR;user01781;Bahramipanah;Mohsen;1000;Projet par défaut;79;LAB600H - Au (1010mm);;50;nm;0;Philippe Langlet;CP47080;11.12.2015 00:00;11.12.2015 00:00;7479 @ 14:29 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47168;11.12.2015 00:00;11.12.2015 00:00;14:59
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;79;LAB600H - Au (1010mm);;60;nm;0;Philippe Langlet;CP47081;11.12.2015 00:00;11.12.2015 00:00;7480 @ 17:24 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47169;11.12.2015 00:00;11.12.2015 00:00;15:19
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47082;11.12.2015 00:00;11.12.2015 00:00;7480 @ 17:32 , 100% , Fix= 10nm
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47170;11.12.2015 00:00;11.12.2015 00:00;15:38
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47171;11.12.2015 00:00;11.12.2015 00:00;15:56
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;291;EVA760 - Pt (250mm);;120;nm;0;Philippe Langlet;CP47228;11.12.2015 00:00;11.12.2015 00:00;10:58 , 100% , Fix= 50nm
+2015;12;4869;M. Sordet;200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;Projet par défaut;312;Cleanroom occupation;;1;h;0;Philippe Langlet;CP46883;11.12.2015 16:27;11.12.2015 16:27;28.07.2015 13:50
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;276;DP650 - Au;;7.4;W.h;0;Philippe Langlet;CP47172;11.12.2015 00:00;11.12.2015 00:00;17:14
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47165;11.12.2015 00:00;11.12.2015 00:00;13:59
+2015;12;4869;M. Sordet;200139;EXT-UNIGE-Sciences;user02256;Sordet;Michaël;1000;Projet par défaut;312;Cleanroom occupation;;1;h;0;Philippe Langlet;CP46884;11.12.2015 16:28;11.12.2015 16:28;14.08.2015 08:40
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;276;DP650 - Au;;7.4;W.h;0;Philippe Langlet;CP47173;11.12.2015 00:00;11.12.2015 00:00;17:57
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;277;DP650 - Pt;;22.7;W.h;0;Philippe Langlet;CP47174;13.12.2015 00:00;13.12.2015 00:00;17:00
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47175;13.12.2015 00:00;13.12.2015 00:00;17:15
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47176;13.12.2015 00:00;13.12.2015 00:00;17:32
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;277;DP650 - Pt;;22.6;W.h;0;Philippe Langlet;CP47177;13.12.2015 00:00;13.12.2015 00:00;17:48
+2015;12;3733;A. Marette;219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;Projet par défaut;247;ALD - Al2O3;;324;cycles;0;Didier Bouvet;CP46913;14.12.2015 15:36;14.12.2015 15:36;
+2015;12;4449;G. Huszka;219517;STI-IMT-LMIS2;user02056;Huszka;Gergely;1000;Projet par défaut;263;Borofloat 33;;2;wafer(s);0;Adin Ferhatovic;CP46865;10.12.2015 14:39;11.12.2015 10:18;
+2015;12;312;F. Calame;200118;EXT-Rolex;user00366;Calame;Florian;1000;Projet par défaut;157;Chrome Blank 7'';;10;plaque;0;Adin Ferhatovic;CP46876;11.12.2015 10:50;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47086;14.12.2015 00:00;14.12.2015 00:00;7481 @ 10:36 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47094;14.12.2015 00:00;14.12.2015 00:00;7483 @ 15:35 , 100% , Fix= 40nm
+2015;12;3552;A. Hirsch;219526;STI-IMT-LSBI;user01659;Hirsch;Arthur;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47182;14.12.2015 00:00;14.12.2015 00:00;17:18
+2015;12;1537;N. Blondiaux;999994;EXT-CSEM_T2;user01159;Blondiaux;Nicolas;1000;Projet par défaut;247;ALD - Al2O3;;180;cycles;0;Didier Bouvet;CP46914;14.12.2015 15:36;14.12.2015 15:36;
+2015;12;4949;J. Hur;219557;STI-IMX-LMGN;user02295;Hur;Joon;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;1;;0;Adin Ferhatovic;CP46866;10.12.2015 14:42;11.12.2015 10:19;
+2015;12;4514;M. Snyder;219632;SV-IBI-UPLUT;user02088;Snyder;Michael;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;6;;0;Adin Ferhatovic;CP46877;11.12.2015 10:54;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47087;14.12.2015 00:00;14.12.2015 00:00;7482 @ 12:36 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;240;nm;0;Philippe Langlet;CP47095;14.12.2015 00:00;14.12.2015 00:00;7484 @ 18:15 , 100% , Fix= 40nm
+2015;12;4037;N. Hosseini;219437;STI-IBI-LBNI;user01860;Hosseini;Nahid;1000;Projet par défaut;246;ALD - TiO2;;2300;cycles;0;Didier Bouvet;CP46905;14.12.2015 15:34;14.12.2015 15:34;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;1140;cycles;0;Didier Bouvet;CP46906;14.12.2015 15:34;14.12.2015 15:34;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;247;ALD - Al2O3;;50;cycles;0;Didier Bouvet;CP46915;14.12.2015 15:37;14.12.2015 15:37;
+2015;12;5054;L. Liardet;219333;SB-ISIC-LSCI;user02343;Liardet;Laurent ;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Adin Ferhatovic;CP46868;10.12.2015 15:06;11.12.2015 10:19;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;269;AZ9260 bottle;;1;95g.;0;Adin Ferhatovic;CP46879;11.12.2015 11:47;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47088;14.12.2015 00:00;14.12.2015 00:00;7482 @ 12:42 , 100% , Fix= 40nm
+2015;12;1355;C. MHibert;211353;EXT-MCH-processing;user01034;MHibert;Cyrille;1000;Projet par défaut;33;SOI-380-2-200;;3;;0;Adin Ferhatovic;CP46887;13.12.2015 11:20;14.12.2015 10:21;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;240;nm;0;Philippe Langlet;CP47096;14.12.2015 00:00;14.12.2015 00:00;7485 @ 20:26 , 100% , Fix= 40nm
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;2300;cycles;0;Didier Bouvet;CP46907;14.12.2015 15:34;14.12.2015 15:34;
+2015;12;4510;A. Saeidi;219463;STI-IEL-NANOLAB;user02086;Saeidi;Ali;1000;Projet par défaut;248;ALD - HfO2;;110;cycles;0;Didier Bouvet;CP46908;14.12.2015 15:35;14.12.2015 15:35;
+2015;12;4973;R. Abdul Khadar;219475;STI-IEL-POWERLAB;user02307;Abdul Khadar;Riyaz Mohammed;1000;Projet par défaut;278;LOR 5A bottle (90g);;1;90 g.;0;Adin Ferhatovic;CP46869;10.12.2015 15:34;11.12.2015 10:19;
+2015;12;3831;L. Steier;219329;SB-ISIC-LPI;user01768;Steier;Ludmilla;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;3;;0;Adin Ferhatovic;CP46880;11.12.2015 13:29;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47089;14.12.2015 00:00;14.12.2015 00:00;7482 @ 12:53 , 100% , Fix= 40nm
+2015;12;3685;T. Morais;219518;STI-IMT-LMIS4;user01715;Morais;Tiago;1000;Projet par défaut;263;Borofloat 33;;6;wafer(s);0;Adin Ferhatovic;CP46888;14.12.2015 07:47;14.12.2015 10:21;
+2015;12;4981;D. Unuchek;219451;STI-IEL-LANES;user02309;Unuchek;Dmitrii;1000;Projet par défaut;248;ALD - HfO2;;300;cycles;0;Didier Bouvet;CP46909;14.12.2015 15:35;14.12.2015 15:35;
+2015;12;5151;P. Maoddi;200199;EXT-CERN;user02388;CMaoddi;Pietro;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;2;;0;Adin Ferhatovic;CP46871;10.12.2015 15:57;11.12.2015 10:19;
+2015;12;5114;V. Palaniappan;219463;STI-IEL-NANOLAB;user02372;Palaniappan;Valliappan;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Adin Ferhatovic;CP46881;11.12.2015 13:32;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47090;14.12.2015 00:00;14.12.2015 00:00;7482 @ 13:04 , 100% , Fix= 40nm
+2015;12;3685;T. Morais;219518;STI-IMT-LMIS4;user01715;Morais;Tiago;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46889;14.12.2015 07:47;14.12.2015 10:21;
+2015;12;5012;J. Hernandez;219526;STI-IMT-LSBI;user02322;Hernandez;Jacob;1000;Projet par défaut;276;DP650 - Au;;19.9;W.h;0;Philippe Langlet;CP47178;14.12.2015 00:00;14.12.2015 00:00;08:10
+2015;12;3976;K. Marinov;219451;STI-IEL-LANES;user01831;Marinov;Kolyo;1000;Projet par défaut;247;ALD - Al2O3;;163;cycles;0;Didier Bouvet;CP46910;14.12.2015 15:36;14.12.2015 15:36;
+2015;12;3797;M. Majidian;219266;SB-ICMP-LPMC;user01756;Majidian;Maryam;1000;Projet par défaut;140;GM1060 SU8 bottle;;1;bottle (120ml);0;Adin Ferhatovic;CP46873;11.12.2015 09:38;11.12.2015 10:19;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47083;14.12.2015 00:00;14.12.2015 00:00;7481 @ 10:08 , 100% , Fix= 40nm
+2015;12;4647;L. Dejace;219526;STI-IMT-LSBI;user02150;Dejace;Laurent;1000;Projet par défaut;3;Chrome Blank 5'';;3;plaque;0;Adin Ferhatovic;CP46882;11.12.2015 14:32;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47091;14.12.2015 00:00;14.12.2015 00:00;7483 @ 15:03 , 100% , Fix= 40nm
+2015;12;3685;T. Morais;219518;STI-IMT-LMIS4;user01715;Morais;Tiago;1000;Projet par défaut;268;AZ 1512 bottle;;1;95g.;0;Adin Ferhatovic;CP46890;14.12.2015 07:48;14.12.2015 10:21;
+2015;12;4990;A. Tittl;219429;STI-IBI-BIOS;user02312;Tittl;Andreas;1000;Projet par défaut;276;DP650 - Au;;2.3;W.h;0;Philippe Langlet;CP47179;14.12.2015 00:00;14.12.2015 00:00;16:43
+2015;12;3733;A. Marette;219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;Projet par défaut;247;ALD - Al2O3;;163;cycles;0;Didier Bouvet;CP46911;14.12.2015 15:36;14.12.2015 15:36;
+2015;12;4721;A. Belushkin;219429;STI-IBI-BIOS;user02185;Belushkin;Alexander;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Adin Ferhatovic;CP46863;10.12.2015 14:30;11.12.2015 10:18;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;53;Box for single 5'' Cr mask;;1;;0;Adin Ferhatovic;CP46874;11.12.2015 10:25;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47084;14.12.2015 00:00;14.12.2015 00:00;7481 @ 10:14 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47092;14.12.2015 00:00;14.12.2015 00:00;7483 @ 15:11 , 100% , Fix= 40nm
+2015;12;3552;A. Hirsch;219526;STI-IMT-LSBI;user01659;Hirsch;Arthur;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47180;14.12.2015 00:00;14.12.2015 00:00;16:59
+2015;12;3733;A. Marette;219519;STI-IMT-NE-LMTS;user01730;Marette;Alexis;1000;Projet par défaut;247;ALD - Al2O3;;325;cycles;0;Didier Bouvet;CP46912;14.12.2015 15:36;14.12.2015 15:36;
+2015;12;4466;G. Groza;214039;EXT-ValFleurier;user02064;Groza;Georgiana;1000;Projet par défaut;287;EVA760 - Au (350mm);;175;nm;0;Philippe Langlet;CP47229;14.12.2015 00:00;14.12.2015 00:00;10:01 , 100% , Fix= 25nm
+2015;12;4449;G. Huszka;219517;STI-IMT-LMIS2;user02056;Huszka;Gergely;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Adin Ferhatovic;CP46864;10.12.2015 14:39;11.12.2015 10:18;
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46875;11.12.2015 10:26;11.12.2015 14:59;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;73;nm;0;Philippe Langlet;CP47085;14.12.2015 00:00;14.12.2015 00:00;7481 @ 10:25 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;106;nm;0;Philippe Langlet;CP47093;14.12.2015 00:00;14.12.2015 00:00;7483 @ 15:23 , 100% , Fix= 40nm
+2015;12;1355;C. MHibert;211353;EXT-MCH-processing;user01034;MHibert;Cyrille;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46892;14.12.2015 09:34;14.12.2015 10:21;
+2015;12;3552;A. Hirsch;219526;STI-IMT-LSBI;user01659;Hirsch;Arthur;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47181;14.12.2015 00:00;14.12.2015 00:00;17:09
+2015;12;4152;M. Airaghi Leccardi;219442;STI-IBI-LNE;user01912;Airaghi Leccardi;Marta;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Gatera Kumuntu;CP46921;15.12.2015 10:31;15.12.2015 14:19;
+2015;12;4988;C. Tringides;219526;STI-IMT-LSBI;user02311;Tringides;Christina;1000;Projet par défaut;289;EVA760 - Pt (450mm);;25;nm;0;Philippe Langlet;CP47230;15.12.2015 00:00;15.12.2015 00:00;09:51 , 100% , Fix= 15nm
+2015;12;112;G. Racine;219427;CMi;user00094;Racine;Georges-andré;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;25;;0;Gatera Kumuntu;CP46893;14.12.2015 13:01;15.12.2015 14:18;
+2015;12;4953;H. Musard;219505;STI-IMT-GR-LVT;user02297;Musard;Hugo;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Gatera Kumuntu;CP46903;14.12.2015 15:18;15.12.2015 14:19;
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Gatera Kumuntu;CP46927;15.12.2015 12:16;15.12.2015 14:19;
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;289;EVA760 - Pt (450mm);;115;nm;0;Philippe Langlet;CP47231;15.12.2015 00:00;15.12.2015 00:00;11:33 , 100% , Fix= 15nm
+2015;12;4963;T. Rossy;219526;STI-IMT-LSBI;user02302;Rossy;Tamara;1000;Projet par défaut;276;DP650 - Au;;2;W.h;0;Philippe Langlet;CP47183;15.12.2015 00:00;15.12.2015 00:00;10:29
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;6;;0;Gatera Kumuntu;CP46930;15.12.2015 13:13;15.12.2015 14:19;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;287;EVA760 - Au (350mm);;145;nm;0;Philippe Langlet;CP47232;15.12.2015 00:00;15.12.2015 00:00;15:25 , 100% , Fix= 25nm
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;327;PMMA 495K A4 (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP46896;14.12.2015 14:17;15.12.2015 14:18;
+2015;12;4963;T. Rossy;219526;STI-IMT-LSBI;user02302;Rossy;Tamara;1000;Projet par défaut;276;DP650 - Au;;2;W.h;0;Philippe Langlet;CP47184;15.12.2015 00:00;15.12.2015 00:00;10:41
+2015;12;4698;Y. Kilinc;219459;STI-IEL-LSM;user02174;Kilinc;Yasin;1000;Projet par défaut;188;Gel-Pak Sticky Box 2x2'' retention 0 ;;5;;0;Gatera Kumuntu;CP46916;14.12.2015 16:11;15.12.2015 14:19;
+2015;12;4617;S. Walpen;219511;STI-IMT-LAPD;user02136;Walpen;Sebastien;1000;Projet par défaut;307;LAB600H - Ag (630mm);;200;nm;0;Philippe Langlet;CP47097;15.12.2015 00:00;15.12.2015 00:00;7486 @ 09:33 , 100% , Fix= 100nm
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;330;PMMA 950K A4 (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP46897;14.12.2015 14:17;15.12.2015 14:18;
+2015;12;3978;H. Potts;219545;STI-IMX-LMSC;user01832;Potts;Heidi;1000;Projet par défaut;276;DP650 - Au;;9.8;W.h;0;Philippe Langlet;CP47185;15.12.2015 00:00;15.12.2015 00:00;15:21
+2015;12;4698;Y. Kilinc;219459;STI-IEL-LSM;user02174;Kilinc;Yasin;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;5;;0;Adin Ferhatovic;CP46917;14.12.2015 16:12;15.12.2015 10:49;
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47098;15.12.2015 00:00;15.12.2015 00:00;7487 @ 12:51 , 100% , Fix= 10nm
+2015;12;4700;M. Yilmaz;219459;STI-IEL-LSM;user02175;Yilmaz;Mustafa;1000;Projet par défaut;182;ZEP 520 A 100% (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP46898;14.12.2015 14:30;15.12.2015 14:19;
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47186;15.12.2015 00:00;15.12.2015 00:00;15:53
+2015;12;5099;C. Herkommer;219269;SB-ICMP-LPQM1;user02365;Herkommer;Clemens ;1000;Projet par défaut;335;Inner gloves (10 pairs);;1;lot;0;Gatera Kumuntu;CP46918;14.12.2015 19:14;15.12.2015 14:19;
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;79;LAB600H - Au (1010mm);;100;nm;0;Philippe Langlet;CP47099;15.12.2015 00:00;15.12.2015 00:00;7488 @ 14:51 , 100% , Fix= 10nm
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;128;PI-2611 bottle (30g.);;1;30g;0;Gatera Kumuntu;CP46900;14.12.2015 14:40;15.12.2015 14:19;
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;313;DP650 - Ir;;6.2;W.h;0;Philippe Langlet;CP47187;15.12.2015 00:00;15.12.2015 00:00;16:12
+2015;12;2961;A. Villamarin;219439;STI-IBI-LHTC;user01425;Villamarin;Adan;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Gatera Kumuntu;CP46919;15.12.2015 09:59;15.12.2015 14:19;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47100;15.12.2015 00:00;15.12.2015 00:00;7489 @ 17:23 , 100% , Fix= 10nm
+2015;12;4027;Y. Kung;219451;STI-IEL-LANES;user01855;Kung;Yen-Cheng;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Gatera Kumuntu;CP46901;14.12.2015 14:41;15.12.2015 14:19;
+2015;12;2961;A. Villamarin;219439;STI-IBI-LHTC;user01425;Villamarin;Adan;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Gatera Kumuntu;CP46920;15.12.2015 09:59;15.12.2015 14:19;
+2015;12;2794;P. Maoddi;219430;STI-IBI-CLSE;user01354;Maoddi;Pietro;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;5;;0;Gatera Kumuntu;CP46902;14.12.2015 14:59;15.12.2015 14:19;
+2015;12;4283;R. Nigon;219541;STI-IMX-LC;user01976;Nigon;Robin;1000;Projet par défaut;188;Gel-Pak Sticky Box 2x2'' retention 0 ;;2;;0;Adin Ferhatovic;CP46940;15.12.2015 17:20;16.12.2015 10:08;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47102;16.12.2015 00:00;16.12.2015 00:00;7492 @ 17:54 , 100% , Fix= 40nm
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;188;Gel-Pak Sticky Box 2x2'' retention 0 ;;5;;0;Adin Ferhatovic;CP46941;16.12.2015 09:39;16.12.2015 10:08;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;47;nm;0;Philippe Langlet;CP47103;16.12.2015 00:00;16.12.2015 00:00;7492 @ 18:00 , 100% , Fix= 40nm
+2015;12;4533;R. Dainese;219630;SV-IBI-UPDEPLA;user02095;Dainese;Riccardo;1000;Projet par défaut;3;Chrome Blank 5'';;8;plaque;0;Adin Ferhatovic;CP46942;16.12.2015 09:48;16.12.2015 10:08;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;47;nm;0;Philippe Langlet;CP47104;16.12.2015 00:00;16.12.2015 00:00;7492 @ 18:09 , 100% , Fix= 40nm
+2015;12;4637;M. Maqueda López;219463;STI-IEL-NANOLAB;user02145;Maqueda López;Mariazel;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46933;15.12.2015 14:45;16.12.2015 10:08;
+2015;12;4533;R. Dainese;219630;SV-IBI-UPDEPLA;user02095;Dainese;Riccardo;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;20;;0;Adin Ferhatovic;CP46943;16.12.2015 09:48;16.12.2015 10:08;
+2015;12;4037;N. Hosseini;219437;STI-IBI-LBNI;user01860;Hosseini;Nahid;1000;Projet par défaut;286;EVA760 - Au (450mm);;65;nm;0;Philippe Langlet;CP47233;16.12.2015 00:00;16.12.2015 00:00;13:05 , 100% , Fix= 15nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;47;nm;0;Philippe Langlet;CP47105;16.12.2015 00:00;16.12.2015 00:00;7492 @ 18:19 , 100% , Fix= 40nm
+2015;12;3204;V. Trachsel;219632;SV-IBI-UPLUT;user01529;Trachsel;Vincent;1000;Projet par défaut;3;Chrome Blank 5'';;4;plaque;0;Adin Ferhatovic;CP46935;15.12.2015 15:14;16.12.2015 10:08;
+2015;12;3815;F. Yesilkoy;219429;STI-IBI-BIOS;user01764;Yesilkoy;Filiz;1000;Projet par défaut;287;EVA760 - Au (350mm);;145;nm;0;Philippe Langlet;CP47234;16.12.2015 00:00;16.12.2015 00:00;17:01 , 100% , Fix= 25nm
+2015;12;3204;V. Trachsel;219632;SV-IBI-UPLUT;user01529;Trachsel;Vincent;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;12;;0;Adin Ferhatovic;CP46936;15.12.2015 15:14;16.12.2015 10:08;
+2015;12;3398;N. Vachicouras;219526;STI-IMT-LSBI;user01592;Vachicouras;Nicolas;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;25;;0;Adin Ferhatovic;CP46945;16.12.2015 10:59;16.12.2015 11:02;
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;7055;LSM_ReRAM;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46937;15.12.2015 16:04;16.12.2015 10:08;
+2015;12;533;N. Leiser;219262;SB-ICMP-GE;user00540;Leiser;Nicolas;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Adin Ferhatovic;CP46938;15.12.2015 16:24;16.12.2015 10:08;
+2015;12;2961;A. Villamarin;219439;STI-IBI-LHTC;user01425;Villamarin;Adan;1000;Projet par défaut;276;DP650 - Au;;8.7;W.h;0;Philippe Langlet;CP47188;16.12.2015 00:00;16.12.2015 00:00;14:10
+2015;12;4283;R. Nigon;219541;STI-IMX-LC;user01976;Nigon;Robin;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;10;;0;Adin Ferhatovic;CP46939;15.12.2015 17:19;16.12.2015 10:08;
+2015;12;3673;D. Ovchinnikov;219451;STI-IEL-LANES;user01709;Ovchinnikov;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;35;nm;0;Philippe Langlet;CP47101;16.12.2015 00:00;16.12.2015 00:00;7490 @ 11:29 , 100% , Fix= 10nm
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;340;nm;0;Philippe Langlet;CP47110;17.12.2015 00:00;17.12.2015 00:00;7495 @ 12:54 , 100% , Fix= 40nm
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47198;17.12.2015 00:00;17.12.2015 00:00;13:49
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;6;;0;Adin Ferhatovic;CP46949;16.12.2015 16:50;17.12.2015 15:37;
+2015;12;1717;C. Nyffeler;219459;STI-IEL-LSM;user01262;Nyffeler;Clemens;1000;Projet par défaut;335;Inner gloves (10 pairs);;1;lot;0;Adin Ferhatovic;CP46964;17.12.2015 12:33;17.12.2015 15:37;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47190;17.12.2015 00:00;17.12.2015 00:00;10:55
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47191;17.12.2015 00:00;17.12.2015 00:00;11:04
+2015;12;2837;E. Rollo;219430;STI-IBI-CLSE;user01372;Rollo;Enrica;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;60;nm;0;Philippe Langlet;CP47111;17.12.2015 00:00;17.12.2015 00:00;7498 @ 19:33 , 100% , Fix= 40nm
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47199;17.12.2015 00:00;17.12.2015 00:00;14:43
+2015;12;5110;A. Baris;219517;STI-IMT-LMIS2;user02370;Atakan;Baris;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;2;;0;Adin Ferhatovic;CP46950;16.12.2015 16:51;17.12.2015 15:37;
+2015;12;4745;R. Ricca;219545;STI-IMX-LMSC;user02197;Ricca;Ruben;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;2;;0;Adin Ferhatovic;CP46965;17.12.2015 14:01;17.12.2015 15:37;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47192;17.12.2015 00:00;17.12.2015 00:00;11:13
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47200;17.12.2015 00:00;17.12.2015 00:00;14:51
+2015;12;4441;E. Frau;219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;Projet par défaut;118;SPIDER600 - Ru;;13;W.h;0;Guy François Clerc;CP47040;17.12.2015 00:00;17.12.2015 00:00;0.000 - 0.013 , 100%
+2015;12;4969;X. Huang;219517;STI-IMT-LMIS2;user02305;Huang;Xiaopeng;1000;Projet par défaut;263;Borofloat 33;;5;wafer(s);0;Adin Ferhatovic;CP46951;16.12.2015 19:47;17.12.2015 15:37;
+2015;12;1087;S. Gamper;203216;EXT-Karmic;user00856;Gamper;Stephan;3326;Karmic_3;55;Single 100mm wafer carrier, PP (white) ;;2;;0;Adin Ferhatovic;CP46966;17.12.2015 14:10;17.12.2015 15:37;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47193;17.12.2015 00:00;17.12.2015 00:00;11:23
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47201;17.12.2015 00:00;17.12.2015 00:00;14:59
+2015;12;4441;E. Frau;219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;Projet par défaut;118;SPIDER600 - Ru;;1;W.h;0;Guy François Clerc;CP47041;17.12.2015 00:00;17.12.2015 00:00;0.013 - 0.014 , 100%
+2015;12;4969;X. Huang;219517;STI-IMT-LMIS2;user02305;Huang;Xiaopeng;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;10;;0;Adin Ferhatovic;CP46952;16.12.2015 19:47;17.12.2015 15:37;
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Adin Ferhatovic;CP46967;17.12.2015 15:32;17.12.2015 15:37;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47194;17.12.2015 00:00;17.12.2015 00:00;11:35
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47202;17.12.2015 00:00;17.12.2015 00:00;17:27
+2015;12;3906;B. Huguet;219525;STI-IMT-LPMAT;user01801;Huguet;Benoit;1000;Projet par défaut;265;AZ ECI 3007 bottle;;1;95g.;0;Adin Ferhatovic;CP46944;16.12.2015 10:39;17.12.2015 15:37;
+2015;12;1087;S. Gamper;203216;EXT-Karmic;user00856;Gamper;Stephan;3326;Karmic_3;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46954;17.12.2015 09:06;17.12.2015 15:37;
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Adin Ferhatovic;CP46968;17.12.2015 15:33;17.12.2015 15:37;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;41;nm;0;Philippe Langlet;CP47106;17.12.2015 00:00;17.12.2015 00:00;7494 @ 09:43 , 100% , Fix= 40nm
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47195;17.12.2015 00:00;17.12.2015 00:00;13:17
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47203;17.12.2015 00:00;17.12.2015 00:00;17:37
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Adin Ferhatovic;CP46957;17.12.2015 09:24;17.12.2015 15:37;
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;58;Multiple 100mm wafer shipping box, PP (white) ;;1;;0;Adin Ferhatovic;CP46969;17.12.2015 15:37;17.12.2015 15:37;
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;289;EVA760 - Pt (450mm);;20;nm;0;Philippe Langlet;CP47235;17.12.2015 00:00;17.12.2015 00:00;09:20 , 100% , Fix= 15nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47107;17.12.2015 00:00;17.12.2015 00:00;7494 @ 09:48 , 100% , Fix= 40nm
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47196;17.12.2015 00:00;17.12.2015 00:00;13:25
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Adin Ferhatovic;CP46946;16.12.2015 11:12;17.12.2015 15:37;
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;37;Float;;10;;0;Adin Ferhatovic;CP46959;17.12.2015 09:31;17.12.2015 15:37;
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47108;17.12.2015 00:00;17.12.2015 00:00;7494 @ 09:58 , 100% , Fix= 40nm
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;306;LAB600H - Ag (1010mm);;53;nm;0;Philippe Langlet;CP47109;17.12.2015 00:00;17.12.2015 00:00;7494 @ 10:07 , 100% , Fix= 40nm
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47197;17.12.2015 00:00;17.12.2015 00:00;13:34
+2015;12;4533;R. Dainese;219630;SV-IBI-UPDEPLA;user02095;Dainese;Riccardo;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Adin Ferhatovic;CP46947;16.12.2015 12:05;17.12.2015 15:37;
+2015;12;1632;V. Auzelyte;218495;EXT-Morphotonix;user01205;Auzelyte;Vaida;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Adin Ferhatovic;CP46960;17.12.2015 09:56;17.12.2015 15:37;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47189;17.12.2015 00:00;17.12.2015 00:00;10:47
+2015;12;4878;A. Lozzi ;219505;STI-IMT-GR-LVT;user02260;Lozzi ;Andrea;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;2;;0;Adin Ferhatovic;CP46972;17.12.2015 17:14;18.12.2015 10:01;
+2015;12;1355;C. MHibert;211353;EXT-MCH-processing;user01034;MHibert;Cyrille;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Adin Ferhatovic;CP46980;18.12.2015 09:40;18.12.2015 10:02;
+2015;12;5120;R. Krenger;219517;STI-IMT-LMIS2;user02375;Krenger;Roger;1000;Projet par défaut;4;Cleanroom notebook;;1;;0;Adin Ferhatovic;CP46973;17.12.2015 17:27;18.12.2015 10:01;
+2015;12;4990;A. Tittl;219429;STI-IBI-BIOS;user02312;Tittl;Andreas;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47112;18.12.2015 00:00;18.12.2015 00:00;7500 @ 12:54 , 100% , Fix= 10nm
+2015;12;5120;R. Krenger;219517;STI-IMT-LMIS2;user02375;Krenger;Roger;1000;Projet par défaut;205;Box 30L (black and red for storage);;1;box;0;Adin Ferhatovic;CP46974;17.12.2015 17:28;18.12.2015 10:01;
+2015;12;5038;K. Matsuura;219451;STI-IEL-LANES;user02335;Matsuura;Kentaro;1000;Projet par défaut;87;LAB600H - Pd (1010mm);;20;nm;0;Philippe Langlet;CP47113;18.12.2015 00:00;18.12.2015 00:00;7501 @ 14:55 , 100% , Fix= 10nm
+2015;12;5120;R. Krenger;219517;STI-IMT-LMIS2;user02375;Krenger;Roger;1000;Projet par défaut;55;Single 100mm wafer carrier, PP (white) ;;1;;0;Adin Ferhatovic;CP46975;17.12.2015 17:28;18.12.2015 10:01;
+2015;12;5038;K. Matsuura;219451;STI-IEL-LANES;user02335;Matsuura;Kentaro;1000;Projet par défaut;79;LAB600H - Au (1010mm);;90;nm;0;Philippe Langlet;CP47114;18.12.2015 00:00;18.12.2015 00:00;7501 @ 15:04 , 100% , Fix= 10nm
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;Projet par défaut;19;SPIDER600 - Pt;;21;W.h;0;Guy François Clerc;CP47042;18.12.2015 00:00;18.12.2015 00:00;0.000 - 0.021 , 100%
+2015;12;5120;R. Krenger;219517;STI-IMT-LMIS2;user02375;Krenger;Roger;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;1;;0;Adin Ferhatovic;CP46976;17.12.2015 17:29;18.12.2015 10:02;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;87;LAB600H - Pd (1010mm);;50;nm;0;Philippe Langlet;CP47115;18.12.2015 00:00;18.12.2015 00:00;7502 @ 17:30 , 100% , Fix= 10nm
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;1;;0;Adin Ferhatovic;CP46977;17.12.2015 18:17;18.12.2015 10:02;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;60;nm;0;Philippe Langlet;CP47116;18.12.2015 00:00;18.12.2015 00:00;7502 @ 17:48 , 100% , Fix= 10nm
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;6.8;W.h;0;Philippe Langlet;CP47204;18.12.2015 00:00;18.12.2015 00:00;17:35
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;28;100/P/SS/15-25;;2;;0;Adin Ferhatovic;CP46970;17.12.2015 15:53;18.12.2015 10:01;
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;328;PMMA 495K A8 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46978;18.12.2015 09:27;18.12.2015 10:02;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;30;nm;0;Philippe Langlet;CP47117;18.12.2015 00:00;18.12.2015 00:00;7503 @ 19:56 , 100% , Fix= 10nm
+2015;12;4215;M. Friedl;219545;STI-IMX-LMSC;user01943;Friedl;Martin;1000;Projet par défaut;276;DP650 - Au;;6.7;W.h;0;Philippe Langlet;CP47205;18.12.2015 00:00;18.12.2015 00:00;17:48
+2015;12;4575;M. Lihter;219435;STI-IBI-LBEN;user02115;Lihter;Martina;1000;Projet par défaut;140;GM1060 SU8 bottle;;1;bottle (120ml);0;Adin Ferhatovic;CP46971;17.12.2015 16:22;18.12.2015 10:01;
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;319;MMA EL9 (bottle);;1;bottle (20ml);0;Adin Ferhatovic;CP46979;18.12.2015 09:27;18.12.2015 10:02;
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;79;LAB600H - Au (1010mm);;110;nm;0;Philippe Langlet;CP47118;21.12.2015 00:00;21.12.2015 00:00;7504 @ 09:57 , 100% , Fix= 10nm
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;308;DP650 - Ag;;42.2;W.h;0;Philippe Langlet;CP47206;21.12.2015 00:00;21.12.2015 00:00;07:24
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;Projet par défaut;248;ALD - HfO2;;50;cycles;0;Didier Bouvet;CP46999;21.12.2015 13:00;21.12.2015 13:00;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;247;ALD - Al2O3;;120;cycles;0;Didier Bouvet;CP47007;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;247;ALD - Al2O3;;585;cycles;0;Didier Bouvet;CP47015;21.12.2015 13:03;21.12.2015 13:03;
+2015;12;4698;Y. Kilinc;219459;STI-IEL-LSM;user02174;Kilinc;Yasin;1000;Projet par défaut;80;LAB600H - Pt (1010mm);;60;nm;0;Philippe Langlet;CP47119;21.12.2015 00:00;21.12.2015 00:00;7505 @ 12:49 , 100% , Fix= 10nm
+2015;12;5070;A. Muhech;219463;STI-IEL-NANOLAB;user02351;Muhech;Amira;1000;Projet par défaut;308;DP650 - Ag;;42.2;W.h;0;Philippe Langlet;CP47207;21.12.2015 00:00;21.12.2015 00:00;07:47
+2015;12;3799;X. Wang;219529;STI-IMT-NAM;user01757;Wang;Xiaolong;1000;Projet par défaut;5;Fused silica;;2;;0;Gatera Kumuntu;CP46981;18.12.2015 10:03;21.12.2015 10:00;
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;247;ALD - Al2O3;;15;cycles;0;Didier Bouvet;CP47000;21.12.2015 13:00;21.12.2015 13:00;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;248;ALD - HfO2;;105;cycles;0;Didier Bouvet;CP47008;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;247;ALD - Al2O3;;400;cycles;0;Didier Bouvet;CP47016;21.12.2015 13:03;21.12.2015 13:03;
+2015;12;3673;D. Ovchinnikov;219451;STI-IEL-LANES;user01709;Ovchinnikov;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;70;nm;0;Philippe Langlet;CP47120;21.12.2015 00:00;21.12.2015 00:00;7506 @ 15:04 , 100% , Fix= 10nm
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;308;DP650 - Ag;;2.3;W.h;0;Philippe Langlet;CP47208;21.12.2015 00:00;21.12.2015 00:00;08:41
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;2;;0;Gatera Kumuntu;CP46987;18.12.2015 12:27;21.12.2015 10:00;
+2015;12;1537;N. Blondiaux;999994;EXT-CSEM_T2;user01159;Blondiaux;Nicolas;1000;Projet par défaut;247;ALD - Al2O3;;180;cycles;0;Didier Bouvet;CP47001;21.12.2015 13:01;21.12.2015 13:01;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;248;ALD - HfO2;;105;cycles;0;Didier Bouvet;CP47009;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;276;DP650 - Au;;7.5;W.h;0;Philippe Langlet;CP47209;21.12.2015 00:00;21.12.2015 00:00;15:55
+2015;12;4514;M. Snyder;219632;SV-IBI-UPLUT;user02088;Snyder;Michael;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;4;;0;Gatera Kumuntu;CP46988;18.12.2015 14:40;21.12.2015 10:00;
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;Projet par défaut;247;ALD - Al2O3;;50;cycles;0;Didier Bouvet;CP47002;21.12.2015 13:01;21.12.2015 13:01;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;248;ALD - HfO2;;105;cycles;0;Didier Bouvet;CP47010;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;276;DP650 - Au;;7.5;W.h;0;Philippe Langlet;CP47210;21.12.2015 00:00;21.12.2015 00:00;16:14
+2015;12;4496;S. Gribi;219526;STI-IMT-LSBI;user02079;Gribi;Sandra;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Gatera Kumuntu;CP46989;18.12.2015 14:59;21.12.2015 10:00;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;230;cycles;0;Didier Bouvet;CP47003;21.12.2015 13:01;21.12.2015 13:01;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;342;ALD - SiO2;;45;cycles;0;Didier Bouvet;CP47011;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;247;ALD - Al2O3;;82;cycles;0;Didier Bouvet;CP46996;21.12.2015 12:59;21.12.2015 12:59;
+2015;12;4947;P. Chang;219435;STI-IBI-LBEN;user02294;Chang;Po-Ling;1000;Projet par défaut;246;ALD - TiO2;;1140;cycles;0;Didier Bouvet;CP47004;21.12.2015 13:01;21.12.2015 13:01;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;342;ALD - SiO2;;45;cycles;0;Didier Bouvet;CP47012;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4986;T. Larsen;219505;STI-IMT-GR-LVT;user02310;Larsen;Tom ;1000;Projet par défaut;249;ALD - Pt;;20;cycles;0;Didier Bouvet;CP46997;21.12.2015 12:59;21.12.2015 12:59;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;247;ALD - Al2O3;;120;cycles;0;Didier Bouvet;CP47005;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;342;ALD - SiO2;;45;cycles;0;Didier Bouvet;CP47013;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;3873;J. Sandrini;219459;STI-IEL-LSM;user01787;Sandrini;Jury;1000;Projet par défaut;248;ALD - HfO2;;50;cycles;0;Didier Bouvet;CP46998;21.12.2015 13:00;21.12.2015 13:00;
+2015;12;4753;S. Tomar;219463;STI-IEL-NANOLAB;user02201;Tomar;Saurabh;1000;Projet par défaut;247;ALD - Al2O3;;120;cycles;0;Didier Bouvet;CP47006;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;4441;E. Frau;219545;STI-IMX-LMSC;user02052;Frau;Eleonora;1000;Projet par défaut;246;ALD - TiO2;;114;cycles;0;Didier Bouvet;CP47014;21.12.2015 13:02;21.12.2015 13:02;
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.2;W.h;0;Philippe Langlet;CP47214;22.12.2015 00:00;22.12.2015 00:00;11:19
+2015;12;3978;H. Potts;219545;STI-IMX-LMSC;user01832;Potts;Heidi;1000;Projet par défaut;276;DP650 - Au;;9.7;W.h;0;Philippe Langlet;CP47215;22.12.2015 00:00;22.12.2015 00:00;11:44
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;276;DP650 - Au;;7.4;W.h;0;Philippe Langlet;CP47216;22.12.2015 00:00;22.12.2015 00:00;13:47
+2015;12;4233;M. Tamagnone;219453;STI-IEL-LEMA;user01952;Tamagnone;Michele;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;2;;0;Gatera Kumuntu;CP47017;21.12.2015 14:21;22.12.2015 10:20;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;87;LAB600H - Pd (1010mm);;50;nm;0;Philippe Langlet;CP47121;22.12.2015 00:00;22.12.2015 00:00;7508 @ 06:52 , 100% , Fix= 10nm
+2015;12;5103;S. Shadmanyazdi;219545;STI-IMX-LMSC;user02367;Shadmanyazdi;Shahrzad;1000;Projet par défaut;276;DP650 - Au;;6.7;W.h;0;Philippe Langlet;CP47217;22.12.2015 00:00;22.12.2015 00:00;15:18
+2015;12;5036;I. Istomin;219436;STI-IBI-LBNC;user02334;Istomin;Ivan ;1000;Projet par défaut;141;GM1070 SU8 bottle;;1;bottle (120ml);0;Gatera Kumuntu;CP47018;21.12.2015 19:00;22.12.2015 10:20;
+2015;12;4547;D. Mikulik;219545;STI-IMX-LMSC;user02101;Mikulik;Dmitry;1000;Projet par défaut;79;LAB600H - Au (1010mm);;160;nm;0;Philippe Langlet;CP47122;22.12.2015 00:00;22.12.2015 00:00;7508 @ 07:07 , 100% , Fix= 10nm
+2015;12;5036;I. Istomin;219436;STI-IBI-LBNC;user02334;Istomin;Ivan ;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;8;;0;Gatera Kumuntu;CP47019;22.12.2015 00:16;22.12.2015 10:20;
+2015;12;4971;M. Comino;219430;STI-IBI-CLSE;user02306;Comino;Marta  ;1000;Projet par défaut;19;SPIDER600 - Pt;;29;W.h;0;Guy François Clerc;CP47043;22.12.2015 00:00;22.12.2015 00:00;0.000 - 0.029 , 100%
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;276;DP650 - Au;;13.1;W.h;0;Philippe Langlet;CP47211;22.12.2015 00:00;22.12.2015 00:00;09:50
+2015;12;3801;E. Casu;219463;STI-IEL-NANOLAB;user01758;Casu;Emanuele;1000;Projet par défaut;19;SPIDER600 - Pt;;6;W.h;0;Guy François Clerc;CP47044;22.12.2015 00:00;22.12.2015 00:00;0.029 - 0.035 , 100%
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47212;22.12.2015 00:00;22.12.2015 00:00;11:02
+2015;12;3883;A. Gerratt;219526;STI-IMT-LSBI;user01792;Gerratt;Aaron;1000;Projet par défaut;276;DP650 - Au;;5.1;W.h;0;Philippe Langlet;CP47213;22.12.2015 00:00;22.12.2015 00:00;11:10
+2015;12;4066;A. De Pastina;219505;STI-IMT-GR-LVT;user01872;De Pastina;Annalisa;1000;Projet par défaut;183;ZEP 520 A 50% (bottle);;1;bottle (20ml);0;Gatera Kumuntu;CP47029;23.12.2015 09:22;23.12.2015 10:03;
+2015;12;4565;M. Sturny;219439;STI-IBI-LHTC;user02110;Sturny;Mikael;1000;Projet par défaut;277;DP650 - Pt;;43.5;W.h;0;Philippe Langlet;CP47222;23.12.2015 00:00;23.12.2015 00:00;16:42
+2015;12;4928;A. Glushkova;219269;SB-ICMP-LPQM1;user02285;Glushkova;Anastasiia;1000;Projet par défaut;313;DP650 - Ir;;6.1;W.h;0;Philippe Langlet;CP47223;23.12.2015 00:00;23.12.2015 00:00;17:32
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;313;DP650 - Ir;;15.4;W.h;0;Philippe Langlet;CP47218;23.12.2015 00:00;23.12.2015 00:00;13:23
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;3;Chrome Blank 5'';;2;plaque;0;Gatera Kumuntu;CP47024;22.12.2015 15:37;23.12.2015 10:03;
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;313;DP650 - Ir;;15.5;W.h;0;Philippe Langlet;CP47219;23.12.2015 00:00;23.12.2015 00:00;13:45
+2015;12;4795;C. Stergiopulos;219439;STI-IBI-LHTC;user02222;Stergiopulos;Constantinos;1000;Projet par défaut;6;100/P/SS/0.1-100 - Test;;5;;0;Gatera Kumuntu;CP47025;22.12.2015 15:38;23.12.2015 10:03;
+2015;12;4565;M. Sturny;219439;STI-IBI-LHTC;user02110;Sturny;Mikael;1000;Projet par défaut;277;DP650 - Pt;;126.7;W.h;0;Philippe Langlet;CP47220;23.12.2015 00:00;23.12.2015 00:00;14:45
+2015;12;2817;V. Flauraud;219516;STI-IMT-LMIS1;user01362;Flauraud;Valentin;1000;Projet par défaut;3;Chrome Blank 5'';;1;plaque;0;Gatera Kumuntu;CP47028;22.12.2015 16:02;23.12.2015 10:03;
+2015;12;4565;M. Sturny;219439;STI-IBI-LHTC;user02110;Sturny;Mikael;1000;Projet par défaut;277;DP650 - Pt;;126.7;W.h;0;Philippe Langlet;CP47221;23.12.2015 00:00;23.12.2015 00:00;15:50
+2015;12;4971;M. Comino;219430;STI-IBI-CLSE;user02306;Comino;Marta  ;1000;Projet par défaut;60040;100/P/SS/0.1-100 - Test + Wet oxide 1.0µm;;2;;0;Adin Ferhatovic;PF4683;01.12.2015 10:18;01.12.2015 14:19;
+2015;12;5099;C. Herkommer;219269;SB-ICMP-LPQM1;user02365;Herkommer;Clemens ;1000;Projet par défaut;60020;100/P/SS/0.1-100 - Test + Wet oxide 2.0µm;;2;;0;Gatera Kumuntu;PF4684;02.12.2015 11:24;03.12.2015 09:51;
+2015;12;1331;S. Kilchenmann;219430;STI-IBI-CLSE;user01023;Kilchenmann;Samuel;1000;Projet par défaut;60040;100/P/SS/0.1-100 - Test + Wet oxide 1.0µm;;6;;0;Adin Ferhatovic;PF4685;04.12.2015 17:28;07.12.2015 10:15;
+2015;12;1055;A. Mapelli;200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;60012;100/P/SS/0.1-100 - Test + Dry oxide 200nm;;1;;0;Adin Ferhatovic;PF4686;06.12.2015 20:14;07.12.2015 10:15;
+2015;12;1055;A. Mapelli;200199;EXT-CERN;user00828;Mapelli;Alessandro;7044;CERN_ALICE;60015;100/P/SS/0.1-100 - Test + Wet oxide 500nm;;1;;0;Adin Ferhatovic;PF4687;06.12.2015 20:14;07.12.2015 10:15;
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;60015;100/P/SS/0.1-100 - Test + Wet oxide 500nm;;1;;0;Adin Ferhatovic;PF4692;07.12.2015 17:00;08.12.2015 10:09;
+2015;12;1705;R. Matloub;219541;STI-IMX-LC;user01254;Matloub;Ramin;1000;Projet par défaut;260014;100/P/DS/0.1-0.5 TTV2 + Wet oxide 200nm;;4;;0;Adin Ferhatovic;PF4693;08.12.2015 15:19;08.12.2015 15:19;
+2015;12;4900;M. Kiss;219506;STI-IMT-GR-QUA;user02271;Kiss;Marcell;1000;Projet par défaut;60011;100/P/SS/0.1-100 - Test + Dry oxide 100nm;;2;;0;Adin Ferhatovic;PF4689;07.12.2015 15:19;08.12.2015 10:09;
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;60011;100/P/SS/0.1-100 - Test + Dry oxide 100nm;;1;;0;Adin Ferhatovic;PF4690;07.12.2015 16:59;08.12.2015 10:09;
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;60012;100/P/SS/0.1-100 - Test + Dry oxide 200nm;;1;;0;Adin Ferhatovic;PF4691;07.12.2015 16:59;08.12.2015 10:09;
+2015;12;5099;C. Herkommer;219269;SB-ICMP-LPQM1;user02365;Herkommer;Clemens ;1000;Projet par défaut;60020;100/P/SS/0.1-100 - Test + Wet oxide 2.0µm;;3;;0;Adin Ferhatovic;PF4696;13.12.2015 23:39;14.12.2015 10:21;
+2015;12;3685;T. Morais;219518;STI-IMT-LMIS4;user01715;Morais;Tiago;1000;Projet par défaut;60040;100/P/SS/0.1-100 - Test + Wet oxide 1.0µm;;5;;0;Adin Ferhatovic;PF4697;14.12.2015 07:47;14.12.2015 10:21;
+2015;12;4629;S. Suter;219496;STI-IGM-LRESE;user02142;Suter;Silvan;1000;Projet par défaut;60046;100/P/SS/0.1-100 - Test + LPCVD Si3N4 500nm;;1;;0;Adin Ferhatovic;PF4695;11.12.2015 17:33;14.12.2015 10:21;
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;60011;100/P/SS/0.1-100 - Test + Dry oxide 100nm;;1;;0;Adin Ferhatovic;PF4698;15.12.2015 15:09;16.12.2015 10:08;
+2015;12;1496;Y. Lisunova;219516;STI-IMT-LMIS1;user01122;Lisunova;Yuliya;1000;Projet par défaut;60011;100/P/SS/0.1-100 - Test + Dry oxide 100nm;;2;;0;Adin Ferhatovic;PF4699;16.12.2015 14:50;17.12.2015 15:37;
+2015;12;4273;F. Bussières;220208;EXT-UNIGE-GAP;user01971;Bussières;Félix;1000;Projet par défaut;80012;100/P/DS/1-10 + Dry oxide 200nm;;4;;0;Adin Ferhatovic;PF4701;17.12.2015 16:47;18.12.2015 10:02;
+2015;12;206;C. Hibert;219427;CMi;user00165;Hibert;Cyrille;1000;Projet par défaut;60020;100/P/SS/0.1-100 - Test + Wet oxide 2.0µm;;10;;0;Adin Ferhatovic;PF4700;17.12.2015 15:47;18.12.2015 10:02;
+2015;12;4273;F. Bussières;220208;EXT-UNIGE-GAP;user01971;Bussières;Félix;1000;Projet par défaut;80012;100/P/DS/1-10 + Dry oxide 200nm;;1;;0;Gatera Kumuntu;PF4704;22.12.2015 10:55;22.12.2015 15:00;
+2015;12;996;M. Zervas;219269;SB-ICMP-LPQM1;user00807;Zervas;Michail;1000;Projet par défaut;80046;100/P/DS/1-10 + LPCVD Si3N4 500nm;;10;;0;Gatera Kumuntu;PF4706;23.12.2015 10:24;23.12.2015 10:27;
+2015;12;4066;A. De Pastina;219505;STI-IMT-GR-LVT;user01872;De Pastina;Annalisa;1000;Projet par défaut;60047;100/P/SS/0.1-100 - Test + LPCVD L.S. SiN 100nm;;4;;0;Gatera Kumuntu;PF4705;23.12.2015 09:24;23.12.2015 10:03;

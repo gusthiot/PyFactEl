@@ -35,7 +35,7 @@ class Compte(Fichier):
                     return 1
         return 0
 
-    def est_coherent(self, clients, clients_actifs):
+    def est_coherent(self, clients, comptes_actifs):
         """
         vérifie que les données du fichier importé sont cohérentes (code client dans clients,
         ou alors absent des clients actifs, id compte unique), et efface les colonnes mois et année
@@ -55,16 +55,14 @@ class Compte(Fichier):
 
         msg = ""
         ligne = 1
-        codes = []
         ids = []
         donnees_dict = {}
 
         for donnee in self.donnees:
             if donnee['code_client'] == "":
-                print("code client du compte vide")
-            #    msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"
-            elif donnee['code_client'] not in codes:
-                codes.append(donnee['code_client'])
+                if donnee['id_compte'] in comptes_actifs:
+                    print("code client du compte vide")
+                    msg += "le code client de la ligne " + str(ligne) + " ne peut être vide si le compte est utilisé\n"
 
             if donnee['id_compte'] == "":
                 msg += "le compte id de la ligne " + ligne + " ne peut être vide\n"
@@ -80,21 +78,16 @@ class Compte(Fichier):
             donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
             if info != "":
                 print(info)
-            # msg += info + "\n"
+            #    msg += info
             donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
             if info != "":
                 print(info)
-            # msg += info + "\n"
+            #    msg += info
 
             ligne += 1
 
         self.donnees = donnees_dict
         self.verifie_coherence = 1
-
-        for code in codes:
-            if code not in clients.obtenir_codes():
-                if code in clients_actifs:
-                    msg += "la code client '" + code + "' n'est pas présente dans les clients\n"
 
         if msg != "":
             msg = self.libelle + "\n" + msg
