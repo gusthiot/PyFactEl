@@ -81,11 +81,18 @@ class Facture(object):
             reference = nature + str(edition.annee)[2:] + Annexes.mois_string(edition.mois) + "." + code_client
             if edition.version != "0":
                 reference += "-" + edition.version
+
+            lien_annexe = nom_dossier + "annexes/" + "annexe_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+                  str(edition.version) + "_" + code_client + ".pdf"
+
+            lien_annexe_technique = nom_dossier + "annexes_techniques/" + "annexeT_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+                  str(edition.version) + "_" + code_client + ".pdf"
+
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
                                      cl['dest'], cl['ref'], code_client, code_client, code_client,
                                      generaux.donnees['devise'][1], "", reference, "", "",
-                                     generaux.donnees['entete'][1], nom_dossier + "annexes/", "", nom_dossier + "annexes_techniques/", "X"])
+                                     generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
 
             op_centre = cl['type_labo'] + str(edition.annee)[2:] + Annexes.mois_string(edition.mois)
             if int(cl['emol_base_mens']) > 0:
