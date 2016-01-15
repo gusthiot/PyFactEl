@@ -85,7 +85,7 @@ class Facture(object):
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
                                      cl['dest'], cl['ref'], code_client, code_client, code_client,
                                      generaux.donnees['devise'][1], "", reference, "", "",
-                                     generaux.donnees['entete'][1], "", "", generaux.donnees['lien'][1], "X"])
+                                     generaux.donnees['entete'][1], nom_dossier + "annexes/", "", nom_dossier + "annexes_techniques/", "X"])
 
             op_centre = cl['type_labo'] + str(edition.annee)[2:] + Annexes.mois_string(edition.mois)
             if int(cl['emol_base_mens']) > 0:
