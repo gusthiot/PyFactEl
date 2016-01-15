@@ -43,7 +43,7 @@ if verification.verification_cohérence(generaux, edition, acces, clients, coefm
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-dossier_enregistrement = generaux.donnees['lien'][1] + "/" + str(edition.annee) + "/" + Annexes.mois_string(edition.mois) + "/"
+dossier_enregistrement = generaux.donnees['lien'][1] + str(edition.annee) + "/" + Annexes.mois_string(edition.mois) + "/"
 if not os.path.exists(dossier_enregistrement):
     os.makedirs(dossier_enregistrement)
 
