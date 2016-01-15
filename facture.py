@@ -1,6 +1,7 @@
 import csv
 from sommes import Sommes
 from interfaces import Interfaces
+from annexes import Annexes
 
 
 class Facture(object):
@@ -28,21 +29,18 @@ class Facture(object):
             Interfaces.log_erreur(info)
             return
 
-        mois = edition.mois
-        if mois < 10:
-            mois = "0" + str(mois)
-        else:
-            mois = str(mois)
-        nom = nom_dossier + "facture_" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + ".csv"
+        nom = nom_dossier + "facture_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+              str(edition.version) + ".csv"
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
         fichier_writer.writerow(["Poste", "Système d'origine", "Type de document de vente", "Organisation commerciale",
                                  "Canal de distribution", "Secteur d'activité", "Agence commerciale",
-                                 "Groupe de vendeurs", "Donneur d'ordre", "Client facturé", "Payeur", "Client livré",
-                                 "Numéro de la commande d'achat du client", "Date de livraison E/Tsouhaitée",
-                                 "Nom émetteur", "Textes", "Lien réseau 01", "Doc interne", "Lien réseau 02",
-                                 "Doc interne", "Lien réseau 03", "Doc interne", "Lien réseau 04", "Doc interne",
-                                 "Lien réseau 05", "Doc interne", "Article",
+                                 "Groupe de vendeurs", "Donneur d'ordre", "Nom 2 du donneur d'ordre",
+                                 "Nom 3 du donneur d'ordre", "Client facturé", "Payeur", "Client livré", "Devise",
+                                 "Mode d'envoi", "Numéro de la commande d'achat du client",
+                                 "Date de livraison E/Tsouhaitée", "Nom émetteur", "Textes", "Lien réseau 01",
+                                 "Doc interne", "Lien réseau 02", "Doc interne", "Lien réseau 03", "Doc interne",
+                                 "Lien réseau 04", "Doc interne", "Lien réseau 05", "Doc interne", "Article",
                                  "Désignation du poste d'une commande client", "Quantité cible en unité de vente",
                                  "Unité de quantité cible", "Type de prix net", "Prix net du poste",
                                  "Type de rabais poste", "Valeur rabais poste", "Date de livraison poste souhaitée",
@@ -80,15 +78,16 @@ class Facture(object):
             else:
                 genre = generaux.donnees['code_ext'][1]
             nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
-            reference = nature + str(edition.annee)[2:] + mois + "." + code_client
+            reference = nature + str(edition.annee)[2:] + Annexes.mois_string(edition.mois) + "." + code_client
             if edition.version != "0":
                 reference += "-" + edition.version
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
-                                     code_client, code_client, code_client, reference, "", "",
-                                     generaux.donnees['entete'][1], "->", "", "->", ""])
+                                     cl['dest'], cl['ref'], code_client, code_client, code_client,
+                                     generaux.donnees['devise'][1], "", reference, "", "",
+                                     generaux.donnees['entete'][1], "", "", generaux.donnees['lien'][1], "X"])
 
-            op_centre = cl['type_labo'] + str(edition.annee)[2:] + mois
+            op_centre = cl['type_labo'] + str(edition.annee)[2:] + Annexes.mois_string(edition.mois)
             if int(cl['emol_base_mens']) > 0:
                 poste = generaux.donnees['poste_emolument'][1]
                 fichier_writer.writerow(Facture.ligne_facture(generaux, 1, poste, client['em'], client['er'],
@@ -154,7 +153,7 @@ class Facture(object):
             rabais = ""
         code_op = generaux.donnees['code_t'][1] + op_centre + generaux.donnees['code_d'][index]
         return [poste, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
+                "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
                 generaux.donnees['unite'][index], generaux.donnees['type_prix'][index], net,
                 generaux.donnees['type_rabais'][index], rabais, "", generaux.donnees['financier'][1], "",
                 generaux.donnees['fond'][1], "", "", code_op, "", "", "", generaux.donnees['texte_sap'][index],

@@ -1,6 +1,7 @@
 import csv
 from sommes import Sommes
 from interfaces import Interfaces
+from annexes import Annexes
 
 
 class BilanMensuel(object):
@@ -15,12 +16,9 @@ class BilanMensuel(object):
             Interfaces.log_erreur(info)
             return
 
-        mois = edition.mois
-        if mois < 10:
-            mois = "0" + str(mois)
-        else:
-            mois = str(mois)
-        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + ".csv"
+        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+              str(edition.version) + ".csv"
+
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
 
@@ -37,7 +35,7 @@ class BilanMensuel(object):
             sca = sommes.sommes_categories[code_client]
             cl = clients.donnees[code_client]
             nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
-            reference = nature + str(edition.annee)[2:] + mois + "." + code_client
+            reference = nature + str(edition.annee)[2:] + Annexes.mois_string(edition.mois) + "." + code_client
             nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
             cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
             cat = {'1': 0, '2': 0, '3': 0, '4': 0}

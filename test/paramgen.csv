@@ -4,17 +4,19 @@
 4;Organisation commerciale;1028;;;;;;
 5;Canal de distribution;10;;;;;;
 6;Secteur d'activité;10;;;;;;
-7;Centre financier;F1003;;;;;;
-8;Fonds à créditer;520494;;;;;;
-9;Texte d'entête;Matériel livré (Frais de matériel) et participation aux coûts des procédés utilisés (Coûts procédés) plafonnés (P), non plafonnés (NP): consommables, photoresist, produits chimique, gaz de procédés …;;;;;;
-10;N° poste émolument (0<n<10);5;;;;;;
-11;Code T;U;;;;;;
-12;Code N;I;A;E;;;;
-13;Code nature client référence CMi;INT;EXT;EXT;;;;
-14;Code D des articles SAP;E;P;N;L;C;W;X
-15;Code articles SAP;9010653;9010656;9010657;9010670;9010582;9010654;9010659
-16;Quantité;1;1;1;1;1;1;1
-17;Unité de quantité;PCE;PCE;PCE;PCE;PCE;PCE;PCE
-18;Type de prix;PR00;PR00;PR00;PR00;PR00;PR00;PR00
-19;Type de rabais;ZD02;ZD02;ZD02;ZD02;ZD02;ZD02;ZD02
-20;Textes libres des articles SAP;(selon contrat);(selon contrat);(+ main d'œuvre Opérateur);(selon données CAMIPRO);(consommables livrés, surcoûts procédés);(hors utilisation machine);(traitement, emballage, port)
+7;Devise;CHF;;;;;;
+8;Centre financier;F1003;;;;;;
+9;Fonds à créditer;520494;;;;;;
+10;Texte d'entête;Matériel livré (Frais de matériel) et participation aux coûts des procédés utilisés (Coûts procédés) plafonnés (P), non plafonnés (NP): consommables, photoresist, produits chimique, gaz de procédés …;;;;;;
+11;N° poste émolument (0<n<10);5;;;;;;
+12;Lien réseau (partie fixe);./;;;;;;
+13;Code T;U;;;;;;
+14;Code N;I;A;E;;;;
+15;Code nature client référence CMi;INT;EXT;EXT;;;;
+16;Code D des articles SAP;E;P;N;L;C;W;X
+17;Code articles SAP;9010653;9010656;9010657;9010670;9010582;9010654;9010659
+18;Quantité;1;1;1;1;1;1;1
+19;Unité de quantité;PCE;PCE;PCE;PCE;PCE;PCE;PCE
+20;Type de prix;PR00;PR00;PR00;PR00;PR00;PR00;PR00
+21;Type de rabais;ZD02;ZD02;ZD02;ZD02;ZD02;ZD02;ZD02
+22;Textes libres des articles SAP;(selon contrat);(selon contrat);(+ main d'œuvre Opérateur);(selon données CAMIPRO);(consommables livrés, surcoûts procédés);(hors utilisation machine);(traitement, emballage, port)

@@ -9,8 +9,28 @@ import re
 class Annexes(object):
 
     @staticmethod
+    def annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                           nom_dossier, plateforme):
+        dossier_annexe = nom_dossier + "annexes/"
+        if not os.path.exists(dossier_annexe):
+            os.makedirs(dossier_annexe)
+        prefixe = "annexe_"
+        Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
+                                 comptes, dossier_annexe, plateforme, prefixe)
+
+    @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                            nom_dossier, plateforme):
+        dossier_annexe = nom_dossier + "annexes_techniques/"
+        if not os.path.exists(dossier_annexe):
+            os.makedirs(dossier_annexe)
+        prefixe = "annexeT_"
+        Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
+                                 comptes, dossier_annexe, plateforme, prefixe)
+
+    @staticmethod
+    def creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                           dossier_annexe, plateforme, prefixe):
 
         if sommes.calculees == 0:
             info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer les annexes"
@@ -18,9 +38,6 @@ class Annexes(object):
             Interfaces.log_erreur(info)
             return
 
-        dossier_annexe = nom_dossier + "annexes_techniques/"
-        if not os.path.exists(dossier_annexe):
-            os.makedirs(dossier_annexe)
 
         keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
@@ -410,12 +427,8 @@ class Annexes(object):
 
             contenu += fin
 
-            mois = edition.mois
-            if mois < 10:
-                mois = "0" + str(mois)
-            else:
-                mois = str(mois)
-            nom = "annexeT_" + str(edition.annee) + "_" + mois + "_" + str(edition.version) + "_" + code_client
+            nom = prefixe + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+                  str(edition.version) + "_" + code_client
 
             Annexes.creer_latex(nom, contenu, dossier_annexe)
 
@@ -643,3 +656,10 @@ class Annexes(object):
             return "%.2f" % nombre
         else:
             return '-'
+
+    @staticmethod
+    def mois_string(mois):
+        if mois < 10:
+            return "0" + str(mois)
+        else:
+            return str(mois)

@@ -19,6 +19,7 @@ class Fichier(object):
         :param encodage: encodage du texte
         """
         self.libelle = libelle
+        self.nom_fichier = nom_fichier
         self.cles = cles
         try:
             csv_fichier = open(nom_fichier, newline='', encoding=encodage)
