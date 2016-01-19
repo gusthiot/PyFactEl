@@ -1,6 +1,6 @@
 from importes import Fichier
-from interfaces import Interfaces
-from rabais import Rabais
+from outils import Outils
+from traitement import Rabais
 
 
 class Reservation(Fichier):
@@ -31,7 +31,7 @@ class Reservation(Fichier):
         if self.verifie_coherence == 0:
             info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les comptes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return []
         return self.comptes
 
@@ -46,7 +46,7 @@ class Reservation(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -73,11 +73,11 @@ class Reservation(Fichier):
                 msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + ligne \
                        + " n'est pas référencé\n"
 
-            donnee['duree_hp'], info = self.est_un_nombre(donnee['duree_hp'], "la durée réservée HP", ligne)
+            donnee['duree_hp'], info = Outils.est_un_nombre(donnee['duree_hp'], "la durée réservée HP", ligne)
             msg += info
-            donnee['duree_hc'], info = self.est_un_nombre(donnee['duree_hc'], "la durée réservée HC", ligne)
+            donnee['duree_hc'], info = Outils.est_un_nombre(donnee['duree_hc'], "la durée réservée HC", ligne)
             msg += info
-            donnee['duree_ouvree'], info = self.est_un_nombre(donnee['duree_ouvree'], "la durée ouvrée", ligne)
+            donnee['duree_ouvree'], info = Outils.est_un_nombre(donnee['duree_ouvree'], "la durée ouvrée", ligne)
             msg += info
 
             del donnee['annee']
@@ -92,7 +92,7 @@ class Reservation(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0
 
@@ -103,11 +103,12 @@ class Reservation(Fichier):
         :param coefmachines: coefficients machines importés et vérifiés
         :param comptes: comptes importés et vérifiés
         :param clients: clients importés et vérifiés
+        :param verification: pour vérifier si les dates et les cohérences sont correctes
         """
         if verification.a_verifier != 0:
             info = self.libelle + ". vous devez faire les vérifications avant de calculer les montants"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
         donnees_list = []

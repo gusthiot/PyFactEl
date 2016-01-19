@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Machine(Fichier):
@@ -51,7 +51,7 @@ class Machine(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -81,38 +81,38 @@ class Machine(Fichier):
                 msg += "la catégorie machine '" + donnee['categorie'] + "' de la ligne " + ligne +\
                        " n'est pas référencé\n"
 
-            donnee['t_h_machine_hp_p'], info = self.est_un_nombre(donnee['t_h_machine_hp_p'], "le tarif machine HP P",
-                                                                  ligne)
+            donnee['t_h_machine_hp_p'], info = Outils.est_un_nombre(donnee['t_h_machine_hp_p'], "le tarif machine HP P",
+                                                                    ligne)
             msg += info
-            donnee['t_h_machine_hp_np'], info = self.est_un_nombre(donnee['t_h_machine_hp_np'],
-                                                                   "le tarif machine HP NP", ligne)
+            donnee['t_h_machine_hp_np'], info = Outils.est_un_nombre(donnee['t_h_machine_hp_np'],
+                                                                     "le tarif machine HP NP", ligne)
             msg += info
-            donnee['t_h_operateur_hp_mo'], info = self.est_un_nombre(donnee['t_h_operateur_hp_mo'],
-                                                                     "le tarif opérateur HP MO", ligne)
+            donnee['t_h_operateur_hp_mo'], info = Outils.est_un_nombre(donnee['t_h_operateur_hp_mo'],
+                                                                       "le tarif opérateur HP MO", ligne)
             msg += info
-            donnee['t_h_reservation_hp_p'], info = self.est_un_nombre(donnee['t_h_reservation_hp_p'],
-                                                                      "le tarif réservation HP P", ligne)
+            donnee['t_h_reservation_hp_p'], info = Outils.est_un_nombre(donnee['t_h_reservation_hp_p'],
+                                                                        "le tarif réservation HP P", ligne)
             msg += info
-            donnee['t_h_reservation_hp_np'], info = self.est_un_nombre(donnee['t_h_reservation_hp_np'],
-                                                                       "le tarif réservation HP NP", ligne)
+            donnee['t_h_reservation_hp_np'], info = Outils.est_un_nombre(donnee['t_h_reservation_hp_np'],
+                                                                         "le tarif réservation HP NP", ligne)
             msg += info
-            donnee['t_h_machine_hc_p'], info = self.est_un_nombre(donnee['t_h_machine_hc_p'], "le tarif machine HC P",
-                                                                  ligne)
+            donnee['t_h_machine_hc_p'], info = Outils.est_un_nombre(donnee['t_h_machine_hc_p'], "le tarif machine HC P",
+                                                                    ligne)
             msg += info
-            donnee['t_h_machine_hc_np'], info = self.est_un_nombre(donnee['t_h_machine_hc_np'],
-                                                                   "le tarif machine HC NP", ligne)
+            donnee['t_h_machine_hc_np'], info = Outils.est_un_nombre(donnee['t_h_machine_hc_np'],
+                                                                     "le tarif machine HC NP", ligne)
             msg += info
-            donnee['t_h_operateur_hc_mo'], info = self.est_un_nombre(donnee['t_h_operateur_hc_mo'],
-                                                                     "le tarif opérateur HC MO", ligne)
+            donnee['t_h_operateur_hc_mo'], info = Outils.est_un_nombre(donnee['t_h_operateur_hc_mo'],
+                                                                       "le tarif opérateur HC MO", ligne)
             msg += info
-            donnee['t_h_reservation_hc_p'], info = self.est_un_nombre(donnee['t_h_reservation_hc_p'],
-                                                                      "le tarif réservation HC P", ligne)
+            donnee['t_h_reservation_hc_p'], info = Outils.est_un_nombre(donnee['t_h_reservation_hc_p'],
+                                                                        "le tarif réservation HC P", ligne)
             msg += info
-            donnee['t_h_reservation_hc_np'], info = self.est_un_nombre(donnee['t_h_reservation_hc_np'],
-                                                                       "le tarif réservation HC NP", ligne)
+            donnee['t_h_reservation_hc_np'], info = Outils.est_un_nombre(donnee['t_h_reservation_hc_np'],
+                                                                         "le tarif réservation HC NP", ligne)
             msg += info
-            donnee['delai_sans_frais'], info = self.est_un_nombre(donnee['delai_sans_frais'], "le délai sans frais",
-                                                                  ligne)
+            donnee['delai_sans_frais'], info = Outils.est_un_nombre(donnee['delai_sans_frais'], "le délai sans frais",
+                                                                    ligne)
             msg += info
 
             ligne += 1
@@ -123,6 +123,6 @@ class Machine(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0

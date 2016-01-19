@@ -1,6 +1,6 @@
 import csv
 import sys
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Generaux(object):
@@ -8,9 +8,9 @@ class Generaux(object):
     Classe pour l'importation des paramètres généraux
     """
 
-    cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fond', 'entete',
-            'poste_emolument', 'lien', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite', 'unite',
-            'type_prix', 'type_rabais', 'texte_sap']
+    cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fond',
+            'entete', 'poste_emolument', 'lien', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
+            'unite', 'type_prix', 'type_rabais', 'texte_sap']
     nom_fichier = "paramgen.csv"
     libelle = "Paramètres Généraux"
 
@@ -23,12 +23,13 @@ class Generaux(object):
         """
         donnees_csv = []
         try:
-            csv_fichier = open(nom_dossier + Generaux.nom_fichier, newline='', encoding=encodage)
+            self.nom_fichier = nom_dossier + Generaux.nom_fichier
+            csv_fichier = open(self.nom_fichier, newline='', encoding=encodage)
             fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
             for ligne in fichier_reader:
                 donnees_csv.append(ligne)
         except IOError:
-            Interfaces.log_erreur("impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
+            Outils.affiche_message("impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
             sys.exit("Erreur I/O")
 
         num = len(Generaux.cles)
@@ -36,7 +37,7 @@ class Generaux(object):
             info = Generaux.libelle + ": nombre de lignes incorrect : " + str(len(donnees_csv)) + ", attendu : " + \
                    str(num)
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             sys.exit("Erreur de consistance")
 
         self.donnees = {}

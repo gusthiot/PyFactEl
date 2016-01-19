@@ -9,5 +9,24 @@ OU
 
 - si la fabrication de pdf avec tex live ne fonctionne pas, ouvrir une console de commande et taper 'fmtutil --sys --all'
 
-Le dossier 'importes' contient les classes servant à l'importation des données contenues dans les csv et au traitement de base de ces données
+Le dossier 'importes' contient les classes servant à l'importation des données contenues dans les csv et au traitement 
+de base de ces données
+
 Le dossier 'paramètres' contient les classes servant à l'importation des paramètres d'édition et des paramètres généraux
+
+Le dossier 'traitement' contient les classes servant à la fabrication de la facture, du bilan et des annexes, ainsi que 
+le fichier 'rabais.py' servant au calcul des rabais
+
+Le dossier de travail doit contenir les fiichiers suivants (noms modifiables dans le code au besoin) :
+
+    - cae.csv 
+    - client.csv
+    - coeffmachine.csv
+    - coeffprestation.csv
+    - compte.csv
+    - lvr.csv
+    - machine.csv
+    - paramedit.csv
+    - paramgen.csv
+    - prestation.csv
+    - res.csv

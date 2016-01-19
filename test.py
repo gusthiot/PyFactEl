@@ -1,15 +1,10 @@
-import sys
 import os
-import shutil
+import sys
 
 from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
-from annexes import Annexes
-from facture import Facture
-from interfaces import Interfaces
+from outils import Outils
 from parametres import Edition, Generaux
-from sommes import Sommes
-from bilan_mensuel import BilanMensuel
-from verification import Verification
+from traitement import Annexes, BilanMensuel, Facture, Sommes, Verification
 
 """
  fichier à lancer pour faire tourner le logiciel avec les csv de test
@@ -19,7 +14,7 @@ plateforme = sys.platform
 encodage = "ISO-8859-1"
 delimiteur = ';'
 dossier_travail = os.getcwd()
-dossier_data = dossier_travail + "/test/"
+dossier_data = dossier_travail + Outils.separateur(plateforme) + "test" + Outils.separateur(plateforme)
 edition = Edition(dossier_data, delimiteur, encodage)
 
 acces = Acces(dossier_data, delimiteur, encodage)
@@ -44,9 +39,8 @@ if verification.verification_cohérence(generaux, edition, acces, clients, coefm
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-dossier_enregistrement = dossier_data + str(edition.annee) + "/" + Annexes.mois_string(edition.mois) + "/"
-if not os.path.exists(dossier_enregistrement):
-    os.makedirs(dossier_enregistrement)
+dossier_enregistrement = Outils.dossier_enregistrement(dossier_data, edition.annee, edition.mois,
+                                                        plateforme)
 
 livraisons.calcul_montants(prestations, coefprests, comptes, clients, verification)
 reservations.calcul_montants(machines, coefmachines, comptes, clients, verification)
@@ -65,16 +59,9 @@ Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservati
 BilanMensuel.bilan(dossier_enregistrement, encodage, delimiteur, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
 
-shutil.copy(acces.nom_fichier, dossier_enregistrement)
-shutil.copy(clients.nom_fichier, dossier_enregistrement)
-shutil.copy(coefmachines.nom_fichier, dossier_enregistrement)
-shutil.copy(coefprests.nom_fichier, dossier_enregistrement)
-shutil.copy(comptes.nom_fichier, dossier_enregistrement)
-shutil.copy(livraisons.nom_fichier, dossier_enregistrement)
-shutil.copy(machines.nom_fichier, dossier_enregistrement)
-shutil.copy(prestations.nom_fichier, dossier_enregistrement)
-shutil.copy(reservations.nom_fichier, dossier_enregistrement)
-shutil.copy(dossier_data + generaux.nom_fichier, dossier_enregistrement)
-shutil.copy(dossier_data + edition.nom_fichier, dossier_enregistrement)
+liste_archiver = [acces.nom_fichier, clients.nom_fichier, coefmachines.nom_fichier, coefprests.nom_fichier,
+                  comptes.nom_fichier, livraisons.nom_fichier, machines.nom_fichier, prestations.nom_fichier,
+                  reservations.nom_fichier, generaux.nom_fichier, edition.nom_fichier]
+Outils.archiver_liste(liste_archiver, dossier_enregistrement)
 
-Interfaces.log_erreur("OK !!!")
+Outils.affiche_message("OK !!!")

@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Client(Fichier):
@@ -29,7 +29,7 @@ class Client(Fichier):
         if self.verifie_coherence == 0:
             info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les codes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return []
         return self.codes
 
@@ -45,7 +45,7 @@ class Client(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -84,11 +84,11 @@ class Client(Fichier):
                     (donnee['emol_sans_activite'] == "OUI")):
                 msg += "l'émolument à payer même sans activité de la ligne " + ligne + " doit valoir ZERO, NON ou OUI\n"
 
-            donnee['emol_base_mens'], info = self.est_un_nombre(donnee['emol_base_mens'], "l'émolument de base", ligne)
+            donnee['emol_base_mens'], info = Outils.est_un_nombre(donnee['emol_base_mens'], "l'émolument de base", ligne)
             msg += info
-            donnee['emol_fixe'], info = self.est_un_nombre(donnee['emol_fixe'], "l'émolument fixe", ligne)
+            donnee['emol_fixe'], info = Outils.est_un_nombre(donnee['emol_fixe'], "l'émolument fixe", ligne)
             msg += info
-            donnee['coef'], info = self.est_un_nombre(donnee['coef'], "le coefficient a", ligne)
+            donnee['coef'], info = Outils.est_un_nombre(donnee['coef'], "le coefficient a", ligne)
             msg += info
 
             ligne += 1
@@ -105,6 +105,6 @@ class Client(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0

@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Prestation(Fichier):
@@ -46,7 +46,7 @@ class Prestation(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -76,15 +76,15 @@ class Prestation(Fichier):
                 msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + ligne +\
                        " n'existe pas dans les paramètres D3\n"
 
-            donnee['prix_unit'], info = self.est_un_nombre(donnee['prix_unit'], "le prix unitaire", ligne)
+            donnee['prix_unit'], info = Outils.est_un_nombre(donnee['prix_unit'], "le prix unitaire", ligne)
             msg += info
-            donnee['val_moy_achat'], info = self.est_un_nombre(donnee['val_moy_achat'], "la valeur moyenne d'achat",
-                                                               ligne)
+            donnee['val_moy_achat'], info = Outils.est_un_nombre(donnee['val_moy_achat'], "la valeur moyenne d'achat",
+                                                                 ligne)
             msg += info
-            donnee['cout_unit'], info = self.est_un_nombre(donnee['cout_unit'], "le coût unitaire", ligne)
+            donnee['cout_unit'], info = Outils.est_un_nombre(donnee['cout_unit'], "le coût unitaire", ligne)
             msg += info
-            donnee['prix_rev_unit'], info = self.est_un_nombre(donnee['prix_rev_unit'], "le prix de revient unitaire",
-                                                               ligne)
+            donnee['prix_rev_unit'], info = Outils.est_un_nombre(donnee['prix_rev_unit'], "le prix de revient unitaire",
+                                                                 ligne)
             msg += info
 
             ligne += 1
@@ -95,6 +95,6 @@ class Prestation(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0

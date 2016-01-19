@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Compte(Fichier):
@@ -46,7 +46,7 @@ class Compte(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -76,11 +76,11 @@ class Compte(Fichier):
                 msg += "l'id compte '" + donnee['id_compte'] + "' de la ligne " + ligne +\
                        " n'est pas unique\n"
 
-            donnee['seuil'], info = self.est_un_nombre(donnee['seuil'], "le seuil", ligne)
+            donnee['seuil'], info = Outils.est_un_nombre(donnee['seuil'], "le seuil", ligne)
             if info != "":
                 print(info)
                 msg += info
-            donnee['pourcent'], info = self.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
+            donnee['pourcent'], info = Outils.est_un_nombre(donnee['pourcent'], "le pourcent après seuil", ligne)
             if info != "":
                 print(info)
                 msg += info
@@ -93,6 +93,6 @@ class Compte(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0

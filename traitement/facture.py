@@ -1,7 +1,6 @@
 import csv
-from sommes import Sommes
-from interfaces import Interfaces
-from annexes import Annexes
+
+from outils import Outils
 
 
 class Facture(object):
@@ -26,10 +25,10 @@ class Facture(object):
         if sommes.calculees == 0:
             info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer la facture"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
-        nom = nom_dossier + "facture_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+        nom = nom_dossier + "facture_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
               str(edition.version) + ".csv"
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
@@ -67,7 +66,7 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
-        keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
+        keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         for code_client in keys:
             poste = 0
@@ -78,15 +77,16 @@ class Facture(object):
             else:
                 genre = generaux.donnees['code_ext'][1]
             nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
-            reference = nature + str(edition.annee)[2:] + Annexes.mois_string(edition.mois) + "." + code_client
+            reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
             if edition.version != "0":
                 reference += "-" + edition.version
 
-            lien_annexe = nom_dossier + "annexes/" + "annexe_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
-                  str(edition.version) + "_" + code_client + ".pdf"
+            lien_annexe = nom_dossier + "annexes/" + "annexe_" + str(edition.annee) + "_" + \
+                          Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + code_client + ".pdf"
 
-            lien_annexe_technique = nom_dossier + "annexes_techniques/" + "annexeT_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
-                  str(edition.version) + "_" + code_client + ".pdf"
+            lien_annexe_technique = nom_dossier + "annexes_techniques/" + "annexeT_" + str(edition.annee) + "_" + \
+                                    Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
+                                    code_client + ".pdf"
 
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
@@ -94,7 +94,7 @@ class Facture(object):
                                      generaux.donnees['devise'][1], "", reference, "", "",
                                      generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
 
-            op_centre = cl['type_labo'] + str(edition.annee)[2:] + Annexes.mois_string(edition.mois)
+            op_centre = cl['type_labo'] + str(edition.annee)[2:] + Outils.mois_string(edition.mois)
             if int(cl['emol_base_mens']) > 0:
                 poste = generaux.donnees['poste_emolument'][1]
                 fichier_writer.writerow(Facture.ligne_facture(generaux, 1, poste, client['em'], client['er'],
@@ -102,7 +102,7 @@ class Facture(object):
 
             inc = 1
             client_comptes = sommes.sommes_comptes[code_client]
-            keys2 = Sommes.ordonner_keys_str_par_int(client_comptes.keys())
+            keys2 = Outils.ordonner_keys_str_par_int(client_comptes.keys())
             for id_compte in keys2:
                 compte = client_comptes[id_compte]
                 co = comptes.donnees[id_compte]

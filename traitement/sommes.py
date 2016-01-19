@@ -1,6 +1,5 @@
-from interfaces import Interfaces
-from rabais import Rabais
-import csv
+from outils import Outils
+from .rabais import Rabais
 
 
 class Sommes(object):
@@ -29,6 +28,10 @@ class Sommes(object):
                          'somme_eq', 'somme_sb', 'somme_t', 'em', 'er0', 'er', 'e']
 
     def __init__(self, verification):
+        """
+        initialisation des sommes, et vérification si données utilisées correctes
+        :param verification: pour vérifier si les dates et les cohérences sont correctes
+        """
 
         self.verification = verification
         self.sommes_projets = {}
@@ -41,6 +44,15 @@ class Sommes(object):
         self.calculees = 0
 
     def calculer_toutes(self, livraisons, reservations, acces, prestations, comptes, clients):
+        """
+        calculer toutes les sommes, par projet, par compte, par catégorie et par client
+        :param livraisons: livraisons importées et vérifiées
+        :param reservations: réservations importées et vérifiées
+        :param acces: accès machines importés et vérifiés
+        :param prestations: prestations importées et vérifiées
+        :param comptes: comptes importés et vérifiés
+        :param clients: clients importés et vérifiés
+        """
         self.sommes_par_projet(livraisons, reservations, acces, prestations, comptes)
         self.somme_par_compte(comptes)
         self.somme_par_categorie(comptes)
@@ -58,21 +70,6 @@ class Sommes(object):
             somme[cle] = 0
         return somme
 
-    @staticmethod
-    def ordonner_keys_str_par_int(keys):
-        """
-        ordonne une liste de clés-nombres enregistrées comme string par ordre croissant
-        :param keys: clés à trier
-        :return: clés triées
-        """
-        ordonne = []
-        for key in keys:
-            ordonne.append(int(key))
-        ordonne = sorted(ordonne)
-        for pos in range(0, len(ordonne)):
-            ordonne[pos] = str(ordonne[pos])
-        return ordonne
-
     def sommes_par_projet(self, livraisons, reservations, acces, prestations, comptes):
         """
         calcule les sommes par projets sous forme de dictionnaire : client->compte->projet->clés_sommes
@@ -86,7 +83,7 @@ class Sommes(object):
         if self.verification.a_verifier != 0:
             info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
         spp = {}
@@ -177,33 +174,10 @@ class Sommes(object):
                 projet['somme_p_xr'] += livraison['rabais_r']
                 projet['xp'] += livraison['montant'] - livraison['rabais_r']
             else:
-                Interfaces.log_erreur("Catégorie de prestation non-disponible")
+                Outils.affiche_message("Catégorie de prestation non-disponible")
 
         self.sp = 1
         self.sommes_projets = spp
-
-    @staticmethod
-    def afficher_somme_projet(somme_projet, nom_dossier, encodage, delimiteur):
-        csv_fichier = open(nom_dossier + "somme_projet.csv", 'w', newline='', encoding=encodage)
-        fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
-
-        keys0 = Sommes.ordonner_keys_str_par_int(somme_projet.keys())
-        for code_client in keys0:
-            print(code_client)
-            client = somme_projet[code_client]
-            keys = Sommes.ordonner_keys_str_par_int(client.keys())
-            for id_compte in keys:
-                print(id_compte)
-                compte = client[id_compte]
-                keys2 = Sommes.ordonner_keys_str_par_int(compte.keys())
-                for num_projet in keys2:
-                    print("  " + str(num_projet))
-                    fichier_writer.writerow([code_client, id_compte, num_projet])
-                    projet = compte[num_projet]
-                    for cle in Sommes.cles_somme_projet:
-                        print("   " + cle + " : %.2f" % projet[cle])
-                        fichier_writer.writerow([cle, "%.2f" % projet[cle]])
-                    fichier_writer.writerow([" "])
 
     def somme_par_compte(self, comptes):
         """
@@ -243,8 +217,8 @@ class Sommes(object):
                         somme['somme_j_xr'] += projet['somme_p_xr']
                         somme['xj'] += projet['xp']
 
-                    somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'], cc['seuil'],
-                                                                                          cc['pourcent'])
+                    somme['prj'], somme['qrj'], somme['orj'] = Rabais.rabais_plafonnement(somme['somme_j_pm'],
+                                                                                          cc['seuil'], cc['pourcent'])
 
                     somme['pj'] = somme['somme_j_pm'] - somme['prj']
                     somme['qj'] = somme['somme_j_qm'] - somme['qrj']
@@ -263,26 +237,7 @@ class Sommes(object):
         else:
             info = "Vous devez d'abord faire la somme par projet, avant la somme par compte"
             print(info)
-            Interfaces.log_erreur(info)
-
-    @staticmethod
-    def afficher_somme_compte(somme_compte, nom_dossier, encodage, delimiteur):
-        csv_fichier = open(nom_dossier + "somme_compte.csv", 'w', newline='', encoding=encodage)
-        fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
-
-        keys0 = Sommes.ordonner_keys_str_par_int(somme_compte.keys())
-        for code_client in keys0:
-            print(code_client)
-            client = somme_compte[code_client]
-            keys = Sommes.ordonner_keys_str_par_int(client.keys())
-            for id_compte in keys:
-                print(id_compte)
-                fichier_writer.writerow([code_client, id_compte])
-                compte = client[id_compte]
-                for cle in Sommes.cles_somme_compte:
-                    print("   " + cle + " : %.2f" % compte[cle])
-                    fichier_writer.writerow([cle, "%.2f" % compte[cle]])
-                fichier_writer.writerow([" "])
+            Outils.affiche_message(info)
 
     def somme_par_categorie(self, comptes):
         """
@@ -293,7 +248,7 @@ class Sommes(object):
         if self.verification.a_verifier != 0:
             info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
         if self.sco != 0:
@@ -344,25 +299,7 @@ class Sommes(object):
         else:
             info = "Vous devez d'abord faire la somme par compte, avant la somme par catégorie"
             print(info)
-            Interfaces.log_erreur(info)
-
-    @staticmethod
-    def afficher_somme_categorie(somme_categorie, nom_dossier, encodage, delimiteur):
-        csv_fichier = open(nom_dossier + "somme_categorie.csv", 'w', newline='', encoding=encodage)
-        fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
-        keys = Sommes.ordonner_keys_str_par_int(somme_categorie.keys())
-        for code_client in keys:
-            print(code_client)
-            client = somme_categorie[code_client]
-            keys2 = Sommes.ordonner_keys_str_par_int(client.keys())
-            for categorie in keys2:
-                print("  " + str(categorie))
-                fichier_writer.writerow([code_client, categorie])
-                cat = client[categorie]
-                for cle in Sommes.cles_somme_categorie:
-                    print("   " + cle + " : %.2f" % cat[cle])
-                    fichier_writer.writerow([cle, "%.2f" % cat[cle]])
-                fichier_writer.writerow([" "])
+            Outils.affiche_message(info)
 
     def somme_par_client(self, clients):
         """
@@ -373,7 +310,7 @@ class Sommes(object):
         if self.verification.a_verifier != 0:
             info = "Sommes :  vous devez faire les vérifications avant de calculer les sommes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
         if self.sca != 0:
@@ -413,8 +350,8 @@ class Sommes(object):
 
                 cl = clients.donnees[code_client]
                 somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
-                    Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'], somme['wt'],
-                                            somme['xt'], cl['emol_base_mens'], cl['emol_fixe'], cl['coef'],
+                    Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['lt'], somme['ct'],
+                                            somme['wt'], somme['xt'], cl['emol_base_mens'], cl['emol_fixe'], cl['coef'],
                                             cl['emol_sans_activite'])
 
                 self.calculees = 1
@@ -423,18 +360,4 @@ class Sommes(object):
         else:
             info = "Vous devez d'abord faire la somme par catégorie, avant la somme par client"
             print(info)
-            Interfaces.log_erreur(info)
-
-    @staticmethod
-    def afficher_somme_client(somme_client, nom_dossier, encodage, delimiteur):
-        csv_fichier = open(nom_dossier + "somme_client.csv", 'w', newline='', encoding=encodage)
-        fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
-        keys = Sommes.ordonner_keys_str_par_int(somme_client.keys())
-        for code_client in keys:
-            print(code_client)
-            fichier_writer.writerow([code_client])
-            client = somme_client[code_client]
-            for cle in Sommes.cles_somme_client:
-                print("   " + cle + " : %.2f" % client[cle])
-                fichier_writer.writerow([cle, "%.2f" % client[cle]])
-            fichier_writer.writerow([" "])
+            Outils.affiche_message(info)

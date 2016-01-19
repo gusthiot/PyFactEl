@@ -1,6 +1,6 @@
 import csv
 import sys
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Fichier(object):
@@ -34,7 +34,7 @@ class Fichier(object):
             self.verifie_date = 0
             self.verifie_coherence = 0
         except IOError:
-            Interfaces.log_erreur("impossible d'ouvrir le fichier : "+nom_fichier)
+            Outils.affiche_message("impossible d'ouvrir le fichier : "+nom_fichier)
             sys.exit("Erreur I/O")
 
     def extraction_ligne(self, ligne):
@@ -47,7 +47,7 @@ class Fichier(object):
         if len(ligne) != num:
             info = self.libelle + ": nombre de colonnes incorrect : " + str(len(ligne)) + ", attendu : " + str(num)
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             sys.exit("Erreur de consistance")
         donnees_ligne = {}
         for xx in range(0, num):
@@ -81,21 +81,6 @@ class Fichier(object):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0
-
-    @staticmethod
-    def est_un_nombre(donnee, colonne, ligne):
-        """
-        vérifie que la donnée est bien un nombre
-        :param donnee: donnée à vérifier
-        :param colonne: colonne contenant la donnée
-        :param ligne: ligne contenant la donnée
-        :return: la donnée formatée en nombre et un string vide si ok, 0 et un message d'erreur sinon
-        """
-        try:
-            fl_d = float(donnee)
-            return fl_d, ""
-        except ValueError:
-            return 0, colonne + " de la ligne " + str(ligne) + " doit être un nombre\n"

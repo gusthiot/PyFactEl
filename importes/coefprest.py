@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class CoefPrest(Fichier):
@@ -28,7 +28,7 @@ class CoefPrest(Fichier):
         if self.verifie_coherence == 0:
             info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les classes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return []
         return self.classes
 
@@ -41,7 +41,7 @@ class CoefPrest(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -76,7 +76,7 @@ class CoefPrest(Fichier):
                     msg += "Couple categorie '" + donnee['categorie'] + "' et classe de tarif '" + \
                            donnee['id_classe_tarif'] + "' de la ligne " + str(ligne) + " pas unique\n"
 
-            donnee['coefficient'], info = self.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
+            donnee['coefficient'], info = Outils.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
             msg += info
 
             ligne += 1
@@ -94,6 +94,6 @@ class CoefPrest(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0

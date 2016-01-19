@@ -1,5 +1,5 @@
 from importes import Fichier
-from interfaces import Interfaces
+from outils import Outils
 
 
 class Acces(Fichier):
@@ -31,7 +31,7 @@ class Acces(Fichier):
         if self.verifie_coherence == 0:
             info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les comptes"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return []
         return self.comptes
 
@@ -46,7 +46,7 @@ class Acces(Fichier):
         if self.verifie_date == 0:
             info = self.libelle + ". vous devez vérifier la date avant de vérifier la cohérence"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return 1
 
         if self.verifie_coherence == 1:
@@ -72,17 +72,17 @@ class Acces(Fichier):
             elif machines.contient_id(donnee['id_machine']) == 0:
                 msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + ligne + " n'est pas référencé\n"
 
-            donnee['duree_machine_hp'], info = self.est_un_nombre(donnee['duree_machine_hp'], "la durée machine hp",
-                                                                  ligne)
+            donnee['duree_machine_hp'], info = Outils.est_un_nombre(donnee['duree_machine_hp'], "la durée machine hp",
+                                                                    ligne)
             msg += info
-            donnee['duree_machine_hc'], info = self.est_un_nombre(donnee['duree_machine_hc'], "la durée machine hc",
-                                                                  ligne)
+            donnee['duree_machine_hc'], info = Outils.est_un_nombre(donnee['duree_machine_hc'], "la durée machine hc",
+                                                                    ligne)
             msg += info
-            donnee['duree_operateur_hp'], info = self.est_un_nombre(donnee['duree_operateur_hp'],
-                                                                    "la durée opérateur hp", ligne)
+            donnee['duree_operateur_hp'], info = Outils.est_un_nombre(donnee['duree_operateur_hp'],
+                                                                      "la durée opérateur hp", ligne)
             msg += info
-            donnee['duree_operateur_hc'], info = self.est_un_nombre(donnee['duree_operateur_hc'],
-                                                                    "la durée opérateur hc", ligne)
+            donnee['duree_operateur_hc'], info = Outils.est_un_nombre(donnee['duree_operateur_hc'],
+                                                                      "la durée opérateur hc", ligne)
             msg += info
 
             del donnee['annee']
@@ -97,7 +97,7 @@ class Acces(Fichier):
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
-            Interfaces.log_erreur(msg)
+            Outils.affiche_message(msg)
             return 1
         return 0
 
@@ -108,11 +108,13 @@ class Acces(Fichier):
         :param coefmachines: coefficients machines importés et vérifiés
         :param comptes: comptes importés et vérifiés
         :param clients: clients importés et vérifiés
+        :param verification: pour vérifier si les dates et les cohérences sont correctes
+
         """
         if verification.a_verifier != 0:
             info = self.libelle + ". vous devez faire les vérifications avant de calculer les montants"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
         donnees_list = []

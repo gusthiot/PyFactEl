@@ -1,22 +1,38 @@
 import csv
-from sommes import Sommes
-from interfaces import Interfaces
-from annexes import Annexes
+
+from outils import Outils
 
 
 class BilanMensuel(object):
+    """
+    Classe pour la création du bilan mensuel
+    """
 
     @staticmethod
     def bilan(nom_dossier, encodage, delimiteur, edition, sommes, clients, generaux, acces, reservations, livraisons,
               comptes):
+        """
+        création du bilan
+        :param nom_dossier: nom du dossier dans lequel enregistrer le bilan
+        :param encodage: encodage du texte
+        :param delimiteur: code délimiteur de champ dans le fichier csv
+        :param edition: paramètres d'édition
+        :param sommes: sommes calculées
+        :param clients: clients importés
+        :param generaux: paramètres généraux
+        :param acces: accès importés
+        :param reservations: réservations importés
+        :param livraisons: livraisons importées
+        :param comptes: comptes importés
+        """
 
         if sommes.calculees == 0:
             info = "Vous devez d'abord faire toutes les sommes avant de pouvoir créer le bilan mensuel"
             print(info)
-            Interfaces.log_erreur(info)
+            Outils.affiche_message(info)
             return
 
-        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + Annexes.mois_string(edition.mois) + "_" + \
+        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
               str(edition.version) + ".csv"
 
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
@@ -28,14 +44,14 @@ class BilanMensuel(object):
                                  "somme EQ", "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "pt", "qt", "ot", "nt",
                                  "lt", "ct", "wt", "xt"])
 
-        keys = Sommes.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
+        keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
         for code_client in keys:
             scl = sommes.sommes_clients[code_client]
             sca = sommes.sommes_categories[code_client]
             cl = clients.donnees[code_client]
             nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
-            reference = nature + str(edition.annee)[2:] + Annexes.mois_string(edition.mois) + "." + code_client
+            reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
             nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
             cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
             cat = {'1': 0, '2': 0, '3': 0, '4': 0}
@@ -69,6 +85,15 @@ class BilanMensuel(object):
 
     @staticmethod
     def utilisateurs(acces, livraisons, reservations, code_client):
+        """
+        retourne la liste de tous les utilisateurs concernés pour les accès, les réservations et les livraisons
+        pour un client donné
+        :param acces: accès importés
+        :param livraisons: livraisons importées
+        :param reservations: réservations importées
+        :param code_client: client donné
+        :return: liste des utilisateurs
+        """
         utilisateurs = []
         for cae in acces.donnees:
             if cae['code_client'] == code_client:
@@ -86,6 +111,15 @@ class BilanMensuel(object):
 
     @staticmethod
     def comptes(acces, livraisons, reservations, code_client):
+        """
+        retourne la liste de tous les comptes concernés pour les accès, les réservations et les livraisons
+        pour un client donné
+        :param acces: accès importés
+        :param livraisons: livraisons importées
+        :param reservations: réservations importées
+        :param code_client: client donné
+        :return: liste des comptes
+        """
         comptes = []
         for cae in acces.donnees:
             if cae['code_client'] == code_client:
