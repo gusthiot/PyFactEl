@@ -32,8 +32,19 @@ class Annexes(object):
         if not os.path.exists(dossier_annexe):
             os.makedirs(dossier_annexe)
         prefixe = "annexe_"
+        """
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
                                  comptes, dossier_annexe, plateforme, prefixe)
+        """
+        # tant que les annexes techniques et les annexes de factures sont identiques
+        dossier_annexe_t = nom_dossier + "annexes_techniques" + Outils.separateur(plateforme)
+        if not os.path.exists(dossier_annexe):
+            os.makedirs(dossier_annexe)
+        prefixe_t = "annexeT_"
+        for file_t in os.listdir(dossier_annexe_t):
+            if file_t.endswith(".pdf"):
+                file = file_t.replace(prefixe_t, prefixe)
+                shutil.copyfile(dossier_annexe_t + file_t, dossier_annexe + file)
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
