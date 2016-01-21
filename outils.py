@@ -1,4 +1,6 @@
 from tkinter.filedialog import *
+from tkinter.scrolledtext import *
+
 import shutil
 
 
@@ -14,10 +16,16 @@ class Outils(object):
         :param message: message à afficher
         """
         fenetre = Tk()
+        """
         ascenseur = Scrollbar(fenetre)
         ascenseur.pack(side=RIGHT, fill=Y)
         fenetre.title("Erreur")
         texte = Text(fenetre, yscrollcommand=ascenseur.set)
+        texte.insert(END, message)
+        texte.pack()
+        """
+        fenetre.title("Erreur")
+        texte = ScrolledText(fenetre)
         texte.insert(END, message)
         texte.pack()
         button = Button(fenetre, text='OK', command=fenetre.destroy)

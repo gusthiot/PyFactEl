@@ -77,14 +77,15 @@ class Client(Fichier):
             if donnee['type_labo'] == "":
                 msg += "le type de labo de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['type_labo'] not in generaux.obtenir_code_n():
-                msg + "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
+                msg += "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les types N\n"
 
             if not((donnee['emol_sans_activite'] == "NON") or (donnee['emol_sans_activite'] == "ZERO") or
                     (donnee['emol_sans_activite'] == "OUI")):
                 msg += "l'émolument à payer même sans activité de la ligne " + ligne + " doit valoir ZERO, NON ou OUI\n"
 
-            donnee['emol_base_mens'], info = Outils.est_un_nombre(donnee['emol_base_mens'], "l'émolument de base", ligne)
+            donnee['emol_base_mens'], info = Outils.est_un_nombre(donnee['emol_base_mens'], "l'émolument de base",
+                                                                  ligne)
             msg += info
             donnee['emol_fixe'], info = Outils.est_un_nombre(donnee['emol_fixe'], "l'émolument fixe", ligne)
             msg += info
