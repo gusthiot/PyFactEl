@@ -514,9 +514,15 @@ class Annexes(object):
         p6 = Outils.format_si_nul(machine['t_h_operateur_hc_mo'] * cae['duree_operateur_hc'] / 60)
         login = Annexes.echappe_caracteres(cae['date_login']).split()
         temps = login[0].split('-')
-        date = temps[2] + '.' + temps[1] + '.' + temps[0]
+        date = temps[0]
+        for pos in range(1, len(temps)):
+            date = temps[pos] + '.' + date
+        if len(login) > 1:
+            heure = login[1]
+        else:
+            heure = ""
 
-        dico = {'date': date, 'heure': login[1],
+        dico = {'date': date, 'heure': heure,
                 'machine': Annexes.echappe_caracteres(cae['nom_machine']),
                 'projet': Annexes.echappe_caracteres(cae['intitule_projet']),
                 'operateur': Annexes.echappe_caracteres(cae['nom_op']),
@@ -589,9 +595,15 @@ class Annexes(object):
         p10 = Outils.format_si_nul(machine['t_h_machine_hc_np'] * res['duree_fact_hc'] / 60)
         login = Annexes.echappe_caracteres(res['date_debut']).split()
         temps = login[0].split('-')
-        date = temps[2] + '.' + temps[1] + '.' + temps[0]
+        date = temps[0]
+        for pos in range(1, len(temps)):
+            date = temps[pos] + '.' + date
+        if len(login) > 1:
+            heure = login[1]
+        else:
+            heure = ""
 
-        dico = {'date': date, 'heure': login[1],
+        dico = {'date': date, 'heure': heure,
                 'machine': Annexes.echappe_caracteres(res['nom_machine']),
                 'projet': Annexes.echappe_caracteres(res['intitule_projet']),
                 'reserve': Annexes.echappe_caracteres(res['date_reservation']),
