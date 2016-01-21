@@ -35,12 +35,11 @@ class Compte(Fichier):
                     return 1
         return 0
 
-    def est_coherent(self, clients, comptes_actifs):
+    def est_coherent(self, comptes_actifs):
         """
         vérifie que les données du fichier importé sont cohérentes (code client dans clients,
         ou alors absent des clients actifs, id compte unique), et efface les colonnes mois et année
-        :param clients: clients importés
-        :param clients_actifs: codes des clients présents dans accès, réservations et livraisons
+        :param comptes_actifs: codes des clients présents dans accès, réservations et livraisons
         :return: 1 s'il y a une erreur, 0 sinon
         """
         if self.verifie_date == 0:
@@ -73,7 +72,7 @@ class Compte(Fichier):
                 del donnee['mois']
                 donnees_dict[donnee['id_compte']] = donnee
             else:
-                msg += "l'id compte '" + donnee['id_compte'] + "' de la ligne " + ligne +\
+                msg += "l'id compte '" + donnee['id_compte'] + "' de la ligne " + str(ligne) +\
                        " n'est pas unique\n"
 
             donnee['seuil'], info = Outils.est_un_nombre(donnee['seuil'], "le seuil", ligne)

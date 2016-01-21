@@ -75,7 +75,7 @@ class Verification(object):
             Outils.affiche_message("Si version différente de 0, un seul client autorisé")
             sys.exit("Trop de clients pour version > 0")
 
-        verif += comptes.est_coherent(clients, comptes_actifs)
+        verif += comptes.est_coherent(comptes_actifs)
         self.a_verifier = 0
         return verif
 

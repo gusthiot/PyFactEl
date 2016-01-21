@@ -14,9 +14,12 @@ class Outils(object):
         :param message: message à afficher
         """
         fenetre = Tk()
+        ascenseur = Scrollbar(fenetre)
+        ascenseur.pack(side=RIGHT, fill=Y)
         fenetre.title("Erreur")
-        label = Label(fenetre, text=message)
-        label.pack()
+        texte = Text(fenetre, yscrollcommand=ascenseur.set)
+        texte.insert(END, message)
+        texte.pack()
         button = Button(fenetre, text='OK', command=fenetre.destroy)
         button.pack()
         mainloop()

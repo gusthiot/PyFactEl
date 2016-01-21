@@ -60,20 +60,20 @@ class Prestation(Fichier):
 
         for donnee in self.donnees:
             if donnee['id_prestation'] == "":
-                msg += "le prestation id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le prestation id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_prestation'] not in ids:
                 ids.append(donnee['id_prestation'])
                 del donnee['annee']
                 del donnee['mois']
                 donnees_dict[donnee['id_prestation']] = donnee
             else:
-                msg += "l'id prestation '" + donnee['id_prestation'] + "' de la ligne " + ligne +\
+                msg += "l'id prestation '" + donnee['id_prestation'] + "' de la ligne " + str(ligne) +\
                        " n'est pas unique\n"
 
             if donnee['categorie'] == "":
-                msg += "la catégorie  de la ligne " + ligne + " ne peut être vide\n"
+                msg += "la catégorie  de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['categorie'] not in generaux.obtenir_d3():
-                msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + ligne +\
+                msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
                        " n'existe pas dans les paramètres D3\n"
 
             donnee['prix_unit'], info = Outils.est_un_nombre(donnee['prix_unit'], "le prix unitaire", ligne)

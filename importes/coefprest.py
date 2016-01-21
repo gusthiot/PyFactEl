@@ -56,12 +56,12 @@ class CoefPrest(Fichier):
 
         for donnee in self.donnees:
             if donnee['categorie'] == "":
-                msg += "la catégorie de la ligne " + ligne + " ne peut être vide\n"
+                msg += "la catégorie de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['categorie'] not in categories:
                 categories.append(donnee['categorie'])
 
             if donnee['id_classe_tarif'] == "":
-                msg += "la classe de tarif de la ligne ne peut être vide\n"
+                msg += "la classe de tarif de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_classe_tarif'] not in self.classes:
                 self.classes.append(donnee['id_classe_tarif'])
 

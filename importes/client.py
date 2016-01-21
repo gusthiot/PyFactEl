@@ -59,7 +59,7 @@ class Client(Fichier):
 
         for donnee in self.donnees:
             if donnee['id_classe_tarif'] == "":
-                msg += "la classe de tarif de la ligne " + ligne + " ne peut être vide\n"
+                msg += "la classe de tarif de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_classe_tarif'] not in classes:
                 classes.append(donnee['id_classe_tarif'])
 
@@ -75,7 +75,7 @@ class Client(Fichier):
                        " n'est pas unique\n"
 
             if donnee['type_labo'] == "":
-                msg += "le type de labo de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le type de labo de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['type_labo'] not in generaux.obtenir_code_n():
                 msg + "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les types N\n"

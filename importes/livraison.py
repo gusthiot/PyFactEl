@@ -58,18 +58,18 @@ class Livraison(Fichier):
 
         for donnee in self.donnees:
             if donnee['id_compte'] == "":
-                msg += "le compte id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le compte id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif comptes.contient_id(donnee['id_compte']) == 0:
-                msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + ligne + " n'est pas référencé\n"
+                msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + str(ligne) + " n'est pas référencé\n"
             elif donnee['code_client'] not in self.comptes:
                 self.comptes['code_client'] = [donnee['id_compte']]
             elif donnee['id_compte'] not in self.comptes['code_client']:
                 self.comptes['code_client'].append(donnee['id_compte'])
 
             if donnee['id_prestation'] == "":
-                msg += "le prestation id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le prestation id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif prestations.contient_id(donnee['id_prestation']) == 0:
-                msg += "le prestation id '" + donnee['id_prestation'] + "' de la ligne " + ligne +\
+                msg += "le prestation id '" + donnee['id_prestation'] + "' de la ligne " + str(ligne) +\
                        " n'est pas référencé\n"
 
             donnee['quantite'], info = Outils.est_un_nombre(donnee['quantite'], "la quantité", ligne)

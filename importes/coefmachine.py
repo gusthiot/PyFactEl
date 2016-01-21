@@ -72,12 +72,12 @@ class CoefMachine(Fichier):
 
         for donnee in self.donnees:
             if donnee['categorie'] == "":
-                msg += "la catégorie de la ligne " + ligne + " ne peut être vide\n"
+                msg += "la catégorie de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['categorie'] not in categories:
                 categories.append(donnee['categorie'])
 
             if donnee['id_classe_tarif'] == "":
-                msg += "la classe de tarif de la ligne ne peut être vide\n"
+                msg += "la classe de tarif de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_classe_tarif'] not in self.classes:
                 self.classes.append(donnee['id_classe_tarif'])
 
@@ -90,7 +90,7 @@ class CoefMachine(Fichier):
                     donnees_dict[donnee['id_classe_tarif']+donnee['categorie']] = donnee
                 else:
                     msg += "Couple categorie '" + donnee['categorie'] + "' et classe de tarif '" + \
-                           donnee['id_classe_tarif'] + "' de la ligne " + ligne + " pas unique\n"
+                           donnee['id_classe_tarif'] + "' de la ligne " + str(ligne) + " pas unique\n"
 
             donnee['coef_p'], info = Outils.est_un_nombre(donnee['coef_p'], "le coefficient P", ligne)
             msg += info

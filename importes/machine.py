@@ -65,20 +65,20 @@ class Machine(Fichier):
 
         for donnee in self.donnees:
             if donnee['id_machine'] == "":
-                msg += "le machine id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le machine id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_machine'] not in ids:
                 ids.append(donnee['id_machine'])
                 del donnee['annee']
                 del donnee['mois']
                 donnees_dict[donnee['id_machine']] = donnee
             else:
-                msg += "l'id machine '" + donnee['id_machine'] + "' de la ligne " + ligne +\
+                msg += "l'id machine '" + donnee['id_machine'] + "' de la ligne " + str(ligne) +\
                        " n'est pas unique\n"
 
             if donnee['categorie'] == "":
-                msg += "la catégorie machine de la ligne " + ligne + " ne peut être vide\n"
+                msg += "la catégorie machine de la ligne " + str(ligne) + " ne peut être vide\n"
             elif coefmachines.contient_categorie(donnee['categorie']) == 0:
-                msg += "la catégorie machine '" + donnee['categorie'] + "' de la ligne " + ligne +\
+                msg += "la catégorie machine '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
                        " n'est pas référencé\n"
 
             donnee['t_h_machine_hp_p'], info = Outils.est_un_nombre(donnee['t_h_machine_hp_p'], "le tarif machine HP P",

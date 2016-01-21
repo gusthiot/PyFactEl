@@ -59,18 +59,19 @@ class Acces(Fichier):
 
         for donnee in self.donnees:
             if donnee['id_compte'] == "":
-                msg += "le compte id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le compte id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif comptes.contient_id(donnee['id_compte']) == 0:
-                msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + ligne + " n'est pas référencé\n"
+                msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + str(ligne) + " n'est pas référencé\n"
             elif donnee['code_client'] not in self.comptes:
                 self.comptes['code_client'] = [donnee['id_compte']]
             elif donnee['id_compte'] not in self.comptes['code_client']:
                 self.comptes['code_client'].append(donnee['id_compte'])
 
             if donnee['id_machine'] == "":
-                msg += "le machine id de la ligne " + ligne + " ne peut être vide\n"
+                msg += "le machine id de la ligne " + str(ligne) + " ne peut être vide\n"
             elif machines.contient_id(donnee['id_machine']) == 0:
-                msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + ligne + " n'est pas référencé\n"
+                msg += "le machine id '" + donnee['id_machine'] + "' de la ligne " + str(ligne)\
+                       + " n'est pas référencé\n"
 
             donnee['duree_machine_hp'], info = Outils.est_un_nombre(donnee['duree_machine_hp'], "la durée machine hp",
                                                                     ligne)
