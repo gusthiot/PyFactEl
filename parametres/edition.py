@@ -40,7 +40,7 @@ class Edition(object):
             self.annee = int(donnees_csv[0][1])
             self.mois = int(donnees_csv[1][1])
         except ValueError:
-            info = Edition.libelle + "le mois et l'anée doivent être des nombres"
+            info = Edition.libelle + "\nle mois et l'année doivent être des nombres"
             Outils.affiche_message(info)
             sys.exit("Erreur de consistance")
 

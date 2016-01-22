@@ -47,6 +47,30 @@ class Generaux(object):
                 donnee.remove("")
             del(donnee[0])
             self.donnees[Generaux.cles[xx]] = donnee
+        msg = ""
+        try:
+            for quantite in self.donnees['quantite'][1:]:
+                int(quantite)
+        except ValueError:
+            msg += "les quantités doivent être des nombres entiers\n"
+        codes_n = []
+        for nn in self.donnees['code_n'][1:]:
+            if nn not in codes_n:
+                codes_n.append(nn)
+            else:
+                msg += "le code N '" + nn + "' n'est pas unique\n"
+        codes_d = []
+        for dd in self.donnees['code_d'][1:]:
+            if dd not in codes_d:
+                codes_d.append(dd)
+            else:
+                msg += "le code D '" + dd + "' n'est pas unique\n"
+
+        if msg != "":
+            msg = self.libelle + "\n" + msg
+            print("msg : " + msg)
+            Outils.affiche_message(msg)
+            sys.exit("Erreur de consistance")
 
     def obtenir_code_n(self):
         """
