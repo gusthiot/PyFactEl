@@ -179,7 +179,8 @@ class Annexes(object):
 
         for categorie in generaux.obtenir_d3():
             structure_recap_compte += r'''l|'''
-            contenu_recap_compte += r''' & ''' + coefprests.obtenir_noms_categories()[categorie]
+            contenu_recap_compte += r''' & '''
+            contenu_recap_compte += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories()[categorie])
 
         structure_recap_compte += r'''}'''
         legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + code_client
@@ -209,7 +210,8 @@ class Annexes(object):
                 Numéro & Plafonné & Non Plaf. '''
             for categorie in generaux.obtenir_d3():
                 structure_recap_projet += r'''l|'''
-                contenu_recap_projet += r''' & ''' + coefprests.obtenir_noms_categories()[categorie]
+                contenu_recap_projet += r''' & '''
+                contenu_recap_projet += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories()[categorie])
             structure_recap_projet += r'''}'''
             legende_recap_projet = r'''Récapitulatif compte ''' + intitule_compte
             contenu_recap_projet += r''' & Total projet \\
@@ -418,7 +420,7 @@ class Annexes(object):
                 ''' % dico_recap_poste
 
             for categorie in generaux.obtenir_d3():
-                contenu_recap_poste += coefprests.obtenir_noms_categories()[categorie]
+                contenu_recap_poste += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories()[categorie])
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_m'][categorie]
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_r'][categorie]
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
@@ -518,7 +520,8 @@ class Annexes(object):
             ''' % dico_recap_poste_cl
 
         for categorie in generaux.obtenir_d3():
-            contenu_recap_poste_cl += coefprests.obtenir_noms_categories()[categorie] + r''' & '''
+            contenu_recap_poste_cl += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories()[categorie])
+            contenu_recap_poste_cl += r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_m'][categorie] + r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_r'][categorie] + r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['tot_cat'][categorie] + r''' \\
