@@ -118,29 +118,14 @@ class Facture(object):
                                                                       compte['nrj'], op_centre, co['intitule']))
                         poste += 1
 
-                    if compte['somme_j_lm'] > 0:
-                        fichier_writer.writerow(Facture.ligne_facture(generaux, 4, poste, compte['somme_j_lm'],
-                                                                      compte['somme_j_lr'], op_centre,
-                                                                      co['intitule']))
-                        poste += 1
-
-                    if compte['somme_j_cm'] > 0:
-                        fichier_writer.writerow(Facture.ligne_facture(generaux, 5, poste, compte['somme_j_cm'],
-                                                                      compte['somme_j_cr'], op_centre,
-                                                                      co['intitule']))
-                        poste += 1
-
-                    if compte['somme_j_wm'] > 0:
-                        fichier_writer.writerow(Facture.ligne_facture(generaux, 6, poste, compte['somme_j_wm'],
-                                                                      compte['somme_j_wr'], op_centre,
-                                                                      co['intitule']))
-                        poste += 1
-
-                    if compte['somme_j_xm'] > 0:
-                        fichier_writer.writerow(Facture.ligne_facture(generaux, 7, poste, compte['somme_j_xm'],
-                                                                      compte['somme_j_xr'], op_centre,
-                                                                      co['intitule']))
-                        poste += 1
+                    index = 4
+                    for categorie in generaux.obtenir_d3():
+                        if compte['sommes_cat_m'][categorie] > 0:
+                            fichier_writer.writerow(Facture.ligne_facture(generaux, index, poste,
+                                compte['sommes_cat_m'][categorie], compte['sommes_cat_r'][categorie], op_centre,
+                                                                          co['intitule']))
+                            poste += 1
+                        index += 1
                     inc += 1
 
     @staticmethod

@@ -19,6 +19,7 @@ class CoefPrest(Fichier):
         libelle = "Coefficients Prestations"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
         self.classes = []
+        self.noms_cat = {}
 
     def obtenir_classes(self):
         """
@@ -31,6 +32,34 @@ class CoefPrest(Fichier):
             Outils.affiche_message(info)
             return []
         return self.classes
+
+    def obtenir_noms_categories(self):
+        """
+        retourne un dico qui lie catégories et leur nom
+        :return: dico catégorie-nom
+        """
+        if self.verifie_coherence == 0:
+            info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les catégories"
+            print(info)
+            Outils.affiche_message(info)
+            return []
+        return self.noms_cat
+
+    def contient_categorie(self, categorie):
+        """
+        vérifie si la catégorie est présente
+        :param categorie: la catégorie à vérifier
+        :return: 1 si présente, 0 sinon
+        """
+        if self.verifie_coherence == 1:
+            for cle, coefprest in self.donnees.items():
+                if coefprest['categorie'] == categorie:
+                    return 1
+        else:
+            for coefprest in self.donnees:
+                if coefprest['categorie'] == categorie:
+                    return 1
+        return 0
 
     def est_coherent(self):
         """
@@ -75,6 +104,9 @@ class CoefPrest(Fichier):
                 else:
                     msg += "Couple categorie '" + donnee['categorie'] + "' et classe de tarif '" + \
                            donnee['id_classe_tarif'] + "' de la ligne " + str(ligne) + " pas unique\n"
+
+            if donnee['categorie'] not in self.noms_cat:
+                self.noms_cat[donnee['categorie']] = donnee['nom_categorie']
 
             donnee['coefficient'], info = Outils.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
             msg += info

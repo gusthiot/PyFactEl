@@ -36,11 +36,12 @@ class Prestation(Fichier):
                     return 1
         return 0
 
-    def est_coherent(self, generaux):
+    def est_coherent(self, generaux, coefprests):
         """
         vérifie que les données du fichier importé sont cohérentes (id prestation unique,
         catégorie prestation présente dans les paramètres D3), et efface les colonnes mois et année
         :param generaux: paramètres généraux
+        :param coefprests: coefficients prestations importés
         :return: 1 s'il y a une erreur, 0 sinon
         """
         if self.verifie_date == 0:
@@ -75,6 +76,9 @@ class Prestation(Fichier):
             elif donnee['categorie'] not in generaux.obtenir_d3():
                 msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
                        " n'existe pas dans les paramètres D3\n"
+            elif coefprests.contient_categorie(donnee['categorie']) == 0:
+                msg += "la catégorie prestation '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
+                       " n'est pas référencée dans les coefficients\n"
 
             donnee['prix_unit'], info = Outils.est_un_nombre(donnee['prix_unit'], "le prix unitaire", ligne)
             msg += info

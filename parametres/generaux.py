@@ -66,6 +66,17 @@ class Generaux(object):
             else:
                 msg += "le code D '" + dd + "' n'est pas unique\n"
 
+        if len(self.donnees['code_n']) != len(self.donnees['nature_client']):
+            msg += "le nombre de colonees doit être le même pour le code N et pour la nature du client\n"
+
+        if (len(self.donnees['code_d']) != len(self.donnees['code_sap'])) or (len(self.donnees['code_d']) !=
+                len(self.donnees['quantite'])) or (len(self.donnees['code_d']) !=
+                len(self.donnees['unite'])) or (len(self.donnees['code_d']) !=
+                len(self.donnees['type_prix'])) or (len(self.donnees['code_d']) !=
+                len(self.donnees['type_rabais'])) or (len(self.donnees['code_d']) != len(self.donnees['texte_sap'])):
+            msg += "le nombre de colonees doit être le même pour le code D, le code SAP, la quantité, l'unité, " \
+                   "le type de prix, le type de rabais et le texte SAP\n"
+
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)

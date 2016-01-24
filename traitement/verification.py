@@ -64,7 +64,7 @@ class Verification(object):
         verif += reservations.est_coherent(comptes, machines)
         verif += livraisons.est_coherent(comptes, prestations)
         verif += machines.est_coherent(coefmachines)
-        verif += prestations.est_coherent(generaux)
+        verif += prestations.est_coherent(generaux, coefprests)
         verif += coefmachines.est_coherent()
         verif += coefprests.est_coherent()
         verif += clients.est_coherent(coefmachines, coefprests, generaux)

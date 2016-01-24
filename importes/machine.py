@@ -79,7 +79,7 @@ class Machine(Fichier):
                 msg += "la catégorie machine de la ligne " + str(ligne) + " ne peut être vide\n"
             elif coefmachines.contient_categorie(donnee['categorie']) == 0:
                 msg += "la catégorie machine '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
-                       " n'est pas référencé\n"
+                       " n'est pas référencée dans les coefficients\n"
 
             donnee['t_h_machine_hp_p'], info = Outils.est_un_nombre(donnee['t_h_machine_hp_p'], "le tarif machine HP P",
                                                                     ligne)

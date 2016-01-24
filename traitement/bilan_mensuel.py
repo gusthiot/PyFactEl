@@ -38,11 +38,13 @@ class BilanMensuel(object):
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
 
-        fichier_writer.writerow(["année", "mois", "référence", "code client", "abrév. labo", "nom labo", "type client",
-                                 "nature client", "nb utilisateurs", "nb tot comptes", "nb comptes cat 1",
-                                 "nb comptes cat 2", "nb comptes cat 3", "nb comptes cat 4", "somme T", "Em base",
-                                 "somme EQ", "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "pt", "qt", "ot", "nt",
-                                 "lt", "ct", "wt", "xt"])
+        ligne = ["année", "mois", "référence", "code client", "abrév. labo", "nom labo", "type client", "nature client",
+                 "nb utilisateurs", "nb tot comptes", "nb comptes cat 1", "nb comptes cat 2", "nb comptes cat 3",
+                 "nb comptes cat 4", "somme T", "Em base", "somme EQ", "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4",
+                 "Pt", "Qt", "Ot", "Nt"]
+        for categorie in generaux.obtenir_d3():
+            ligne.append(categorie + "t")
+        fichier_writer.writerow(ligne)
 
         keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
 
@@ -77,11 +79,12 @@ class BilanMensuel(object):
             else:
                 kprj4 = 0
 
-            fichier_writer.writerow([edition.annee, edition.mois, reference, code_client, cl['abrev_labo'],
-                                     cl['nom_labo'], 'U', cl['type_labo'], nb_u, nb_c, cat['1'], cat['2'], cat['3'],
-                                     cat['4'], scl['somme_t'], scl['em'], scl['somme_eq'], scl['er'], kprj1, kprj2,
-                                     kprj3, kprj4, scl['pt'], scl['qt'], scl['ot'], scl['nt'], scl['lt'], scl['ct'],
-                                     scl['wt'], scl['xt']])
+            ligne = [edition.annee, edition.mois, reference, code_client, cl['abrev_labo'], cl['nom_labo'], 'U',
+                     cl['type_labo'], nb_u, nb_c, cat['1'], cat['2'], cat['3'], cat['4'], scl['somme_t'], scl['em'],
+                     scl['somme_eq'], scl['er'], kprj1, kprj2, kprj3, kprj4, scl['pt'], scl['qt'], scl['ot'], scl['nt']]
+            for categorie in generaux.obtenir_d3():
+                ligne.append(scl['tot_cat'][categorie])
+            fichier_writer.writerow(ligne)
 
     @staticmethod
     def utilisateurs(acces, livraisons, reservations, code_client):

@@ -13,7 +13,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                nom_dossier, plateforme):
+                nom_dossier, plateforme, coefprests, generaux):
         """
         création des annexes de facture
         :param sommes: sommes calculées
@@ -27,6 +27,8 @@ class Annexes(object):
         :param comptes: comptes importés
         :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
         """
         dossier_annexe = nom_dossier + "annexes" + Outils.separateur(plateforme)
         if not os.path.exists(dossier_annexe):
@@ -34,7 +36,7 @@ class Annexes(object):
         prefixe = "annexe_"
         """
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)
         """
         # tant que les annexes techniques et les annexes de factures sont identiques
         dossier_annexe_t = nom_dossier + "annexes_techniques" + Outils.separateur(plateforme)
@@ -48,7 +50,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           nom_dossier, plateforme):
+                           nom_dossier, plateforme, coefprests, generaux):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -62,17 +64,19 @@ class Annexes(object):
         :param comptes: comptes importés
         :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
         """
         dossier_annexe = nom_dossier + "annexes_techniques" + Outils.separateur(plateforme)
         if not os.path.exists(dossier_annexe):
             os.makedirs(dossier_annexe)
         prefixe = "annexeT_"
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)
 
     @staticmethod
     def creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                         dossier_annexe, plateforme, prefixe):
+                         dossier_annexe, plateforme, prefixe, coefprests, generaux):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -87,6 +91,8 @@ class Annexes(object):
         :param dossier_annexe: nom du dossier dans lequel enregistrer les annexes
         :param plateforme: OS utilisé
         :param prefixe: prefixe de nom des annexes
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
         """
 
         if sommes.calculees == 0:
@@ -100,7 +106,7 @@ class Annexes(object):
         for code_client in keys:
             contenu = Annexes.entete(plateforme)
             contenu += Annexes.contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines,
-                                              reservations, prestations, comptes)
+                                              reservations, prestations, comptes, coefprests, generaux)
             contenu += r'''\end{document}'''
 
             nom = prefixe + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
@@ -142,7 +148,7 @@ class Annexes(object):
 
     @staticmethod
     def contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines, reservations, prestations,
-                       comptes):
+                       comptes, coefprests, generaux):
         """
         création du contenu de l'annexe pour un client
         :param sommes: sommes calculées
@@ -155,6 +161,8 @@ class Annexes(object):
         :param reservations: réservations importées
         :param prestations: prestations importées
         :param comptes: comptes importés
+        :param coefprests: coefficients prestations importés
+        :param generaux: paramètres généraux
         :return: contenu de l'annexe du client
         """
 
@@ -164,11 +172,18 @@ class Annexes(object):
         client = clients.donnees[code_client]
         sca = sommes.sommes_categories[code_client]
 
-        structure_recap_compte = r'''{|l|l|l|l|l|l|l|l|l|}'''
-        legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + code_client
+        structure_recap_compte = r'''{|l|l|l|l|l|'''
         contenu_recap_compte = r'''
             \hline
-            Intitulé & Type & Plafonné & Non Plaf. & Loc. SB & Conso. & Trav. Spé. & Frais Exp. & Total cpte \\
+            Intitulé & Type & Plafonné & Non Plaf.'''
+
+        for categorie in generaux.obtenir_d3():
+            structure_recap_compte += r'''l|'''
+            contenu_recap_compte += r''' & ''' + coefprests.obtenir_noms_categories()[categorie]
+
+        structure_recap_compte += r'''}'''
+        legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + code_client
+        contenu_recap_compte += r'''& Total cpte \\
             \hline
             '''
 
@@ -188,11 +203,16 @@ class Annexes(object):
 
             client_compte_projet = sommes.sommes_projets[code_client][id_compte]
             keys3 = Outils.ordonner_keys_str_par_int(client_compte_projet.keys())
-            structure_recap_projet = r'''{|l|l|l|l|l|l|l|l|}'''
-            legende_recap_projet = r'''Récapitulatif compte ''' + intitule_compte
+            structure_recap_projet = r'''{|l|l|l|l|'''
             contenu_recap_projet = r'''
                 \hline
-                Numéro & Plafonné & Non Plaf. & Loc. SB & Conso. & Trav. Spé. & Frais Exp. & Total projet \\
+                Numéro & Plafonné & Non Plaf. '''
+            for categorie in generaux.obtenir_d3():
+                structure_recap_projet += r'''l|'''
+                contenu_recap_projet += r''' & ''' + coefprests.obtenir_noms_categories()[categorie]
+            structure_recap_projet += r'''}'''
+            legende_recap_projet = r'''Récapitulatif compte ''' + intitule_compte
+            contenu_recap_projet += r''' & Total projet \\
                 \hline
                 '''
 
@@ -203,15 +223,20 @@ class Annexes(object):
 
                 machines_utilisees = {}
 
-                total = sp['somme_p_pm'] + sp['somme_p_nm'] + sp['lp'] + sp['cp'] + sp['wp'] + sp['xp']
                 dico_recap_projet = {'num': num_projet, 'plafond': "%.2f" % sp['somme_p_pm'],
-                                     'non_plafond': "%.2f" % sp['somme_p_nm'], 'loc_sb': "%.2f" % sp['lp'],
-                                     'conso': "%.2f" % sp['cp'], 'travail': "%.2f" % sp['wp'],
-                                     'frais': "%.2f" % sp['xp'], 'total': "%.2f" % total}
+                                     'non_plafond': "%.2f" % sp['somme_p_nm']}
+
+                total = sp['somme_p_pm'] + sp['somme_p_nm']
+
                 contenu_recap_projet += r'''
                     \hline
-                    %(num)s & %(plafond)s & %(non_plafond)s & %(loc_sb)s &
-                    %(conso)s & %(travail)s & %(frais)s & %(total)s \\
+                    %(num)s & %(plafond)s & %(non_plafond)s''' % dico_recap_projet
+                for categorie in generaux.obtenir_d3():
+                    total += sp['tot_cat'][categorie]
+                    contenu_recap_projet += r''' & ''' + "%.2f" % sp['tot_cat'][categorie]
+                dico_recap_projet['total'] = "%.2f" % total
+
+                contenu_recap_projet += r''' & %(total)s \\
                     \hline
                     ''' % dico_recap_projet
 
@@ -322,33 +347,48 @@ class Annexes(object):
 
             sco = sommes.sommes_comptes[code_client][id_compte]
 
-            sj = sco['pj'] + sco['nj'] + sco['lj'] + sco['cj'] + sco['wj'] + sco['xj']
             dico_recap_projet = {'plafond': "%.2f" % sco['somme_j_pm'], 'non_plafond': "%.2f" % sco['somme_j_nm'],
-                                 'loc_sb': "%.2f" % sco['lj'], 'conso': "%.2f" % sco['cj'],
-                                 'travail': "%.2f" % sco['wj'], 'frais': "%.2f" % sco['xj'],
                                  'prj': "%.2f" % sco['prj'], 'nrj': "%.2f" % sco['nrj'], 'pj': "%.2f" % sco['pj'],
-                                 'nj': "%.2f" % sco['nj'], 'lj': "%.2f" % sco['lj'], 'cj': "%.2f" % sco['cj'],
-                                 'wj': "%.2f" % sco['wj'], 'xj': "%.2f" % sco['xj'], 'sj': "%.2f" % sj}
-            contenu_recap_projet += r'''\hline
-                Montant article & %(plafond)s & %(non_plafond)s & %(loc_sb)s &
-                %(conso)s & %(travail)s & %(frais)s & \\
+                                 'nj': "%.2f" % sco['nj']}
+
+            ligne1 = r'''\hline
+                Montant article & %(plafond)s & %(non_plafond)s''' % dico_recap_projet
+            ligne2 = r'''Plafonnement & %(prj)s & %(nrj)s''' % dico_recap_projet
+            ligne3 = r'''Total article & %(pj)s & %(nj)s''' % dico_recap_projet
+
+            sj = sco['pj'] + sco['nj']
+
+            for categorie in generaux.obtenir_d3():
+                ligne1 += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
+                ligne2 += r''' & '''
+                ligne3 += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
+                sj += sco['tot_cat'][categorie]
+
+            dico_recap_projet['sj'] = "%.2f" % sj
+            ligne1 += r''' & \\
                 \hline
-                Plafonnement & %(prj)s & %(nrj)s & & & & &  \\
+                '''
+            ligne2 += r''' & \\
                 \hline
-                Total article & %(pj)s & %(nj)s & %(lj)s &
-                %(cj)s & %(wj)s & %(xj)s & %(sj)s\\
+                '''
+            ligne3 += r''' & %(sj)s\\
                 \hline
                 ''' % dico_recap_projet
+
+            contenu_recap_projet += ligne1 + ligne2 + ligne3
 
             contenu += Annexes.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
 
             dico_recap_compte = {'compte': id_compte, 'type': co['categorie'], 'plafond': "%.2f" % sco['pj'],
-                                 'non_plafond': "%.2f" % sco['nj'], 'loc_sb': "%.2f" % sco['lj'],
-                                 'conso': "%.2f" % sco['cj'], 'travail': "%.2f" % sco['wj'],
-                                 'frais': "%.2f" % sco['xj'], 'total': "%.2f" % sj}
+                                 'non_plafond': "%.2f" % sco['nj'], 'total': "%.2f" % sj}
 
-            contenu_recap_compte += r'''Compte %(compte)s & %(type)s & %(plafond)s & %(non_plafond)s & %(loc_sb)s &
-                    %(conso)s & %(travail)s & %(frais)s & %(total)s \\
+            contenu_recap_compte += r'''Compte %(compte)s & %(type)s & %(plafond)s & %(non_plafond)s ''' \
+                                    % dico_recap_compte
+
+            for categorie in generaux.obtenir_d3():
+                contenu_recap_compte += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
+
+            contenu_recap_compte += r'''& %(total)s \\
                     \hline
                     ''' % dico_recap_compte
 
@@ -359,13 +399,7 @@ class Annexes(object):
                                 'pj': "%.2f" % sco['pj'], 'spv': "%.2f" % sco['somme_j_pv'],
                                 'squ': "%.2f" % sco['somme_j_qu'], 'nrj': "%.2f" % sco['nrj'],
                                 'nj': "%.2f" % sco['nj'], 'sqv': "%.2f" % sco['somme_j_qv'],
-                                'som': "%.2f" % sco['somme_j_om'], 'slm': "%.2f" % sco['somme_j_lm'],
-                                'slr': "%.2f" % sco['somme_j_lr'], 'lj': "%.2f" % sco['lj'],
-                                'scm': "%.2f" % sco['somme_j_cm'], 'scr': "%.2f" % sco['somme_j_cr'],
-                                'cj': "%.2f" % sco['cj'], 'swm': "%.2f" % sco['somme_j_wm'],
-                                'swr': "%.2f" % sco['somme_j_wr'], 'wj': "%.2f" % sco['wj'],
-                                'sxm': "%.2f" % sco['somme_j_xm'], 'sxr': "%.2f" % sco['somme_j_xr'],
-                                'xj': "%.2f" % sco['xj']}
+                                'som': "%.2f" % sco['somme_j_om']}
 
             contenu_recap_poste = r'''
                 \hline
@@ -381,15 +415,16 @@ class Annexes(object):
                 \cline{1-2}
                 Montant Main d'oeuvre & %(som)s &  &  \\
                 \hline
-                Location salle blanche & %(slm)s & %(slr)s & %(lj)s \\
-                \hline
-                Consommables & %(scm)s & %(scr)s & %(cj)s \\
-                \hline
-                Travaux spécifiques & %(swm)s & %(swr)s & %(wj)s \\
-                \hline
-                Frais d'expédition & %(sxm)s & %(sxr)s & %(xj)s \\
-                \hline
                 ''' % dico_recap_poste
+
+            for categorie in generaux.obtenir_d3():
+                contenu_recap_poste += coefprests.obtenir_noms_categories()[categorie]
+                contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_m'][categorie]
+                contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_r'][categorie]
+                contenu_recap_poste += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
+                contenu_recap_poste += r''' \\
+                    \hline
+                    '''
 
             contenu += Annexes.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
 
@@ -421,12 +456,14 @@ class Annexes(object):
         contenu += Annexes.tableau(contenu_emolument, structure_emolument, legende_emolument)
 
         dico_recap_compte = {'plafond': "%.2f" % scl['pt'], 'non_plafond': "%.2f" % scl['nt'],
-                             'loc_sb': "%.2f" % scl['lt'], 'conso': "%.2f" % scl['ct'],
-                             'travail': "%.2f" % scl['wt'], 'frais': "%.2f" % scl['xt'],
                              'total': "%.2f" % scl['somme_t']}
 
-        contenu_recap_compte += r'''Total article & & %(plafond)s & %(non_plafond)s & %(loc_sb)s &
-                %(conso)s & %(travail)s & %(frais)s & %(total)s \\
+        contenu_recap_compte += r'''Total article & & %(plafond)s & %(non_plafond)s''' % dico_recap_compte
+
+        for categorie in generaux.obtenir_d3():
+            contenu_recap_compte += r''' & ''' + "%.2f" % scl['tot_cat'][categorie]
+
+        contenu_recap_compte += r'''& %(total)s \\
                 \hline
                 ''' % dico_recap_compte
 
@@ -441,13 +478,7 @@ class Annexes(object):
                                'tpm': "%.2f" % scl['somme_t_pm'], 'tprj': "%.2f" % scl['somme_t_prj'],
                                'pt': "%.2f" % scl['pt'], 'tqm': "%.2f" % scl['somme_t_qm'],
                                'nt': "%.2f" % scl['nt'], 'tnrj': "%.2f" % scl['somme_t_nrj'],
-                               'tom': "%.2f" % scl['somme_t_om'], 'tlm': "%.2f" % scl['somme_t_lm'],
-                               'tlr': "%.2f" % scl['somme_t_lr'], 'lt': "%.2f" % scl['lt'],
-                               'tcm': "%.2f" % scl['somme_t_cm'], 'tcr': "%.2f" % scl['somme_t_cr'],
-                               'ct': "%.2f" % scl['ct'], 'twm': "%.2f" % scl['somme_t_wm'],
-                               'twr': "%.2f" % scl['somme_t_wr'], 'wt': "%.2f" % scl['wt'],
-                               'txm': "%.2f" % scl['somme_t_xm'], 'txr': "%.2f" % scl['somme_t_xr'],
-                               'xt': "%.2f" % scl['xt']}
+                               'tom': "%.2f" % scl['somme_t_om']}
 
         if '1' in sca:
             dico_recap_poste_cl['kpm1'] = "%.2f" % sca['1']['somme_k_pm']
@@ -484,15 +515,15 @@ class Annexes(object):
             \cline{1-2}
             Main d'oeuvre & %(tom)s & & \\
             \hline
-            Location salle blanche & %(tlm)s & %(tlr)s & %(lt)s \\
-            \hline
-            Consommables & %(tcm)s & %(tcr)s & %(ct)s \\
-            \hline
-            Travaux spécifiques & %(twm)s & %(twr)s & %(wt)s \\
-            \hline
-            Frais d'expédition & %(txm)s & %(txr)s & %(xt)s \\
-            \hline
             ''' % dico_recap_poste_cl
+
+        for categorie in generaux.obtenir_d3():
+            contenu_recap_poste_cl += coefprests.obtenir_noms_categories()[categorie] + r''' & '''
+            contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_m'][categorie] + r''' & '''
+            contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_r'][categorie] + r''' & '''
+            contenu_recap_poste_cl += "%.2f" % scl['tot_cat'][categorie] + r''' \\
+                \hline
+                '''
 
         contenu += Annexes.tableau(contenu_recap_poste_cl, structure_recap_poste_cl, legende_recap_poste_cl)
 

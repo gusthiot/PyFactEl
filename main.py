@@ -44,15 +44,15 @@ livraisons.calcul_montants(prestations, coefprests, comptes, clients, verificati
 reservations.calcul_montants(machines, coefmachines, comptes, clients, verification)
 acces.calcul_montants(machines, coefmachines, comptes, clients, verification)
 
-sommes = Sommes(verification)
+sommes = Sommes(verification, generaux)
 sommes.calculer_toutes(livraisons, reservations, acces, prestations, comptes, clients)
 
 Facture.factures(sommes, dossier_enregistrement, encodage, delimiteur, edition, generaux, clients, comptes)
 
 Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           dossier_enregistrement, plateforme)
+                           dossier_enregistrement, plateforme, coefprests, generaux)
 Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                dossier_enregistrement, plateforme)
+                dossier_enregistrement, plateforme, coefprests, generaux)
 
 BilanMensuel.bilan(dossier_enregistrement, encodage, delimiteur, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
