@@ -66,7 +66,7 @@ class Verification(object):
         verif += machines.est_coherent(coefmachines)
         verif += prestations.est_coherent(generaux, coefprests)
         verif += coefmachines.est_coherent()
-        verif += coefprests.est_coherent()
+        verif += coefprests.est_coherent(generaux)
         verif += clients.est_coherent(coefmachines, coefprests, generaux)
 
         comptes_actifs, clients_actifs = Verification.obtenir_comptes_clients_actifs(acces, reservations, livraisons)

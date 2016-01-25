@@ -33,17 +33,20 @@ class CoefPrest(Fichier):
             return []
         return self.classes
 
-    def obtenir_noms_categories(self):
+    def obtenir_noms_categories(self, categorie):
         """
-        retourne un dico qui lie catégories et leur nom
-        :return: dico catégorie-nom
+        retourne le nom lié à une catégorie
+        :return: nom lié à une catégorie
         """
         if self.verifie_coherence == 0:
             info = self.libelle + ". vous devez vérifier la cohérence avant de pouvoir obtenir les catégories"
             print(info)
             Outils.affiche_message(info)
             return []
-        return self.noms_cat
+        if categorie not in self.noms_cat:
+            return categorie
+        else:
+            return self.noms_cat[categorie]
 
     def contient_categorie(self, categorie):
         """
@@ -61,10 +64,11 @@ class CoefPrest(Fichier):
                     return 1
         return 0
 
-    def est_coherent(self):
+    def est_coherent(self, generaux):
         """
         vérifie que les données du fichier importé sont cohérentes (si couple catégorie - classe de tarif est unique),
         et efface les colonnes mois et année
+        :param generaux: paramètres généraux
         :return: 1 s'il y a une erreur, 0 sinon
         """
         if self.verifie_date == 0:
@@ -86,6 +90,9 @@ class CoefPrest(Fichier):
         for donnee in self.donnees:
             if donnee['categorie'] == "":
                 msg += "la catégorie de la ligne " + str(ligne) + " ne peut être vide\n"
+            elif donnee['categorie'] not in generaux.obtenir_d3():
+                msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
+                       " n'existe pas dans les paramètres D3\n"
             elif donnee['categorie'] not in categories:
                 categories.append(donnee['categorie'])
 
@@ -111,10 +118,10 @@ class CoefPrest(Fichier):
             donnee['coefficient'], info = Outils.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
             msg += info
 
-            ligne += 1
-
-        self.donnees = donnees_dict
-        self.verifie_coherence = 1
+        for categorie in generaux.obtenir_d3():
+            if categorie not in categories:
+                msg += "La categorie D3 '" + categorie + "' dans les paramètres généraux n'est pas présente dans " \
+                                                         "les coefficients de prestations\n"
 
         for categorie in categories:
             for classe in self.classes:
@@ -123,9 +130,16 @@ class CoefPrest(Fichier):
                     msg += "Couple categorie '" + categorie + "' et classe de tarif '" + \
                            classe + "' n'existe pas\n"
 
+            ligne += 1
+
+        self.donnees = donnees_dict
+        self.verifie_coherence = 1
+
         if msg != "":
             msg = self.libelle + "\n" + msg
             print("msg : " + msg)
             Outils.affiche_message(msg)
             return 1
+
+
         return 0
