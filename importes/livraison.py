@@ -114,8 +114,8 @@ class Livraison(Fichier):
             compte = comptes.donnees[donnee['id_compte']]
             client = clients.donnees[compte['code_client']]
             coefprest = coefprests.donnees[client['id_classe_tarif'] + prestation['categorie']]
-            donnee['montant'] = round(donnee['quantite'] * round(prestation['prix_unit'] *
-                                                                 coefprest['coefficient'], 2), 2)
+            donnee['prix_unit_client'] = round(prestation['prix_unit'] * coefprest['coefficient'], 2)
+            donnee['montant'] = round(donnee['quantite'] * donnee['prix_unit_client'], 2)
             donnee['rabais_r'] = round(donnee['rabais'], 2)
             donnees_list.append(donnee)
         self.donnees = donnees_list

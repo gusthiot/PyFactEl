@@ -325,25 +325,26 @@ class Annexes(object):
                     contenu += Annexes.long_tableau(contenu_liv, structure_liv, legende_liv)
                 # ## liv
 
-                structure_stat_machines = r'''{|l|l|l|}'''
-                legende_stat_machines = r'''Statistiques de réservation/utilisation par machine : ''' + \
-                                        intitule_compte + r''' / ''' + intitule_projet
-                contenu_stat_machines = r'''
-                    \hline
-                    Equipement & Usage & Réservation \\
-                    \hline
-                    '''
-
-                for machine in machines_utilisees:
-                    dico_stat_machines = {
-                        'machine': Annexes.echappe_caracteres(machines_utilisees[machine]['machine']),
-                        'usage': Outils.format_heure(machines_utilisees[machine]['usage']),
-                        'reservation': Outils.format_heure(machines_utilisees[machine]['reservation'])}
-                    contenu_stat_machines += r'''%(machine)s & %(usage)s & %(reservation)s \\
+                if nombre_res > 0 or nombre_res > 0:
+                    structure_stat_machines = r'''{|l|l|l|}'''
+                    legende_stat_machines = r'''Statistiques de réservation/utilisation par machine : ''' + \
+                                            intitule_compte + r''' / ''' + intitule_projet
+                    contenu_stat_machines = r'''
                         \hline
-                        ''' % dico_stat_machines
+                        Equipement & Usage & Réservation \\
+                        \hline
+                        '''
 
-                contenu += Annexes.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
+                    for machine in machines_utilisees:
+                        dico_stat_machines = {
+                            'machine': Annexes.echappe_caracteres(machines_utilisees[machine]['machine']),
+                            'usage': Outils.format_heure(machines_utilisees[machine]['usage']),
+                            'reservation': Outils.format_heure(machines_utilisees[machine]['reservation'])}
+                        contenu_stat_machines += r'''%(machine)s & %(usage)s & %(reservation)s \\
+                            \hline
+                            ''' % dico_stat_machines
+
+                    contenu += Annexes.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
 
                 # ## projet
 
@@ -699,13 +700,12 @@ class Annexes(object):
         :param prestation: prestation concernée
         :return: ligne de tableau latex
         """
-        montant = livraison['quantite'] * prestation['prix_unit']
-        total = montant - livraison['rabais']
+        total = livraison['montant'] - livraison['rabais_r']
         dico = {'date': Annexes.echappe_caracteres(livraison['date_livraison']),
                 'prestation': Annexes.echappe_caracteres(livraison['designation']),
                 'quantite': livraison['quantite'], 'unite': Annexes.echappe_caracteres(livraison['unite']),
-                'rapport': "%.2f" % prestation['prix_unit'], 'montant': "%.2f" % montant,
-                'rabais': "%.2f" % livraison['rabais'], 'total': "%.2f" % total, 'id': livraison['id_livraison'],
+                'rapport': "%.2f" % livraison['prix_unit_client'], 'montant': "%.2f" % livraison['montant'],
+                'rabais': "%.2f" % livraison['rabais_r'], 'total': "%.2f" % total, 'id': livraison['id_livraison'],
                 'responsable': Annexes.echappe_caracteres(livraison['responsable']),
                 'commande': Annexes.echappe_caracteres(livraison['date_commande']),
                 'remarque': Annexes.echappe_caracteres(livraison['remarque'])}
