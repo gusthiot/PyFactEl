@@ -44,7 +44,7 @@ class Rabais(object):
             somme_t += tt
 
         em = emb
-        er0 = round((min(emb, max(0, emb - fix - (coef_a - 1) * somme_eq))/10)*10, 0)
+        er0 = round(min(emb, max(0, emb - fix - (coef_a - 1) * somme_eq))/10, 0)*10
         if ((regle == "ZERO") and (somme_t == 0)) or ((regle == "NON") and (somme_sb == 0)):
             er = em
         else:
