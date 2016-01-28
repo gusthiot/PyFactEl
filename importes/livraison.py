@@ -62,9 +62,9 @@ class Livraison(Fichier):
             elif comptes.contient_id(donnee['id_compte']) == 0:
                 msg += "le compte id '" + donnee['id_compte'] + "' de la ligne " + str(ligne) + " n'est pas référencé\n"
             elif donnee['code_client'] not in self.comptes:
-                self.comptes['code_client'] = [donnee['id_compte']]
-            elif donnee['id_compte'] not in self.comptes['code_client']:
-                self.comptes['code_client'].append(donnee['id_compte'])
+                self.comptes[donnee['code_client']] = [donnee['id_compte']]
+            elif donnee['id_compte'] not in self.comptes[donnee['code_client']]:
+                self.comptes[donnee['code_client']].append(donnee['id_compte'])
 
             if donnee['id_prestation'] == "":
                 msg += "le prestation id de la ligne " + str(ligne) + " ne peut être vide\n"

@@ -314,7 +314,7 @@ class Annexes(object):
                 liv_proj_cat = livraisons.livraisons_pour_projet_par_categorie(num_projet, id_compte, code_client,
                                                                                prestations)
 
-                for categorie in ['L', 'C', 'W', 'X']:
+                for categorie in generaux.obtenir_d3():
                     if categorie in liv_proj_cat:
                         livs = liv_proj_cat[categorie]
                         for liv in livs:
