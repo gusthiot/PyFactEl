@@ -45,3 +45,4 @@ class Edition(object):
             sys.exit("Erreur de consistance")
 
         self.version = donnees_csv[2][1]
+        self.client_unique = ""

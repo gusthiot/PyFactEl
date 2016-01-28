@@ -50,7 +50,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           nom_dossier, plateforme, coefprests, generaux):
+                           dossier_annexe, plateforme, coefprests, generaux):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -67,9 +67,6 @@ class Annexes(object):
         :param coefprests: coefficients prestations importés
         :param generaux: paramètres généraux
         """
-        dossier_annexe = nom_dossier + "annexes_techniques" + Outils.separateur(plateforme)
-        if not os.path.exists(dossier_annexe):
-            os.makedirs(dossier_annexe)
         prefixe = "annexeT_"
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
                                  comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)

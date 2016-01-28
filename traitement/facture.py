@@ -9,7 +9,8 @@ class Facture(object):
     """
 
     @staticmethod
-    def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes):
+    def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, dossier_annexes,
+                 dossier_annexes_techniques):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -20,6 +21,8 @@ class Facture(object):
         :param generaux: paramètres généraux
         :param clients: clients importés
         :param comptes: comptes importés
+        :param dossier_annexes: dossier contenant les annexes
+        :param dossier_annexes_techniques: dossier contenant les annexes techniques
         """
 
         if sommes.calculees == 0:
@@ -81,10 +84,10 @@ class Facture(object):
             if edition.version != "0":
                 reference += "-" + edition.version
 
-            lien_annexe = nom_dossier + "annexes/" + "annexe_" + str(edition.annee) + "_" + \
-                          Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + code_client + ".pdf"
+            lien_annexe = dossier_annexes + "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
+                          "_" + str(edition.version) + "_" + code_client + ".pdf"
 
-            lien_annexe_technique = nom_dossier + "annexes_techniques/" + "annexeT_" + str(edition.annee) + "_" + \
+            lien_annexe_technique = dossier_annexes_techniques + "annexeT_" + str(edition.annee) + "_" + \
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
 

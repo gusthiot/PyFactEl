@@ -77,6 +77,8 @@ class Verification(object):
 
         verif += comptes.est_coherent(comptes_actifs)
         self.a_verifier = 0
+        if len(clients_actifs) == 1:
+            edition.client_unique = clients_actifs[0]
         return verif
 
     @staticmethod

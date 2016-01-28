@@ -33,7 +33,7 @@ class Outils(object):
         mainloop()
 
     @staticmethod
-    def choisir_dossier():
+    def choisir_dossier(plateforme):
         """
         affiche une interface permettant de choisir un dossier
         :return: la position du dossier sélectionné
@@ -46,7 +46,7 @@ class Outils(object):
         if dossier == "":
             Outils.affiche_message("Aucun dossier choisi")
             sys.exit("Aucun dossier choisi")
-        return dossier
+        return dossier + Outils.separateur(plateforme)
 
     @staticmethod
     def format_heure(nombre):
@@ -102,20 +102,28 @@ class Outils(object):
             return "/"
 
     @staticmethod
-    def dossier_enregistrement(racine, annee, mois, plateforme):
+    def eliminer_double_separateur(texte, plateforme):
+        """
+        élimine les doubles (back)slashs
+        :return: texte nettoyé
+        """
+        return texte.replace(Outils.separateur(plateforme) + Outils.separateur(plateforme),
+                             Outils.separateur(plateforme))
+
+    @staticmethod
+    def chemin_dossier(structure, plateforme):
         """
         construit le chemin pour enregistrer les données
-        :param racine: chemin de base sous lequel enregistrer
-        :param annee: année traitée pour dossier à son nom
-        :param mois: mois traité pour dossier à son nom
-        :param plateforme: OS utilisé
-        :return: chemin logique complet pour dossier d'enregistrement
+        :param structure: éléments du chemin
+        :param plateforme:OS utilisé
+        :return:chemin logique complet pour dossier
         """
-        chemin = racine + Outils.separateur(plateforme) + str(annee) + Outils.separateur(plateforme) + \
-               Outils.mois_string(mois) + Outils.separateur(plateforme)
+        chemin = ""
+        for element in structure:
+            chemin += str(element) + Outils.separateur(plateforme)
         if not os.path.exists(chemin):
             os.makedirs(chemin)
-        return chemin
+        return Outils.eliminer_double_separateur(chemin, plateforme)
 
     @staticmethod
     def archiver_liste(liste, dossier_archive):
