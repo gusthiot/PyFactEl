@@ -37,7 +37,7 @@ if verification.verification_cohérence(generaux, edition, acces, clients, coefm
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-dossier_enregistrement = Outils.chemin_dossier([dossier_data, edition.annee, Outils.mois_string(edition.mois)],
+dossier_enregistrement = Outils.chemin_dossier([generaux.donnees['lien'][1], edition.annee, Outils.mois_string(edition.mois)],
                                                plateforme)
 
 livraisons.calcul_montants(prestations, coefprests, comptes, clients, verification)
