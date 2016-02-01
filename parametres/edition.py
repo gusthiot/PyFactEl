@@ -46,3 +46,19 @@ class Edition(object):
 
         self.version = donnees_csv[2][1]
         self.client_unique = ""
+
+        jours = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if self.mois != 2:
+            jour = jours[self.mois-1]
+        else:
+            if self.annee % 4 == 0:
+                if self.annee % 100 == 0:
+                    if self.annee % 400 == 0:
+                        jour = 29
+                    else:
+                        jour = 28
+                else:
+                    jour = 29
+            else:
+                jour = 28
+        self.date_livraison = str(jour) + "." + Outils.mois_string(self.mois) + "." + str(self.annee)

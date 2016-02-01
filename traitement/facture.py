@@ -84,12 +84,15 @@ class Facture(object):
             if edition.version != "0":
                 reference += "-" + edition.version
 
-            lien_annexe = dossier_annexes + "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
-                          "_" + str(edition.version) + "_" + code_client + ".pdf"
+            lien_annexe = Outils.separateur_du_lien(dossier_annexes + "annexe_" + str(edition.annee) + "_" +
+                                                    Outils.mois_string(edition.mois) + "_" + str(edition.version) +
+                                                    "_" + code_client + ".pdf", generaux)
 
-            lien_annexe_technique = dossier_annexes_techniques + "annexeT_" + str(edition.annee) + "_" + \
-                                    Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
-                                    code_client + ".pdf"
+            lien_annexe_technique = Outils.separateur_du_lien(dossier_annexes_techniques + "annexeT_" +
+                                                              str(edition.annee) + "_" +
+                                                              Outils.mois_string(edition.mois) + "_" +
+                                                              str(edition.version) + "_" + code_client +
+                                                              ".pdf", generaux)
 
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
@@ -101,7 +104,7 @@ class Facture(object):
             if int(cl['emol_base_mens']) > 0:
                 poste = generaux.donnees['poste_emolument'][1]
                 fichier_writer.writerow(Facture.ligne_facture(generaux, 1, poste, client['em'], client['er'],
-                                                              op_centre, ""))
+                                                              op_centre, "", edition))
 
             inc = 1
             client_comptes = sommes.sommes_comptes[code_client]
@@ -113,12 +116,12 @@ class Facture(object):
                     poste = inc*10
                     if compte['somme_j_pm'] > 0:
                         fichier_writer.writerow(Facture.ligne_facture(generaux, 2, poste, compte['somme_j_pm'],
-                                                                      compte['prj'], op_centre, co['intitule']))
+                                                                    compte['prj'], op_centre, co['intitule'], edition))
                         poste += 1
 
                     if compte['somme_j_nm'] > 0:
                         fichier_writer.writerow(Facture.ligne_facture(generaux, 3, poste, compte['somme_j_nm'],
-                                                                      compte['nrj'], op_centre, co['intitule']))
+                                                                    compte['nrj'], op_centre, co['intitule'], edition))
                         poste += 1
 
                     index = 4
@@ -126,13 +129,13 @@ class Facture(object):
                         if compte['sommes_cat_m'][categorie] > 0:
                             fichier_writer.writerow(Facture.ligne_facture(generaux, index, poste,
                                 compte['sommes_cat_m'][categorie], compte['sommes_cat_r'][categorie], op_centre,
-                                                                          co['intitule']))
+                                                                          co['intitule'], edition))
                             poste += 1
                         index += 1
                     inc += 1
 
     @staticmethod
-    def ligne_facture(generaux, index, poste, net, rabais, op_centre, consommateur):
+    def ligne_facture(generaux, index, poste, net, rabais, op_centre, consommateur, edition):
         """
         retourne une ligne de facturation  formatée
         :param generaux: paramètres généraux
@@ -142,6 +145,7 @@ class Facture(object):
         :param rabais: rabais sur le montant
         :param op_centre: centre d'opération
         :param consommateur: consommateur
+        :param edition: paramètres d'édition
         :return: ligne de facturation formatée
         """
         if rabais == 0:
@@ -150,6 +154,6 @@ class Facture(object):
         return [poste, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
                 "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
                 generaux.donnees['unite'][index], generaux.donnees['type_prix'][index], net,
-                generaux.donnees['type_rabais'][index], rabais, "", generaux.donnees['financier'][1], "",
+                generaux.donnees['type_rabais'][index], rabais, edition.date_livraison, generaux.donnees['financier'][1], "",
                 generaux.donnees['fond'][1], "", "", code_op, "", "", "", generaux.donnees['texte_sap'][index],
                 consommateur]

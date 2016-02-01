@@ -36,6 +36,7 @@ class Outils(object):
     def choisir_dossier(plateforme):
         """
         affiche une interface permettant de choisir un dossier
+        :param plateforme: OS utilisé
         :return: la position du dossier sélectionné
         """
         fenetre = Tk()
@@ -92,7 +93,7 @@ class Outils(object):
     @staticmethod
     def separateur(plateforme):
         """
-        retourne le séprateur de chemin logique en fonction de l'OS (si windows ou pas)
+        retourne le séparateur de chemin logique en fonction de l'OS (si windows ou pas)
         :param plateforme: OS utilisé
         :return: séparateur, string
         """
@@ -102,13 +103,27 @@ class Outils(object):
             return "/"
 
     @staticmethod
-    def eliminer_double_separateur(texte, plateforme):
+    def separateur_du_lien(texte,generaux):
+        """
+        retourne le séparateur de chemin logique en fonction du lien donné dans les paramètres généraux
+        :param generaux: paramètres généraux
+        :return: séparateur, string
+        """
+        if "\\" in generaux.donnees['lien'][1]:
+            if "/" in generaux.donnees['lien'][1]:
+                Outils.affiche_message("'/' et '\\' présents dans le lien des paramètres généraux !!! ")
+            return texte.replace("/","\\")
+        else:
+            return texte.replace("\\", "/")
+
+    @staticmethod
+    def eliminer_double_separateur(texte):
         """
         élimine les doubles (back)slashs
+        :param texte: texte à nettoyer
         :return: texte nettoyé
         """
-        return texte.replace(Outils.separateur(plateforme) + Outils.separateur(plateforme),
-                             Outils.separateur(plateforme))
+        return texte.replace("//", "/").replace("\\" + "\\", "\\")
 
     @staticmethod
     def chemin_dossier(structure, plateforme):
@@ -123,7 +138,7 @@ class Outils(object):
             chemin += str(element) + Outils.separateur(plateforme)
         if not os.path.exists(chemin):
             os.makedirs(chemin)
-        return Outils.eliminer_double_separateur(chemin, plateforme)
+        return Outils.eliminer_double_separateur(chemin)
 
     @staticmethod
     def archiver_liste(liste, dossier_archive):
