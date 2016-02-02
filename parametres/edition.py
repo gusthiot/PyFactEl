@@ -61,4 +61,4 @@ class Edition(object):
                     jour = 29
             else:
                 jour = 28
-        self.date_livraison = str(jour) + "." + Outils.mois_string(self.mois) + "." + str(self.annee)
+        self.date_livraison = str(self.annee) + Outils.mois_string(self.mois) + str(jour)
