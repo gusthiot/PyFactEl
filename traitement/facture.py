@@ -75,6 +75,8 @@ class Facture(object):
                                  "Matricule récepteur fond 05"])
 
         for code_client in sorted(sommes.sommes_clients.keys()):
+            if prod2qual and not (prod2qual.has(code_client)):
+                next
             poste = 0
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]

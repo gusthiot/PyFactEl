@@ -12,8 +12,12 @@ class Prod2Qual(object):
                          
     def prod2qual(self, code_client_prod):
         assert self.actif
-            
-        if code_client_prod in self._conv:
+
+        if self.has(code_client_prod):
             return self._conv[code_client_prod]
         else:
             return "XXX" + str(code_client_prod)
+
+    def has(self, code_client_prod):
+        return code_client_prod in self._conv
+                
