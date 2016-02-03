@@ -74,7 +74,7 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
-        for code_client in sommes.sommes_clients.keys():
+        for code_client in sorted(sommes.sommes_clients.keys()):
             poste = 0
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
