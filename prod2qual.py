@@ -9,8 +9,10 @@ class Prod2Qual(object):
             return
         self.actif = True
         self._conv = dict((kv["PRD"], kv["QAS"]) for kv in list(csv.DictReader(open(qas_codes_csv), delimiter=delimiteur)))
+        self.prod2qual = lambda code_client_prod: self._prod2qual(code_client_prod)
+        self.prod2qual.has = lambda code_client_prod: self.has(code_client_prod)
                          
-    def prod2qual(self, code_client_prod):
+    def _prod2qual(self, code_client_prod):
         assert self.actif
 
         if self.has(code_client_prod):
