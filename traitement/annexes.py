@@ -778,3 +778,7 @@ class Annexes(object):
         for pos in range(0, len(caracteres)):
             texte = texte.replace(caracteres[pos], latex_c[pos])
         return texte
+
+    @classmethod
+    def possibles(cls):
+        return bool(shutil.which("pdflatex"))

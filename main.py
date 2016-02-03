@@ -66,6 +66,11 @@ Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines
                            dossier_annexes_techniques, plateforme, coefprests, generaux)
 Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                 dossier_enregistrement, plateforme, coefprests, generaux)
+if Annexes.possibles():
+    Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                               dossier_annexes_techniques, plateforme, coefprests, generaux)
+    Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                    dossier_enregistrement, plateforme, coefprests, generaux)
 
 BilanMensuel.bilan(dossier_csv, encodage, delimiteur, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
