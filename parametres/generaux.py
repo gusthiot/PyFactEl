@@ -9,7 +9,7 @@ class Generaux(object):
     """
 
     cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fond',
-            'entete', 'poste_emolument', 'lien', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
+            'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
             'unite', 'type_prix', 'type_rabais', 'texte_sap']
     nom_fichier = "paramgen.csv"
     libelle = "Paramètres Généraux"

@@ -30,18 +30,14 @@ class Annexes(object):
         :param coefprests: coefficients prestations importés
         :param generaux: paramètres généraux
         """
-        dossier_annexe = nom_dossier + "annexes" + Outils.separateur(plateforme)
-        if not os.path.exists(dossier_annexe):
-            os.makedirs(dossier_annexe)
+        dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
         prefixe = "annexe_"
         """
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
                                  comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)
         """
         # tant que les annexes techniques et les annexes de factures sont identiques
-        dossier_annexe_t = nom_dossier + "annexes_techniques" + Outils.separateur(plateforme)
-        if not os.path.exists(dossier_annexe):
-            os.makedirs(dossier_annexe)
+        dossier_annexe_t = Outils.chemin_dossier([nom_dossier, "annexes_techniques"], plateforme, generaux)
         prefixe_t = "annexeT_"
         for file_t in os.listdir(dossier_annexe_t):
             if file_t.endswith(".pdf"):
@@ -62,7 +58,7 @@ class Annexes(object):
         :param reservations: réservations importées
         :param prestations: prestations importées
         :param comptes: comptes importés
-        :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
+        :param dossier_annexe: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
         :param coefprests: coefficients prestations importés
         :param generaux: paramètres généraux

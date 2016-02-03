@@ -9,8 +9,8 @@ class Facture(object):
     """
 
     @staticmethod
-    def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, dossier_annexes,
-                 dossier_annexes_techniques):
+    def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
+                 lien_annexes_techniques):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -21,8 +21,8 @@ class Facture(object):
         :param generaux: paramètres généraux
         :param clients: clients importés
         :param comptes: comptes importés
-        :param dossier_annexes: dossier contenant les annexes
-        :param dossier_annexes_techniques: dossier contenant les annexes techniques
+        :param lien_annexes: lien au dossier contenant les annexes
+        :param lien_annexes_techniques: lien au dossier contenant les annexes techniques
         """
 
         if sommes.calculees == 0:
@@ -84,16 +84,12 @@ class Facture(object):
             if edition.version != "0":
                 reference += "-" + edition.version
 
-            lien_annexe = Outils.separateur_du_lien(dossier_annexes + "annexe_" + str(edition.annee) + "_" +
-                                                    Outils.mois_string(edition.mois) + "_" + str(edition.version) +
-                                                    "_" + code_client + ".pdf", generaux)
+            lien_annexe = lien_annexes + "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
+                          "_" + str(edition.version) + "_" + code_client + ".pdf"
 
-            lien_annexe_technique = Outils.separateur_du_lien(dossier_annexes_techniques + "annexeT_" +
-                                                              str(edition.annee) + "_" +
-                                                              Outils.mois_string(edition.mois) + "_" +
-                                                              str(edition.version) + "_" + code_client +
-                                                              ".pdf", generaux)
-
+            lien_annexe_technique = lien_annexes_techniques + "annexeT_" + str(edition.annee) + "_" + \
+                                    Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
+                                    code_client + ".pdf"
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
                                      cl['dest'], cl['ref'], code_client, code_client, code_client,

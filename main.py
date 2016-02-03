@@ -37,9 +37,10 @@ if verification.verification_cohérence(generaux, edition, acces, clients, coefm
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-dossier_enregistrement = Outils.chemin_dossier([generaux.donnees['lien'][1], edition.annee, Outils.mois_string(edition.mois)],
-                                               plateforme)
-
+dossier_enregistrement = Outils.chemin_dossier([generaux.donnees['chemin'][1], edition.annee, Outils.mois_string(edition.mois)],
+                                               plateforme, generaux)
+dossier_lien = Outils.lien_dossier([generaux.donnees['lien'][1], edition.annee, Outils.mois_string(edition.mois)],
+                                               plateforme, generaux)
 livraisons.calcul_montants(prestations, coefprests, comptes, clients, verification)
 reservations.calcul_montants(machines, coefmachines, comptes, clients, verification)
 acces.calcul_montants(machines, coefmachines, comptes, clients, verification)
@@ -48,16 +49,18 @@ sommes = Sommes(verification, generaux)
 sommes.calculer_toutes(livraisons, reservations, acces, prestations, comptes, clients)
 
 if edition.version == '0':
-    dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_0"], plateforme)
+    dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_0"], plateforme, generaux)
 else:
     dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_" + edition.version + "_" +
-                                         edition.client_unique], plateforme)
+                                         edition.client_unique], plateforme, generaux)
 
-dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, "annexes"], plateforme)
-dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, "annexes_techniques"], plateforme)
+dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, "annexes"], plateforme, generaux)
+lien_annexes = Outils.lien_dossier([dossier_lien, "annexes"], plateforme, generaux)
+dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, "annexes_techniques"], plateforme, generaux)
+lien_annexes_techniques = Outils.lien_dossier([dossier_lien, "annexes_techniques"], plateforme, generaux)
 
-Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, dossier_annexes,
-                 dossier_annexes_techniques)
+Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
+                 lien_annexes_techniques)
 
 Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                            dossier_annexes_techniques, plateforme, coefprests, generaux)

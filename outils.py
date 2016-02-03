@@ -16,20 +16,29 @@ class Outils(object):
         :param message: message à afficher
         """
         fenetre = Tk()
-        """
-        ascenseur = Scrollbar(fenetre)
-        ascenseur.pack(side=RIGHT, fill=Y)
-        fenetre.title("Erreur")
-        texte = Text(fenetre, yscrollcommand=ascenseur.set)
-        texte.insert(END, message)
-        texte.pack()
-        """
-        fenetre.title("Erreur")
+        fenetre.title("Message")
         texte = ScrolledText(fenetre)
         texte.insert(END, message)
         texte.pack()
         button = Button(fenetre, text='OK', command=fenetre.destroy)
         button.pack()
+        mainloop()
+
+    @staticmethod
+    def affiche_message_conditionnel(message):
+        """
+        affiche une petite boite de dialogue avec un message et 2 boutons OUI/NON, le NON arrête le programme
+        :param message: message à afficher
+        """
+        fenetre = Tk()
+        fenetre.title("Message conditionnel")
+        texte = ScrolledText(fenetre)
+        texte.insert(END, message)
+        texte.pack()
+        button = Button(fenetre, text='OUI', command=fenetre.destroy)
+        button.pack(side="left")
+        button = Button(fenetre, text='NON', command=sys.exit)
+        button.pack(side="right")
         mainloop()
 
     @staticmethod
@@ -47,7 +56,7 @@ class Outils(object):
         if dossier == "":
             Outils.affiche_message("Aucun dossier choisi")
             sys.exit("Aucun dossier choisi")
-        return dossier + Outils.separateur(plateforme)
+        return dossier + Outils.separateur_os(plateforme)
 
     @staticmethod
     def format_heure(nombre):
@@ -91,7 +100,7 @@ class Outils(object):
             return str(mois)
 
     @staticmethod
-    def separateur(plateforme):
+    def separateur_os(plateforme):
         """
         retourne le séparateur de chemin logique en fonction de l'OS (si windows ou pas)
         :param plateforme: OS utilisé
@@ -103,18 +112,49 @@ class Outils(object):
             return "/"
 
     @staticmethod
-    def separateur_du_lien(texte,generaux):
+    def separateur_lien(texte, generaux):
         """
-        retourne le séparateur de chemin logique en fonction du lien donné dans les paramètres généraux
+        remplace le séparateur de chemin logique en fonction du lien donné dans les paramètres généraux
+        :param texte: texte à traiter
         :param generaux: paramètres généraux
         :return: séparateur, string
         """
         if "\\" in generaux.donnees['lien'][1]:
             if "/" in generaux.donnees['lien'][1]:
                 Outils.affiche_message("'/' et '\\' présents dans le lien des paramètres généraux !!! ")
-            return texte.replace("/","\\")
+            texte = texte.replace("/", "\\")
         else:
-            return texte.replace("\\", "/")
+            texte = texte.replace("\\", "/")
+        return texte.replace("//", "/").replace("\\" + "\\", "\\")
+
+    @staticmethod
+    def separateur_dossier(texte, generaux, plateforme):
+        """
+        remplace le séparateur de chemin logique en fonction du chemin donné dans les paramètres généraux
+        :param texte: texte à traiter
+        :param generaux: paramètres généraux
+        :param plateforme: OS utilisé
+        :return: séparateur, string
+        """
+        if "\\" in generaux.donnees['chemin'][1]:
+            if "/" in generaux.donnees['chemin'][1]:
+                Outils.affiche_message("'/' et '\\' présents dans le lien des paramètres généraux !!! ")
+            texte = texte.replace("/", "\\")
+            """
+            if "\\" != Outils.separateur_os(plateforme):
+                Outils.affiche_message_conditionnel("Le chemin d'enregistrement n'utilise pas le même séparateur que "
+                                                    "l'os sur lequel tourne le logiciel. Voulez-vous tout de même "
+                                                    "continuer ?")
+            """
+        else:
+            texte = texte.replace("\\", "/")
+            """
+            if "/" != Outils.separateur_os(plateforme):
+                Outils.affiche_message_conditionnel("Le chemin d'enregistrement n'utilise pas le même séparateur que "
+                                                    "l'os sur lequel tourne le logiciel. Voulez-vous tout de même "
+                                                    "continuer ?")
+            """
+        return texte.replace("//", "/").replace("\\" + "\\", "\\")
 
     @staticmethod
     def eliminer_double_separateur(texte):
@@ -126,19 +166,34 @@ class Outils(object):
         return texte.replace("//", "/").replace("\\" + "\\", "\\")
 
     @staticmethod
-    def chemin_dossier(structure, plateforme):
+    def chemin_dossier(structure, plateforme, generaux):
         """
         construit le chemin pour enregistrer les données
         :param structure: éléments du chemin
         :param plateforme:OS utilisé
+        :param generaux: paramètres généraux
         :return:chemin logique complet pour dossier
         """
         chemin = ""
         for element in structure:
-            chemin += str(element) + Outils.separateur(plateforme)
+            chemin += str(element) + Outils.separateur_os(plateforme)
         if not os.path.exists(chemin):
             os.makedirs(chemin)
-        return Outils.eliminer_double_separateur(chemin)
+        return Outils.eliminer_double_separateur(Outils.separateur_dossier(chemin, generaux, plateforme))
+
+    @staticmethod
+    def lien_dossier(structure, plateforme, generaux):
+        """
+        construit le chemin pour enregistrer les données sans vérifier son existence
+        :param structure: éléments du chemin
+        :param plateforme: OS utilisé
+        :param generaux: paramètres généraux
+        :return:chemin logique complet pour dossier
+        """
+        chemin = ""
+        for element in structure:
+            chemin += str(element) + Outils.separateur_os(plateforme)
+        return Outils.eliminer_double_separateur(Outils.separateur_lien(chemin, generaux))
 
     @staticmethod
     def archiver_liste(liste, dossier_archive):
