@@ -46,9 +46,7 @@ class BilanMensuel(object):
             ligne.append(categorie + "t")
         fichier_writer.writerow(ligne)
 
-        keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
-
-        for code_client in keys:
+        for code_client in sommes.sommes_clients.keys():
             scl = sommes.sommes_clients[code_client]
             sca = sommes.sommes_categories[code_client]
             cl = clients.donnees[code_client]

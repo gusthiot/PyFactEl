@@ -69,9 +69,7 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
-        keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
-
-        for code_client in keys:
+        for code_client in sommes.sommes_clients.keys():
             poste = 0
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
@@ -104,8 +102,7 @@ class Facture(object):
 
             inc = 1
             client_comptes = sommes.sommes_comptes[code_client]
-            keys2 = Outils.ordonner_keys_str_par_int(client_comptes.keys())
-            for id_compte in keys2:
+            for id_compte in client_comptes.keys():
                 compte = client_comptes[id_compte]
                 co = comptes.donnees[id_compte]
                 if compte['si_facture'] > 0:

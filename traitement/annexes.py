@@ -94,9 +94,7 @@ class Annexes(object):
             Outils.affiche_message(info)
             return
 
-        keys = Outils.ordonner_keys_str_par_int(sommes.sommes_clients.keys())
-
-        for code_client in keys:
+        for code_client in sommes.sommes_clients.keys():
             contenu = Annexes.entete(plateforme)
             contenu += Annexes.contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines,
                                               reservations, prestations, comptes, coefprests, generaux)
@@ -182,9 +180,8 @@ class Annexes(object):
             '''
 
         client_comptes = sommes.sommes_comptes[code_client]
-        keys2 = Outils.ordonner_keys_str_par_int(client_comptes.keys())
 
-        for id_compte in keys2:
+        for id_compte in client_comptes.keys():
             # ## COMPTE
             co = comptes.donnees[id_compte]
             intitule_compte = id_compte + " - " + Annexes.echappe_caracteres(co['intitule'])
@@ -195,8 +192,6 @@ class Annexes(object):
                 %(labo)s - %(utilisateur)s - %(date)s
                 ''' % dico_nom
 
-            client_compte_projet = sommes.sommes_projets[code_client][id_compte]
-            keys3 = Outils.ordonner_keys_str_par_int(client_compte_projet.keys())
             structure_recap_projet = r'''{|l|l|l|l|'''
             contenu_recap_projet = r'''
                 \hline
@@ -210,8 +205,8 @@ class Annexes(object):
             contenu_recap_projet += r''' & Total projet \\
                 \hline
                 '''
-
-            for num_projet in keys3:
+            client_compte_projet = sommes.sommes_projets[code_client][id_compte]
+            for num_projet in client_compte_projet.keys():
                 # ## PROJET
                 sp = sommes.sommes_projets[code_client][id_compte][num_projet]
                 intitule_projet = num_projet + " - " + Annexes.echappe_caracteres(sp['intitule'])
