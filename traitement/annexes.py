@@ -1,9 +1,8 @@
 import os
-import re
 import shutil
-import subprocess
 
 from outils import Outils
+from latex import Latex
 
 
 class Annexes(object):
@@ -103,7 +102,7 @@ class Annexes(object):
             nom = prefixe + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
                   str(edition.version) + "_" + code_client
 
-            Annexes.creer_latex_pdf(nom, contenu, dossier_annexe)
+            Latex.creer_latex_pdf(nom, contenu, dossier_annexe)
 
     @staticmethod
     def entete(plateforme):
@@ -171,7 +170,7 @@ class Annexes(object):
         for categorie in generaux.obtenir_d3():
             structure_recap_compte += r'''l|'''
             contenu_recap_compte += r''' & '''
-            contenu_recap_compte += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+            contenu_recap_compte += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
 
         structure_recap_compte += r'''}'''
         legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + code_client
@@ -184,9 +183,9 @@ class Annexes(object):
         for id_compte in client_comptes.keys():
             # ## COMPTE
             co = comptes.donnees[id_compte]
-            intitule_compte = id_compte + " - " + Annexes.echappe_caracteres(co['intitule'])
-            dico_nom = {'labo': Annexes.echappe_caracteres(client['abrev_labo']),
-                        'utilisateur': Annexes.echappe_caracteres(co['intitule']),
+            intitule_compte = id_compte + " - " + Latex.echappe_caracteres(co['intitule'])
+            dico_nom = {'labo': Latex.echappe_caracteres(client['abrev_labo']),
+                        'utilisateur': Latex.echappe_caracteres(co['intitule']),
                         'date': str(edition.mois) + "/" + str(edition.annee)}
             contenu += r'''
                 %(labo)s - %(utilisateur)s - %(date)s
@@ -199,7 +198,7 @@ class Annexes(object):
             for categorie in generaux.obtenir_d3():
                 structure_recap_projet += r'''l|'''
                 contenu_recap_projet += r''' & '''
-                contenu_recap_projet += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+                contenu_recap_projet += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
             structure_recap_projet += r'''}'''
             legende_recap_projet = r'''Récapitulatif compte ''' + intitule_compte
             contenu_recap_projet += r''' & Total projet \\
@@ -209,7 +208,7 @@ class Annexes(object):
             for num_projet in client_compte_projet.keys():
                 # ## PROJET
                 sp = sommes.sommes_projets[code_client][id_compte][num_projet]
-                intitule_projet = num_projet + " - " + Annexes.echappe_caracteres(sp['intitule'])
+                intitule_projet = num_projet + " - " + Latex.echappe_caracteres(sp['intitule'])
 
                 machines_utilisees = {}
 
@@ -255,7 +254,7 @@ class Annexes(object):
                     contenu_cae += Annexes.ligne_cae(cae, machines.donnees[cae['id_machine']])
 
                 if nombre_cae > 0:
-                    contenu += Annexes.long_tableau(contenu_cae, structure_cae, legende_cae)
+                    contenu += Latex.long_tableau(contenu_cae, structure_cae, legende_cae)
                 # ## cae
 
                 # ## RES
@@ -283,7 +282,7 @@ class Annexes(object):
                     contenu_res += Annexes.ligne_res(res, machines.donnees[res['id_machine']])
 
                 if nombre_res > 0:
-                    contenu += Annexes.long_tableau(contenu_res, structure_res, legende_res)
+                    contenu += Latex.long_tableau(contenu_res, structure_res, legende_res)
                 # ## res
 
                 # ## LIV
@@ -307,10 +306,10 @@ class Annexes(object):
                         livs = liv_proj_cat[categorie]
                         for liv in livs:
                             nombre_liv += 1
-                            contenu_liv += Annexes.ligne_liv(liv, prestations.donnees[liv['id_prestation']])
+                            contenu_liv += Annexes.ligne_liv(liv)
 
                 if nombre_liv > 0:
-                    contenu += Annexes.long_tableau(contenu_liv, structure_liv, legende_liv)
+                    contenu += Latex.long_tableau(contenu_liv, structure_liv, legende_liv)
                 # ## liv
 
                 if nombre_res > 0 or nombre_res > 0:
@@ -325,14 +324,14 @@ class Annexes(object):
 
                     for machine in machines_utilisees:
                         dico_stat_machines = {
-                            'machine': Annexes.echappe_caracteres(machines_utilisees[machine]['machine']),
+                            'machine': Latex.echappe_caracteres(machines_utilisees[machine]['machine']),
                             'usage': Outils.format_heure(machines_utilisees[machine]['usage']),
                             'reservation': Outils.format_heure(machines_utilisees[machine]['reservation'])}
                         contenu_stat_machines += r'''%(machine)s & %(usage)s & %(reservation)s \\
                             \hline
                             ''' % dico_stat_machines
 
-                    contenu += Annexes.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
+                    contenu += Latex.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
 
                 # ## projet
 
@@ -368,7 +367,7 @@ class Annexes(object):
 
             contenu_recap_projet += ligne1 + ligne2 + ligne3
 
-            contenu += Annexes.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
+            contenu += Latex.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
 
             dico_recap_compte = {'compte': id_compte, 'type': co['categorie'], 'plafond': "%.2f" % sco['pj'],
                                  'non_plafond': "%.2f" % sco['nj'], 'total': "%.2f" % sj}
@@ -409,7 +408,7 @@ class Annexes(object):
                 ''' % dico_recap_poste
 
             for categorie in generaux.obtenir_d3():
-                contenu_recap_poste += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+                contenu_recap_poste += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_m'][categorie]
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_r'][categorie]
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
@@ -417,12 +416,12 @@ class Annexes(object):
                     \hline
                     '''
 
-            contenu += Annexes.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
+            contenu += Latex.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
 
             contenu += r'''\clearpage'''
             # ## compte
 
-        dic_entete = {'code': code_client, 'nom': Annexes.echappe_caracteres(client['abrev_labo']),
+        dic_entete = {'code': code_client, 'nom': Latex.echappe_caracteres(client['abrev_labo']),
                       'date': str(edition.mois) + "/" + str(edition.annee)}
         entete = r'''
             %(code)s - %(nom)s - %(date)s
@@ -444,7 +443,7 @@ class Annexes(object):
             \hline
             ''' % dic_emo
 
-        contenu += Annexes.tableau(contenu_emolument, structure_emolument, legende_emolument)
+        contenu += Latex.tableau(contenu_emolument, structure_emolument, legende_emolument)
 
         dico_recap_compte = {'plafond': "%.2f" % scl['pt'], 'non_plafond': "%.2f" % scl['nt'],
                              'total': "%.2f" % scl['somme_t']}
@@ -458,7 +457,7 @@ class Annexes(object):
                 \hline
                 ''' % dico_recap_compte
 
-        contenu += Annexes.tableau(contenu_recap_compte, structure_recap_compte, legende_recap_compte)
+        contenu += Latex.tableau(contenu_recap_compte, structure_recap_compte, legende_recap_compte)
 
         structure_recap_poste_cl = r'''{|l|l|l|l|}'''
         legende_recap_poste_cl = r'''Récapitulatif postes pour client ''' + code_client
@@ -509,7 +508,7 @@ class Annexes(object):
             ''' % dico_recap_poste_cl
 
         for categorie in generaux.obtenir_d3():
-            contenu_recap_poste_cl += Annexes.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+            contenu_recap_poste_cl += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
             contenu_recap_poste_cl += r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_m'][categorie] + r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_r'][categorie] + r''' & '''
@@ -517,7 +516,7 @@ class Annexes(object):
                 \hline
                 '''
 
-        contenu += Annexes.tableau(contenu_recap_poste_cl, structure_recap_poste_cl, legende_recap_poste_cl)
+        contenu += Latex.tableau(contenu_recap_poste_cl, structure_recap_poste_cl, legende_recap_poste_cl)
 
         return contenu
 
@@ -535,7 +534,7 @@ class Annexes(object):
         p4 = Outils.format_si_nul(machine['t_h_machine_hc_p'] * cae['duree_machine_hc'] / 60)
         p5 = Outils.format_si_nul(machine['t_h_machine_hc_np'] * cae['duree_machine_hc'] / 60)
         p6 = Outils.format_si_nul(machine['t_h_operateur_hc_mo'] * cae['duree_operateur_hc'] / 60)
-        login = Annexes.echappe_caracteres(cae['date_login']).split()
+        login = Latex.echappe_caracteres(cae['date_login']).split()
         temps = login[0].split('-')
         date = temps[0]
         for pos in range(1, len(temps)):
@@ -546,11 +545,11 @@ class Annexes(object):
             heure = ""
 
         dico = {'date': date, 'heure': heure,
-                'machine': Annexes.echappe_caracteres(cae['nom_machine']),
-                'projet': Annexes.echappe_caracteres(cae['intitule_projet']),
-                'operateur': Annexes.echappe_caracteres(cae['nom_op']),
-                'rem_op': Annexes.echappe_caracteres(cae['remarque_op']),
-                'rem_staff': Annexes.echappe_caracteres(cae['remarque_staff']),
+                'machine': Latex.echappe_caracteres(cae['nom_machine']),
+                'projet': Latex.echappe_caracteres(cae['intitule_projet']),
+                'operateur': Latex.echappe_caracteres(cae['nom_op']),
+                'rem_op': Latex.echappe_caracteres(cae['remarque_op']),
+                'rem_staff': Latex.echappe_caracteres(cae['remarque_staff']),
                 'deq_hp': Outils.format_heure(cae['duree_machine_hp']),
                 'dmo_hp': Outils.format_heure(cae['duree_operateur_hp']),
                 'deq_hc': Outils.format_heure(cae['duree_machine_hc']),
@@ -616,7 +615,7 @@ class Annexes(object):
         p8 = Outils.format_si_nul(machine['t_h_machine_hp_np'] * res['duree_fact_hp'] / 60)
         p9 = Outils.format_si_nul(machine['t_h_machine_hc_p'] * res['duree_fact_hc'] / 60)
         p10 = Outils.format_si_nul(machine['t_h_machine_hc_np'] * res['duree_fact_hc'] / 60)
-        login = Annexes.echappe_caracteres(res['date_debut']).split()
+        login = Latex.echappe_caracteres(res['date_debut']).split()
         temps = login[0].split('-')
         date = temps[0]
         for pos in range(1, len(temps)):
@@ -627,10 +626,10 @@ class Annexes(object):
             heure = ""
 
         dico = {'date': date, 'heure': heure,
-                'machine': Annexes.echappe_caracteres(res['nom_machine']),
-                'projet': Annexes.echappe_caracteres(res['intitule_projet']),
-                'reserve': Annexes.echappe_caracteres(res['date_reservation']),
-                'supprime': Annexes.echappe_caracteres(res['date_suppression']),
+                'machine': Latex.echappe_caracteres(res['nom_machine']),
+                'projet': Latex.echappe_caracteres(res['intitule_projet']),
+                'reserve': Latex.echappe_caracteres(res['date_reservation']),
+                'supprime': Latex.echappe_caracteres(res['date_suppression']),
                 'shp': Outils.format_heure(res['duree_hp']), 'shc': Outils.format_heure(res['duree_hc']),
                 'fhp': Outils.format_heure(res['duree_fact_hp']), 'fhc': Outils.format_heure(res['duree_fact_hc']),
                 't7': "%d" % machine['t_h_machine_hp_p'], 't8': "%d" % machine['t_h_machine_hp_np'],
@@ -681,22 +680,21 @@ class Annexes(object):
         return ligne
 
     @staticmethod
-    def ligne_liv(livraison, prestation):
+    def ligne_liv(livraison):
         """
         création d'une ligne de tableau pour une livraison
         :param livraison: livraison particulière
-        :param prestation: prestation concernée
         :return: ligne de tableau latex
         """
         total = livraison['montant'] - livraison['rabais_r']
-        dico = {'date': Annexes.echappe_caracteres(livraison['date_livraison']),
-                'prestation': Annexes.echappe_caracteres(livraison['designation']),
-                'quantite': livraison['quantite'], 'unite': Annexes.echappe_caracteres(livraison['unite']),
+        dico = {'date': Latex.echappe_caracteres(livraison['date_livraison']),
+                'prestation': Latex.echappe_caracteres(livraison['designation']),
+                'quantite': livraison['quantite'], 'unite': Latex.echappe_caracteres(livraison['unite']),
                 'rapport': "%.2f" % livraison['prix_unit_client'], 'montant': "%.2f" % livraison['montant'],
                 'rabais': "%.2f" % livraison['rabais_r'], 'total': "%.2f" % total, 'id': livraison['id_livraison'],
-                'responsable': Annexes.echappe_caracteres(livraison['responsable']),
-                'commande': Annexes.echappe_caracteres(livraison['date_commande']),
-                'remarque': Annexes.echappe_caracteres(livraison['remarque'])}
+                'responsable': Latex.echappe_caracteres(livraison['responsable']),
+                'commande': Latex.echappe_caracteres(livraison['date_commande']),
+                'remarque': Latex.echappe_caracteres(livraison['remarque'])}
 
         return r'''\multirow{2}{*}{%(date)s} & %(prestation)s & %(quantite)s & %(unite)s & %(rapport)s & %(montant)s &
             %(rabais)s & %(total)s \\
@@ -705,76 +703,3 @@ class Annexes(object):
              %(remarque)s} \\
              \hline
              ''' % dico
-
-    @staticmethod
-    def long_tableau(contenu, structure, legende):
-        """
-        création d'un long tableau latex (peut s'étendre sur plusieurs pages)
-        :param contenu: contenu du tableau
-        :param structure: structure du tableau
-        :param legende: légende du tabéeau
-        :return: long tableau latex
-        """
-        return r'''
-            {\tiny
-            \begin{longtable}[c]
-            ''' + structure + contenu + r'''
-            \caption{''' + legende + r'''}
-            \end{longtable}}
-            '''
-
-    @staticmethod
-    def tableau(contenu, structure, legende):
-        """
-        création d'un tableau latex
-        :param contenu: contenu du tableau
-        :param structure: structure du tableau
-        :param legende: légende du tableau
-        :return: tableau latex
-        """
-        return r'''
-            \begin{table}[!ht]
-            \tiny
-            \centering
-            \begin{tabular}''' + structure + contenu + r'''\end{tabular}
-            \caption{''' + legende + r'''}
-            \end{table}
-            '''
-
-    @staticmethod
-    def creer_latex_pdf(nom_fichier, contenu, nom_dossier=""):
-        """
-        création d'un pdf à partir d'un contenu latex
-        :param nom_fichier: nom du pdf final
-        :param contenu: contenu latex
-        :param nom_dossier: nom du dossier dans lequel enregistrer le pdf
-        """
-        with open(nom_fichier + ".tex", 'w') as f:
-            f.write(contenu)
-
-        proc = subprocess.Popen(['pdflatex', nom_fichier + ".tex"])
-        proc.communicate()
-
-        os.unlink(nom_fichier + '.tex')
-        os.unlink(nom_fichier + '.log')
-        os.unlink(nom_fichier + '.aux')
-
-        if nom_dossier != '':
-            shutil.copy(nom_fichier + ".pdf", nom_dossier)
-            os.unlink(nom_fichier + '.pdf')
-
-    @staticmethod
-    def echappe_caracteres(texte):
-        """
-        échappement des caractères qui peuvent poser problème dans les tableaux latex
-        :param texte: texte à échapper
-        :return: texte échappé
-        """
-        p = re.compile("[^ a-zA-Z0-9_'èéêàô.:,;\-%&$/|]")
-        texte = p.sub('', texte)
-
-        caracteres = ['%', '$', '_', '&']
-        latex_c = ['\%', '\$', '\_', '\&']
-        for pos in range(0, len(caracteres)):
-            texte = texte.replace(caracteres[pos], latex_c[pos])
-        return texte
