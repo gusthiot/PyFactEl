@@ -6,6 +6,7 @@ from outils import Outils
 from parametres import Edition, Generaux
 from traitement import Annexes, BilanMensuel, Facture, Sommes, Verification
 from prod2qual import Prod2Qual
+from latex import Latex
 
 """
  fichier principal à lancer pour faire tourner le logiciel
@@ -70,7 +71,7 @@ if prod2qual.actif:
     Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
                      lien_annexes_techniques, prod2qual.prod2qual)
 
-if Annexes.possibles():
+if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                                dossier_annexes_techniques, plateforme, coefprests, generaux)
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,

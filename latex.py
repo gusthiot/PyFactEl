@@ -6,6 +6,10 @@ import subprocess
 
 class Latex(object):
 
+    @classmethod
+    def possibles(cls):
+        return bool(shutil.which("pdflatex"))
+
     @staticmethod
     def echappe_caracteres(texte):
         """
