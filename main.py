@@ -1,9 +1,11 @@
+# This Python file uses the following encoding: utf-8
 import sys
 
 from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
 from outils import Outils
 from parametres import Edition, Generaux
 from traitement import Annexes, BilanMensuel, Facture, Sommes, Verification
+from prod2qual import Prod2Qual
 
 """
  fichier principal à lancer pour faire tourner le logiciel
@@ -62,10 +64,17 @@ lien_annexes_techniques = Outils.lien_dossier([dossier_lien, "annexes_techniques
 Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
                  lien_annexes_techniques)
 
-Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           dossier_annexes_techniques, plateforme, coefprests, generaux)
-Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                dossier_enregistrement, plateforme, coefprests, generaux)
+
+prod2qual = Prod2Qual(dossier_data, delimiteur)
+if prod2qual.actif:
+    Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
+                     lien_annexes_techniques, prod2qual.prod2qual)
+
+if Annexes.possibles():
+    Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                               dossier_annexes_techniques, plateforme, coefprests, generaux)
+    Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
+                    dossier_enregistrement, plateforme, coefprests, generaux)
 
 BilanMensuel.bilan(dossier_csv, encodage, delimiteur, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)

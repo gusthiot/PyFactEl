@@ -10,7 +10,7 @@ class Facture(object):
 
     @staticmethod
     def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques):
+                 lien_annexes_techniques, prod2qual = None):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -23,6 +23,7 @@ class Facture(object):
         :param comptes: comptes importés
         :param lien_annexes: lien au dossier contenant les annexes
         :param lien_annexes_techniques: lien au dossier contenant les annexes techniques
+        :param prod2qual: Une fonction qui traduit les identifiants clients de PRD en QAS
         """
 
         if sommes.calculees == 0:
@@ -31,8 +32,12 @@ class Facture(object):
             Outils.affiche_message(info)
             return
 
+        if prod2qual:
+            suffixe = "_qualite.csv"
+        else:
+            suffixe = ".csv"
         nom = nom_dossier + "facture_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
-              str(edition.version) + ".csv"
+              str(edition.version) + suffixe
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
         fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
         fichier_writer.writerow(["Poste", "Système d'origine", "Type de document de vente", "Organisation commerciale",
@@ -69,7 +74,9 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
-        for code_client in sommes.sommes_clients.keys():
+        for code_client in sorted(sommes.sommes_clients.keys()):
+            if prod2qual and not (prod2qual.has(code_client)):
+                continue
             poste = 0
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
@@ -88,9 +95,13 @@ class Facture(object):
             lien_annexe_technique = lien_annexes_techniques + "annexeT_" + str(edition.annee) + "_" + \
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
+            if prod2qual:
+                code_client_traduit = prod2qual(code_client)
+            else:
+                code_client_traduit = code_client
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
-                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client,
-                                     cl['dest'], cl['ref'], code_client, code_client, code_client,
+                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client_traduit,
+                                     cl['dest'], cl['ref'], code_client_traduit, code_client_traduit, code_client_traduit,
                                      generaux.donnees['devise'][1], "", reference, "", "",
                                      generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
 
