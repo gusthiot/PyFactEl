@@ -180,7 +180,7 @@ class Annexes(object):
 
         client_comptes = sommes.sommes_comptes[code_client]
 
-        for id_compte in client_comptes.keys():
+        for id_compte in sorted(client_comptes.keys()):
             # ## COMPTE
             co = comptes.donnees[id_compte]
             intitule_compte = id_compte + " - " + Latex.echappe_caracteres(co['intitule'])
@@ -205,7 +205,7 @@ class Annexes(object):
                 \hline
                 '''
             client_compte_projet = sommes.sommes_projets[code_client][id_compte]
-            for num_projet in client_compte_projet.keys():
+            for num_projet in sorted(client_compte_projet.keys()):
                 # ## PROJET
                 sp = sommes.sommes_projets[code_client][id_compte][num_projet]
                 intitule_projet = num_projet + " - " + Latex.echappe_caracteres(sp['intitule'])
@@ -421,10 +421,11 @@ class Annexes(object):
             contenu += r'''\clearpage'''
             # ## compte
 
-        dic_entete = {'code': code_client, 'nom': Latex.echappe_caracteres(client['abrev_labo']),
+        dic_entete = {'code': code_client, 'code_sap': client['code_sap'],
+                      'nom': Latex.echappe_caracteres(client['abrev_labo']),
                       'date': str(edition.mois) + "/" + str(edition.annee)}
         entete = r'''
-            %(code)s - %(nom)s - %(date)s
+            %(code)s - %(code_sap)s - %(nom)s - %(date)s
             ''' % dic_entete
 
         contenu += entete

@@ -14,7 +14,7 @@ class Client(Fichier):
         :param delimiteur: code délimiteur de champ dans le fichier csv
         :param encodage: encodage du texte
         """
-        cles = ['annee', 'mois', 'code', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_sans_activite',
+        cles = ['annee', 'mois', 'code', 'code_sap', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_sans_activite',
                 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif', 'classe_tarif']
         nom_fichier = "client.csv"
         libelle = "Clients"
@@ -62,6 +62,9 @@ class Client(Fichier):
                 msg += "la classe de tarif de la ligne " + str(ligne) + " ne peut être vide\n"
             elif donnee['id_classe_tarif'] not in classes:
                 classes.append(donnee['id_classe_tarif'])
+
+            if donnee['code_sap'] == "":
+                msg += "le code sap de la ligne " + str(ligne) + " ne peut être vide\n"
 
             if donnee['code'] == "":
                 msg += "le code client de la ligne " + str(ligne) + " ne peut être vide\n"

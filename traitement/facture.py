@@ -96,9 +96,10 @@ class Facture(object):
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
             if prod2qual:
-                code_client_traduit = prod2qual(code_client)
+                code_client_traduit = prod2qual(cl['code_sap'])
             else:
-                code_client_traduit = code_client
+                code_client_traduit = cl['code_sap']
+            print(code_client + " | " + cl['code_sap'] + " : " + str(prod2qual))
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client_traduit,
                                      cl['dest'], cl['ref'], code_client_traduit, code_client_traduit, code_client_traduit,
@@ -113,7 +114,7 @@ class Facture(object):
 
             inc = 1
             client_comptes = sommes.sommes_comptes[code_client]
-            for id_compte in client_comptes.keys():
+            for id_compte in sorted(client_comptes.keys()):
                 compte = client_comptes[id_compte]
                 co = comptes.donnees[id_compte]
                 if compte['si_facture'] > 0:

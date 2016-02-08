@@ -206,21 +206,6 @@ class Outils(object):
             shutil.copy(element, dossier_archive)
 
     @staticmethod
-    def ordonner_keys_str_par_int(keys):
-        """
-        ordonne une liste de clés-nombres enregistrées comme string par ordre croissant
-        :param keys: clés à trier
-        :return: clés triées
-        """
-        ordonne = []
-        for key in keys:
-            ordonne.append(int(key))
-        ordonne = sorted(ordonne)
-        for pos in range(0, len(ordonne)):
-            ordonne[pos] = str(ordonne[pos])
-        return ordonne
-
-    @staticmethod
     def est_un_nombre(donnee, colonne, ligne):
         """
         vérifie que la donnée est bien un nombre
