@@ -75,11 +75,14 @@ class Facture(object):
                                  "Matricule récepteur fond 05"])
 
         for code_client in sorted(sommes.sommes_clients.keys()):
-            if prod2qual and not (prod2qual.has(code_client)):
-                continue
             poste = 0
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
+
+            code_sap = cl['code_sap']
+            if prod2qual and not (prod2qual.has(code_sap)):
+                continue
+
             if cl['type_labo'] == "I":
                 genre = generaux.donnees['code_int'][1]
             else:
@@ -96,13 +99,12 @@ class Facture(object):
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
             if prod2qual:
-                code_client_traduit = prod2qual(cl['code_sap'])
+                code_sap_traduit = prod2qual(code_sap)
             else:
-                code_client_traduit = cl['code_sap']
-            print(code_client + " | " + cl['code_sap'] + " : " + str(prod2qual))
+                code_sap_traduit = code_sap
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
-                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client_traduit,
-                                     cl['dest'], cl['ref'], code_client_traduit, code_client_traduit, code_client_traduit,
+                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_sap_traduit,
+                                     cl['dest'], cl['ref'], code_sap_traduit, code_sap_traduit, code_sap_traduit,
                                      generaux.donnees['devise'][1], "", reference, "", "",
                                      generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
 
