@@ -181,8 +181,8 @@ class Facture(object):
                 ''' + "%.2f" % (client['somme_t'] + client['em'] - client['er']) + r'''</td></tr>
                 </table>
                 '''
-            contenu_client += r'''<a href="''' + lien_annexe + r'''">''' + nom_annexe + r'''</a>&nbsp;&nbsp;&nbsp;'''
-            contenu_client += r'''<a href="''' + lien_annexe_technique + r'''">''' + nom_annexe_technique + r'''</a>'''
+            contenu_client += r'''<a href="''' + lien_annexe + r'''" target="new">''' + nom_annexe + r'''</a>&nbsp;&nbsp;&nbsp;'''
+            contenu_client += r'''<a href="''' + lien_annexe_technique + r'''" target="new">''' + nom_annexe_technique + r'''</a>'''
             contenu_client += "</div><br /><br /><hr /><br /><br />"
             contenu += contenu_client
         Facture.creer_html(contenu, nom_dossier + "test", encodage)
