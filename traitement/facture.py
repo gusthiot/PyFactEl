@@ -1,6 +1,5 @@
 import csv
 from latex import Latex
-
 from outils import Outils
 
 
@@ -76,6 +75,7 @@ class Facture(object):
                                  "Matricule récepteur fond 05"])
 
         contenu = ""
+
         for code_client in sorted(sommes.sommes_clients.keys()):
             poste = 0
             client = sommes.sommes_clients[code_client]
@@ -111,7 +111,7 @@ class Facture(object):
             dico_contenu = {'code': code_client, 'abrev': cl['abrev_labo'],
                             'nom': cl['nom_labo'], 'dest': cl['dest'], 'ref': cl['ref'],
                             'ref_fact': reference, 'texte': generaux.donnees['entete'][1]}
-            contenu_client = r'''<div id="ticket"><div id="entete"> %(code)s <br />
+            contenu_client = r'''<section><div id="entete"> %(code)s <br />
                 %(abrev)s <br />
                 %(nom)s <br />
                 %(dest)s <br />
@@ -121,7 +121,7 @@ class Facture(object):
                 %(texte)s <br />
                 ''' % dico_contenu
 
-            contenu_client += r'''<table>
+            contenu_client += r'''<table id="tableau">
                 <tr>
                 <td>Item </td><td> Date </td><td> Name </td><td> Description </td><td> Unit </td><td> Quantity </td>
                 <td> Unit Price <br /> [CHF] </td><td> Discount </td><td> Net amount <br /> [CHF] </td>
@@ -177,15 +177,15 @@ class Facture(object):
                     inc += 1
 
             contenu_client += r'''
-                <tr><td colspan="8">Net amount [CHF] : </td><td>
+                <tr><td colspan="8" id="net">Net amount [CHF] : </td><td>
                 ''' + "%.2f" % (client['somme_t'] + client['em'] - client['er']) + r'''</td></tr>
                 </table>
                 '''
             contenu_client += r'''<a href="''' + lien_annexe + r'''" target="new">''' + nom_annexe + r'''</a>&nbsp;&nbsp;&nbsp;'''
             contenu_client += r'''<a href="''' + lien_annexe_technique + r'''" target="new">''' + nom_annexe_technique + r'''</a>'''
-            contenu_client += "</div><br /><br /><hr /><br /><br />"
+            contenu_client += "</section>"
             contenu += contenu_client
-        Facture.creer_html(contenu, nom_dossier + "test", encodage)
+        Facture.creer_html(contenu, nom_dossier, "ticket", encodage)
 
     @staticmethod
     def ligne_tableau(generaux, index, poste, net, rabais, consommateur, edition):
@@ -230,8 +230,10 @@ class Facture(object):
                 consommateur]
 
     @staticmethod
-    def creer_html(contenu, nom, encodage):
-        fichier = open(nom + ".html", 'w', encoding=encodage)
+    def creer_html(contenu, nom_dossier, nom, encodage):
+        Outils.copier_dossier("./reveal.js/", "js", nom_dossier)
+        Outils.copier_dossier("./reveal.js/", "css", nom_dossier)
+        fichier = open(nom_dossier + nom + ".html", 'w', encoding=encodage)
 
         html = r'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -241,23 +243,38 @@ class Facture(object):
             <meta content="CMi" name="author" />
             <style>
             #entete {
-                margin-left: 500px;
+                margin-left: 600px;
+                text-align:left;
             }
-            table {
+            #tableau {
                 border-collapse: collapse;
                 margin: 20px;
             }
-            table, tr, td {
+            #tableau tr, #tableau td {
                 border: 1px solid black;
+                vertical-align:middle;
             }
-            td {
-                padding: 2px;
+            #tableau td {
+                padding: 3px;
+            }
+            #net {
+                text-align:right;
             }
             </style>
+            <link rel="stylesheet" href="css/reveal.css">
+            <link rel="stylesheet" href="css/white.css">
             </head>
-            <body>'''
+            <body>
+            <div class="reveal">
+            <div class="slides">
+            '''
         html += contenu
-        html += r'''</body>
+        html += r'''</div>
+                <script src="js/reveal.js"></script>
+                <script>
+                    Reveal.initialize();
+                </script>
+                </body>
             </html>'''
         fichier.write(html)
         fichier.close()

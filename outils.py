@@ -2,12 +2,23 @@ from tkinter.filedialog import *
 from tkinter.scrolledtext import *
 
 import shutil
+import errno
 
 
 class Outils(object):
     """
     Classe contenant diverses méthodes utiles
     """
+
+    @staticmethod
+    def copier_dossier(source, dossier, destination):
+        chemin = destination + "/" + dossier
+        if not os.path.exists(chemin):
+            try:
+                shutil.copytree(source + dossier, chemin)
+            except OSError as exc:
+                if exc.errno == errno.ENOTDIR:
+                    shutil.copy(source, destination)
 
     @staticmethod
     def affiche_message(message):
@@ -128,12 +139,11 @@ class Outils(object):
         return texte.replace("//", "/").replace("\\" + "\\", "\\")
 
     @staticmethod
-    def separateur_dossier(texte, generaux, plateforme):
+    def separateur_dossier(texte, generaux):
         """
         remplace le séparateur de chemin logique en fonction du chemin donné dans les paramètres généraux
         :param texte: texte à traiter
         :param generaux: paramètres généraux
-        :param plateforme: OS utilisé
         :return: séparateur, string
         """
         if "\\" in generaux.donnees['chemin'][1]:
@@ -179,7 +189,7 @@ class Outils(object):
             chemin += str(element) + Outils.separateur_os(plateforme)
         if not os.path.exists(chemin):
             os.makedirs(chemin)
-        return Outils.eliminer_double_separateur(Outils.separateur_dossier(chemin, generaux, plateforme))
+        return Outils.eliminer_double_separateur(Outils.separateur_dossier(chemin, generaux))
 
     @staticmethod
     def lien_dossier(structure, plateforme, generaux):
