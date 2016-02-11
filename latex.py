@@ -18,11 +18,11 @@ class Latex(object):
         :return: texte échappé
         """
 
-        p = re.compile("[^ a-zA-Z0-9_'èéêàô.:,;\-%&$/|]")
+        p = re.compile("[^ a-zA-Z0-9_'èéêàô.:,;\-%#&$/|]")
         texte = p.sub('', texte)
 
-        caracteres = ['%', '$', '_', '&']
-        latex_c = ['\%', '\$', '\_', '\&']
+        caracteres = ['%', '$', '_', '&', '#']
+        latex_c = ['\%', '\$', '\_', '\&', '\#']
         for pos in range(0, len(caracteres)):
             texte = texte.replace(caracteres[pos], latex_c[pos])
 
@@ -84,3 +84,27 @@ class Latex(object):
             \caption{''' + legende + r'''}
             \end{table}
             '''
+        return tableau
+
+    @staticmethod
+    def entete(plateforme):
+        """
+        création de l'entête de fichier latex en fonction de l'OS
+        :param plateforme: OS utilisé
+        :return: le contenu de l'entête
+        """
+        debut = r'''\documentclass[a4paper,10pt]{article}
+            \usepackage[T1]{fontenc}
+            \usepackage{lmodern}
+            \usepackage[french]{babel}
+            \usepackage{microtype}
+            '''
+        if plateforme == "win32":
+            debut += r'''
+                \usepackage[cp1252]{inputenc}
+                '''
+        elif plateforme == "darwin":
+            debut += r'''\usepackage[appelmac]{inputenc}'''
+        else:
+            debut += r'''\usepackage[utf8]{inputenc}'''
+        return debut

@@ -1,4 +1,5 @@
 import csv
+from latex import Latex
 
 from outils import Outils
 
@@ -10,7 +11,7 @@ class Facture(object):
 
     @staticmethod
     def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, prod2qual = None):
+                 lien_annexes_techniques, prod2qual=None):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -74,12 +75,16 @@ class Facture(object):
                                  "Affaire récepteur 05", "Demande de voyage récepteur fond 05",
                                  "Matricule récepteur fond 05"])
 
+        contenu = ""
         for code_client in sorted(sommes.sommes_clients.keys()):
+
             if prod2qual and not (prod2qual.has(code_client)):
                 continue
-            poste = 0
+
             client = sommes.sommes_clients[code_client]
             cl = clients.donnees[code_client]
+
+            poste = 0
             if cl['type_labo'] == "I":
                 genre = generaux.donnees['code_int'][1]
             else:
@@ -89,28 +94,53 @@ class Facture(object):
             if edition.version != "0":
                 reference += "-" + edition.version
 
-            lien_annexe = lien_annexes + "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
+            nom_annexe = "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
                           "_" + str(edition.version) + "_" + code_client + ".pdf"
+            lien_annexe = lien_annexes + nom_annexe
 
-            lien_annexe_technique = lien_annexes_techniques + "annexeT_" + str(edition.annee) + "_" + \
+            nom_annexe_technique = "annexeT_" + str(edition.annee) + "_" + \
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
+            lien_annexe_technique = lien_annexes_techniques + nom_annexe_technique
+
             if prod2qual:
                 code_client_traduit = prod2qual(cl['code_sap'])
             else:
                 code_client_traduit = cl['code_sap']
-            print(code_client + " | " + cl['code_sap'] + " : " + str(prod2qual))
+
+            dico_contenu = {'code': code_client, 'abrev': cl['abrev_labo'],
+                            'nom': cl['nom_labo'], 'dest': cl['dest'], 'ref': cl['ref'],
+                            'ref_fact': reference, 'texte': generaux.donnees['entete'][1]}
+            contenu_client = r'''<div id="ticket"><div id="entete"> %(code)s <br />
+                %(abrev)s <br />
+                %(nom)s <br />
+                %(dest)s <br />
+                %(ref)s <br />
+                </div><br />
+                %(ref_fact)s <br /><br />
+                %(texte)s <br />
+                ''' % dico_contenu
+
+            contenu_client += r'''<table>
+                <tr>
+                <td>Item </td><td> Date </td><td> Name </td><td> Description </td><td> Unit </td><td> Quantity </td>
+                <td> Unit Price <br /> [CHF] </td><td> Discount </td><td> Net amount <br /> [CHF] </td>
+                </tr>
+                '''
+
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
-                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "", code_client_traduit,
-                                     cl['dest'], cl['ref'], code_client_traduit, code_client_traduit, code_client_traduit,
-                                     generaux.donnees['devise'][1], "", reference, "", "",
-                                     generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
+                                     generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "",
+                                     code_client_traduit, cl['dest'], cl['ref'], code_client_traduit,
+                                     code_client_traduit, code_client_traduit, generaux.donnees['devise'][1], "",
+                                     reference, "", "", generaux.donnees['entete'][1], lien_annexe, "",
+                                     lien_annexe_technique, "X"])
 
             op_centre = cl['type_labo'] + str(edition.annee)[2:] + Outils.mois_string(edition.mois)
             if int(cl['emol_base_mens']) > 0:
                 poste = generaux.donnees['poste_emolument'][1]
                 fichier_writer.writerow(Facture.ligne_facture(generaux, 1, poste, client['em'], client['er'],
                                                               op_centre, "", edition))
+                contenu_client += Facture.ligne_tableau(generaux, 1, poste, client['em'], client['er'], "", edition)
 
             inc = 1
             client_comptes = sommes.sommes_comptes[code_client]
@@ -122,11 +152,15 @@ class Facture(object):
                     if compte['somme_j_pm'] > 0:
                         fichier_writer.writerow(Facture.ligne_facture(generaux, 2, poste, compte['somme_j_pm'],
                                                                     compte['prj'], op_centre, co['intitule'], edition))
+                        contenu_client += Facture.ligne_tableau(generaux, 2, poste, compte['somme_j_pm'],
+                                                                 compte['prj'], co['intitule'], edition)
                         poste += 1
 
                     if compte['somme_j_nm'] > 0:
                         fichier_writer.writerow(Facture.ligne_facture(generaux, 3, poste, compte['somme_j_nm'],
                                                                     compte['nrj'], op_centre, co['intitule'], edition))
+                        contenu_client += Facture.ligne_tableau(generaux, 3, poste, compte['somme_j_nm'],
+                                                                 compte['nrj'], co['intitule'], edition)
                         poste += 1
 
                     index = 4
@@ -135,9 +169,40 @@ class Facture(object):
                             fichier_writer.writerow(Facture.ligne_facture(generaux, index, poste,
                                 compte['sommes_cat_m'][categorie], compte['sommes_cat_r'][categorie], op_centre,
                                                                           co['intitule'], edition))
+                            contenu_client += Facture.ligne_tableau(generaux, index, poste,
+                                                                     compte['sommes_cat_m'][categorie],
+                                                                     compte['sommes_cat_r'][categorie], co['intitule'],
+                                                                     edition)
                             poste += 1
                         index += 1
                     inc += 1
+
+            contenu_client += r'''
+                <tr><td colspan="8">Net amount [CHF] : </td><td>
+                ''' + "%.2f" % (client['somme_t'] + client['em'] - client['er']) + r'''</td></tr>
+                </table>
+                '''
+            contenu_client += r'''<a href="''' + lien_annexe + r'''">''' + nom_annexe + r'''</a>&nbsp;&nbsp;&nbsp;'''
+            contenu_client += r'''<a href="''' + lien_annexe_technique + r'''">''' + nom_annexe_technique + r'''</a>'''
+            contenu_client += "</div><br /><br /><hr /><br /><br />"
+            contenu += contenu_client
+        Facture.creer_html(contenu, nom_dossier + "test", encodage)
+
+    @staticmethod
+    def ligne_tableau(generaux, index, poste, net, rabais, consommateur, edition):
+        montant = net - rabais
+        date_livraison = str(edition.dernier_jour) + "." + Outils.mois_string(edition.mois) + "." + str(edition.annee)
+        description = generaux.donnees['code_d'][index] + " : " + generaux.donnees['code_sap'][index]
+        dico_tab = {'poste': poste, 'date': date_livraison, 'descr': description,
+                    'texte': generaux.donnees['texte_sap'][index], 'nom': Latex.echappe_caracteres(consommateur),
+                    'unit': generaux.donnees['unite'][index], 'quantity': generaux.donnees['quantite'][index],
+                    'unit_p': "%.2f" % net, 'discount': "%.2f" % rabais, 'net': "%.2f" % montant}
+        ligne = r'''<tr>
+            <td> %(poste)s </td><td> %(date)s </td><td> %(nom)s </td><td> %(descr)s <br /> %(texte)s </td>
+            <td> %(unit)s </td><td> %(quantity)s </td><td> %(unit_p)s </td><td> %(discount)s </td><td> %(net)s </td>
+            </tr>
+            ''' % dico_tab
+        return ligne
 
     @staticmethod
     def ligne_facture(generaux, index, poste, net, rabais, op_centre, consommateur, edition):
@@ -156,9 +221,44 @@ class Facture(object):
         if rabais == 0:
             rabais = ""
         code_op = generaux.donnees['code_t'][1] + op_centre + generaux.donnees['code_d'][index]
+        date_livraison = str(edition.annee) + Outils.mois_string(edition.mois) + str(edition.dernier_jour)
+
         return [poste, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
                 "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
                 generaux.donnees['unite'][index], generaux.donnees['type_prix'][index], net,
-                generaux.donnees['type_rabais'][index], rabais, edition.date_livraison, generaux.donnees['financier'][1], "",
+                generaux.donnees['type_rabais'][index], rabais, date_livraison, generaux.donnees['financier'][1], "",
                 generaux.donnees['fond'][1], "", "", code_op, "", "", "", generaux.donnees['texte_sap'][index],
                 consommateur]
+
+    @staticmethod
+    def creer_html(contenu, nom, encodage):
+        fichier = open(nom + ".html", 'w', encoding=encodage)
+
+        html = r'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+            <meta content="text/html; charset=cp1252" http-equiv="content-type" />
+            <meta content="CMi" name="author" />
+            <style>
+            #entete {
+                margin-left: 500px;
+            }
+            table {
+                border-collapse: collapse;
+                margin: 20px;
+            }
+            table, tr, td {
+                border: 1px solid black;
+            }
+            td {
+                padding: 2px;
+            }
+            </style>
+            </head>
+            <body>'''
+        html += contenu
+        html += r'''</body>
+            </html>'''
+        fichier.write(html)
+        fichier.close()

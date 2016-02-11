@@ -13,7 +13,7 @@ from latex import Latex
 """
 
 plateforme = sys.platform
-encodage = "ISO-8859-1"
+encodage = "cp1252"
 delimiteur = ';'
 dossier_data = Outils.choisir_dossier(plateforme)
 edition = Edition(dossier_data, delimiteur, encodage)
@@ -40,10 +40,10 @@ if verification.verification_cohérence(generaux, edition, acces, clients, coefm
                                        machines, prestations, reservations) > 0:
     sys.exit("Erreur dans la cohérence")
 
-dossier_enregistrement = Outils.chemin_dossier([generaux.donnees['chemin'][1], edition.annee, Outils.mois_string(edition.mois)],
-                                               plateforme, generaux)
+dossier_enregistrement = Outils.chemin_dossier([generaux.donnees['chemin'][1], edition.annee,
+                                                Outils.mois_string(edition.mois)], plateforme, generaux)
 dossier_lien = Outils.lien_dossier([generaux.donnees['lien'][1], edition.annee, Outils.mois_string(edition.mois)],
-                                               plateforme, generaux)
+                                   plateforme, generaux)
 livraisons.calcul_montants(prestations, coefprests, comptes, clients, verification)
 reservations.calcul_montants(machines, coefmachines, comptes, clients, verification)
 acces.calcul_montants(machines, coefmachines, comptes, clients, verification)
@@ -72,8 +72,8 @@ if prod2qual.actif:
                      lien_annexes_techniques, prod2qual.prod2qual)
 
 if Latex.possibles():
-    Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                               dossier_annexes_techniques, plateforme, coefprests, generaux)
+    Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
+                               comptes, dossier_annexes_techniques, plateforme, coefprests, generaux)
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                     dossier_enregistrement, plateforme, coefprests, generaux)
 

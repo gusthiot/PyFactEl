@@ -94,7 +94,15 @@ class Annexes(object):
             return
 
         for code_client in sommes.sommes_clients.keys():
-            contenu = Annexes.entete(plateforme)
+            contenu = Latex.entete(plateforme)
+            contenu += r'''\usepackage[margin=10mm, includefoot]{geometry}
+                \usepackage{multirow}
+                \usepackage{longtable}
+                \usepackage[scriptsize]{caption}
+
+                \begin{document}
+                \renewcommand{\arraystretch}{1.5}
+                '''
             contenu += Annexes.contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines,
                                               reservations, prestations, comptes, coefprests, generaux)
             contenu += r'''\end{document}'''
@@ -103,38 +111,6 @@ class Annexes(object):
                   str(edition.version) + "_" + code_client
 
             Latex.creer_latex_pdf(nom, contenu, dossier_annexe)
-
-    @staticmethod
-    def entete(plateforme):
-        """
-        création de l'entête de fichier latex en fonction de l'OS
-        :param plateforme: OS utilisé
-        :return: le contenu de l'entête
-        """
-        debut = r'''\documentclass[a4paper,10pt]{article}
-            \usepackage[T1]{fontenc}
-            \usepackage{lmodern}
-            \usepackage[french]{babel}
-            \usepackage{microtype}
-            \usepackage[margin=10mm, includefoot]{geometry}
-            \usepackage{multirow}
-            \usepackage{longtable}
-            \usepackage[scriptsize]{caption}
-            '''
-        if plateforme == "win32":
-            debut += r'''
-                \usepackage[cp1252]{inputenc}
-                '''
-        elif plateforme == "darwin":
-            debut += r'''\usepackage[appelmac]{inputenc}'''
-        else:
-            debut += r'''\usepackage[utf8]{inputenc}'''
-
-        debut += r'''
-            \begin{document}
-            \renewcommand{\arraystretch}{1.5}
-            '''
-        return debut
 
     @staticmethod
     def contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines, reservations, prestations,
