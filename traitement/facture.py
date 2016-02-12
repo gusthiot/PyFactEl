@@ -34,8 +34,10 @@ class Facture(object):
 
         if prod2qual:
             suffixe = "_qualite.csv"
+            suffixe2 = "_qualite.html"
         else:
             suffixe = ".csv"
+            suffixe2 = ".html"
         nom = nom_dossier + "facture_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
               str(edition.version) + suffixe
         csv_fichier = open(nom, 'w', newline='', encoding=encodage)
@@ -185,7 +187,7 @@ class Facture(object):
             contenu_client += r'''<a href="''' + lien_annexe_technique + r'''" target="new">''' + nom_annexe_technique + r'''</a>'''
             contenu_client += "</section>"
             contenu += contenu_client
-        Facture.creer_html(contenu, nom_dossier, "ticket", encodage)
+        Facture.creer_html(contenu, nom_dossier, "ticket", encodage, suffixe2)
 
     @staticmethod
     def ligne_tableau(generaux, index, poste, net, rabais, consommateur, edition):
@@ -230,10 +232,10 @@ class Facture(object):
                 consommateur]
 
     @staticmethod
-    def creer_html(contenu, nom_dossier, nom, encodage):
+    def creer_html(contenu, nom_dossier, nom, encodage, suffixe):
         Outils.copier_dossier("./reveal.js/", "js", nom_dossier)
         Outils.copier_dossier("./reveal.js/", "css", nom_dossier)
-        fichier = open(nom_dossier + nom + ".html", 'w', encoding=encodage)
+        fichier = open(nom_dossier + nom + suffixe, 'w', encoding=encodage)
 
         html = r'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
