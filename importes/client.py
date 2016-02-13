@@ -14,8 +14,9 @@ class Client(Fichier):
         :param delimiteur: code délimiteur de champ dans le fichier csv
         :param encodage: encodage du texte
         """
-        cles = ['annee', 'mois', 'code', 'code_sap', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'type_labo', 'emol_sans_activite',
-                'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif', 'classe_tarif']
+        cles = ['annee', 'mois', 'code', 'code_sap', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'email', 'mode',
+                'type_labo', 'emol_sans_activite', 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif',
+                'classe_tarif']
         nom_fichier = "client.csv"
         libelle = "Clients"
         Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
@@ -82,6 +83,10 @@ class Client(Fichier):
             elif donnee['type_labo'] not in generaux.obtenir_code_n():
                 msg += "le type de labo '" + donnee['type_labo'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les types N\n"
+
+            if (donnee['mode'] != "") and (donnee['mode'] not in generaux.obtenir_modes_envoi()):
+                msg += "le mode d'envoi '" + donnee['mode'] + "' de la ligne " + str(ligne) +\
+                    " n'existe pas dans les modes d'envoi généraux\n"
 
             if not((donnee['emol_sans_activite'] == "NON") or (donnee['emol_sans_activite'] == "ZERO") or
                     (donnee['emol_sans_activite'] == "OUI")):

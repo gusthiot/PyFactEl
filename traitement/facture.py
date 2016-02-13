@@ -10,7 +10,7 @@ class Facture(object):
 
     @staticmethod
     def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, prod2qual=None):
+                 lien_annexes_techniques, dossier_annexes, dossier_annexes_techniques, prod2qual=None):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -23,6 +23,8 @@ class Facture(object):
         :param comptes: comptes importés
         :param lien_annexes: lien au dossier contenant les annexes
         :param lien_annexes_techniques: lien au dossier contenant les annexes techniques
+        :param dossier_annexes: dossier contenant les annexes
+        :param dossier_annexes_techniques: dossier contenant les annexes techniques
         :param prod2qual: Une fonction qui traduit les identifiants clients de PRD en QAS
         """
 
@@ -45,7 +47,7 @@ class Facture(object):
         fichier_writer.writerow(["Poste", "Système d'origine", "Type de document de vente", "Organisation commerciale",
                                  "Canal de distribution", "Secteur d'activité", "Agence commerciale",
                                  "Groupe de vendeurs", "Donneur d'ordre", "Nom 2 du donneur d'ordre",
-                                 "Nom 3 du donneur d'ordre", "Client facturé", "Payeur", "Client livré", "Devise",
+                                 "Nom 3 du donneur d'ordre", "Adresse e-mail", "Client facturé", "Payeur", "Client livré", "Devise",
                                  "Mode d'envoi", "Numéro de la commande d'achat du client",
                                  "Date de livraison E/Tsouhaitée", "Nom émetteur", "Textes", "Lien réseau 01",
                                  "Doc interne", "Lien réseau 02", "Doc interne", "Lien réseau 03", "Doc interne",
@@ -99,11 +101,13 @@ class Facture(object):
             nom_annexe = "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
                           "_" + str(edition.version) + "_" + code_client + ".pdf"
             lien_annexe = lien_annexes + nom_annexe
+            dossier_annexe = dossier_annexes + nom_annexe
 
             nom_annexe_technique = "annexeT_" + str(edition.annee) + "_" + \
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
             lien_annexe_technique = lien_annexes_techniques + nom_annexe_technique
+            dossier_annexe_technique = dossier_annexes_techniques + nom_annexe_technique
 
             if prod2qual:
                 code_sap_traduit = prod2qual(code_sap)
@@ -132,8 +136,8 @@ class Facture(object):
 
             fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
                                      generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "",
-                                     code_sap_traduit, cl['dest'], cl['ref'], code_sap_traduit, code_sap_traduit,
-                                     code_sap_traduit, generaux.donnees['devise'][1], "", reference, "", "",
+                                     code_sap_traduit, cl['dest'], cl['ref'], cl['email'], code_sap_traduit, code_sap_traduit,
+                                     code_sap_traduit, generaux.donnees['devise'][1], cl['mode'], reference, "", "",
                                      generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
 
             op_centre = cl['type_labo'] + str(edition.annee)[2:] + Outils.mois_string(edition.mois)
@@ -183,8 +187,10 @@ class Facture(object):
                 ''' + "%.2f" % (client['somme_t'] + client['em'] - client['er']) + r'''</td></tr>
                 </table>
                 '''
-            contenu_client += r'''<a href="''' + lien_annexe + r'''" target="new">''' + nom_annexe + r'''</a>&nbsp;&nbsp;&nbsp;'''
-            contenu_client += r'''<a href="''' + lien_annexe_technique + r'''" target="new">''' + nom_annexe_technique + r'''</a>'''
+            contenu_client += r'''<a href="''' + dossier_annexe + r'''" target="new">''' + nom_annexe + r'''
+                </a>&nbsp;&nbsp;&nbsp;'''
+            contenu_client += r'''<a href="''' + dossier_annexe_technique + r'''" target="new">
+                ''' + nom_annexe_technique + r'''</a>'''
             contenu_client += "</section>"
             contenu += contenu_client
         Facture.creer_html(contenu, nom_dossier, "ticket", encodage, suffixe2)
@@ -225,7 +231,7 @@ class Facture(object):
         date_livraison = str(edition.annee) + Outils.mois_string(edition.mois) + str(edition.dernier_jour)
 
         return [poste, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
+                "", "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
                 generaux.donnees['unite'][index], generaux.donnees['type_prix'][index], net,
                 generaux.donnees['type_rabais'][index], rabais, date_livraison, generaux.donnees['financier'][1], "",
                 generaux.donnees['fond'][1], "", "", code_op, "", "", "", generaux.donnees['texte_sap'][index],

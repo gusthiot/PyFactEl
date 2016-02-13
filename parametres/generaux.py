@@ -10,7 +10,7 @@ class Generaux(object):
 
     cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fond',
             'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
-            'unite', 'type_prix', 'type_rabais', 'texte_sap']
+            'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
     nom_fichier = "paramgen.csv"
     libelle = "Paramètres Généraux"
 
@@ -96,3 +96,10 @@ class Generaux(object):
         :return: codes D3
         """
         return self.donnees['code_d'][4:]
+
+    def obtenir_modes_envoi(self):
+        """
+        retourne les modes d'envoi
+        :return: modes d'envoi
+        """
+        return self.donnees['modes'][1:]
