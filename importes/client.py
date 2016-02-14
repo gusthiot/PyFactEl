@@ -1,5 +1,6 @@
 from importes import Fichier
 from outils import Outils
+import re
 
 
 class Client(Fichier):
@@ -87,6 +88,10 @@ class Client(Fichier):
             if (donnee['mode'] != "") and (donnee['mode'] not in generaux.obtenir_modes_envoi()):
                 msg += "le mode d'envoi '" + donnee['mode'] + "' de la ligne " + str(ligne) +\
                     " n'existe pas dans les modes d'envoi généraux\n"
+
+            if (donnee['email'] != "") and (not re.match("[^@]+@[^@]+\.[^@]+", donnee['email'])):
+                msg += "le format de l'e-mail '" + donnee['email'] + "' de la ligne " + str(ligne) +\
+                    " n'est pas correct\n"
 
             if not((donnee['emol_sans_activite'] == "NON") or (donnee['emol_sans_activite'] == "ZERO") or
                     (donnee['emol_sans_activite'] == "OUI")):
