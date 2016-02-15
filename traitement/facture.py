@@ -10,7 +10,7 @@ class Facture(object):
 
     @staticmethod
     def factures(sommes, nom_dossier, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, dossier_annexes, dossier_annexes_techniques, prod2qual=None):
+                 lien_annexes_techniques, annexes, annexes_techniques, prod2qual=None):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -101,13 +101,13 @@ class Facture(object):
             nom_annexe = "annexe_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + \
                           "_" + str(edition.version) + "_" + code_client + ".pdf"
             lien_annexe = lien_annexes + nom_annexe
-            dossier_annexe = dossier_annexes + nom_annexe
+            dossier_annexe = "../" + annexes + "/" + nom_annexe
 
             nom_annexe_technique = "annexeT_" + str(edition.annee) + "_" + \
                                     Outils.mois_string(edition.mois) + "_" + str(edition.version) + "_" + \
                                     code_client + ".pdf"
             lien_annexe_technique = lien_annexes_techniques + nom_annexe_technique
-            dossier_annexe_technique = dossier_annexes_techniques + nom_annexe_technique
+            dossier_annexe_technique = "../" + annexes_techniques + "/" + nom_annexe_technique
 
             if prod2qual:
                 code_sap_traduit = prod2qual(code_sap)

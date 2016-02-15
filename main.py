@@ -57,19 +57,20 @@ else:
     dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_" + edition.version + "_" +
                                          edition.client_unique], plateforme, generaux)
 
-dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, "annexes"], plateforme, generaux)
-lien_annexes = Outils.lien_dossier([dossier_lien, "annexes"], plateforme, generaux)
-dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, "annexes_techniques"], plateforme, generaux)
-lien_annexes_techniques = Outils.lien_dossier([dossier_lien, "annexes_techniques"], plateforme, generaux)
+annexes = "annexes"
+dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, annexes], plateforme, generaux)
+lien_annexes = Outils.lien_dossier([dossier_lien, annexes], plateforme, generaux)
+annexes_techniques = "annexes_techniques"
+dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, annexes_techniques], plateforme, generaux)
+lien_annexes_techniques = Outils.lien_dossier([dossier_lien, annexes_techniques], plateforme, generaux)
 
 Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, dossier_annexes, dossier_annexes_techniques)
-
+                 lien_annexes_techniques, annexes, annexes_techniques)
 
 prod2qual = Prod2Qual(dossier_data, delimiteur)
 if prod2qual.actif:
     Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                     lien_annexes_techniques, dossier_annexes, dossier_annexes_techniques, prod2qual.prod2qual)
+                     lien_annexes_techniques, annexes, annexes_techniques, prod2qual.prod2qual)
 
 if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
