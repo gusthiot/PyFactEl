@@ -8,7 +8,7 @@ class Generaux(object):
     Classe pour l'importation des paramètres généraux
     """
 
-    cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fond',
+    cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fonds',
             'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
             'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
     nom_fichier = "paramgen.csv"
