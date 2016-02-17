@@ -94,10 +94,10 @@ class Facture(object):
                     continue
     
                 if cl['type_labo'] == "I":
-                    genre = generaux.donnees['code_int'][1]
+                    genre = generaux.code_int
                 else:
-                    genre = generaux.donnees['code_ext'][1]
-                nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
+                    genre = generaux.code_ext
+                nature = generaux.nature_client_par_code_n(cl['type_labo'])
                 reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
                 if edition.version != "0":
                     reference += "-" + edition.version
@@ -120,7 +120,7 @@ class Facture(object):
     
                 dico_contenu = {'code': code_client, 'abrev': cl['abrev_labo'],
                                 'nom': cl['nom_labo'], 'dest': cl['dest'], 'ref': cl['ref'],
-                                'ref_fact': reference, 'texte': generaux.donnees['entete'][1]}
+                                'ref_fact': reference, 'texte': generaux.entete}
                 contenu_client = r'''<section><div id="entete"> %(code)s <br />
                     %(abrev)s <br />
                     %(nom)s <br />
@@ -138,11 +138,11 @@ class Facture(object):
                     </tr>
                     '''
     
-                fichier_writer.writerow([poste, generaux.donnees['origine'][1], genre, generaux.donnees['commerciale'][1],
-                                         generaux.donnees['canal'][1], generaux.donnees['secteur'][1], "", "",
+                fichier_writer.writerow([poste, generaux.origine, genre, generaux.commerciale,
+                                         generaux.canal, generaux.secteur, "", "",
                                          code_sap_traduit, cl['dest'], cl['ref'], cl['email'], code_sap_traduit, code_sap_traduit,
-                                         code_sap_traduit, generaux.donnees['devise'][1], cl['mode'], reference, "", "",
-                                         generaux.donnees['entete'][1], lien_annexe, "", lien_annexe_technique, "X"])
+                                         code_sap_traduit, generaux.devise, cl['mode'], reference, "", "",
+                                         generaux.entete, lien_annexe, "", lien_annexe_technique, "X"])
     
                 op_centre = cl['type_labo'] + str(edition.annee)[2:] + Outils.mois_string(edition.mois)
                 if int(cl['emol_base_mens']) > 0:

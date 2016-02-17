@@ -155,8 +155,8 @@ class Outils(object):
         :param generaux: paramètres généraux
         :return: séparateur, string
         """
-        if "\\" in generaux.donnees['lien'][1]:
-            if "/" in generaux.donnees['lien'][1]:
+        if "\\" in generaux.lien:
+            if "/" in generaux.lien:
                 Outils.affiche_message("'/' et '\\' présents dans le lien des paramètres généraux !!! ")
             texte = texte.replace("/", "\\")
         else:
@@ -171,8 +171,8 @@ class Outils(object):
         :param generaux: paramètres généraux
         :return: séparateur, string
         """
-        if "\\" in generaux.donnees['chemin'][1]:
-            if "/" in generaux.donnees['chemin'][1]:
+        if "\\" in generaux.chemin:
+            if "/" in generaux.chemin:
                 Outils.affiche_message("'/' et '\\' présents dans le lien des paramètres généraux !!! ")
             texte = texte.replace("/", "\\")
             """

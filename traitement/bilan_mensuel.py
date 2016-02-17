@@ -40,7 +40,7 @@ class BilanMensuel(object):
                      "type client", "nature client", "nb utilisateurs", "nb tot comptes", "nb comptes cat 1",
                      "nb comptes cat 2", "nb comptes cat 3", "nb comptes cat 4", "somme T", "Em base", "somme EQ",
                      "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "Pt", "Qt", "Ot", "Nt"]
-            for categorie in generaux.obtenir_d3():
+            for categorie in generaux.codes_d3():
                 ligne.append(categorie + "t")
             fichier_writer.writerow(ligne)
 
@@ -48,7 +48,7 @@ class BilanMensuel(object):
                 scl = sommes.sommes_clients[code_client]
                 sca = sommes.sommes_categories[code_client]
                 cl = clients.donnees[code_client]
-                nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
+                nature = generaux.nature_client_par_code_n(cl['type_labo'])
                 reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
                 nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
                 cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
@@ -79,7 +79,7 @@ class BilanMensuel(object):
                          cl['nom_labo'], 'U', cl['type_labo'], nb_u, nb_c, cat['1'], cat['2'], cat['3'], cat['4'],
                          scl['somme_t'], scl['em'], scl['somme_eq'], scl['er'], kprj1, kprj2, kprj3, kprj4, scl['pt'],
                          scl['qt'], scl['ot'], scl['nt']]
-                for categorie in generaux.obtenir_d3():
+                for categorie in generaux.codes_d3():
                     ligne.append(scl['tot_cat'][categorie])
                 fichier_writer.writerow(ligne)
 

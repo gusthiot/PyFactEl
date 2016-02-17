@@ -147,7 +147,7 @@ class Annexes(object):
             \hline
             Intitulé & Type & Plafonné & Non Plaf.'''
 
-        for categorie in generaux.obtenir_d3():
+        for categorie in generaux.codes_d3():
             structure_recap_compte += r'''l|'''
             contenu_recap_compte += r''' & '''
             contenu_recap_compte += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
@@ -175,7 +175,7 @@ class Annexes(object):
             contenu_recap_projet = r'''
                 \hline
                 Numéro & Plafonné & Non Plaf. '''
-            for categorie in generaux.obtenir_d3():
+            for categorie in generaux.codes_d3():
                 structure_recap_projet += r'''l|'''
                 contenu_recap_projet += r''' & '''
                 contenu_recap_projet += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
@@ -200,7 +200,7 @@ class Annexes(object):
                 contenu_recap_projet += r'''
                     \hline
                     %(num)s & %(plafond)s & %(non_plafond)s''' % dico_recap_projet
-                for categorie in generaux.obtenir_d3():
+                for categorie in generaux.codes_d3():
                     total += sp['tot_cat'][categorie]
                     contenu_recap_projet += r''' & ''' + "%.2f" % sp['tot_cat'][categorie]
                 dico_recap_projet['total'] = "%.2f" % total
@@ -283,7 +283,7 @@ class Annexes(object):
                 liv_proj_cat = livraisons.livraisons_pour_projet_par_categorie(num_projet, id_compte, code_client,
                                                                                prestations)
 
-                for categorie in generaux.obtenir_d3():
+                for categorie in generaux.codes_d3():
                     if categorie in liv_proj_cat:
                         livs = liv_proj_cat[categorie]
                         for liv in livs:
@@ -330,7 +330,7 @@ class Annexes(object):
 
             sj = sco['pj'] + sco['nj']
 
-            for categorie in generaux.obtenir_d3():
+            for categorie in generaux.codes_d3():
                 ligne1 += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
                 ligne2 += r''' & '''
                 ligne3 += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
@@ -357,7 +357,7 @@ class Annexes(object):
             contenu_recap_compte += r'''Compte %(compte)s & %(type)s & %(plafond)s & %(non_plafond)s ''' \
                                     % dico_recap_compte
 
-            for categorie in generaux.obtenir_d3():
+            for categorie in generaux.codes_d3():
                 contenu_recap_compte += r''' & ''' + "%.2f" % sco['tot_cat'][categorie]
 
             contenu_recap_compte += r'''& %(total)s \\
@@ -389,7 +389,7 @@ class Annexes(object):
                 \hline
                 ''' % dico_recap_poste
 
-            for categorie in generaux.obtenir_d3():
+            for categorie in generaux.codes_d3():
                 contenu_recap_poste += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_m'][categorie]
                 contenu_recap_poste += r''' & ''' + "%.2f" % sco['sommes_cat_r'][categorie]
@@ -433,7 +433,7 @@ class Annexes(object):
 
         contenu_recap_compte += r'''Total article & & %(plafond)s & %(non_plafond)s''' % dico_recap_compte
 
-        for categorie in generaux.obtenir_d3():
+        for categorie in generaux.codes_d3():
             contenu_recap_compte += r''' & ''' + "%.2f" % scl['tot_cat'][categorie]
 
         contenu_recap_compte += r'''& %(total)s \\
@@ -490,7 +490,7 @@ class Annexes(object):
             \hline
             ''' % dico_recap_poste_cl
 
-        for categorie in generaux.obtenir_d3():
+        for categorie in generaux.codes_d3():
             contenu_recap_poste_cl += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
             contenu_recap_poste_cl += r''' & '''
             contenu_recap_poste_cl += "%.2f" % scl['sommes_cat_m'][categorie] + r''' & '''

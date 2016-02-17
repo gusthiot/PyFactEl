@@ -37,7 +37,7 @@ class Sommes(object):
         self.sca = 0
         self.sommes_clients = {}
         self.calculees = 0
-        self.categories = generaux.obtenir_d3()
+        self.categories = generaux.codes_d3()
 
     def calculer_toutes(self, livraisons, reservations, acces, prestations, comptes, clients):
         """

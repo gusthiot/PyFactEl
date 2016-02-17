@@ -29,7 +29,7 @@ class Generaux(object):
                           des factures et annexes avec les codes d'articles de
                           qualification
         """
-        self.donnees = {}
+        self._donnees = {}
         try:
             for ligne in dossier_source.reader(self.nom_fichier):
                 cle = ligne.pop(0)
@@ -38,43 +38,43 @@ class Generaux(object):
                                  "Clé inconnue dans %s: %s" % (self.nom_fichier, cle))
                 while "" in ligne:
                     ligne.remove("")
-                self.donnees[cle] = ligne
+                self._donnees[cle] = ligne
         except IOError as e:
             Outils.fatal(e, "impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
-        if prod2qual and 'code_sap_qas' in self.donnees:
-            self.donnees['code_sap'] = self.donnees['code_sap_qas']
+        if prod2qual and 'code_sap_qas' in self._donnees:
+            self._donnees['code_sap'] = self._donnees['code_sap_qas']
 
         erreurs = ""
         for cle in self.cles_obligatoires:
-            if cle not in self.donnees:
+            if cle not in self._donnees:
                 erreurs += "\nClé manquante dans %s: %s" % (self.nom_fichier, cle)
 
         try:
-            for quantite in self.donnees['quantite'][1:]:
+            for quantite in self._donnees['quantite'][1:]:
                 int(quantite)
         except ValueError:
             erreurs += "les quantités doivent être des nombres entiers\n"
         codes_n = []
-        for nn in self.donnees['code_n'][1:]:
+        for nn in self._donnees['code_n'][1:]:
             if nn not in codes_n:
                 codes_n.append(nn)
             else:
                 erreurs += "le code N '" + nn + "' n'est pas unique\n"
         codes_d = []
-        for dd in self.donnees['code_d'][1:]:
+        for dd in self._donnees['code_d'][1:]:
             if dd not in codes_d:
                 codes_d.append(dd)
             else:
                 erreurs += "le code D '" + dd + "' n'est pas unique\n"
 
-        if len(self.donnees['code_n']) != len(self.donnees['nature_client']):
+        if len(self._donnees['code_n']) != len(self._donnees['nature_client']):
             erreurs += "le nombre de colonees doit être le même pour le code N et pour la nature du client\n"
 
-        if (len(self.donnees['code_d']) != len(self.donnees['code_sap'])) or (len(self.donnees['code_d']) !=
-                len(self.donnees['quantite'])) or (len(self.donnees['code_d']) !=
-                len(self.donnees['unite'])) or (len(self.donnees['code_d']) !=
-                len(self.donnees['type_prix'])) or (len(self.donnees['code_d']) !=
-                len(self.donnees['type_rabais'])) or (len(self.donnees['code_d']) != len(self.donnees['texte_sap'])):
+        if (len(self._donnees['code_d']) != len(self._donnees['code_sap'])) or (len(self._donnees['code_d']) !=
+                len(self._donnees['quantite'])) or (len(self._donnees['code_d']) !=
+                len(self._donnees['unite'])) or (len(self._donnees['code_d']) !=
+                len(self._donnees['type_prix'])) or (len(self._donnees['code_d']) !=
+                len(self._donnees['type_rabais'])) or (len(self._donnees['code_d']) != len(self._donnees['texte_sap'])):
             erreurs += "le nombre de colonees doit être le même pour le code D, le code SAP, la quantité, l'unité, " \
                    "le type de prix, le type de rabais et le texte SAP\n"
 
@@ -86,18 +86,14 @@ class Generaux(object):
         retourne les codes N
         :return: codes N
         """
-        return self.donnees['code_n'][1:]
+        return self._donnees['code_n'][1:]
 
     def obtenir_modes_envoi(self):
         """
         retourne les modes d'envoi
         :return: modes d'envoi
         """
-        return self.donnees['modes'][1:]
-
-    @property
-    def fonds(self):
-        return self.donnees['fonds'][1]
+        return self._donnees['modes'][1:]
 
     @property
     def articles(self):
@@ -111,8 +107,8 @@ class Generaux(object):
         """
         if not hasattr(self, "_articles"):
             self._articles = []
-            for i in range(1, len(self.donnees['code_d'])):
-                kw = dict((k, self.donnees[k][i]) for k in _champs_article)
+            for i in range(1, len(self._donnees['code_d'])):
+                kw = dict((k, self._donnees[k][i]) for k in _champs_article)
                 self._articles.append(Article(**kw))
         return self._articles
 
@@ -125,17 +121,25 @@ class Generaux(object):
         """
         return self.articles[3:]
 
-    def obtenir_d3(self):
+    def codes_d3(self):
         return [a.code_d for a in self.articles_d3]
 
-    @property
-    def centre_financier(self):
-        return self.donnees['financier'][1]
+    def nature_client_par_code_n(self, nature_client):
+        return self._donnees['nature_client'][
+            self._donnees['code_n'].index(nature_client)]
 
-    @property
-    def poste_emolument(self):
-        return self.donnees['poste_emolument'][1]
+def ajoute_accesseur_pour_valeur_unique(cls, nom, cle_csv=None):
+    if cle_csv is None:
+        cle_csv = nom
+    def accesseur(self):
+        return self._donnees[cle_csv][1]
+    setattr(Generaux, nom, property(accesseur))
 
-    @property
-    def code_t(self):
-        return self.donnees['code_t'][1]
+ajoute_accesseur_pour_valeur_unique(Generaux, "centre_financier", "financier")
+
+for champ_valeur_unique in ('fonds', 'entete', 'chemin', 'lien',
+                            'poste_emolument', 'devise', 'canal', 'secteur',
+                            'origine', 'commerciale',
+                            'code_int', 'code_ext', 'code_t'):
+    ajoute_accesseur_pour_valeur_unique(Generaux, champ_valeur_unique)
+

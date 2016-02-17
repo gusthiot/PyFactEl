@@ -85,7 +85,7 @@ class CoefPrest(Fichier):
         for donnee in self.donnees:
             if donnee['categorie'] == "":
                 msg += "la catégorie de la ligne " + str(ligne) + " ne peut être vide\n"
-            elif donnee['categorie'] not in generaux.obtenir_d3():
+            elif donnee['categorie'] not in generaux.codes_d3():
                 msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
                        " n'existe pas dans les paramètres D3\n"
             elif donnee['categorie'] not in categories:
@@ -113,7 +113,7 @@ class CoefPrest(Fichier):
             donnee['coefficient'], info = Outils.est_un_nombre(donnee['coefficient'], "le coefficient", ligne)
             msg += info
 
-        for categorie in generaux.obtenir_d3():
+        for categorie in generaux.codes_d3():
             if categorie not in categories:
                 msg += "La categorie D3 '" + categorie + "' dans les paramètres généraux n'est pas présente dans " \
                                                          "les coefficients de prestations\n"

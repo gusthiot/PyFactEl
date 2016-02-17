@@ -65,7 +65,7 @@ class Prestation(Fichier):
 
             if donnee['categorie'] == "":
                 msg += "la catégorie  de la ligne " + str(ligne) + " ne peut être vide\n"
-            elif donnee['categorie'] not in generaux.obtenir_d3():
+            elif donnee['categorie'] not in generaux.codes_d3():
                 msg += "la catégorie '" + donnee['categorie'] + "' de la ligne " + str(ligne) +\
                        " n'existe pas dans les paramètres D3\n"
             elif coefprests.contient_categorie(donnee['categorie']) == 0:
