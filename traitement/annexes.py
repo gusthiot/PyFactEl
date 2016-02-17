@@ -12,7 +12,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                nom_dossier, plateforme, coefprests, generaux):
+                nom_dossier, plateforme, coefprests, coefmachines, generaux):
         """
         création des annexes de facture
         :param sommes: sommes calculées
@@ -27,6 +27,7 @@ class Annexes(object):
         :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
         :param coefprests: coefficients prestations importés
+        :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
         """
         dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
@@ -45,7 +46,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                           dossier_annexe, plateforme, coefprests, generaux):
+                           dossier_annexe, plateforme, coefprests, coefmachines, generaux):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -60,15 +61,16 @@ class Annexes(object):
         :param dossier_annexe: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
         :param coefprests: coefficients prestations importés
+        :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
         """
         prefixe = "annexeT_"
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux)
 
     @staticmethod
     def creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                         dossier_annexe, plateforme, prefixe, coefprests, generaux):
+                         dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -84,6 +86,7 @@ class Annexes(object):
         :param plateforme: OS utilisé
         :param prefixe: prefixe de nom des annexes
         :param coefprests: coefficients prestations importés
+        :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
         """
 
@@ -104,7 +107,7 @@ class Annexes(object):
                 \renewcommand{\arraystretch}{1.5}
                 '''
             contenu += Annexes.contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines,
-                                              reservations, prestations, comptes, coefprests, generaux)
+                                              reservations, prestations, comptes, coefprests, coefmachines, generaux)
             contenu += r'''\end{document}'''
 
             nom = prefixe + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
@@ -114,7 +117,7 @@ class Annexes(object):
 
     @staticmethod
     def contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines, reservations, prestations,
-                       comptes, coefprests, generaux):
+                       comptes, coefprests, coefmachines, generaux):
         """
         création du contenu de l'annexe pour un client
         :param sommes: sommes calculées
@@ -128,6 +131,7 @@ class Annexes(object):
         :param prestations: prestations importées
         :param comptes: comptes importés
         :param coefprests: coefficients prestations importés
+        :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
         :return: contenu de l'annexe du client
         """
@@ -227,7 +231,9 @@ class Annexes(object):
                                                                  'reservation': 0}
                     machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hp']
                     machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hc']
-                    contenu_cae += Annexes.ligne_cae(cae, machines.donnees[cae['id_machine']])
+                    machine = machines.donnees[cae['id_machine']]
+                    coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
+                    contenu_cae += Annexes.ligne_cae(cae, machine, coefmachine)
 
                 if nombre_cae > 0:
                     contenu += Latex.long_tableau(contenu_cae, structure_cae, legende_cae)
@@ -498,19 +504,28 @@ class Annexes(object):
         return contenu
 
     @staticmethod
-    def ligne_cae(cae, machine):
+    def ligne_cae(cae, machine, coefmachine):
         """
         création d'une ligne de tableau pour un accès
         :param cae: accès particulier
         :param machine: machine concernée
+        :param coefmachine: coefficients machine concernée
         :return: ligne de tableau latex
         """
-        p1 = Outils.format_si_nul(machine['t_h_machine_hp_p'] * cae['duree_machine_hp'] / 60)
-        p2 = Outils.format_si_nul(machine['t_h_machine_hp_np'] * cae['duree_machine_hp'] / 60)
-        p3 = Outils.format_si_nul(machine['t_h_operateur_hp_mo'] * cae['duree_operateur_hp'] / 60)
-        p4 = Outils.format_si_nul(machine['t_h_machine_hc_p'] * cae['duree_machine_hc'] / 60)
-        p5 = Outils.format_si_nul(machine['t_h_machine_hc_np'] * cae['duree_machine_hc'] / 60)
-        p6 = Outils.format_si_nul(machine['t_h_operateur_hc_mo'] * cae['duree_operateur_hc'] / 60)
+
+        t1 = machine['t_h_machine_hp_p'] * coefmachine['coef_p']
+        t2 = machine['t_h_machine_hp_np'] * coefmachine['coef_np']
+        t3 = machine['t_h_operateur_hp_mo'] * coefmachine['coef_mo']
+        t4 = machine['t_h_machine_hc_p'] * coefmachine['coef_p']
+        t5 = machine['t_h_machine_hc_np'] * coefmachine['coef_np']
+        t6 = machine['t_h_operateur_hc_mo'] * coefmachine['coef_mo']
+
+        p1 = Outils.format_si_nul(t1 * cae['duree_machine_hp'] / 60)
+        p2 = Outils.format_si_nul(t2 * cae['duree_machine_hp'] / 60)
+        p3 = Outils.format_si_nul(t3 * cae['duree_operateur_hp'] / 60)
+        p4 = Outils.format_si_nul(t4 * cae['duree_machine_hc'] / 60)
+        p5 = Outils.format_si_nul(t5 * cae['duree_machine_hc'] / 60)
+        p6 = Outils.format_si_nul(t6 * cae['duree_operateur_hc'] / 60)
         login = Latex.echappe_caracteres(cae['date_login']).split()
         temps = login[0].split('-')
         date = temps[0]
@@ -531,9 +546,7 @@ class Annexes(object):
                 'dmo_hp': Outils.format_heure(cae['duree_operateur_hp']),
                 'deq_hc': Outils.format_heure(cae['duree_machine_hc']),
                 'dmo_hc': Outils.format_heure(cae['duree_operateur_hc']),
-                't1': "%d" % machine['t_h_machine_hp_p'], 't2': "%d" % machine['t_h_machine_hp_np'],
-                't3': "%d" % machine['t_h_operateur_hp_mo'], 't4': "%d" % machine['t_h_machine_hc_p'],
-                't5': "%d" % machine['t_h_machine_hc_np'], 't6': "%d" % machine['t_h_operateur_hc_mo'],
+                't1': "%d" % t1, 't2': "%d" % t2, 't3': "%d" % t3, 't4': "%d" % t4, 't5': "%d" % t5, 't6': "%d" % t6,
                 'p1': p1, 'p2': p2, 'p3': p3, 'p4': p4, 'p5': p5, 'p6': p6}
 
         nb = 0
@@ -588,10 +601,10 @@ class Annexes(object):
         :param machine: machine concernée
         :return: ligne de tableau latex
         """
-        p7 = Outils.format_si_nul(machine['t_h_machine_hp_p'] * res['duree_fact_hp'] / 60)
-        p8 = Outils.format_si_nul(machine['t_h_machine_hp_np'] * res['duree_fact_hp'] / 60)
-        p9 = Outils.format_si_nul(machine['t_h_machine_hc_p'] * res['duree_fact_hc'] / 60)
-        p10 = Outils.format_si_nul(machine['t_h_machine_hc_np'] * res['duree_fact_hc'] / 60)
+        p7 = Outils.format_si_nul(machine['t_h_reservation_hp_p'] * res['duree_fact_hp'] / 60)
+        p8 = Outils.format_si_nul(machine['t_h_reservation_hp_np'] * res['duree_fact_hp'] / 60)
+        p9 = Outils.format_si_nul(machine['t_h_reservation_hc_p'] * res['duree_fact_hc'] / 60)
+        p10 = Outils.format_si_nul(machine['t_h_reservation_hc_np'] * res['duree_fact_hc'] / 60)
         login = Latex.echappe_caracteres(res['date_debut']).split()
         temps = login[0].split('-')
         date = temps[0]
@@ -609,8 +622,8 @@ class Annexes(object):
                 'supprime': Latex.echappe_caracteres(res['date_suppression']),
                 'shp': Outils.format_heure(res['duree_hp']), 'shc': Outils.format_heure(res['duree_hc']),
                 'fhp': Outils.format_heure(res['duree_fact_hp']), 'fhc': Outils.format_heure(res['duree_fact_hc']),
-                't7': "%d" % machine['t_h_machine_hp_p'], 't8': "%d" % machine['t_h_machine_hp_np'],
-                't9': "%d" % machine['t_h_machine_hc_p'], 't10': "%d" % machine['t_h_machine_hc_np'], 'p7': p7,
+                't7': "%d" % machine['t_h_reservation_hp_p'], 't8': "%d" % machine['t_h_reservation_hp_np'],
+                't9': "%d" % machine['t_h_reservation_hc_p'], 't10': "%d" % machine['t_h_reservation_hc_np'], 'p7': p7,
                 'p8': p8, 'p9': p9, 'p10': p10}
 
         nb = 0
