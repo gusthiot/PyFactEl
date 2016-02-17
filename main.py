@@ -76,7 +76,7 @@ if edition.version == '0':
 else:
     dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_" + edition.version + "_" +
                                          edition.client_unique], plateforme, generaux)
-destination = DossierDestination(dossier_csv)
+dossier_destination = DossierDestination(dossier_csv)
 
 annexes = "annexes"
 dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, annexes], plateforme, generaux)
@@ -86,14 +86,14 @@ dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, anne
 lien_annexes_techniques = Outils.lien_dossier([dossier_lien, annexes_techniques], plateforme, generaux)
 
 facture_prod = Facture()
-facture_prod.factures(sommes, destination, edition, generaux, clients, comptes,
+facture_prod.factures(sommes, dossier_destination, edition, generaux, clients, comptes,
                       lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 prod2qual = Prod2Qual(dossier_source)
 if prod2qual.actif:
     facture_qual = Facture(prod2qual)
     generaux_qual = Generaux(dossier_source, prod2qual)
-    facture_qual.factures(sommes, destination, edition, generaux_qual, clients, comptes,
+    facture_qual.factures(sommes, dossier_destination, edition, generaux_qual, clients, comptes,
                           lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 if Latex.possibles():
@@ -102,7 +102,12 @@ if Latex.possibles():
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                     dossier_enregistrement, plateforme, coefprests, coefmachines, generaux)
 
-BilanMensuel.bilan(destination, edition, sommes, clients, generaux, acces,
+BilanMensuel.bilan(dossier_destination, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
+
+for fichier in [acces.nom_fichier, clients.nom_fichier, coefmachines.nom_fichier, coefprests.nom_fichier,
+                  comptes.nom_fichier, livraisons.nom_fichier, machines.nom_fichier, prestations.nom_fichier,
+                  reservations.nom_fichier, generaux.nom_fichier, edition.nom_fichier]:
+    dossier_destination.ecrire(fichier, dossier_source.lire(fichier))
 
 Outils.affiche_message("OK !!!")

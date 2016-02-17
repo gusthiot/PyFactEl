@@ -18,8 +18,9 @@ class _DossierBase(object):
         self.encodage = encodage
 
     def _open(self, chemin_relatif, flags):
-        return open(self._chemin(chemin_relatif), flags, newline='',
-                    encoding=self.encodage)
+        return open(self._chemin(chemin_relatif), flags,
+                    newline=None if 'b' in flags else '',
+                    encoding=None if 'b' in flags else self.encodage)
 
     def _chemin(self, chemin_relatif):
         return os.path.join(self.chemin, chemin_relatif)
@@ -44,6 +45,10 @@ class DossierSource(_DossierBase):
         return csv.DictReader(self._open(chemin_relatif, "r"), delimiter=self.delimiteur,
                           quotechar=self.quotechar)
 
+    def lire(self, chemin_relatif):
+        """Renvoie le contenu d'un fichier, en binaire."""
+        return self._open(chemin_relatif, "rb").read()
+
 class DossierDestination(_DossierBase):
     """Destination de données.
 
@@ -65,3 +70,7 @@ class DossierDestination(_DossierBase):
             yield csv.writer(csv_fichier, delimiter=self.delimiteur,
                              quotechar=self.quotechar)
 
+    def ecrire(self, chemin_relatif, binaire):
+        """Écrit un fichier, en binaire."""
+        with self._open(chemin_relatif, "wb") as fd:
+            fd.write(binaire)
