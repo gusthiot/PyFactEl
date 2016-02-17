@@ -85,13 +85,15 @@ annexes_techniques = "annexes_techniques"
 dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, annexes_techniques], plateforme, generaux)
 lien_annexes_techniques = Outils.lien_dossier([dossier_lien, annexes_techniques], plateforme, generaux)
 
-Facture.factures(sommes, destination, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, annexes, annexes_techniques)
+facture_prod = Facture()
+facture_prod.factures(sommes, destination, edition, generaux, clients, comptes,
+                      lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 prod2qual = Prod2Qual(dossier_source)
 if prod2qual.actif:
-    Facture.factures(sommes, destination, edition, generaux, clients, comptes, lien_annexes,
-                     lien_annexes_techniques, annexes, annexes_techniques, prod2qual)
+    facture_qual = Facture(prod2qual)
+    facture_qual.factures(sommes, destination, edition, generaux, clients, comptes,
+                          lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,

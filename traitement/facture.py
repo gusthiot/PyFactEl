@@ -8,9 +8,17 @@ class Facture(object):
     Classe contenant les méthodes nécessaires à la génération des factures
     """
 
-    @staticmethod
-    def factures(sommes, destination, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, annexes, annexes_techniques, prod2qual=None):
+    def __init__(self, prod2qual=None):
+        """
+        Constructeur
+
+        :param prod2qual: Une instance de la classe Prod2Qual
+        """
+
+        self.prod2qual = prod2qual
+
+    def factures(self, sommes, destination, edition, generaux, clients, comptes,
+                 lien_annexes, lien_annexes_techniques, annexes, annexes_techniques):
         """
         génère la facture sous forme de csv
         :param sommes: sommes calculées
@@ -25,7 +33,6 @@ class Facture(object):
         :param lien_annexes_techniques: lien au dossier contenant les annexes techniques
         :param dossier_annexes: dossier contenant les annexes
         :param dossier_annexes_techniques: dossier contenant les annexes techniques
-        :param prod2qual: Une instance de la classe Prod2Qual
         """
 
         if sommes.calculees == 0:
@@ -34,7 +41,7 @@ class Facture(object):
             Outils.affiche_message(info)
             return
 
-        if prod2qual:
+        if self.prod2qual:
             suffixe = "_qualite.csv"
         else:
             suffixe = ".csv"
@@ -83,7 +90,7 @@ class Facture(object):
                 cl = clients.donnees[code_client]
     
                 code_sap = cl['code_sap']
-                if prod2qual and not (prod2qual.code_client_existe(code_sap)):
+                if self.prod2qual and not (self.prod2qual.code_client_existe(code_sap)):
                     continue
     
                 if cl['type_labo'] == "I":
@@ -106,8 +113,8 @@ class Facture(object):
                 lien_annexe_technique = lien_annexes_techniques + nom_annexe_technique
                 dossier_annexe_technique = "../" + annexes_techniques + "/" + nom_annexe_technique
     
-                if prod2qual:
-                    code_sap_traduit = prod2qual.traduire_code_client(code_sap)
+                if self.prod2qual:
+                    code_sap_traduit = self.prod2qual.traduire_code_client(code_sap)
                 else:
                     code_sap_traduit = code_sap
     
@@ -139,10 +146,10 @@ class Facture(object):
     
                 op_centre = cl['type_labo'] + str(edition.annee)[2:] + Outils.mois_string(edition.mois)
                 if int(cl['emol_base_mens']) > 0:
-                    poste = generaux.donnees['poste_emolument'][1]
-                    fichier_writer.writerow(Facture.ligne_facture(generaux, 1, poste, client['em'], client['er'],
+                    poste = generaux.poste_emolument
+                    fichier_writer.writerow(self.ligne_facture(generaux, generaux.articles[0], poste, client['em'], client['er'],
                                                                   op_centre, "", edition))
-                    contenu_client += Facture.ligne_tableau(generaux, 1, poste, client['em'], client['er'], "", edition)
+                    contenu_client += self.ligne_tableau(generaux.articles[0], poste, client['em'], client['er'], "", edition)
     
                 inc = 1
                 client_comptes = sommes.sommes_comptes[code_client]
@@ -152,31 +159,33 @@ class Facture(object):
                     if compte['si_facture'] > 0:
                         poste = inc*10
                         if compte['somme_j_pm'] > 0:
-                            fichier_writer.writerow(Facture.ligne_facture(generaux, 2, poste, compte['somme_j_pm'],
-                                                                        compte['prj'], op_centre, co['intitule'], edition))
-                            contenu_client += Facture.ligne_tableau(generaux, 2, poste, compte['somme_j_pm'],
+                            fichier_writer.writerow(self.ligne_facture(generaux, generaux.articles[1],
+                                                                       poste, compte['somme_j_pm'],
+                                                                       compte['prj'], op_centre, co['intitule'], edition))
+                            contenu_client += self.ligne_tableau(generaux.articles[1], poste, compte['somme_j_pm'],
                                                                      compte['prj'], co['intitule'], edition)
                             poste += 1
     
                         if compte['somme_j_nm'] > 0:
-                            fichier_writer.writerow(Facture.ligne_facture(generaux, 3, poste, compte['somme_j_nm'],
+                            fichier_writer.writerow(self.ligne_facture(generaux, generaux.articles[2],
+                                                                       poste, compte['somme_j_nm'],
                                                                         compte['nrj'], op_centre, co['intitule'], edition))
-                            contenu_client += Facture.ligne_tableau(generaux, 3, poste, compte['somme_j_nm'],
+                            contenu_client += self.ligne_tableau(generaux.articles[2], poste, compte['somme_j_nm'],
                                                                      compte['nrj'], co['intitule'], edition)
                             poste += 1
     
-                        index = 4
-                        for categorie in generaux.obtenir_d3():
+                        for article in generaux.articles_d3:
+                            categorie = article.code_d
                             if compte['sommes_cat_m'][categorie] > 0:
-                                fichier_writer.writerow(Facture.ligne_facture(generaux, index, poste,
+                                fichier_writer.writerow(self.ligne_facture(generaux, article,
+                                    poste,
                                     compte['sommes_cat_m'][categorie], compte['sommes_cat_r'][categorie], op_centre,
                                                                               co['intitule'], edition))
-                                contenu_client += Facture.ligne_tableau(generaux, index, poste,
+                                contenu_client += self.ligne_tableau(article, poste,
                                                                          compte['sommes_cat_m'][categorie],
                                                                          compte['sommes_cat_r'][categorie], co['intitule'],
                                                                          edition)
                                 poste += 1
-                            index += 1
                         inc += 1
     
                 contenu_client += r'''
@@ -190,16 +199,15 @@ class Facture(object):
                     ''' + nom_annexe_technique + r'''</a>'''
                 contenu_client += "</section>"
                 contenu += contenu_client
-        Facture.creer_html(contenu, destination, prod2qual)
+        self.creer_html(contenu, destination)
 
-    @staticmethod
-    def ligne_tableau(generaux, index, poste, net, rabais, consommateur, edition):
+    def ligne_tableau(self, article, poste, net, rabais, consommateur, edition):
         montant = net - rabais
         date_livraison = str(edition.dernier_jour) + "." + Outils.mois_string(edition.mois) + "." + str(edition.annee)
-        description = generaux.donnees['code_d'][index] + " : " + generaux.donnees['code_sap'][index]
+        description = article.code_d + " : " + article.code_sap
         dico_tab = {'poste': poste, 'date': date_livraison, 'descr': description,
-                    'texte': generaux.donnees['texte_sap'][index], 'nom': Latex.echappe_caracteres(consommateur),
-                    'unit': generaux.donnees['unite'][index], 'quantity': generaux.donnees['quantite'][index],
+                    'texte': article.texte_sap, 'nom': Latex.echappe_caracteres(consommateur),
+                    'unit': article.unite, 'quantity': article.quantite,
                     'unit_p': "%.2f" % net, 'discount': "%.2f" % rabais, 'net': "%.2f" % montant}
         ligne = r'''<tr>
             <td> %(poste)s </td><td> %(date)s </td><td> %(nom)s </td><td> %(descr)s <br /> %(texte)s </td>
@@ -208,12 +216,12 @@ class Facture(object):
             ''' % dico_tab
         return ligne
 
-    @staticmethod
-    def ligne_facture(generaux, index, poste, net, rabais, op_centre, consommateur, edition):
+    def ligne_facture(self, generaux, article, poste, net, rabais, op_centre, consommateur, edition):
         """
         retourne une ligne de facturation  formatée
+
         :param generaux: paramètres généraux
-        :param index: index de colonne des paramètres généraux
+        :param article: Une instance de la classe generaux.Article
         :param poste: indice de poste
         :param net: montant net
         :param rabais: rabais sur le montant
@@ -224,19 +232,18 @@ class Facture(object):
         """
         if rabais == 0:
             rabais = ""
-        code_op = generaux.donnees['code_t'][1] + op_centre + generaux.donnees['code_d'][index]
+        code_op =  generaux.code_t + op_centre + article.code_d
         date_livraison = str(edition.annee) + Outils.mois_string(edition.mois) + str(edition.dernier_jour)
 
         return [poste, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                "", "", "", "", "", "", generaux.donnees['code_sap'][index], "", generaux.donnees['quantite'][index],
-                generaux.donnees['unite'][index], generaux.donnees['type_prix'][index], net,
-                generaux.donnees['type_rabais'][index], rabais, date_livraison, generaux.donnees['financier'][1], "",
-                generaux.donnees['fonds'][1], "", "", code_op, "", "", "", generaux.donnees['texte_sap'][index],
+                "", "", "", "", "", "", article.code_sap, "", article.quantite,
+                article.unite, article.type_prix, net,
+                article.type_rabais, rabais, date_livraison, generaux.centre_financier, "",
+                generaux.fonds, "", "", code_op, "", "", "", article.texte_sap,
                 consommateur]
 
-    @staticmethod
-    def creer_html(contenu, destination, prod2qual):
-        if prod2qual:
+    def creer_html(self, contenu, destination):
+        if self.prod2qual:
             suffixe = "_qualite.html"
         else:
             suffixe = ".html"

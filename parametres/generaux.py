@@ -2,7 +2,11 @@ import csv
 import sys
 from outils import Outils
 from erreurs import ErreurConsistance
+from collections import namedtuple
 
+_champs_article = ["code_d", "code_sap", "quantite", "unite", "type_prix",
+                   "type_rabais", "texte_sap"]
+Article = namedtuple("Article", _champs_article)
 
 class Generaux(object):
     """
@@ -78,16 +82,54 @@ class Generaux(object):
         """
         return self.donnees['code_n'][1:]
 
-    def obtenir_d3(self):
-        """
-        retourne les codes D3
-        :return: codes D3
-        """
-        return self.donnees['code_d'][4:]
-
     def obtenir_modes_envoi(self):
         """
         retourne les modes d'envoi
         :return: modes d'envoi
         """
         return self.donnees['modes'][1:]
+
+    @property
+    def fonds(self):
+        return self.donnees['fonds'][1]
+
+    @property
+    def articles(self):
+        """renvoie la liste des articles de facturation.
+
+        Le premier (émolument) s'appelle "D1"; les deux seconds (prix
+        plafonnés / non plafonnés) s'appellent "D2"; les suivants (en nombre
+        variable) s'appellent "D3".
+
+        :return: une liste ordonnée d'objets Article
+        """
+        if not hasattr(self, "_articles"):
+            self._articles = []
+            for i in range(1, len(self.donnees['code_d'])):
+                kw = dict((k, self.donnees[k][i]) for k in _champs_article)
+                self._articles.append(Article(**kw))
+        return self._articles
+
+    @property
+    def articles_d3(self):
+        """
+        retourne uniquement les articles D3
+
+        :return: une liste ordonnée d'objets Article
+        """
+        return self.articles[3:]
+
+    def obtenir_d3(self):
+        return [a.code_d for a in self.articles_d3]
+
+    @property
+    def centre_financier(self):
+        return self.donnees['financier'][1]
+
+    @property
+    def poste_emolument(self):
+        return self.donnees['poste_emolument'][1]
+
+    @property
+    def code_t(self):
+        return self.donnees['code_t'][1]
