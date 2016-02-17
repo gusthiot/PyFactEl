@@ -7,19 +7,14 @@ class Livraison(Fichier):
     Classe pour l'importation des données de Livraisons
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
-                'prenom_user', 'num_projet', 'intitule_projet', 'id_prestation', 'designation', 'date_livraison',
-                'quantite', 'unite', 'rabais', 'responsable', 'id_livraison', 'date_commande', 'date_prise', 'remarque']
-        nom_fichier = "lvr.csv"
-        libelle = "Livraison Prestations"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
+            'prenom_user', 'num_projet', 'intitule_projet', 'id_prestation', 'designation', 'date_livraison',
+            'quantite', 'unite', 'rabais', 'responsable', 'id_livraison', 'date_commande', 'date_prise', 'remarque']
+    nom_fichier = "lvr.csv"
+    libelle = "Livraison Prestations"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.comptes = {}
 
     def obtenir_comptes(self):

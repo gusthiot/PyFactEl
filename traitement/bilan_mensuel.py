@@ -9,13 +9,12 @@ class BilanMensuel(object):
     """
 
     @staticmethod
-    def bilan(nom_dossier, encodage, delimiteur, edition, sommes, clients, generaux, acces, reservations, livraisons,
+    def bilan(dossier_destination, edition, sommes, clients, generaux, acces, reservations, livraisons,
               comptes):
         """
         création du bilan
-        :param nom_dossier: nom du dossier dans lequel enregistrer le bilan
-        :param encodage: encodage du texte
-        :param delimiteur: code délimiteur de champ dans le fichier csv
+
+        :param dossier_source: Une instance de la classe dossier.DossierSource
         :param edition: paramètres d'édition
         :param sommes: sommes calculées
         :param clients: clients importés
@@ -32,58 +31,57 @@ class BilanMensuel(object):
             Outils.affiche_message(info)
             return
 
-        nom = nom_dossier + "bilan_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
+        nom = "bilan_" + str(edition.annee) + "_" + Outils.mois_string(edition.mois) + "_" + \
               str(edition.version) + ".csv"
 
-        csv_fichier = open(nom, 'w', newline='', encoding=encodage)
-        fichier_writer = csv.writer(csv_fichier, delimiter=delimiteur, quotechar='|')
+        with dossier_destination.writer(nom) as fichier_writer:
 
-        ligne = ["année", "mois", "référence", "code client", "code client sap", "abrév. labo", "nom labo",
-                 "type client", "nature client", "nb utilisateurs", "nb tot comptes", "nb comptes cat 1",
-                 "nb comptes cat 2", "nb comptes cat 3", "nb comptes cat 4", "somme T", "Em base", "somme EQ",
-                 "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "Pt", "Qt", "Ot", "Nt"]
-        for categorie in generaux.obtenir_d3():
-            ligne.append(categorie + "t")
-        fichier_writer.writerow(ligne)
-
-        for code_client in sorted(sommes.sommes_clients.keys()):
-            scl = sommes.sommes_clients[code_client]
-            sca = sommes.sommes_categories[code_client]
-            cl = clients.donnees[code_client]
-            nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
-            reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
-            nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
-            cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
-            cat = {'1': 0, '2': 0, '3': 0, '4': 0}
-            nb_c = 0
-            for cpte in cptes:
-                nb_c += 1
-                cat[comptes.donnees[cpte]['categorie']] += 1
-
-            if '1' in sca:
-                kprj1 = sca['1']['somme_k_prj']
-            else:
-                kprj1 = 0
-            if '2' in sca:
-                kprj2 = sca['2']['somme_k_prj']
-            else:
-                kprj2 = 0
-            if '3' in sca:
-                kprj3 = sca['3']['somme_k_prj']
-            else:
-                kprj3 = 0
-            if '4' in sca:
-                kprj4 = sca['4']['somme_k_prj']
-            else:
-                kprj4 = 0
-
-            ligne = [edition.annee, edition.mois, reference, code_client, cl['code_sap'], cl['abrev_labo'],
-                     cl['nom_labo'], 'U', cl['type_labo'], nb_u, nb_c, cat['1'], cat['2'], cat['3'], cat['4'],
-                     scl['somme_t'], scl['em'], scl['somme_eq'], scl['er'], kprj1, kprj2, kprj3, kprj4, scl['pt'],
-                     scl['qt'], scl['ot'], scl['nt']]
+            ligne = ["année", "mois", "référence", "code client", "code client sap", "abrév. labo", "nom labo",
+                     "type client", "nature client", "nb utilisateurs", "nb tot comptes", "nb comptes cat 1",
+                     "nb comptes cat 2", "nb comptes cat 3", "nb comptes cat 4", "somme T", "Em base", "somme EQ",
+                     "Rabais Em", "Prj 1", "Prj 2", "Prj 3", "Prj 4", "Pt", "Qt", "Ot", "Nt"]
             for categorie in generaux.obtenir_d3():
-                ligne.append(scl['tot_cat'][categorie])
+                ligne.append(categorie + "t")
             fichier_writer.writerow(ligne)
+
+            for code_client in sorted(sommes.sommes_clients.keys()):
+                scl = sommes.sommes_clients[code_client]
+                sca = sommes.sommes_categories[code_client]
+                cl = clients.donnees[code_client]
+                nature = generaux.donnees['nature_client'][generaux.donnees['code_n'].index(cl['type_labo'])]
+                reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
+                nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
+                cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
+                cat = {'1': 0, '2': 0, '3': 0, '4': 0}
+                nb_c = 0
+                for cpte in cptes:
+                    nb_c += 1
+                    cat[comptes.donnees[cpte]['categorie']] += 1
+
+                if '1' in sca:
+                    kprj1 = sca['1']['somme_k_prj']
+                else:
+                    kprj1 = 0
+                if '2' in sca:
+                    kprj2 = sca['2']['somme_k_prj']
+                else:
+                    kprj2 = 0
+                if '3' in sca:
+                    kprj3 = sca['3']['somme_k_prj']
+                else:
+                    kprj3 = 0
+                if '4' in sca:
+                    kprj4 = sca['4']['somme_k_prj']
+                else:
+                    kprj4 = 0
+
+                ligne = [edition.annee, edition.mois, reference, code_client, cl['code_sap'], cl['abrev_labo'],
+                         cl['nom_labo'], 'U', cl['type_labo'], nb_u, nb_c, cat['1'], cat['2'], cat['3'], cat['4'],
+                         scl['somme_t'], scl['em'], scl['somme_eq'], scl['er'], kprj1, kprj2, kprj3, kprj4, scl['pt'],
+                         scl['qt'], scl['ot'], scl['nt']]
+                for categorie in generaux.obtenir_d3():
+                    ligne.append(scl['tot_cat'][categorie])
+                fichier_writer.writerow(ligne)
 
     @staticmethod
     def utilisateurs(acces, livraisons, reservations, code_client):

@@ -12,19 +12,15 @@ class Edition(object):
     nom_fichier = "paramedit.csv"
     libelle = "Paramètres d'Edition"
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
+    def __init__(self, dossier_source):
         """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
+        initialisation et importation des données
+
+        :param dossier_source: Une instance de la classe dossier.DossierSource
         """
         donnees_csv = []
         try:
-            self.nom_fichier = nom_dossier + Edition.nom_fichier
-            csv_fichier = open(self.nom_fichier, newline='', encoding=encodage)
-            fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
-            for ligne in fichier_reader:
+            for ligne in dossier_source.reader(self.nom_fichier):
                 donnees_csv.append(ligne)
         except IOError as e:
             Outils.fatal(e, "impossible d'ouvrir le fichier : "+Edition.nom_fichier)

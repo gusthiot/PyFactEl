@@ -231,16 +231,6 @@ class Outils(object):
         return Outils.eliminer_double_separateur(Outils.separateur_lien(chemin, generaux))
 
     @staticmethod
-    def archiver_liste(liste, dossier_archive):
-        """
-        archive une liste de documents
-        :param liste: liste de documents
-        :param dossier_archive: dossier dans lequel archiver les documents
-        """
-        for element in liste:
-            shutil.copy(element, dossier_archive)
-
-    @staticmethod
     def est_un_nombre(donnee, colonne, ligne):
         """
         vérifie que la donnée est bien un nombre

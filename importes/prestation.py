@@ -7,18 +7,10 @@ class Prestation(Fichier):
     Classe pour l'importation des données de Prestations du catalogue
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_prestation', 'designation', 'categorie', 'unite_prest', 'prix_unit',
-                'val_moy_achat', 'cout_unit', 'prix_rev_unit']
-        nom_fichier = "prestation.csv"
-        libelle = "Prestations"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    cles = ['annee', 'mois', 'id_prestation', 'designation', 'categorie', 'unite_prest', 'prix_unit',
+            'val_moy_achat', 'cout_unit', 'prix_rev_unit']
+    nom_fichier = "prestation.csv"
+    libelle = "Prestations"
 
     def contient_id(self, id_prestation):
         """

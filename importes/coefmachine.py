@@ -7,17 +7,12 @@ class CoefMachine(Fichier):
     Classe pour l'importation des données de Coefficients Machines
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'coef_p', 'coef_np', 'coef_mo']
-        nom_fichier = "coeffmachine.csv"
-        libelle = "Coefficients Machines"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    nom_fichier = "coeffmachine.csv"
+    cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'coef_p', 'coef_np', 'coef_mo']
+    libelle = "Coefficients Machines"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.classes = []
 
     def obtenir_classes(self):

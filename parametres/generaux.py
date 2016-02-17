@@ -15,19 +15,15 @@ class Generaux(object):
             'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
             'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
+    def __init__(self, dossier_source):
         """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
+        initialisation et importation des données
+
+        :param dossier_source: Une instance de la classe dossier.DossierSource
         """
         self.donnees = {}
         try:
-            self.nom_fichier = nom_dossier + Generaux.nom_fichier
-            csv_fichier = open(self.nom_fichier, newline='', encoding=encodage)
-            fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
-            for ligne in fichier_reader:
+            for ligne in dossier_source.reader(self.nom_fichier):
                 cle = ligne.pop(0)
                 if cle not in self.cles_obligatoires:
                     Outils.fatal(ErreurConsistance(),
