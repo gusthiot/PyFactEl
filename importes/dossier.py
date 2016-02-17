@@ -3,6 +3,16 @@ import sys
 import os
 from contextlib import contextmanager
 
+"""Dossiers source et destination abstraits.
+
+Les instances des classes DossierSource et DossierDestination
+encapsulent tout ce qui est nécessaire pour lire resp. écrire un
+fichier sous l'un des formats gérés par l'application (CSV, texte ou
+binaire). Cela comprend le chemin d'accès (de sorte que le code
+utilisateur n'a a connaître que des chemins relatifs), mais aussi les
+paramètres plateforme-spécifiques d'encodage, séparateurs CSV etc.
+"""
+
 class _DossierBase(object):
     def __init__(self, chemin_dossier, encodage="cp1252", delimiteur=";"):
         """
