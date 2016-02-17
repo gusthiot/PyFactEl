@@ -18,18 +18,22 @@ class Generaux(object):
     cles_obligatoires = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fonds',
             'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
             'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
+    cles_autorisees = cles_obligatoires + ['code_sap_qas']
 
-    def __init__(self, dossier_source):
+    def __init__(self, dossier_source, prod2qual=None):
         """
         initialisation et importation des données
 
         :param dossier_source: Une instance de la classe dossier.DossierSource
+        :param prod2qual: Une instance de la classe Prod2Qual si on souhaite éditer
+                          des factures et annexes avec les codes d'articles de
+                          qualification
         """
         self.donnees = {}
         try:
             for ligne in dossier_source.reader(self.nom_fichier):
                 cle = ligne.pop(0)
-                if cle not in self.cles_obligatoires:
+                if cle not in self.cles_autorisees:
                     Outils.fatal(ErreurConsistance(),
                                  "Clé inconnue dans %s: %s" % (self.nom_fichier, cle))
                 while "" in ligne:
@@ -37,6 +41,8 @@ class Generaux(object):
                 self.donnees[cle] = ligne
         except IOError as e:
             Outils.fatal(e, "impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
+        if prod2qual and 'code_sap_qas' in self.donnees:
+            self.donnees['code_sap'] = self.donnees['code_sap_qas']
 
         erreurs = ""
         for cle in self.cles_obligatoires:

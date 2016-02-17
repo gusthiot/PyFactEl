@@ -92,7 +92,8 @@ facture_prod.factures(sommes, destination, edition, generaux, clients, comptes,
 prod2qual = Prod2Qual(dossier_source)
 if prod2qual.actif:
     facture_qual = Facture(prod2qual)
-    facture_qual.factures(sommes, destination, edition, generaux, clients, comptes,
+    generaux_qual = Generaux(dossier_source, prod2qual)
+    facture_qual.factures(sommes, destination, edition, generaux_qual, clients, comptes,
                           lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 if Latex.possibles():

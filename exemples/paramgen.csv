@@ -15,7 +15,8 @@ code_t;Code T;U;;;;;;
 code_n;Code N;I;A;E;;;;
 nature_client;Code nature client référence CMi;INT;EXT;EXT;;;;
 code_d;Code D des articles SAP;E;P;N;L;C;W;X
-code_sap;Code articles SAP;9010653;9010656;9010657;9010670;9010582;9010654;9010659
+code_sap;Code articles SAP;9010146;9010148;9010144;9010149;9010055;9010150;9010151
+code_sap_qas;Code articles SAP (pour tests);9010653;9010656;9010657;9010670;9010582;9010654;9010659
 quantite;Quantité;1;1;1;1;1;1;1
 unite;Unité de quantité;PCE;PCE;PCE;PCE;PCE;PCE;PCE
 type_prix;Type de prix;PR00;PR00;PR00;PR00;PR00;PR00;PR00
