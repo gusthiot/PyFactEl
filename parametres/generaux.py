@@ -9,11 +9,11 @@ class Generaux(object):
     Classe pour l'importation des paramètres généraux
     """
 
-    cles = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fonds',
-            'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
-            'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
     nom_fichier = "paramgen.csv"
     libelle = "Paramètres Généraux"
+    cles_obligatoires = ['origine', 'code_int', 'code_ext', 'commerciale', 'canal', 'secteur', 'devise', 'financier', 'fonds',
+            'entete', 'poste_emolument', 'lien', 'chemin', 'code_t', 'code_n', 'nature_client', 'code_d', 'code_sap', 'quantite',
+            'unite', 'type_prix', 'type_rabais', 'texte_sap', 'modes']
 
     def __init__(self, nom_dossier, delimiteur, encodage):
         """
@@ -22,62 +22,58 @@ class Generaux(object):
         :param delimiteur: code délimiteur de champ dans le fichier csv
         :param encodage: encodage du texte
         """
-        donnees_csv = []
+        self.donnees = {}
         try:
             self.nom_fichier = nom_dossier + Generaux.nom_fichier
             csv_fichier = open(self.nom_fichier, newline='', encoding=encodage)
             fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
             for ligne in fichier_reader:
-                donnees_csv.append(ligne)
+                cle = ligne.pop(0)
+                if cle not in self.cles_obligatoires:
+                    Outils.fatal(ErreurConsistance(),
+                                 "Clé inconnue dans %s: %s" % (self.nom_fichier, cle))
+                while "" in ligne:
+                    ligne.remove("")
+                self.donnees[cle] = ligne
         except IOError as e:
             Outils.fatal(e, "impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
 
-        num = len(Generaux.cles)
-        if len(donnees_csv) != num:
-            info = Generaux.libelle + ": nombre de lignes incorrect : " + str(len(donnees_csv)) + ", attendu : " + \
-                   str(num)
-            print(info)
-            Outils.fatal(ErreurConsistance(), info)
+        erreurs = ""
+        for cle in self.cles_obligatoires:
+            if cle not in self.donnees:
+                erreurs += "\nClé manquante dans %s: %s" % (self.nom_fichier, cle)
 
-        self.donnees = {}
-        for xx in range(0, num):
-            donnee = donnees_csv[xx]
-            while "" in donnee:
-                donnee.remove("")
-            del(donnee[0])
-            self.donnees[Generaux.cles[xx]] = donnee
-        msg = ""
         try:
             for quantite in self.donnees['quantite'][1:]:
                 int(quantite)
         except ValueError:
-            msg += "les quantités doivent être des nombres entiers\n"
+            erreurs += "les quantités doivent être des nombres entiers\n"
         codes_n = []
         for nn in self.donnees['code_n'][1:]:
             if nn not in codes_n:
                 codes_n.append(nn)
             else:
-                msg += "le code N '" + nn + "' n'est pas unique\n"
+                erreurs += "le code N '" + nn + "' n'est pas unique\n"
         codes_d = []
         for dd in self.donnees['code_d'][1:]:
             if dd not in codes_d:
                 codes_d.append(dd)
             else:
-                msg += "le code D '" + dd + "' n'est pas unique\n"
+                erreurs += "le code D '" + dd + "' n'est pas unique\n"
 
         if len(self.donnees['code_n']) != len(self.donnees['nature_client']):
-            msg += "le nombre de colonees doit être le même pour le code N et pour la nature du client\n"
+            erreurs += "le nombre de colonees doit être le même pour le code N et pour la nature du client\n"
 
         if (len(self.donnees['code_d']) != len(self.donnees['code_sap'])) or (len(self.donnees['code_d']) !=
                 len(self.donnees['quantite'])) or (len(self.donnees['code_d']) !=
                 len(self.donnees['unite'])) or (len(self.donnees['code_d']) !=
                 len(self.donnees['type_prix'])) or (len(self.donnees['code_d']) !=
                 len(self.donnees['type_rabais'])) or (len(self.donnees['code_d']) != len(self.donnees['texte_sap'])):
-            msg += "le nombre de colonees doit être le même pour le code D, le code SAP, la quantité, l'unité, " \
+            erreurs += "le nombre de colonees doit être le même pour le code D, le code SAP, la quantité, l'unité, " \
                    "le type de prix, le type de rabais et le texte SAP\n"
 
-        if msg != "":
-            Outils.fatal(ErreurConsistance(), self.libelle + "\n" + msg)
+        if erreurs != "":
+            Outils.fatal(ErreurConsistance(), self.libelle + "\n" + erreurs)
 
     def obtenir_code_n(self):
         """
