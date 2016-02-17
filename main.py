@@ -1,5 +1,20 @@
 # This Python file uses the following encoding: utf-8
+
+"""
+Fichier principal à lancer pour faire tourner le logiciel
+
+Usage:
+  main.py [options]
+
+Options:
+
+  -h   --help              Affiche le présent message
+  --entrees <chemin>       Chemin des fichiers d'entrée
+  --sansgraphiques         Pas d'interface graphique
+"""
+
 import sys
+from docopt import docopt
 
 from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
 from outils import Outils
@@ -8,14 +23,19 @@ from traitement import Annexes, BilanMensuel, Facture, Sommes, Verification
 from prod2qual import Prod2Qual
 from latex import Latex
 
-"""
- fichier principal à lancer pour faire tourner le logiciel
-"""
+arguments = docopt(__doc__)
 
 plateforme = sys.platform
 encodage = "cp1252"
 delimiteur = ';'
-dossier_data = Outils.choisir_dossier(plateforme)
+
+if arguments["--sansgraphiques"]:
+    Outils.interface_graphique(False)
+
+if arguments["--entrees"] :
+  dossier_data = arguments["--entrees"]
+else:
+  dossier_data = Outils.choisir_dossier(plateforme)
 edition = Edition(dossier_data, delimiteur, encodage)
 
 acces = Acces(dossier_data, delimiteur, encodage)

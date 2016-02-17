@@ -3,6 +3,8 @@ from tkinter.scrolledtext import *
 
 import shutil
 import errno
+import os
+import platform
 
 
 class Outils(object):
@@ -20,20 +22,34 @@ class Outils(object):
                 if exc.errno == errno.ENOTDIR:
                     shutil.copy(source, destination)
 
-    @staticmethod
-    def affiche_message(message):
+    if platform.system() in ['Linux', 'Darwin']:
+        _interface_graphique = len(os.environ.get('DISPLAY', '')) > 0
+    else:
+        _interface_graphique = True
+
+    @classmethod
+    def interface_graphique(cls, opt_nouvelle_valeur=None):
+        if opt_nouvelle_valeur is not None:
+            cls._interface_graphique = opt_nouvelle_valeur
+        return cls._interface_graphique
+
+    @classmethod
+    def affiche_message(cls, message):
         """
         affiche une petite boite de dialogue avec un message et un bouton OK
         :param message: message à afficher
         """
-        fenetre = Tk()
-        fenetre.title("Message")
-        texte = ScrolledText(fenetre)
-        texte.insert(END, message)
-        texte.pack()
-        button = Button(fenetre, text='OK', command=fenetre.destroy)
-        button.pack()
-        mainloop()
+        if cls.interface_graphique():
+            fenetre = Tk()
+            fenetre.title("Message")
+            texte = ScrolledText(fenetre)
+            texte.insert(END, message)
+            texte.pack()
+            button = Button(fenetre, text='OK', command=fenetre.destroy)
+            button.pack()
+            mainloop()
+        else:
+            print(message)
 
     @staticmethod
     def affiche_message_conditionnel(message):
