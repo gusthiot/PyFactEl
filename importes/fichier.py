@@ -6,24 +6,21 @@ from outils import Outils
 class Fichier(object):
     """
     Classe de base des classes d'importation de données
+
+    Attributs de classe (à définir dans les sous-classes) :
+         nom_fichier    Le nom relatif du fichier à charger
+         libelle        Un intitulé pour les messages d'erreur
+         cles           La liste des colonnes à charger
     """
 
-    def __init__(self, libelle, cles, nom_fichier, delimiteur, encodage):
+    def __init__(self, dossier_source):
         """
-        initialisation de la structure des données et du nom et de la position du fichier importé,
-        importation des données
-        :param libelle: nom de la classe de données
-        :param cles: clés de classement des données
-        :param nom_fichier: nom du fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
+        initialisation et importation des données
+
+        :param dossier_source: Une instance de la classe dossier.DossierSource
         """
-        self.libelle = libelle
-        self.nom_fichier = nom_fichier
-        self.cles = cles
         try:
-            csv_fichier = open(nom_fichier, newline='', encoding=encodage)
-            fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
+            fichier_reader = dossier_source.reader(self.nom_fichier)
             donnees_csv = []
             for ligne in fichier_reader:
                 donnees_ligne = self.extraction_ligne(ligne)

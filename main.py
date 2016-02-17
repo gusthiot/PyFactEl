@@ -1,34 +1,54 @@
 # This Python file uses the following encoding: utf-8
-import sys
 
-from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation
+"""
+Fichier principal à lancer pour faire tourner le logiciel
+
+Usage:
+  main.py [options]
+
+Options:
+
+  -h   --help              Affiche le présent message
+  --entrees <chemin>       Chemin des fichiers d'entrée
+  --sansgraphiques         Pas d'interface graphique
+"""
+
+import sys
+from docopt import docopt
+
+from importes import Client, Acces, CoefMachine, CoefPrest, Compte, Livraison, Machine, Prestation, Reservation, DossierSource, DossierDestination
 from outils import Outils
 from parametres import Edition, Generaux
 from traitement import Annexes, BilanMensuel, Facture, Sommes, Verification
 from prod2qual import Prod2Qual
 from latex import Latex
 
-"""
- fichier principal à lancer pour faire tourner le logiciel
-"""
+arguments = docopt(__doc__)
 
 plateforme = sys.platform
-encodage = "cp1252"
-delimiteur = ';'
-dossier_data = Outils.choisir_dossier(plateforme)
-edition = Edition(dossier_data, delimiteur, encodage)
 
-acces = Acces(dossier_data, delimiteur, encodage)
-clients = Client(dossier_data, delimiteur, encodage)
-coefmachines = CoefMachine(dossier_data, delimiteur, encodage)
-coefprests = CoefPrest(dossier_data, delimiteur, encodage)
-comptes = Compte(dossier_data, delimiteur, encodage)
-livraisons = Livraison(dossier_data, delimiteur, encodage)
-machines = Machine(dossier_data, delimiteur, encodage)
-prestations = Prestation(dossier_data, delimiteur, encodage)
-reservations = Reservation(dossier_data, delimiteur, encodage)
+if arguments["--sansgraphiques"]:
+    Outils.interface_graphique(False)
 
-generaux = Generaux(dossier_data, delimiteur, encodage)
+if arguments["--entrees"] :
+  dossier_data = arguments["--entrees"]
+else:
+  dossier_data = Outils.choisir_dossier(plateforme)
+dossier_source = DossierSource(dossier_data)
+
+edition = Edition(dossier_source)
+
+acces = Acces(dossier_source)
+clients = Client(dossier_source)
+coefmachines = CoefMachine(dossier_source)
+coefprests = CoefPrest(dossier_source)
+comptes = Compte(dossier_source)
+livraisons = Livraison(dossier_source)
+machines = Machine(dossier_source)
+prestations = Prestation(dossier_source)
+reservations = Reservation(dossier_source)
+
+generaux = Generaux(dossier_source)
 
 verification = Verification()
 
@@ -56,6 +76,7 @@ if edition.version == '0':
 else:
     dossier_csv = Outils.chemin_dossier([dossier_enregistrement, "csv_" + edition.version + "_" +
                                          edition.client_unique], plateforme, generaux)
+destination = DossierDestination(dossier_csv)
 
 annexes = "annexes"
 dossier_annexes = Outils.chemin_dossier([dossier_enregistrement, annexes], plateforme, generaux)
@@ -64,13 +85,15 @@ annexes_techniques = "annexes_techniques"
 dossier_annexes_techniques = Outils.chemin_dossier([dossier_enregistrement, annexes_techniques], plateforme, generaux)
 lien_annexes_techniques = Outils.lien_dossier([dossier_lien, annexes_techniques], plateforme, generaux)
 
-Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                 lien_annexes_techniques, annexes, annexes_techniques)
+facture_prod = Facture()
+facture_prod.factures(sommes, destination, edition, generaux, clients, comptes,
+                      lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
-prod2qual = Prod2Qual(dossier_data, delimiteur)
+prod2qual = Prod2Qual(dossier_source)
 if prod2qual.actif:
-    Facture.factures(sommes, dossier_csv, encodage, delimiteur, edition, generaux, clients, comptes, lien_annexes,
-                     lien_annexes_techniques, annexes, annexes_techniques, prod2qual.prod2qual)
+    facture_qual = Facture(prod2qual)
+    facture_qual.factures(sommes, destination, edition, generaux, clients, comptes,
+                          lien_annexes, lien_annexes_techniques, annexes, annexes_techniques)
 
 if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
@@ -78,12 +101,7 @@ if Latex.possibles():
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
                     dossier_enregistrement, plateforme, coefprests, coefmachines, generaux)
 
-BilanMensuel.bilan(dossier_csv, encodage, delimiteur, edition, sommes, clients, generaux, acces,
+BilanMensuel.bilan(destination, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
-
-liste_archiver = [acces.nom_fichier, clients.nom_fichier, coefmachines.nom_fichier, coefprests.nom_fichier,
-                  comptes.nom_fichier, livraisons.nom_fichier, machines.nom_fichier, prestations.nom_fichier,
-                  reservations.nom_fichier, generaux.nom_fichier, edition.nom_fichier]
-Outils.archiver_liste(liste_archiver, dossier_csv)
 
 Outils.affiche_message("OK !!!")

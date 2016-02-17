@@ -8,19 +8,13 @@ class Client(Fichier):
     Classe pour l'importation des données de Clients Cmi
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'code', 'code_sap', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'email', 'mode',
-                'type_labo', 'emol_sans_activite', 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif',
-                'classe_tarif']
-        nom_fichier = "client.csv"
-        libelle = "Clients"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    cles = ['annee', 'mois', 'code', 'code_sap', 'abrev_labo', 'nom_labo', 'ref', 'dest', 'email', 'mode',
+            'type_labo', 'emol_sans_activite', 'emol_base_mens', 'emol_fixe', 'coef', 'id_classe_tarif',
+            'classe_tarif']
+    nom_fichier = "client.csv"
+    libelle = "Clients"
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.codes = []
 
     def obtenir_codes(self):

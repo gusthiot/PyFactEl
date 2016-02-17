@@ -7,18 +7,10 @@ class Compte(Fichier):
     Classe pour l'importation des données de Comptes Cmi
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_compte', 'intitule', 'categorie', 'code_client', 'abrev_labo', 'seuil', 'pourcent']
-        nom_fichier = "compte.csv"
-        libelle = "Comptes"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
-
+    cles = ['annee', 'mois', 'id_compte', 'intitule', 'categorie', 'code_client', 'abrev_labo', 'seuil', 'pourcent']
+    nom_fichier = "compte.csv"
+    libelle = "Comptes"
+    
     def contient_id(self, id_compte):
         """
         vérifie si un compte contient l'id donné

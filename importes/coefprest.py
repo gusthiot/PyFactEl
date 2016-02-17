@@ -7,17 +7,12 @@ class CoefPrest(Fichier):
     Classe pour l'importation des données de Coefficients Prestations
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
-        nom_fichier = "coeffprestation.csv"
-        libelle = "Coefficients Prestations"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    cles = ['annee', 'mois', 'id_classe_tarif', 'intitule', 'categorie', 'nom_categorie', 'coefficient']
+    nom_fichier = "coeffprestation.csv"
+    libelle = "Coefficients Prestations"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.classes = []
         self.noms_cat = {}
 

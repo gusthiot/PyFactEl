@@ -8,19 +8,14 @@ class Reservation(Fichier):
     Classe pour l'importation des données de Réservations
     """
 
-    def __init__(self, nom_dossier, delimiteur, encodage):
-        """
-        initialisation de la structure des données et du nom et de la position du fichier importé
-        :param nom_dossier: nom du dossier où se trouve le fichier à importer
-        :param delimiteur: code délimiteur de champ dans le fichier csv
-        :param encodage: encodage du texte
-        """
-        cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
-                'prenom_user', 'num_projet', 'intitule_projet', 'id_machine', 'nom_machine', 'date_debut', 'duree_hp',
-                'duree_hc', 'si_supprime', 'duree_ouvree', 'date_reservation', 'date_suppression']
-        nom_fichier = "res.csv"
-        libelle = "Réservation Equipement"
-        Fichier.__init__(self, libelle, cles, nom_dossier + nom_fichier, delimiteur, encodage)
+    cles = ['annee', 'mois', 'id_compte', 'intitule_compte', 'code_client', 'abrev_labo', 'id_user', 'nom_user',
+            'prenom_user', 'num_projet', 'intitule_projet', 'id_machine', 'nom_machine', 'date_debut', 'duree_hp',
+            'duree_hc', 'si_supprime', 'duree_ouvree', 'date_reservation', 'date_suppression']
+    nom_fichier = "res.csv"
+    libelle = "Réservation Equipement"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.comptes = {}
 
     def obtenir_comptes(self):
