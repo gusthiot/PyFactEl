@@ -25,7 +25,7 @@ class Facture(object):
         :param lien_annexes_techniques: lien au dossier contenant les annexes techniques
         :param dossier_annexes: dossier contenant les annexes
         :param dossier_annexes_techniques: dossier contenant les annexes techniques
-        :param prod2qual: Une fonction qui traduit les identifiants clients de PRD en QAS
+        :param prod2qual: Une instance de la classe Prod2Qual
         """
 
         if sommes.calculees == 0:
@@ -86,7 +86,7 @@ class Facture(object):
             cl = clients.donnees[code_client]
 
             code_sap = cl['code_sap']
-            if prod2qual and not (prod2qual.has(code_sap)):
+            if prod2qual and not (prod2qual.code_client_existe(code_sap)):
                 continue
 
             if cl['type_labo'] == "I":
@@ -110,7 +110,7 @@ class Facture(object):
             dossier_annexe_technique = "../" + annexes_techniques + "/" + nom_annexe_technique
 
             if prod2qual:
-                code_sap_traduit = prod2qual(code_sap)
+                code_sap_traduit = prod2qual.traduire_code_client(code_sap)
             else:
                 code_sap_traduit = code_sap
 
