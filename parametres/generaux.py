@@ -1,6 +1,7 @@
 import csv
 import sys
 from outils import Outils
+from erreurs import ErreurConsistance
 
 
 class Generaux(object):
@@ -28,17 +29,15 @@ class Generaux(object):
             fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
             for ligne in fichier_reader:
                 donnees_csv.append(ligne)
-        except IOError:
-            Outils.affiche_message("impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
-            sys.exit("Erreur I/O")
+        except IOError as e:
+            Outils.fatal(e, "impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
 
         num = len(Generaux.cles)
         if len(donnees_csv) != num:
             info = Generaux.libelle + ": nombre de lignes incorrect : " + str(len(donnees_csv)) + ", attendu : " + \
                    str(num)
             print(info)
-            Outils.affiche_message(info)
-            sys.exit("Erreur de consistance")
+            Outils.fatal(ErreurConsistance(), info)
 
         self.donnees = {}
         for xx in range(0, num):
@@ -78,10 +77,7 @@ class Generaux(object):
                    "le type de prix, le type de rabais et le texte SAP\n"
 
         if msg != "":
-            msg = self.libelle + "\n" + msg
-            print("msg : " + msg)
-            Outils.affiche_message(msg)
-            sys.exit("Erreur de consistance")
+            Outils.fatal(ErreurConsistance(), self.libelle + "\n" + msg)
 
     def obtenir_code_n(self):
         """

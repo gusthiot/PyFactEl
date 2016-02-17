@@ -6,6 +6,7 @@ import errno
 import os
 import platform
 
+from erreurs import ErreurConsistance
 
 class Outils(object):
     """
@@ -50,6 +51,14 @@ class Outils(object):
             mainloop()
         else:
             print(message)
+
+    @classmethod
+    def fatal(cls, exn, message):
+        Outils.affiche_message(message + "\n" + str(exn))
+        if isinstance(exn, ErreurConsistance) or isinstance(exn, ValueError):
+            sys.exit(1)
+        else:
+            sys.exit(4)            
 
     @staticmethod
     def affiche_message_conditionnel(message):

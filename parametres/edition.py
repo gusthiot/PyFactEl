@@ -1,6 +1,7 @@
 import csv
 import sys
 from outils import Outils
+from erreurs import ErreurConsistance
 
 
 class Edition(object):
@@ -25,24 +26,20 @@ class Edition(object):
             fichier_reader = csv.reader(csv_fichier, delimiter=delimiteur, quotechar='|')
             for ligne in fichier_reader:
                 donnees_csv.append(ligne)
-        except IOError:
-            Outils.affiche_message("impossible d'ouvrir le fichier : "+Edition.nom_fichier)
-            sys.exit("Erreur I/O")
+        except IOError as e:
+            Outils.fatal(e, "impossible d'ouvrir le fichier : "+Edition.nom_fichier)
 
         num = 3
         if len(donnees_csv) != num:
-            info = Edition.libelle + ": nombre de lignes incorrect : " + str(len(donnees_csv)) \
-                   + ", attendu : " + str(num)
-            print(info)
-            Outils.affiche_message(info)
-            sys.exit("Erreur de consistance")
+            Outils.fatal(ErreurConsistance(),
+                         Edition.libelle + ": nombre de lignes incorrect : " +
+                         str(len(donnees_csv)) + ", attendu : " + str(num))
         try:
             self.annee = int(donnees_csv[0][1])
             self.mois = int(donnees_csv[1][1])
-        except ValueError:
-            info = Edition.libelle + "\nle mois et l'année doivent être des nombres"
-            Outils.affiche_message(info)
-            sys.exit("Erreur de consistance")
+        except ValueError as e:
+            Outils.fatal(e, Edition.libelle +
+                         "\nle mois et l'année doivent être des nombres")
 
         self.version = donnees_csv[2][1]
         self.client_unique = ""
