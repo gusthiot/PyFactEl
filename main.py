@@ -97,9 +97,9 @@ if prod2qual.actif:
 
 if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                               comptes, dossier_annexes_techniques, plateforme, coefprests, generaux)
+                               comptes, dossier_annexes_techniques, plateforme, coefprests, coefmachines, generaux)
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                    dossier_enregistrement, plateforme, coefprests, generaux)
+                    dossier_enregistrement, plateforme, coefprests, coefmachines, generaux)
 
 BilanMensuel.bilan(destination, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)
