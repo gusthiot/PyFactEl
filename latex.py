@@ -42,6 +42,11 @@ class Latex(object):
         proc = subprocess.Popen(['pdflatex', nom_fichier + ".tex"])
         proc.communicate()
 
+        # 2 fois pour que les longtable soient réguliers (courant de relancer latex)
+
+        proc = subprocess.Popen(['pdflatex', nom_fichier + ".tex"])
+        proc.communicate()
+
         os.unlink(nom_fichier + '.tex')
         os.unlink(nom_fichier + '.log')
         os.unlink(nom_fichier + '.aux')

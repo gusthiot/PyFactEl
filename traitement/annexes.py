@@ -141,11 +141,12 @@ class Annexes(object):
         scl = sommes.sommes_clients[code_client]
         client = clients.donnees[code_client]
         sca = sommes.sommes_categories[code_client]
+        intitule_client = code_client + " - " + Latex.echappe_caracteres(client['abrev_labo'])
 
         structure_recap_compte = r'''{|l|l|l|l|l|'''
         contenu_recap_compte = r'''
             \hline
-            Intitulé & Type & Plafonné & Non Plaf.'''
+            Compte & Catégorie & Plafonné & Non Plaf.'''
 
         for categorie in generaux.codes_d3():
             structure_recap_compte += r'''l|'''
@@ -153,28 +154,31 @@ class Annexes(object):
             contenu_recap_compte += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
 
         structure_recap_compte += r'''}'''
-        legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + code_client
+        legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + intitule_client
         contenu_recap_compte += r'''& Total cpte \\
             \hline
             '''
 
         client_comptes = sommes.sommes_comptes[code_client]
+        contenu_compte = ""
 
         for id_compte in sorted(client_comptes.keys()):
             # ## COMPTE
+
             co = comptes.donnees[id_compte]
             intitule_compte = id_compte + " - " + Latex.echappe_caracteres(co['intitule'])
             dico_nom = {'labo': Latex.echappe_caracteres(client['abrev_labo']),
                         'utilisateur': Latex.echappe_caracteres(co['intitule']),
-                        'date': str(edition.mois) + "/" + str(edition.annee)}
-            contenu += r'''
+                        'date': edition.mois_txt + " " + str(edition.annee)}
+            contenu_compte += r'''
+                \clearpage
                 %(labo)s - %(utilisateur)s - %(date)s
                 ''' % dico_nom
 
             structure_recap_projet = r'''{|l|l|l|l|'''
             contenu_recap_projet = r'''
                 \hline
-                Numéro & Plafonné & Non Plaf. '''
+                Projet & Plafonné & Non Plaf. '''
             for categorie in generaux.codes_d3():
                 structure_recap_projet += r'''l|'''
                 contenu_recap_projet += r''' & '''
@@ -185,6 +189,8 @@ class Annexes(object):
                 \hline
                 '''
             client_compte_projet = sommes.sommes_projets[code_client][id_compte]
+            contenu_projet = ""
+
             for num_projet in sorted(client_compte_projet.keys()):
                 # ## PROJET
                 sp = sommes.sommes_projets[code_client][id_compte][num_projet]
@@ -192,7 +198,7 @@ class Annexes(object):
 
                 machines_utilisees = {}
 
-                dico_recap_projet = {'num': num_projet, 'plafond': "%.2f" % sp['somme_p_pm'],
+                dico_recap_projet = {'num': intitule_projet, 'plafond': "%.2f" % sp['somme_p_pm'],
                                      'non_plafond': "%.2f" % sp['somme_p_nm']}
 
                 total = sp['somme_p_pm'] + sp['somme_p_nm']
@@ -221,9 +227,10 @@ class Annexes(object):
                     \hline
                     ''' % dico_cae
                 nombre_cae = 0
-                legende_cae = r'''Récapitulatif CAE : ''' + intitule_compte + r''' / ''' + intitule_projet
+                legende_cae = r'''Récapitulatif Utilisation machines : ''' + intitule_compte + r''' / ''' + intitule_projet
 
                 cae_proj = acces.acces_pour_projet(num_projet, id_compte, code_client)
+                resultats = [0, 0, 0]
                 for cae in cae_proj:
                     nombre_cae += 1
                     if cae['id_machine'] not in machines_utilisees:
@@ -233,10 +240,21 @@ class Annexes(object):
                     machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hc']
                     machine = machines.donnees[cae['id_machine']]
                     coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
-                    contenu_cae += Annexes.ligne_cae(cae, machine, coefmachine)
+                    ligne, resultat = Annexes.ligne_cae(cae, machine, coefmachine)
+                    resultats[0] += resultat[0]
+                    resultats[1] += resultat[1]
+                    resultats[2] += resultat[2]
+                    contenu_cae += ligne
+
+                contenu_cae += r'''
+                    \multicolumn{9}{|r||}{Total} & ''' + Outils.format_si_nul(resultats[0]) + r'''
+                    & ''' + Outils.format_si_nul(resultats[1]) + r'''
+                    & ''' + Outils.format_si_nul(resultats[2]) + r''' \\
+                    \hline
+                    '''
 
                 if nombre_cae > 0:
-                    contenu += Latex.long_tableau(contenu_cae, structure_cae, legende_cae)
+                    contenu_projet += Latex.long_tableau(contenu_cae, structure_cae, legende_cae)
                 # ## cae
 
                 # ## RES
@@ -254,6 +272,7 @@ class Annexes(object):
                 legende_res = r'''Récapitulatif Réservations : ''' + intitule_compte + r''' / ''' + intitule_projet
 
                 res_proj = reservations.reservations_pour_projet(num_projet, id_compte, code_client)
+                resultats = [0, 0]
                 for res in res_proj:
                     nombre_res += 1
                     if res['id_machine'] not in machines_utilisees:
@@ -261,10 +280,19 @@ class Annexes(object):
                                                                  'reservation': 0}
                     machines_utilisees[res['id_machine']]['reservation'] += res['duree_hp']
                     machines_utilisees[res['id_machine']]['reservation'] += res['duree_hc']
-                    contenu_res += Annexes.ligne_res(res, machines.donnees[res['id_machine']])
+                    ligne, resultat = Annexes.ligne_res(res, machines.donnees[res['id_machine']])
+                    resultats[0] += resultat[0]
+                    resultats[1] += resultat[1]
+                    contenu_res += ligne
+
+                contenu_res += r'''
+                    \multicolumn{8}{|r||}{Total} & ''' + Outils.format_si_nul(resultats[0]) + r'''
+                    & ''' + Outils.format_si_nul(resultats[1]) + r'''\\
+                    \hline
+                    '''
 
                 if nombre_res > 0:
-                    contenu += Latex.long_tableau(contenu_res, structure_res, legende_res)
+                    contenu_projet += Latex.long_tableau(contenu_res, structure_res, legende_res)
                 # ## res
 
                 # ## LIV
@@ -282,16 +310,23 @@ class Annexes(object):
 
                 liv_proj_cat = livraisons.livraisons_pour_projet_par_categorie(num_projet, id_compte, code_client,
                                                                                prestations)
-
+                resultats = 0
                 for categorie in generaux.codes_d3():
                     if categorie in liv_proj_cat:
                         livs = liv_proj_cat[categorie]
                         for liv in livs:
                             nombre_liv += 1
-                            contenu_liv += Annexes.ligne_liv(liv)
+                            ligne, resultat = Annexes.ligne_liv(liv)
+                            resultats += resultat
+                            contenu_liv += ligne
+
+                contenu_liv += r'''
+                    \multicolumn{7}{|r|}{Total} & ''' + Outils.format_si_nul(resultats) + r'''\\
+                    \hline
+                    '''
 
                 if nombre_liv > 0:
-                    contenu += Latex.long_tableau(contenu_liv, structure_liv, legende_liv)
+                    contenu_projet += Latex.long_tableau(contenu_liv, structure_liv, legende_liv)
                 # ## liv
 
                 if nombre_res > 0 or nombre_res > 0:
@@ -313,7 +348,7 @@ class Annexes(object):
                             \hline
                             ''' % dico_stat_machines
 
-                    contenu += Latex.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
+                    contenu_projet += Latex.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
 
                 # ## projet
 
@@ -349,12 +384,12 @@ class Annexes(object):
 
             contenu_recap_projet += ligne1 + ligne2 + ligne3
 
-            contenu += Latex.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
+            contenu_compte += Latex.tableau(contenu_recap_projet, structure_recap_projet, legende_recap_projet)
 
-            dico_recap_compte = {'compte': id_compte, 'type': co['categorie'], 'plafond': "%.2f" % sco['pj'],
+            dico_recap_compte = {'compte': intitule_compte, 'type': co['categorie'], 'plafond': "%.2f" % sco['pj'],
                                  'non_plafond': "%.2f" % sco['nj'], 'total': "%.2f" % sj}
 
-            contenu_recap_compte += r'''Compte %(compte)s & %(type)s & %(plafond)s & %(non_plafond)s ''' \
+            contenu_recap_compte += r'''%(compte)s & %(type)s & %(plafond)s & %(non_plafond)s ''' \
                                     % dico_recap_compte
 
             for categorie in generaux.codes_d3():
@@ -398,14 +433,13 @@ class Annexes(object):
                     \hline
                     '''
 
-            contenu += Latex.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
-
-            contenu += r'''\clearpage'''
+            contenu_compte += Latex.tableau(contenu_recap_poste, structure_recap_poste, legende_recap_poste)
+            contenu_compte += contenu_projet
             # ## compte
 
         dic_entete = {'code': code_client, 'code_sap': client['code_sap'],
                       'nom': Latex.echappe_caracteres(client['abrev_labo']),
-                      'date': str(edition.mois) + "/" + str(edition.annee)}
+                      'date': edition.mois_txt + " " + str(edition.annee)}
         entete = r'''
             %(code)s - %(code_sap)s - %(nom)s - %(date)s
             ''' % dic_entete
@@ -417,7 +451,7 @@ class Annexes(object):
                    'tot_eq': "%.2f" % scl['somme_eq'], 'rabais': "%.2f" % scl['er']}
 
         structure_emolument = r'''{|l|l|l|l|l|l|l|}'''
-        legende_emolument = r'''Emolument pour client ''' + code_client
+        legende_emolument = r'''Emolument pour client ''' + intitule_client
         contenu_emolument = r'''
             \hline
             Emolument de base & Emolument fixe & Pente & Total EQ P & Total EQ NP & Total EQ & Rabais émolument \\
@@ -443,7 +477,7 @@ class Annexes(object):
         contenu += Latex.tableau(contenu_recap_compte, structure_recap_compte, legende_recap_compte)
 
         structure_recap_poste_cl = r'''{|l|l|l|l|}'''
-        legende_recap_poste_cl = r'''Récapitulatif postes pour client ''' + code_client
+        legende_recap_poste_cl = r'''Récapitulatif postes pour client ''' + intitule_client
 
         dico_recap_poste_cl = {'kpm1': '0.00', 'kprj1': '0.00', 'pk1': '0.00', 'kpm2': '0.00', 'kprj2': '0.00',
                                'pk2': '0.00', 'kpm3': '0.00', 'kprj3': '0.00', 'pk3': '0.00', 'kpm4': '0.00',
@@ -474,15 +508,15 @@ class Annexes(object):
             \hline
              & Montant & Rabais & Total \\
             \hline
-            Machine P (catégorie Utilisateur) & %(kpm1)s & %(kprj1)s & %(pk1)s \\
+            Machine P (catégorie 1 : Utilisateur) & %(kpm1)s & %(kprj1)s & %(pk1)s \\
             \hline
-            Machine P (catégorie Etudiant en projet Master) & %(kpm2)s & %(kprj2)s & %(pk2)s \\
+            Machine P (catégorie 2 : Etudiant en projet Master) & %(kpm2)s & %(kprj2)s & %(pk2)s \\
             \hline
-            Machine P (catégorie Etudiant en projet Semestre) & %(kpm3)s & %(kprj3)s & %(pk3)s \\
+            Machine P (catégorie 3 : Etudiant en projet Semestre) & %(kpm3)s & %(kprj3)s & %(pk3)s \\
             \hline
-            Machine P (catégorie Client) & %(kpm4)s & %(kprj4)s & %(pk4)s \\
+            Machine P (catégorie 4 : Client) & %(kpm4)s & %(kprj4)s & %(pk4)s \\
             \hline
-            Machine P & %(tpm)s & %(tprj)s & %(pt)s \\
+            Machine P (total des catégories) & %(tpm)s & %(tprj)s & %(pt)s \\
             \hline
             Machine NP & %(tqm)s & \multirow{2}{*}{%(tnrj)s} & \multirow{2}{*}{%(nt)s} \\
             \cline{1-2}
@@ -500,6 +534,7 @@ class Annexes(object):
                 '''
 
         contenu += Latex.tableau(contenu_recap_poste_cl, structure_recap_poste_cl, legende_recap_poste_cl)
+        contenu += contenu_compte
 
         return contenu
 
@@ -520,12 +555,12 @@ class Annexes(object):
         t5 = machine['t_h_machine_hc_np'] * coefmachine['coef_np']
         t6 = machine['t_h_operateur_hc_mo'] * coefmachine['coef_mo']
 
-        p1 = Outils.format_si_nul(t1 * cae['duree_machine_hp'] / 60)
-        p2 = Outils.format_si_nul(t2 * cae['duree_machine_hp'] / 60)
-        p3 = Outils.format_si_nul(t3 * cae['duree_operateur_hp'] / 60)
-        p4 = Outils.format_si_nul(t4 * cae['duree_machine_hc'] / 60)
-        p5 = Outils.format_si_nul(t5 * cae['duree_machine_hc'] / 60)
-        p6 = Outils.format_si_nul(t6 * cae['duree_operateur_hc'] / 60)
+        p1 = round(t1 * cae['duree_machine_hp'] / 60, 2)
+        p2 = round(t2 * cae['duree_machine_hp'] / 60, 2)
+        p3 = round(t3 * cae['duree_operateur_hp'] / 60, 2)
+        p4 = round(t4 * cae['duree_machine_hc'] / 60, 2)
+        p5 = round(t5 * cae['duree_machine_hc'] / 60, 2)
+        p6 = round(t6 * cae['duree_operateur_hc'] / 60, 2)
         login = Latex.echappe_caracteres(cae['date_login']).split()
         temps = login[0].split('-')
         date = temps[0]
@@ -547,7 +582,8 @@ class Annexes(object):
                 'deq_hc': Outils.format_heure(cae['duree_machine_hc']),
                 'dmo_hc': Outils.format_heure(cae['duree_operateur_hc']),
                 't1': "%d" % t1, 't2': "%d" % t2, 't3': "%d" % t3, 't4': "%d" % t4, 't5': "%d" % t5, 't6': "%d" % t6,
-                'p1': p1, 'p2': p2, 'p3': p3, 'p4': p4, 'p5': p5, 'p6': p6}
+                'p1': Outils.format_si_nul(p1), 'p2': Outils.format_si_nul(p2), 'p3': Outils.format_si_nul(p3),
+                'p4': Outils.format_si_nul(p4), 'p5': Outils.format_si_nul(p5), 'p6': Outils.format_si_nul(p6)}
 
         nb = 0
         if (cae['duree_machine_hp'] > 0) or (cae['duree_operateur_hp'] > 0):
@@ -557,7 +593,7 @@ class Annexes(object):
             nb += 1
 
         if nb == 0:
-            return ""
+            return "", [0, 0, 0]
 
         if (cae['remarque_staff'] != "") or (cae['remarque_op'] != ""):
             nb += 1
@@ -591,7 +627,7 @@ class Annexes(object):
 
         ligne += r'''\hline
             '''
-        return ligne
+        return ligne, [(p1 + p4), (p2 + p5), (p3 + p6)]
 
     @staticmethod
     def ligne_res(res, machine):
@@ -601,10 +637,10 @@ class Annexes(object):
         :param machine: machine concernée
         :return: ligne de tableau latex
         """
-        p7 = Outils.format_si_nul(machine['t_h_reservation_hp_p'] * res['duree_fact_hp'] / 60)
-        p8 = Outils.format_si_nul(machine['t_h_reservation_hp_np'] * res['duree_fact_hp'] / 60)
-        p9 = Outils.format_si_nul(machine['t_h_reservation_hc_p'] * res['duree_fact_hc'] / 60)
-        p10 = Outils.format_si_nul(machine['t_h_reservation_hc_np'] * res['duree_fact_hc'] / 60)
+        p7 = round(machine['t_h_reservation_hp_p'] * res['duree_fact_hp'] / 60, 2)
+        p8 = round(machine['t_h_reservation_hp_np'] * res['duree_fact_hp'] / 60, 2)
+        p9 = round(machine['t_h_reservation_hc_p'] * res['duree_fact_hc'] / 60, 2)
+        p10 = round(machine['t_h_reservation_hc_np'] * res['duree_fact_hc'] / 60, 2)
         login = Latex.echappe_caracteres(res['date_debut']).split()
         temps = login[0].split('-')
         date = temps[0]
@@ -623,8 +659,9 @@ class Annexes(object):
                 'shp': Outils.format_heure(res['duree_hp']), 'shc': Outils.format_heure(res['duree_hc']),
                 'fhp': Outils.format_heure(res['duree_fact_hp']), 'fhc': Outils.format_heure(res['duree_fact_hc']),
                 't7': "%d" % machine['t_h_reservation_hp_p'], 't8': "%d" % machine['t_h_reservation_hp_np'],
-                't9': "%d" % machine['t_h_reservation_hc_p'], 't10': "%d" % machine['t_h_reservation_hc_np'], 'p7': p7,
-                'p8': p8, 'p9': p9, 'p10': p10}
+                't9': "%d" % machine['t_h_reservation_hc_p'], 't10': "%d" % machine['t_h_reservation_hc_np'],
+                'p7': Outils.format_si_nul(p7), 'p8': Outils.format_si_nul(p8), 'p9': Outils.format_si_nul(p9),
+                'p10': Outils.format_si_nul(p10)}
 
         nb = 0
         if res['duree_fact_hp'] > 0:
@@ -634,7 +671,7 @@ class Annexes(object):
             nb += 1
 
         if nb == 0:
-            return ""
+            return "", [0, 0]
 
         if res['date_suppression'] != "":
             nb += 1
@@ -667,7 +704,7 @@ class Annexes(object):
         ligne += r'''\hline
             '''
 
-        return ligne
+        return ligne, [(p7 + p9), (p8 + p10)]
 
     @staticmethod
     def ligne_liv(livraison):
@@ -692,4 +729,4 @@ class Annexes(object):
              & \multicolumn{7}{l|}{Commande: %(commande)s; N. livraison: %(id)s; Resp: %(responsable)s; Remarque:
              %(remarque)s} \\
              \hline
-             ''' % dico
+             ''' % dico, total

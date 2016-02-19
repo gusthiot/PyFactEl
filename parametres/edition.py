@@ -55,3 +55,7 @@ class Edition(object):
             else:
                 jour = 28
         self.dernier_jour = jour
+
+        mois_fr = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
+                   "novembre", "décembre"]
+        self.mois_txt = mois_fr[self.mois-1]

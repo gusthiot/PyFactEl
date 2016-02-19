@@ -30,9 +30,8 @@ class Fichier(object):
             self.donnees = donnees_csv
             self.verifie_date = 0
             self.verifie_coherence = 0
-        except IOError:
-            Outils.affiche_message("impossible d'ouvrir le fichier : "+nom_fichier)
-            sys.exit("Erreur I/O")
+        except IOError as e:
+            Outils.fatal(e, "impossible d'ouvrir le fichier : "+self.nom_fichier)
 
     def extraction_ligne(self, ligne):
         """
