@@ -101,6 +101,7 @@ class Annexes(object):
             contenu += r'''\usepackage[margin=10mm, includefoot]{geometry}
                 \usepackage{multirow}
                 \usepackage{longtable}
+                \usepackage{dcolumn}
                 \usepackage[scriptsize]{caption}
 
                 \begin{document}
@@ -143,19 +144,19 @@ class Annexes(object):
         sca = sommes.sommes_categories[code_client]
         intitule_client = code_client + " - " + Latex.echappe_caracteres(client['abrev_labo'])
 
-        structure_recap_compte = r'''{|l|l|l|l|l|'''
+        structure_recap_compte = r'''{|l|l|r|r|r|'''
         contenu_recap_compte = r'''
             \hline
-            Compte & Catégorie & Plafonné & Non Plaf.'''
+            Compte & Catégorie & \multicolumn{1}{l|}{Plafonné} & \multicolumn{1}{l|}{Non Plaf.}'''
 
         for categorie in generaux.codes_d3():
-            structure_recap_compte += r'''l|'''
-            contenu_recap_compte += r''' & '''
-            contenu_recap_compte += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+            structure_recap_compte += r'''r|'''
+            contenu_recap_compte += r''' & \multicolumn{1}{l|}{
+            ''' + Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie)) + r'''}'''
 
         structure_recap_compte += r'''}'''
         legende_recap_compte = r'''Récapitulatif des comptes pour client ''' + intitule_client
-        contenu_recap_compte += r'''& Total cpte \\
+        contenu_recap_compte += r'''& \multicolumn{1}{l|}{Total cpte} \\
             \hline
             '''
 
@@ -175,17 +176,17 @@ class Annexes(object):
                 %(labo)s - %(utilisateur)s - %(date)s
                 ''' % dico_nom
 
-            structure_recap_projet = r'''{|l|l|l|l|'''
+            structure_recap_projet = r'''{|l|r|r|r|'''
             contenu_recap_projet = r'''
                 \hline
-                Projet & Plafonné & Non Plaf. '''
+                Projet & \multicolumn{1}{l|}{Plafonné} & \multicolumn{1}{l|}{Non Plaf.} '''
             for categorie in generaux.codes_d3():
-                structure_recap_projet += r'''l|'''
-                contenu_recap_projet += r''' & '''
-                contenu_recap_projet += Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie))
+                structure_recap_projet += r'''r|'''
+                contenu_recap_projet += r''' & \multicolumn{1}{l|}{
+                ''' + Latex.echappe_caracteres(coefprests.obtenir_noms_categories(categorie)) + r'''}'''
             structure_recap_projet += r'''}'''
             legende_recap_projet = r'''Récapitulatif compte ''' + intitule_compte
-            contenu_recap_projet += r''' & Total projet \\
+            contenu_recap_projet += r''' & \multicolumn{1}{l|}{Total projet} \\
                 \hline
                 '''
             client_compte_projet = sommes.sommes_projets[code_client][id_compte]
@@ -216,14 +217,16 @@ class Annexes(object):
                     ''' % dico_recap_projet
 
                 # ## CAE
-                structure_cae = r'''{|l|l|l|l|l|l||l|l|l||l|l|l|}'''
+                structure_cae = r'''{|l|l|l|l|l|l||r|r|r||r|r|r|}'''
                 dico_cae = {'compte': intitule_compte, 'projet': intitule_projet}
                 contenu_cae = r'''
                     \hline
                     \multicolumn{3}{|l|}{%(compte)s / %(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
                     \multicolumn{3}{l||}{CHF/h} & \multicolumn{3}{l|}{CHF} \\
                     \hline
-                    Date & Heure & Equipement & & mach. & oper. & P & NP & OP & P & NP & OP\\
+                    Date & Heure & Equipement & & mach. & oper. & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{NP}
+                    & \multicolumn{1}{l||}{OP} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{NP}
+                    & \multicolumn{1}{l|}{OP} \\
                     \hline
                     ''' % dico_cae
                 nombre_cae = 0
@@ -258,14 +261,15 @@ class Annexes(object):
                 # ## cae
 
                 # ## RES
-                structure_res = r'''{|l|l|l|l|l|l||l|l||l|l|}'''
+                structure_res = r'''{|l|l|l|l|l|l||r|r||r|r|}'''
                 dico_res = {'compte': intitule_compte, 'projet': intitule_projet}
                 contenu_res = r'''
                     \hline
                     \multicolumn{3}{|l|}{%(compte)s / %(projet)s} & & \multicolumn{2}{l||}{hh:mm} &
                     \multicolumn{2}{l||}{CHF/h} & \multicolumn{2}{l|}{CHF} \\
                     \hline
-                    Date & Heure & Equipement & & slot & fact. & P & NP & P & NP\\
+                    Date & Heure & Equipement & & slot & fact. & \multicolumn{1}{l|}{P} & \multicolumn{1}{l||}{NP}
+                    & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{NP} \\
                     \hline
                     ''' % dico_res
                 nombre_res = 0
@@ -296,13 +300,14 @@ class Annexes(object):
                 # ## res
 
                 # ## LIV
-                structure_liv = r'''{|l|l|l|l|l|l|l|l|}'''
+                structure_liv = r'''{|l|l|l|l|r|r|r|r|}'''
                 dico_liv = {'compte': intitule_compte, 'projet': intitule_projet}
                 contenu_liv = r'''
                     \hline
                     \multicolumn{2}{|l|}{%(compte)s / %(projet)s} & & & & & &  \\
                     \hline
-                    Date livr. & Désignation & Q & Unité & PU & Montant & Rabais & Total \\
+                    Date livr. & Désignation & Q & Unité & \multicolumn{1}{l|}{PU} & \multicolumn{1}{l|}{Montant}
+                    & \multicolumn{1}{l|}{Rabais} & \multicolumn{1}{l|}{Total} \\
                     \hline
                     ''' % dico_liv
                 nombre_liv = 0
@@ -329,7 +334,7 @@ class Annexes(object):
                     contenu_projet += Latex.long_tableau(contenu_liv, structure_liv, legende_liv)
                 # ## liv
 
-                if nombre_res > 0 or nombre_res > 0:
+                if nombre_cae > 0 or nombre_res > 0:
                     structure_stat_machines = r'''{|l|l|l|}'''
                     legende_stat_machines = r'''Statistiques de réservation/utilisation par machine : ''' + \
                                             intitule_compte + r''' / ''' + intitule_projet
@@ -399,7 +404,7 @@ class Annexes(object):
                     \hline
                     ''' % dico_recap_compte
 
-            structure_recap_poste = r'''{|l|l|l|l|}'''
+            structure_recap_poste = r'''{|l|r|r|r|}'''
             legende_recap_poste = r'''Récapitulatif postes pour compte ''' + intitule_compte
 
             dico_recap_poste = {'spu': "%.2f" % sco['somme_j_pu'], 'prj': "%.2f" % sco['prj'],
@@ -410,7 +415,8 @@ class Annexes(object):
 
             contenu_recap_poste = r'''
                 \hline
-                Compte : ''' + intitule_compte + r''' & Montant & Rabais & Total \\
+                Compte : ''' + intitule_compte + r''' & \multicolumn{1}{l|}{Montant} & \multicolumn{1}{l|}{Rabais}
+                & \multicolumn{1}{l|}{Total} \\
                 \hline
                 Montant utilisation Machine P & %(spu)s & \multirow{2}{*}{%(prj)s} & \multirow{2}{*}{%(pj)s} \\
                 \cline{1-2}
@@ -450,11 +456,13 @@ class Annexes(object):
                    'pente': client['coef'], 'tot_eq_p': "%.2f" % scl['pt'], 'tot_eq_np': "%.2f" % scl['qt'],
                    'tot_eq': "%.2f" % scl['somme_eq'], 'rabais': "%.2f" % scl['er']}
 
-        structure_emolument = r'''{|l|l|l|l|l|l|l|}'''
+        structure_emolument = r'''{|r|r|l|r|r|r|r|}'''
         legende_emolument = r'''Emolument pour client ''' + intitule_client
         contenu_emolument = r'''
             \hline
-            Emolument de base & Emolument fixe & Pente & Total EQ P & Total EQ NP & Total EQ & Rabais émolument \\
+            \multicolumn{1}{|l|}{Emolument de base} & \multicolumn{1}{l|}{Emolument fixe} & Pente
+            & \multicolumn{1}{l|}{Total EQ P} & \multicolumn{1}{l|}{Total EQ NP} & \multicolumn{1}{l|}{Total EQ}
+            & \multicolumn{1}{l|}{Rabais émolument} \\
             \hline
             %(emb)s & %(ef)s & %(pente)s & %(tot_eq_p)s & %(tot_eq_np)s & %(tot_eq)s & %(rabais)s \\
             \hline
@@ -476,7 +484,7 @@ class Annexes(object):
 
         contenu += Latex.tableau(contenu_recap_compte, structure_recap_compte, legende_recap_compte)
 
-        structure_recap_poste_cl = r'''{|l|l|l|l|}'''
+        structure_recap_poste_cl = r'''{|l|r|r|r|}'''
         legende_recap_poste_cl = r'''Récapitulatif postes pour client ''' + intitule_client
 
         dico_recap_poste_cl = {'kpm1': '0.00', 'kprj1': '0.00', 'pk1': '0.00', 'kpm2': '0.00', 'kprj2': '0.00',
@@ -506,7 +514,7 @@ class Annexes(object):
 
         contenu_recap_poste_cl = r'''
             \hline
-             & Montant & Rabais & Total \\
+             & \multicolumn{1}{l|}{Montant} & \multicolumn{1}{l|}{Rabais} & \multicolumn{1}{l|}{Total} \\
             \hline
             Machine P (catégorie 1 : Utilisateur) & %(kpm1)s & %(kprj1)s & %(pk1)s \\
             \hline
