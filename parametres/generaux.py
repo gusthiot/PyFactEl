@@ -36,8 +36,9 @@ class Generaux(object):
                 if cle not in self.cles_autorisees:
                     Outils.fatal(ErreurConsistance(),
                                  "Clé inconnue dans %s: %s" % (self.nom_fichier, cle))
-                while ligne[-1] == "":
-                    del ligne[-1]
+                if cle != "texte_sap":
+                    while "" in ligne:
+                        ligne.remove("")
                 self._donnees[cle] = ligne
         except IOError as e:
             Outils.fatal(e, "impossible d'ouvrir le fichier : "+Generaux.nom_fichier)
