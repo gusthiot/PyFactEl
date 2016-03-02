@@ -100,7 +100,7 @@ if Latex.possibles():
     Annexes.annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
                                comptes, dossier_annexes_techniques, plateforme, coefprests, coefmachines, generaux)
     Annexes.annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                    dossier_enregistrement, plateforme, coefprests, coefmachines, generaux)
+                    dossier_annexes, plateforme, coefprests, coefmachines, generaux)
 
 BilanMensuel.bilan(dossier_destination, edition, sommes, clients, generaux, acces,
                    reservations, livraisons, comptes)

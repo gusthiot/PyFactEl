@@ -1,5 +1,5 @@
-import os
-import shutil
+#import os
+#import shutil
 
 from outils import Outils
 from latex import Latex
@@ -12,7 +12,7 @@ class Annexes(object):
 
     @staticmethod
     def annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                nom_dossier, plateforme, coefprests, coefmachines, generaux):
+                dossier_annexe, plateforme, coefprests, coefmachines, generaux, nom_dossier='deprecated'):
         """
         création des annexes de facture
         :param sommes: sommes calculées
@@ -24,17 +24,19 @@ class Annexes(object):
         :param reservations: réservations importées
         :param prestations: prestations importées
         :param comptes: comptes importés
-        :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
+        :param dossier_annexe: nom du dossier dans lequel enregistrer le dossier des annexes
         :param plateforme: OS utilisé
         :param coefprests: coefficients prestations importés
         :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
+        :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
         """
-        dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
+        #dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
         prefixe = "annexe_"
-        """
+
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, generaux)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux)
+
         """
         # tant que les annexes techniques et les annexes de factures sont identiques
         dossier_annexe_t = Outils.chemin_dossier([nom_dossier, "annexes_techniques"], plateforme, generaux)
@@ -43,6 +45,7 @@ class Annexes(object):
             if file_t.endswith(".pdf"):
                 file = file_t.replace(prefixe_t, prefixe)
                 shutil.copyfile(dossier_annexe_t + file_t, dossier_annexe + file)
+        """
 
     @staticmethod
     def annexes_techniques(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
