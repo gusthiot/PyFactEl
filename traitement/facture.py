@@ -88,6 +88,12 @@ class Facture(object):
                 poste = 0
                 client = sommes.sommes_clients[code_client]
                 cl = clients.donnees[code_client]
+
+                tot = client['somme_j_pm'] + client['somme_j_nm']
+                for categorie in generaux.codes_d3():
+                    tot += client['sommes_cat_m'][categorie]
+                if tot == 0 and client['e'] == 0:
+                    continue
     
                 code_sap = cl['code_sap']
                 if self.prod2qual and not (self.prod2qual.code_client_existe(code_sap)):

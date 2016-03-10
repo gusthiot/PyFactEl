@@ -320,7 +320,7 @@ class Sommes(object):
                 somme['somme_eq'], somme['somme_sb'], somme['somme_t'], somme['em'], somme['er0'], somme['er'] = \
                     Rabais.rabais_emolument(somme['pt'], somme['qt'], somme['ot'], somme['tot_cat'],
                                             cl['emol_base_mens'], cl['emol_fixe'], cl['coef'], cl['emol_sans_activite'])
-
+                somme['e'] = somme['em'] - somme['er']
                 self.calculees = 1
                 self.sommes_clients = spc
 

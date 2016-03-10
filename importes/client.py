@@ -13,6 +13,7 @@ class Client(Fichier):
             'classe_tarif']
     nom_fichier = "client.csv"
     libelle = "Clients"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.codes = []
