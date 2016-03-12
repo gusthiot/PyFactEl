@@ -89,7 +89,7 @@ class Facture(object):
                 client = sommes.sommes_clients[code_client]
                 cl = clients.donnees[code_client]
 
-                tot = client['somme_j_pm'] + client['somme_j_nm']
+                tot = client['somme_t_pm'] + client['somme_t_nm']
                 for categorie in generaux.codes_d3():
                     tot += client['sommes_cat_m'][categorie]
                 if tot == 0 and client['e'] == 0:
