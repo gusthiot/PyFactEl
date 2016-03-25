@@ -89,7 +89,6 @@ class Latex(object):
             \caption{''' + legende + r'''}
             \end{table}
             '''
-        return tableau
 
     @staticmethod
     def entete(plateforme):
@@ -103,6 +102,7 @@ class Latex(object):
             \usepackage{lmodern}
             \usepackage[french]{babel}
             \usepackage{microtype}
+            \DisableLigatures{encoding = *, family = * }
             '''
         if plateforme == "win32":
             debut += r'''
