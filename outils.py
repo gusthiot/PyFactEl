@@ -102,7 +102,7 @@ class Outils(object):
         :return: heure en hh:mm
         """
         if nombre == 0:
-            return ""
+            return "00:00"
         heures = "%d" % (nombre // 60)
         if (nombre // 60) < 10:
             heures = '0' + heures

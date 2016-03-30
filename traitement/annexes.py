@@ -233,17 +233,19 @@ class Annexes(object):
                     \hline
                     ''' % dico_cae
                 nombre_cae = 0
-                legende_cae = r'''Récapitulatif Utilisation machines : ''' + intitule_compte + r''' / ''' + intitule_projet
+                legende_cae = r'''Récapitulatif Utilisation machines : ''' + intitule_compte + r''' / ''' +\
+                              intitule_projet
 
                 cae_proj = acces.acces_pour_projet(num_projet, id_compte, code_client)
                 resultats = [0, 0, 0]
                 for cae in cae_proj:
                     nombre_cae += 1
                     if cae['id_machine'] not in machines_utilisees:
-                        machines_utilisees[cae['id_machine']] = {'machine': cae['nom_machine'], 'usage': 0,
-                                                                 'reservation': 0}
-                    machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hp']
-                    machines_utilisees[cae['id_machine']]['usage'] += cae['duree_machine_hc']
+                        machines_utilisees[cae['id_machine']] = {'machine': cae['nom_machine'], 'usage_hp': 0,
+                                                                 'reservation_hp': 0, 'facture_hp': 0, 'usage_hc': 0,
+                                                                 'reservation_hc': 0, 'facture_hc': 0}
+                    machines_utilisees[cae['id_machine']]['usage_hp'] += cae['duree_machine_hp']
+                    machines_utilisees[cae['id_machine']]['usage_hc'] += cae['duree_machine_hc']
                     machine = machines.donnees[cae['id_machine']]
                     coefmachine = coefmachines.donnees[client['id_classe_tarif'] + machine['categorie']]
                     ligne, resultat = Annexes.ligne_cae(cae, machine, coefmachine)
@@ -283,10 +285,13 @@ class Annexes(object):
                 for res in res_proj:
                     nombre_res += 1
                     if res['id_machine'] not in machines_utilisees:
-                        machines_utilisees[res['id_machine']] = {'machine': res['nom_machine'], 'usage': 0,
-                                                                 'reservation': 0}
-                    machines_utilisees[res['id_machine']]['reservation'] += res['duree_hp']
-                    machines_utilisees[res['id_machine']]['reservation'] += res['duree_hc']
+                        machines_utilisees[res['id_machine']] = {'machine': res['nom_machine'], 'usage_hp': 0,
+                                                                 'reservation_hp': 0, 'facture_hp': 0, 'usage_hc': 0,
+                                                                 'reservation_hc': 0, 'facture_hc': 0}
+                    machines_utilisees[res['id_machine']]['reservation_hp'] += res['duree_hp']
+                    machines_utilisees[res['id_machine']]['reservation_hc'] += res['duree_hc']
+                    machines_utilisees[res['id_machine']]['facture_hp'] += res['duree_fact_hp']
+                    machines_utilisees[res['id_machine']]['facture_hc'] += res['duree_fact_hc']
                     ligne, resultat = Annexes.ligne_res(res, machines.donnees[res['id_machine']])
                     resultats[0] += resultat[0]
                     resultats[1] += resultat[1]
@@ -338,25 +343,31 @@ class Annexes(object):
                 # ## liv
 
                 if nombre_cae > 0 or nombre_res > 0:
-                    structure_stat_machines = r'''{|l|l|l|}'''
+                    structure_stat_machines = r'''{|l|l|l|l|l|l|l|}'''
                     legende_stat_machines = r'''Statistiques de réservation/utilisation par machine : ''' + \
                                             intitule_compte + r''' / ''' + intitule_projet
                     contenu_stat_machines = r'''
                         \hline
-                        Equipement & Usage & Réservation \\
+                        Equipement & Usage HP & Réservé HP & Facturé HP & Usage HC & Réservé HC & Facturé HC \\
                         \hline
                         '''
 
                     for machine in machines_utilisees:
                         dico_stat_machines = {
                             'machine': Latex.echappe_caracteres(machines_utilisees[machine]['machine']),
-                            'usage': Outils.format_heure(machines_utilisees[machine]['usage']),
-                            'reservation': Outils.format_heure(machines_utilisees[machine]['reservation'])}
-                        contenu_stat_machines += r'''%(machine)s & %(usage)s & %(reservation)s \\
+                            'usage_hp': Outils.format_heure(machines_utilisees[machine]['usage_hp']),
+                            'reservation_hp': Outils.format_heure(machines_utilisees[machine]['reservation_hp']),
+                            'facture_hp': Outils.format_heure(machines_utilisees[machine]['facture_hp']),
+                            'usage_hc': Outils.format_heure(machines_utilisees[machine]['usage_hc']),
+                            'reservation_hc': Outils.format_heure(machines_utilisees[machine]['reservation_hc']),
+                            'facture_hc': Outils.format_heure(machines_utilisees[machine]['facture_hc'])}
+                        contenu_stat_machines += r'''%(machine)s & %(usage_hp)s & %(reservation_hp)s & %(facture_hp)s
+                            & %(usage_hc)s & %(reservation_hc)s & %(facture_hc)s \\
                             \hline
                             ''' % dico_stat_machines
 
-                    contenu_projet += Latex.tableau(contenu_stat_machines, structure_stat_machines, legende_stat_machines)
+                    contenu_projet += Latex.tableau(contenu_stat_machines, structure_stat_machines,
+                                                    legende_stat_machines)
 
                 # ## projet
 
