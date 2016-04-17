@@ -31,11 +31,12 @@ class Annexes(object):
         :param generaux: paramètres généraux
         :param nom_dossier: nom du dossier dans lequel enregistrer le dossier des annexes
         """
-        #dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
+        # dossier_annexe = Outils.chemin_dossier([nom_dossier, "annexes"], plateforme, generaux)
         prefixe = "annexe_"
+        garde = r'''Annexes factures \newline Billing Appendices'''
 
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux, garde)
 
         """
         # tant que les annexes techniques et les annexes de factures sont identiques
@@ -68,12 +69,14 @@ class Annexes(object):
         :param generaux: paramètres généraux
         """
         prefixe = "annexeT_"
+        garde = r'''Annexes techniques \newline Technical Appendices'''
+
         Annexes.creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations,
-                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux)
+                                 comptes, dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux, garde)
 
     @staticmethod
     def creation_annexes(sommes, clients, edition, livraisons, acces, machines, reservations, prestations, comptes,
-                         dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux):
+                         dossier_annexe, plateforme, prefixe, coefprests, coefmachines, generaux, garde):
         """
         création des annexes techniques
         :param sommes: sommes calculées
@@ -91,6 +94,7 @@ class Annexes(object):
         :param coefprests: coefficients prestations importés
         :param coefmachines: coefficients machines importés
         :param generaux: paramètres généraux
+        :param garde: titre page de garde
         """
 
         if sommes.calculees == 0:
@@ -105,11 +109,21 @@ class Annexes(object):
                 \usepackage{multirow}
                 \usepackage{longtable}
                 \usepackage{dcolumn}
+                \usepackage{changepage}
                 \usepackage[scriptsize]{caption}
 
                 \begin{document}
                 \renewcommand{\arraystretch}{1.5}
                 '''
+            contenu += r'''
+                \vspace*{8cm}
+                \begin{adjustwidth}{5cm}{}
+                \Large\textsc{''' + garde + r'''}\newline\newline'''
+            nom = Latex.echappe_caracteres(clients.donnees[code_client]['abrev_labo'])
+            code_sap = clients.donnees[code_client]['code_sap']
+
+            contenu += code_client + " - " + code_sap + " - " + nom + r'''\newpage
+                \end{adjustwidth}'''
             contenu += Annexes.contenu_client(sommes, clients, code_client, edition, livraisons, acces, machines,
                                               reservations, prestations, comptes, coefprests, coefmachines, generaux)
             contenu += r'''\end{document}'''
@@ -343,28 +357,33 @@ class Annexes(object):
                 # ## liv
 
                 if nombre_cae > 0 or nombre_res > 0:
-                    structure_stat_machines = r'''{|l|l|l|l|l|l|l|}'''
+                    structure_stat_machines = r'''{|l|l|l|l|l|}'''
                     legende_stat_machines = r'''Statistiques de réservation/utilisation par machine : ''' + \
                                             intitule_compte + r''' / ''' + intitule_projet
                     contenu_stat_machines = r'''
                         \hline
-                        Equipement & Usage HP & Réservé HP & Facturé HP & Usage HC & Réservé HC & Facturé HC \\
+                        Equipement & & Utilisation & Res. Slot & Res. Effect. \\
                         \hline
                         '''
 
-                    for machine in machines_utilisees:
+                    for machine_t in sorted(machines_utilisees.items(), key=lambda k_v: k_v[1]['machine']):
+                        machine = machine_t[1]
                         dico_stat_machines = {
-                            'machine': Latex.echappe_caracteres(machines_utilisees[machine]['machine']),
-                            'usage_hp': Outils.format_heure(machines_utilisees[machine]['usage_hp']),
-                            'reservation_hp': Outils.format_heure(machines_utilisees[machine]['reservation_hp']),
-                            'facture_hp': Outils.format_heure(machines_utilisees[machine]['facture_hp']),
-                            'usage_hc': Outils.format_heure(machines_utilisees[machine]['usage_hc']),
-                            'reservation_hc': Outils.format_heure(machines_utilisees[machine]['reservation_hc']),
-                            'facture_hc': Outils.format_heure(machines_utilisees[machine]['facture_hc'])}
-                        contenu_stat_machines += r'''%(machine)s & %(usage_hp)s & %(reservation_hp)s & %(facture_hp)s
-                            & %(usage_hc)s & %(reservation_hc)s & %(facture_hc)s \\
+                            'machine': Latex.echappe_caracteres(machine['machine']),
+                            'usage_hp': Outils.format_heure(machine['usage_hp']),
+                            'reservation_hp': Outils.format_heure(machine['reservation_hp']),
+                            'facture_hp': Outils.format_heure(machine['facture_hp']),
+                            'usage_hc': Outils.format_heure(machine['usage_hc']),
+                            'reservation_hc': Outils.format_heure(machine['reservation_hc']),
+                            'facture_hc': Outils.format_heure(machine['facture_hc'])}
+                        contenu_stat_machines += r'''%(machine)s & HP &  %(usage_hp)s & %(reservation_hp)s & %(facture_hp)s \\
                             \hline
                             ''' % dico_stat_machines
+                        if machine['facture_hc'] > 0 or \
+                                machine['reservation_hc'] or machine['usage_hc']:
+                            contenu_stat_machines += r'''%(machine)s & HC & %(usage_hc)s & %(reservation_hc)s & %(facture_hc)s \\
+                        \hline
+                        ''' % dico_stat_machines
 
                     contenu_projet += Latex.tableau(contenu_stat_machines, structure_stat_machines,
                                                     legende_stat_machines)

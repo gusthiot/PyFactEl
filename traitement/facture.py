@@ -195,7 +195,7 @@ class Facture(object):
                         inc += 1
     
                 contenu_client += r'''
-                    <tr><td colspan="8" id="net">Net amount [CHF] : </td><td>
+                    <tr><td colspan="8" id="toright">Net amount [CHF] : </td><td id="toright">
                     ''' + "%.2f" % (client['somme_t'] + client['em'] - client['er']) + r'''</td></tr>
                     </table>
                     '''
@@ -217,7 +217,8 @@ class Facture(object):
                     'unit_p': "%.2f" % net, 'discount': "%.2f" % rabais, 'net': "%.2f" % montant}
         ligne = r'''<tr>
             <td> %(poste)s </td><td> %(date)s </td><td> %(nom)s </td><td> %(descr)s <br /> %(texte)s </td>
-            <td> %(unit)s </td><td> %(quantity)s </td><td> %(unit_p)s </td><td> %(discount)s </td><td> %(net)s </td>
+            <td> %(unit)s </td><td id="toright"> %(quantity)s </td><td id="toright"> %(unit_p)s </td>
+            <td id="toright"> %(discount)s </td><td id="toright"> %(net)s </td>
             </tr>
             ''' % dico_tab
         return ligne
@@ -280,7 +281,7 @@ class Facture(object):
                 #tableau td {
                     padding: 3px;
                 }
-                #net {
+                #toright {
                     text-align:right;
                 }
                 </style>
