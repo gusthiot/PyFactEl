@@ -376,14 +376,16 @@ class Annexes(object):
                             'usage_hc': Outils.format_heure(machine['usage_hc']),
                             'reservation_hc': Outils.format_heure(machine['reservation_hc']),
                             'facture_hc': Outils.format_heure(machine['facture_hc'])}
-                        contenu_stat_machines += r'''%(machine)s & HP &  %(usage_hp)s & %(reservation_hp)s & %(facture_hp)s \\
+                        if machine['facture_hp'] > 0 or \
+                                machine['reservation_hp'] or machine['usage_hp']:
+                            contenu_stat_machines += r'''%(machine)s & HP &  %(usage_hp)s & %(reservation_hp)s & %(facture_hp)s \\
                             \hline
                             ''' % dico_stat_machines
                         if machine['facture_hc'] > 0 or \
                                 machine['reservation_hc'] or machine['usage_hc']:
                             contenu_stat_machines += r'''%(machine)s & HC & %(usage_hc)s & %(reservation_hc)s & %(facture_hc)s \\
-                        \hline
-                        ''' % dico_stat_machines
+                            \hline
+                            ''' % dico_stat_machines
 
                     contenu_projet += Latex.tableau(contenu_stat_machines, structure_stat_machines,
                                                     legende_stat_machines)
