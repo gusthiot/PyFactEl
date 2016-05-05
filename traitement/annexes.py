@@ -616,7 +616,6 @@ class Annexes(object):
 
         dico = {'date': date, 'heure': heure,
                 'machine': Latex.echappe_caracteres(cae['nom_machine']),
-                'projet': Latex.echappe_caracteres(cae['intitule_projet']),
                 'operateur': Latex.echappe_caracteres(cae['nom_op']),
                 'rem_op': Latex.echappe_caracteres(cae['remarque_op']),
                 'rem_staff': Latex.echappe_caracteres(cae['remarque_staff']),
@@ -696,7 +695,6 @@ class Annexes(object):
 
         dico = {'date': date, 'heure': heure,
                 'machine': Latex.echappe_caracteres(res['nom_machine']),
-                'projet': Latex.echappe_caracteres(res['intitule_projet']),
                 'reserve': Latex.echappe_caracteres(res['date_reservation']),
                 'supprime': Latex.echappe_caracteres(res['date_suppression']),
                 'shp': Outils.format_heure(res['duree_hp']), 'shc': Outils.format_heure(res['duree_hc']),
