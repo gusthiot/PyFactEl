@@ -50,6 +50,8 @@ class BilanMensuel(object):
                 cl = clients.donnees[code_client]
                 nature = generaux.nature_client_par_code_n(cl['type_labo'])
                 reference = nature + str(edition.annee)[2:] + Outils.mois_string(edition.mois) + "." + code_client
+                if edition.version != "0":
+                    reference += "-" + edition.version
                 nb_u = len(BilanMensuel.utilisateurs(acces, livraisons, reservations, code_client))
                 cptes = BilanMensuel.comptes(acces, livraisons, reservations, code_client)
                 cat = {'1': 0, '2': 0, '3': 0, '4': 0}
